@@ -1,5 +1,5 @@
 
-![Sumi](https://telegra.ph/file/7723370b4e33f2914397a.png)
+![Sumi](https://telegra.ph/file/7723370b4e33f291439a.png)
 # Sumi
 <p align="center">
 <a href="https://www.codacy.com/gh/LightLegendXR/Lumine/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LightLegendXR/Lumine&amp;utm_campaign=Badge_Grade" alt="Codacy Badge">
