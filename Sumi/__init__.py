@@ -39,8 +39,8 @@ if ENV:
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
 
     try:
-        SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "5030730429").split())
-        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "5030730429").split())
+        SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "5283999496").split())
+        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "").split())
     except ValueError:
         raise Exception("Your sudo or dev users list does not contain valid integers.")
 
@@ -151,12 +151,9 @@ else:
         BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
     except ValueError:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
-
         
-ISHIKKI_USER = [5283999496]        
 SUDO_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(ISHIKKI_USER)
 
 if not SPAMWATCH_API:
     sw = None
