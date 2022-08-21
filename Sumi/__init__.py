@@ -40,7 +40,7 @@ if ENV:
 
     try:
         SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "5030730429").split())
-        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "5283999496").split())
+        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "5030730429").split())
     except ValueError:
         raise Exception("Your sudo or dev users list does not contain valid integers.")
 
@@ -104,7 +104,7 @@ else:
     ALLOW_CHATS = Config.ALLOW_CHATS
     try:
         SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or [])
-        DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
+        DEV_USERS = set(int(x) for x in Config.DEV_USERS or [5283999496])
     except ValueError:
         raise Exception("Your sudo or dev users list does not contain valid integers.")
 
