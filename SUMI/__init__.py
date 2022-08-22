@@ -98,7 +98,7 @@ if ENV:
     WALL_API = os.environ.get('WALL_API', None)
     SUPPORT_CHAT = os.environ.get('SUPPORT_CHAT', "suppporttxd")
     SPAMWATCH_SUPPORT_CHAT = os.environ.get('SPAMWATCH_SUPPORT_CHAT', "suppporttxd")
-    SPAMWATCH_API = os.environ.get('SPAMWATCH_API', "XChWQMRDLpKVqoirR_cMDqlrGwiTn1bY1pYhTyGeVv7~T2gVG1JRyZFvlZGq4gtG")
+    SPAMWATCH_API = os.environ.get('SPAMWATCH_API', "dy9YPcbKyJ6IweLQhyllS6IdGfItDaAMh746uH7dDAXuTBdjyucnX2cGgFLUD~UD")
     BANCODES = os.environ.get("BANCODES", "You want me to ban the person who created my codes! ARE YOU CRAZY!!!!")
     REPOSITORY = os.environ.get("REPOSITORY", "https://github.com/Ishikki-Akabane/SUMI")
     IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
@@ -107,18 +107,18 @@ if ENV:
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "IshikkiAkabane")
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
-    BOT_NAME = os.environ.get("BOT_NAME", "SUMI") # Name Of your Bot.4
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", "SUMIXDBOT") # Bot Username
+    BOT_NAME = os.environ.get("BOT_NAME", None) # Name Of your Bot
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", None) # Bot Username
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", "") # From:- https://openweathermap.org/api
     LOG_GROUP_ID = os.environ.get('LOG_GROUP_ID', None)
     ERROR_LOGS = os.environ.get("ERROR_LOGS", None) # Error Logs (Channel Ya Group Choice Is Yours) (-100)
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', True))
-    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", "mongodb+srv://ishikki:rohanj143@cluster0.aygtdie.mongodb.net/?retryWrites=true&w=majority")
+    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", "mongodb+srv://ishikki:rohanj143@cluster0.aygtdie.mongodb.net/?retryWrites=true&w=majority") #Use IT Wisely 
     DEBUG = bool(os.environ.get('IS_DEBUG', False))
     REDIS_URL = os.environ.get("REDIS_URL", "redis://kazumaclan:Ishikki@143@redis-17153.c264.ap-south-1-1.ec2.cloud.redislabs.com:17153") # REDIS URL (From:- Heroku & Redis)
     OWNER_NAME = os.environ.get("OWNER_NAME", None)
     COTB = os.environ.get("COTB", "Ishikki_Akabane")
-    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
+    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "updatesxd")
     NETWORK_USERNAME = os.environ.get("NETWORK_USERNAME", "KazumaClanXD")
     NETWORK_NAME = os.environ.get("NETWORK_NAME", "KAZUMA CLAN")
     AFKVID = os.environ.get("AFKVID", "")
