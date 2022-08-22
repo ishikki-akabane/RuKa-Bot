@@ -244,7 +244,7 @@ def info(update: Update, context: CallbackContext):
     [
                         InlineKeyboardButton(
                              text="Health",
-                             url="https://t.me/updatesxd/3"),
+                             url="https://t.me/updatesxd/4"),
                        InlineKeyboardButton(
                              text="Disasters",
                              url="https://t.me/updatesxd/5"),
