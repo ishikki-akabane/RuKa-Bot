@@ -1,7 +1,7 @@
 {
       "name": "SUMI",
       "description": "An Advanced Anime themed Telegram group management bot.",
-      "logo": "https://telegra.ph/file/6eaead27138b9eb3d1590.jpg",
+      "logo": "https://te.legra.ph/file/d49e4321e971e90d2d588.jpg",
       "keywords": [
          "telegram",
          "anime",
@@ -151,12 +151,12 @@
          "required": false,
          "value": "5030730429"
       },
-      "GROUP_ALIVE_PIC": {
+      "SUMI_GROUP_ALIVE_PIC": {
          "description": "Paste link of your image which will be shown when you send /alive.",
          "required": false,
          "value": ""
       },
-      "AFKVID": {
+      "SUMI_AFKVID": {
          "description": "Paste link of your video or gif which will be shown when someone goes afk",
          "required": false,
          "value": ""
@@ -191,12 +191,12 @@
          "required": false,
          "value": ""
       },
-      "PM_IMAGE": {
+      "SUMI_PM_IMAGE": {
          "description": "Paste link of your image which will be shown in the pm start when you send /start in bot's pm",
          "required": false,
          "value": ""
       },
-      "GROUPSTART_VID": {
+      "SUMI_GROUPSTART_VID": {
          "description": "Paste link of your video or gif which will be shown when you send /start in groups",
          "required": false,
          "value": ""
