@@ -1,4 +1,4 @@
-from telegram.ext import CallbackContext
+from telegram.ext import CallbackContext, CommandHandler, run_async
 from telegram import (
     ParseMode,
     Update,
@@ -9,7 +9,7 @@ import requests
 import math
 import time
 from SUMI.modules.helper_funcs.decorators import SUMIcmd
-from SUMI import telethn as tbot, COTB, REPOSITORY
+from SUMI import telethn as tbot, COTB, REPOSITORY, dispatcher
 from SUMI.events import register
 from telethon import events, Button, custom, version
 from PIL import Image
@@ -182,11 +182,28 @@ def airing(update: Update, context: CallbackContext):
         msg += f"\n*Episode*:{response['episodes']}\n*Status*: `N/A`"
     update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
 
-@register(pattern=("/repo"))
-async def repo(event):
-    text3 = f"**Hey [{event.sender.first_name}](tg://user?id={event.sender.id}),\nMy source codes are now public, you can use them for creating your own bot\nClick The Button Below To Get My Repo**"
-    BUTTON = [[Button.url("Source CODE", "{REPOSITORY}"), Button.url("DEVELOPER", "https://t.me/{COTB}")]]
-    await tbot.send_file(event.chat_id, file="https://telegra.ph/file/5a07ded9ebce5b693c4ff.jpg", caption=text3, buttons=BUTTON)
+
+R_IMG = "https://telegra.ph/file/5a07ded9ebce5b693c4ff.jpg"  #DONT REMOVE THIS CREDITS
+TEXT2 = """*‣ REPO OWNER:*
+• [Ishikki Akabane](t.me/ishikki_akabane) (◍•ᴗ•◍)
+┈─╌┈─╌┈─╌┈─╌
+My source codes are now public, you can use them for creating your own bot
+*‣ Note:* IF you dont know how to create your own bot then you can simply visit our support group Our team of developers will help you in making your own bot. They will guide you with all proper steps.
+**Click The Button Below To Get My Repo**""" #DONT REMOVE THIS CREDITS
+
+def repo(update: Update, context: CallbackContext):
+    update.effective_message.reply_photo(
+        R_IMG, caption= TEXT2,
+        parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                InlineKeyboardButton(text="Source CODE", url="{REPOSITORY}"),
+                InlineKeyboardButton(text="DEVELOPER", url="https://t.me/{COTB}")
+                ]
+            ]
+        )
+    )
 
 @SUMIcmd(command="anime")
 def anime(update: Update, context: CallbackContext):  # sourcery no-metrics
@@ -363,6 +380,10 @@ def manga(update: Update, context: CallbackContext):
 
 
 from SUMI.modules.language import gs
+
+
+REPO_HANDLER = CommandHandler("repo", repo, run_async=True)
+dispatcher.add_handler(REPO_HANDLER)
 
 __help__ = """
 Get information about anime, manga or characters from [AniList](anilist.co).
