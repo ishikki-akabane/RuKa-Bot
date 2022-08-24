@@ -840,7 +840,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("SUMI Is Online,{COTB}", TYSM)
+        LOGGER.info("SUMI Is Online, REPO MAINTAINED BY @ISHIKKI_AKABANE)
         allowed_updates = ['message', 'edited_message', 'callback_query', 'callback_query', 'my_chat_member',
                            'chat_member', 'chat_join_request', 'channel_post', 'edited_channel_post', 'inline_query']
         updater.start_polling(
