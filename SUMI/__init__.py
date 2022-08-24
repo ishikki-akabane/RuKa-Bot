@@ -107,8 +107,6 @@ if ENV:
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "IshikkiAkabane")
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
-    BOT_NAME = os.environ.get("BOT_NAME", "SUMI") # Name Of your Bot.4
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", "SUMIXDBOT") # Bot Username
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", "") # From:- https://openweathermap.org/api
     LOG_GROUP_ID = os.environ.get('LOG_GROUP_ID', None)
     ERROR_LOGS = os.environ.get("ERROR_LOGS", None) # Error Logs (Channel Ya Group Choice Is Yours) (-100)
@@ -203,8 +201,6 @@ else:
     INFOPIC = Config.INFOPIC
     ARQ_API_URL = Config.ARQ_API_URL
     ARQ_API_KEY = Config.ARQ_API_KEY
-    BOT_NAME = Config.BOT_NAME
-    BOT_USERNAME = Config.BOT_USERNAME
     OPENWEATHERMAP_ID = Config.OPENWEATHERMAP_ID
     LOG_GROUP_ID = Config.LOG_GROUP_ID
     TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
