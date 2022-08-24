@@ -9,7 +9,7 @@ import requests
 import math
 import time
 from SUMI.modules.helper_funcs.decorators import SUMIcmd
-from SUMI import telethn as tbot, COTB, REPOSITORY,
+from SUMI import telethn as tbot, COTB, REPOSITORY
 from SUMI.events import register
 from telethon import events, Button, custom, version
 from PIL import Image
