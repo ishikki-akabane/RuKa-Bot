@@ -136,8 +136,6 @@ IF you dont know how to create your own bot then you can simply visit our suppor
 Our team of developers will help you in making your own bot. They will guide you with all proper steps.
 """
 
-TYSM = """Thanks for creating me"""
-
 ABOUT3 = """Hello [{}], My name is *{BOT_NAME}*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
             \n ‣ I can Restrict Users.
             \n ‣ I can Greet Users with customizable welcome message and even set a group rules
@@ -159,20 +157,6 @@ Main commands available :
 For all command use / or !
 """
 
-
-SUMIHELP_PIC = (
-      "{SUMI_HELP_PIC}",
-      "{SUMI_HELP_PIC}"
-)
-
-PM_PHOTO = (
-      "{PM_IMAGE}",
-      "{PM_IMAGE}"
-)
-
-SUMIDISPACHER_PIC = "{SUMI_DISPACHER_PIC}"
-
-GROUP_START_PIC = "{GROUPSTART_PIC}"
 
 DONATE_STRING = """ Adding Me To Your Groups Is Donation For Me Though I Would Appreciate If You Can Donate Some Amounts To The Orignal Writer Of The Code @ishikki_akabane."""
 
@@ -233,7 +217,7 @@ def send_help(chat_id, text, keyboard=None):
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     dispatcher.bot.send_photo(
         chat_id=chat_id,
-        photo=(PM_PHOTO),
+        photo=(PM_IMAGE),
         caption=text,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=keyboard)
@@ -296,7 +280,7 @@ def start(update: Update, context: CallbackContext):
             id = update.effective_user.id
 
             update.effective_message.reply_photo(
-                photo=(PM_PHOTO),
+                photo=(PM_IMAGE),
                 caption=PM_START_TEXT.format(
                     escape_markdown(first_name),
                     escape_markdown(uptime),
@@ -312,7 +296,7 @@ def start(update: Update, context: CallbackContext):
         first = update.effective_user.full_name
         chat = update.effective_chat.title
         update.effective_message.reply_video(
-                GROUP_START_PIC,
+                {GROUPSTART_PIC},
                 caption="---------------\nMoshi Moshi, {BOT_NAME} Speaking!\nI Am Alive and working perfectly fine\nMy Master - @{OWNER_USERNAME} \n---------------",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
@@ -545,7 +529,7 @@ def get_help(update: Update, context: CallbackContext):
             module = args[1].lower()
             first_name = update.effective_user.full_name
             update.effective_message.reply_photo(
-            random.choice(SUMIHELP_PIC), caption= f"Hey {first_name}, Click the Button Below to get help of {module.capitalize()}",
+            random.choice({SUMI_HELP_PIC}), caption= f"Hey {first_name}, Click the Button Below to get help of {module.capitalize()}",
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
@@ -558,7 +542,7 @@ def get_help(update: Update, context: CallbackContext):
         first_name = update.effective_user.full_name
         first_nam = update.effective_user.id
         update.effective_message.reply_photo(
-            random.choice(SUMIHELP_PIC), caption= "Hey [{}](tg://user?id={}) Click the Button Below to get the list of possible commands.".format(first_name, first_nam),
+            random.choice({SUMI_HELP_PIC}), caption= "Hey [{}](tg://user?id={}) Click the Button Below to get the list of possible commands.".format(first_name, first_nam),
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -622,7 +606,7 @@ def send_settings(chat_id, user_id, user=False):
             chat_name = dispatcher.bot.getChat(chat_id).title
             dispatcher.bot.send_photo(
                 user_id,
-                photo=random.choice(PM_PHOTO),
+                photo=random.choice(PM_IMAGE),
                 caption="Which module would you like to check {}'s settings for?"
                 .format(chat_name),
                 reply_markup=InlineKeyboardMarkup(
@@ -653,7 +637,7 @@ def settings_button(update: Update, context: CallbackContext):
                                                                                      CHAT_SETTINGS[module].__mod_name__) + \
                    CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)
             query.message.reply_photo(
-                photo=random.choice(PM_PHOTO),
+                photo=random.choice(PM_IMAGE),
                 caption=text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup([[
@@ -667,7 +651,7 @@ def settings_button(update: Update, context: CallbackContext):
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_photo(
-                photo=random.choice(PM_PHOTO),
+                photo=random.choice(PM_IMAGE),
                 caption="Hi there! There are quite a few settings for {} - go ahead and pick what you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -678,7 +662,7 @@ def settings_button(update: Update, context: CallbackContext):
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_photo(
-                photo=random.choice(PM_PHOTO),
+                photo=random.choice(PM_IMAGE),
                 caption="Hi there! There are quite a few settings for {} - go ahead and pick what you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -688,7 +672,7 @@ def settings_button(update: Update, context: CallbackContext):
             chat_id = back_match.group(1)
             chat = bot.get_chat(chat_id)
             query.message.reply_photo(
-                photo=random.choice(PM_PHOTO),
+                photo=random.choice(PM_IMAGE),
                 caption="Hi there! There are quite a few settings for {} - go ahead and pick what you're interested in.".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
@@ -720,7 +704,7 @@ def get_settings(update: Update, context: CallbackContext):
         if is_user_admin(chat, user.id):
             text = "Click here to get this chat's settings, as well as yours."
             msg.reply_photo(
-                random.choice(SUMIHELP_PIC), caption=text,
+                random.choice({SUMI_HELP_PIC}), caption=text,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
                         text="Settings",
@@ -796,7 +780,7 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             name = dispatcher.bot.first_name
-            m = dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", SUMIDISPACHER_PIC, caption=f"╌─┈╌─┈╌─┈╌─┈\nᏦϴΝΝᏆᏟᎻᏆᏔᎪ !! (◍•ᴗ•◍)\n*•{name} Updated Successfully!\n*• Ready To work Again!\n╌─┈╌─┈╌─┈╌─┈", parse_mode=ParseMode.MARKDOWN,
+            m = dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", {SUMI_DISPACHER_PIC}, caption=f"╌─┈╌─┈╌─┈╌─┈\nᏦϴΝΝᏆᏟᎻᏆᏔᎪ !! (◍•ᴗ•◍)\n*•{name} Updated Successfully!\n*• Ready To work Again!\n╌─┈╌─┈╌─┈╌─┈", parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
