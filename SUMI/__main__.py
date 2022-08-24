@@ -17,7 +17,7 @@ import SUMI.modules.sql.users_sql as sql
 from SUMI.modules.sudoers import bot_sys_stats as bss
 
 from SUMI import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER, OWNER_NAME, UPDATE_CHANNEL, SUMI_HELP_PIC, SUMI_DISPACHER_PIC,
-                          OWNER_ID, PORT, SUPPORT_CHAT, COTB, TOKEN, URL, WEBHOOK, OWNER_USERNAME, PM_IMAGE, GROUPSTART_VID,
+                          OWNER_ID, PORT, SUPPORT_CHAT, COTB, TOKEN, URL, WEBHOOK, OWNER_USERNAME, GROUPSTART_VID,
                           BOT_USERNAME, BOT_NAME, REPOSITORY, NETWORK_USERNAME, NETWORK_NAME, dispatcher, StartTime, telethn, updater, pgram, pbot)
 
 #Rewritten by ISHIKKI-AKABANE (t.me/ishikki_akabane)                         
@@ -66,16 +66,13 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 *Konichiwa {},*
 *I'm {BOT_NAME}, I'm A Powerful Group Management Bot.*
-
 ❍ *Owner - [{OWNER_NAME}](https://t.me/{OWNER_USERNAME})* 
 ❍ *Devoloper - [Ishikki Akabane](https://t.me/ishikki_akabane)*  #Please let it be the same
 ❍ *Uptime* - {}
 ❍ *Python Version* - {} 
 ❍ *No. of Users* - {}
 ❍ *No. of Chats* - {}
-
 *Powered By* [{NETWORK_NAME}](https://t.me/{NETWORK_USERNAME})
-
 **ᴄʟɪᴄᴋ ᴛʜᴇ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ꜰᴏʀ ᴍᴏʀᴇ.**
 """
 
@@ -102,19 +99,14 @@ buttons = [
 
 ABOUT1 = """
 *‣ Let's Make Your Group Well Managed Now*
-
 ‣ *Admin Tools*:-
 Basic Admin tools help you to protect and powerup your group. You can ban members, Kick members, Promote someone as admin through commands of bot.
-
 ‣ *Greetings*:-
 Lets set a welcome message to welcome new users coming to your group by sending /setwelcome [message] to set a welcome message.
-
 ‣ *Anti-flood*:-
 Users/Spammers flooding non-stop? send /setflood [number] And /setfloodmode [mute/ban/tmute] To Stop flooding From Spammers.
-
 ‣ *Rules*:-
 Don't want to explain rules to each newbie? Setup rules by sending /setrules [message] to set a Rules.
-
 ‣ *Reports*:-
 Enable reporting so that your users can report troublemakers to admins send /reports [on\off] to enable/disable reports.
 """
@@ -130,7 +122,6 @@ REPO_TXT = """
 ┈─╌┈─╌┈─╌┈─╌
 • You Can Get This Bot's Repo From The Button Below.
 • Report Any Kind Of Bugs At [Support](t.me/suppporttxd)
-
 *‣ Note:*
 IF you dont know how to create your own bot then you can simply visit our support group
 Our team of developers will help you in making your own bot. They will guide you with all proper steps.
@@ -157,6 +148,7 @@ Main commands available :
 For all command use / or !
 """
 
+PM_IMAGE = "https://te.legra.ph/file/2d75ceb5c898288390b4b.jpg"
 
 DONATE_STRING = """ Adding Me To Your Groups Is Donation For Me Though I Would Appreciate If You Can Donate Some Amounts To The Orignal Writer Of The Code @ishikki_akabane."""
 
@@ -297,7 +289,7 @@ def start(update: Update, context: CallbackContext):
         chat = update.effective_chat.title
         update.effective_message.reply_video(
                 GROUPSTART_VID,
-                caption="---------------\nMoshi Moshi, {BOT_NAME} Speaking!\nI Am Alive and working perfectly fine\nMy Master - @{OWNER_USERNAME} \n---------------",
+                caption="---------------\nMoshi Moshi, {BOT_NAME} Speaking!\nI Am Alive and working perfectly fine\nMy Master - @{OWNER_USERNAME}\n---------------",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -831,7 +823,7 @@ def main():
 
     if WEBHOOK:
         LOGGER.info("Using webhooks.")
-        updater.start_webhook(listen="127.0.0.1", port=PORT, url_path=TOKEN)
+        updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
 
         if CERT_PATH:
             updater.bot.set_webhook(
