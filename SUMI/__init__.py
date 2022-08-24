@@ -264,9 +264,6 @@ WOLVES = list(WOLVES)
 DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
 
-#-------Quote-------
-quotly = Quotly()
-#-------------------
 
 # Load at end to ensure all prev variables have been set
 from SUMI.modules.helper_funcs.handlers import (CustomCommandHandler,
@@ -311,8 +308,12 @@ finally:
    REDIS.ping()
 
 print(
-    "[SUMI] Yupeee! DEPLOYMENT Successfull"
+    "[SUMI] SERVERS Connected SUCCESSFULLY!!"
 )
 print(
-    "[SUMI] Arigato @ISHIKKI_AKABANE"
+    "[SUMI] INITIALIZING MODULES ERROR!!"
 )
+
+#-------Quote-------
+quotly = Quotly()
+#-------------------
