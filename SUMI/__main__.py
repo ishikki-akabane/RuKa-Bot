@@ -143,7 +143,7 @@ ABOUT3 = """Hello [{}], My name is *{BOT_NAME}*. A Powerful Telegram Group Manag
             \n ‣ I can Warn Users until they reach max Warns, with each predefined actions such as Ban, Mute and Kick etc.
             \n ‣ I have Note Keeping System, Blacklists, And even Predetermined replies on certain keywords.
             \n ‣ I check Admins Permissions before perform any Command and more Stuffs.
-            \n ‣ I have an advanced Artificial Chatbot System, so can talk with users like humans.
+            \n ‣ I have an advanced AI Chatbot System, so can talk with users like humans.
             \n\n*If you have any Question, You can join Support Chat. My Developer Team will Answer. Check Support Button Below*"""
 
 HELP_STRINGS = """
@@ -296,7 +296,7 @@ def start(update: Update, context: CallbackContext):
         first = update.effective_user.full_name
         chat = update.effective_chat.title
         update.effective_message.reply_video(
-                {GROUPSTART_PIC},
+                GROUPSTART_VID,
                 caption="---------------\nMoshi Moshi, {BOT_NAME} Speaking!\nI Am Alive and working perfectly fine\nMy Master - @{OWNER_USERNAME} \n---------------",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
@@ -529,7 +529,7 @@ def get_help(update: Update, context: CallbackContext):
             module = args[1].lower()
             first_name = update.effective_user.full_name
             update.effective_message.reply_photo(
-            random.choice({SUMI_HELP_PIC}), caption= f"Hey {first_name}, Click the Button Below to get help of {module.capitalize()}",
+            random.choice(SUMI_HELP_PIC), caption= f"Hey {first_name}, Click the Button Below to get help of {module.capitalize()}",
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
@@ -542,7 +542,7 @@ def get_help(update: Update, context: CallbackContext):
         first_name = update.effective_user.full_name
         first_nam = update.effective_user.id
         update.effective_message.reply_photo(
-            random.choice({SUMI_HELP_PIC}), caption= "Hey [{}](tg://user?id={}) Click the Button Below to get the list of possible commands.".format(first_name, first_nam),
+            random.choice(SUMI_HELP_PIC), caption= "Hey [{}](tg://user?id={}) Click the Button Below to get the list of possible commands.".format(first_name, first_nam),
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -704,7 +704,7 @@ def get_settings(update: Update, context: CallbackContext):
         if is_user_admin(chat, user.id):
             text = "Click here to get this chat's settings, as well as yours."
             msg.reply_photo(
-                random.choice({SUMI_HELP_PIC}), caption=text,
+                random.choice(SUMI_HELP_PIC), caption=text,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
                         text="Settings",
@@ -780,7 +780,7 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             name = dispatcher.bot.first_name
-            m = dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", {SUMI_DISPACHER_PIC}, caption=f"╌─┈╌─┈╌─┈╌─┈\nᏦϴΝΝᏆᏟᎻᏆᏔᎪ !! (◍•ᴗ•◍)\n*•{name} Updated Successfully!\n*• Ready To work Again!\n╌─┈╌─┈╌─┈╌─┈", parse_mode=ParseMode.MARKDOWN,
+            m = dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", SUMI_DISPACHER_PIC, caption=f"╌─┈╌─┈╌─┈╌─┈\nᏦϴΝΝᏆᏟᎻᏆᏔᎪ !! (◍•ᴗ•◍)\n*•{name} Updated Successfully!\n*• Ready To work Again!\n╌─┈╌─┈╌─┈╌─┈", parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
@@ -840,7 +840,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("SUMI Is Online, ISHIKKI_AKABANE THANKS FOR CREATING ME")
+        LOGGER.info("SUMI Is Online,{COTB}", TYSM)
         allowed_updates = ['message', 'edited_message', 'callback_query', 'callback_query', 'my_chat_member',
                            'chat_member', 'chat_join_request', 'channel_post', 'edited_channel_post', 'inline_query']
         updater.start_polling(
