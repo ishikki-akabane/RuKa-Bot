@@ -198,7 +198,7 @@ def repo(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                InlineKeyboardButton(text="Source CODE", url="{REPOSITORY}"),
+                InlineKeyboardButton(text="Source CODE", url="https://github.com/ishikki-akabane/SUMI"),
                 InlineKeyboardButton(text="DEVELOPER", url="https://t.me/{COTB}")
                 ]
             ]
