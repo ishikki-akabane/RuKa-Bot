@@ -16,11 +16,11 @@ from pyrogram import Client, idle, filters
 import SUMI.modules.sql.users_sql as sql
 from SUMI.modules.sudoers import bot_sys_stats as bss
 
-from SUMI import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER, OWNER_NAME, UPDATE_CHANNEL, SUMI_HELP_PIC, SUMI_DISPACHER_PIC,
-                          OWNER_ID, PORT, SUPPORT_CHAT, COTB, TOKEN, URL, WEBHOOK, OWNER_USERNAME, GROUPSTART_VID,
-                          BOT_USERNAME, BOT_NAME, REPOSITORY, NETWORK_USERNAME, NETWORK_NAME, dispatcher, StartTime, telethn, updater, pgram, pbot)
+from SUMI import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
+                          OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
+                          SUPPORT_CHAT, dispatcher, StartTime, telethn, updater, pgram, pbot)
 
-#Rewritten by ISHIKKI-AKABANE (t.me/ishikki_akabane)                         
+#Rewritten by ISHIKKI-AKABANE                         
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from SUMI.modules import ALL_MODULES
@@ -65,82 +65,66 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Konichiwa {},*
-*I'm {BOT_NAME}, I'm A Powerful Group Management Bot.*
-❍ *Owner - [{OWNER_NAME}](https://t.me/{OWNER_USERNAME})* 
+*I'm SUMI, I'm A Powerful Group Management Bot.*
+❍ *Owner - [Ishikki Akabane](https://t.me/ishikki-akabane)* 
 ❍ *Devoloper - [Ishikki Akabane](https://t.me/ishikki_akabane)*  #Please let it be the same
 ❍ *Uptime* - {}
-❍ *Python Version* - {} 
-❍ *No. of Users* - {}
-❍ *No. of Chats* - {}
-*Powered By* [{NETWORK_NAME}](https://t.me/{NETWORK_USERNAME})
 **ᴄʟɪᴄᴋ ᴛʜᴇ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ꜰᴏʀ ᴍᴏʀᴇ.**
 """
 
 buttons = [
     [
                         InlineKeyboardButton(
-                             text="➕️ Add {BOT_NAME} To Your Chat ➕️",
-                             url="https://t.me/{BOT_USERNAME}?startgroup=true"),
+                             text="➕️ Add Sumi To Your Chat ➕️",
+                             url="https://t.me/SUMIxdbot?startgroup=true"),
                     ],
                    [
                        InlineKeyboardButton(
-                             text="About",
-                             callback_data="SUMI_"),
+                             text="Kazuma",
+                             url="https://t.me/kazumaclanxd"),
                        InlineKeyboardButton(
-                             text="{NETWORK_NAME}",
-                             url="https://t.me/{NETWORK_USERNAME}"),
+                             text="About",
+                             callback_data="sumi_"),
                    ],
                   [
                         InlineKeyboardButton(
-                             text="Help ❔",
+                             text="Help❔",
                              callback_data="help_back"),
                     ],
     ]
 
 ABOUT1 = """
-*‣ Let's Make Your Group Well Managed Now*
-‣ *Admin Tools*:-
-Basic Admin tools help you to protect and powerup your group. You can ban members, Kick members, Promote someone as admin through commands of bot.
-‣ *Greetings*:-
-Lets set a welcome message to welcome new users coming to your group by sending /setwelcome [message] to set a welcome message.
-‣ *Anti-flood*:-
-Users/Spammers flooding non-stop? send /setflood [number] And /setfloodmode [mute/ban/tmute] To Stop flooding From Spammers.
-‣ *Rules*:-
-Don't want to explain rules to each newbie? Setup rules by sending /setrules [message] to set a Rules.
-‣ *Reports*:-
-Enable reporting so that your users can report troublemakers to admins send /reports [on\off] to enable/disable reports.
+*‣ Let's Make Your Group Well Managed Now*\n\n‣ *Admin Tools*:-\nBasic Admin tools help you to protect and powerup your group. You can ban members, Kick members, Promote someone as admin through commands of bot.\n\n‣ *Greetings*:-\nLets set a welcome message to welcome new users coming to your group by sending /setwelcome [message] to set a welcome message.\n\n‣ *Anti-flood*:-\nUsers/Spammers flooding non-stop? send /setflood [number] And /setfloodmode [mute/ban/tmute] To Stop flooding From Spammers.\n\n‣ *Rules*:-\nDon't want to explain rules to each newbie? Setup rules by sending /setrules [message] to set a Rules.\n\n‣ *Reports*:-\nEnable reporting so that your users can report troublemakers to admins send /reports [on\off] to enable/disable reports.
 """
 
 ABOUT2 = """
-*‣ {BOT_NAME} Support Chats*
-Join My Support Group/Channel For Reporting Problems, Requesting GBans And Updates.
+*‣ sumi Support Chats*\nJoin My Support Group/Channel For Reporting Problems And Updates On @SUMI.
 """
 
 REPO_TXT = """
 *‣ Owner:*
-• [Ishikki Akabane](t.me/ishikki_akabane) (◍•ᴗ•◍)
-┈─╌┈─╌┈─╌┈─╌
-• You Can Get This Bot's Repo From The Button Below.
-• Report Any Kind Of Bugs At [Support](t.me/suppporttxd)
-*‣ Note:*
-IF you dont know how to create your own bot then you can simply visit our support group
-Our team of developers will help you in making your own bot. They will guide you with all proper steps.
+• [Ishikki Akabane](t.me/ishikki_akabane)
+\n*‣ Note:*
+• If You Want This Bot's Repo You Can Get It From The Button Below.
+• Report Any Kind Of Bugs At [Support](t.me/Suppportt)
 """
 
-ABOUT3 = """Hello [{}], My name is *{BOT_NAME}*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
+ABOUT3 = """Hello [{}], My name is *Asuka Langley Soryu*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
             \n ‣ I can Restrict Users.
             \n ‣ I can Greet Users with customizable welcome message and even set a group rules
             \n ‣ I have an advanced Anti-Flood System which will help you to safe group from Spammmer.
             \n ‣ I can Warn Users until they reach max Warns, with each predefined actions such as Ban, Mute and Kick etc.
             \n ‣ I have Note Keeping System, Blacklists, And even Predetermined replies on certain keywords.
             \n ‣ I check Admins Permissions before perform any Command and more Stuffs.
-            \n ‣ I have an advanced AI Chatbot System, so can talk with users like humans.
+            \n ‣ I have an advanced Artificial Chatbot System, so can talk with users like humans.
             \n\n*If you have any Question, You can join Support Chat. My Developer Team will Answer. Check Support Button Below*"""
 
 HELP_STRINGS = """
-Hey [{}] *{BOT_NAME}* here!
+Hey [{}] *sumi* here!
 I Help Admins To Manage Their Groups!
 Main commands available :
+ ‣ /help: PM's you this message.
+ ‣ /privacy: to view the privacy policy, and interact with your data.
  ‣ /help <module name>: PM's you info about that module.
  ‣ /settings:
    • in PM: will send you your settings for all supported modules.
@@ -148,9 +132,32 @@ Main commands available :
 For all command use / or !
 """
 
-PM_IMAGE = "https://te.legra.ph/file/2d75ceb5c898288390b4b.jpg"
 
-DONATE_STRING = """ Adding Me To Your Groups Is Donation For Me Though I Would Appreciate If You Can Donate Some Amounts To The Orignal Writer Of The Code @ishikki_akabane."""
+SUMI_IMG = (
+      "https://telegra.ph/file/645e0b5ca6382d6d73ab5.jpg",
+      "https://telegra.ph/file/3c6cb9b50381170c95278.jpg",
+)
+
+TEXXT = "Yes B!tch, I Am Alive And Working Fine.\nCheck Out The Buttons Mentioned Below.",
+
+SUMI_N_IMG = (
+      "https://telegra.ph/file/0b5e88c90238c357641a7.jpg",
+      "https://telegra.ph/file/3c93a66c6751088a00fbd.jpg",
+      "https://telegra.ph/file/3b4eed00be4dfaa189fff.jpg",
+      "https://telegra.ph/file/6cbc8452a2796ad58c2f9.jpg",
+      "https://telegra.ph/file/3c6cb9b50381170c95278.jpg"
+
+)
+
+SUMI_PIC = "https://telegra.ph/file/eedea672a770ec92363bd.jpg"
+
+SUMI_VID = "https://telegra.ph/file/8d49b6f49362e7778785e.jpg"
+
+PM_PHOTO = "https://te.legra.ph/file/2d75ceb5c898288390b4b.jpg"
+
+SUMI_DISPACHER_PIC = "https://te.legra.ph/file/ab4397a139620f1fc8b20.jpg"
+
+DONATE_STRING = """ Adding Me To Your Groups Is Donation For Me Though I Would Appreciate If You Join My Creator's Network @TheKaizuryu"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -209,7 +216,7 @@ def send_help(chat_id, text, keyboard=None):
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     dispatcher.bot.send_photo(
         chat_id=chat_id,
-        photo=(PM_IMAGE),
+        photo=(PM_PHOTO),
         caption=text,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=keyboard)
@@ -272,7 +279,7 @@ def start(update: Update, context: CallbackContext):
             id = update.effective_user.id
 
             update.effective_message.reply_photo(
-                photo=(PM_IMAGE),
+                photo=(PM_PHOTO),
                 caption=PM_START_TEXT.format(
                     escape_markdown(first_name),
                     escape_markdown(uptime),
@@ -288,18 +295,18 @@ def start(update: Update, context: CallbackContext):
         first = update.effective_user.full_name
         chat = update.effective_chat.title
         update.effective_message.reply_video(
-                GROUPSTART_VID,
-                caption="---------------\nMoshi Moshi, {BOT_NAME} Speaking!\nI Am Alive and working perfectly fine\nMy Master - @{OWNER_USERNAME}\n---------------",
+                video="https://te.legra.ph/file/0a27889037311e508efdf.mp4",
+                caption="--------------- \nMoshi Moshi",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
                        InlineKeyboardButton(
                              text="Support",
-                             url="t.me/{SUPPORT_CHAT}"),
+                             url="t.me/Suppportt"),
                        InlineKeyboardButton(
                              text="Updates",
-                             url="t.me/{UPDATE_CHANNEL}")
+                             url="t.me/Updatesxd")
                      ]
                 ]
             ),
@@ -365,8 +372,8 @@ def help_button(update, context):
             )
             help_buttons.append(
                 [
-                    InlineKeyboardButton(text='Support', url='https://t.me/{SUPPORT_CHAT}'),
-                    InlineKeyboardButton(text="Back", callback_data="help_back")
+                    InlineKeyboardButton(text="Back", callback_data="help_back"),
+                    InlineKeyboardButton(text='Support', url='https://t.me/Suppportt')
                 ]
                     )
             query.message.edit_caption(
@@ -418,7 +425,7 @@ def about_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Back", callback_data="SUMI_")
+                    InlineKeyboardButton(text="Back", callback_data="sumi_")
                  ],
                 ]
             ),
@@ -432,11 +439,11 @@ def about_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/{SUPPORT_CHAT}"),
-                    InlineKeyboardButton(text="Updates", url="t.me/{UPDATE_CHANNEL}"),
+                    InlineKeyboardButton(text="Support", url="t.me/Suppportt"),
+                    InlineKeyboardButton(text="Updates", url="t.me/Updatesxd"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="SUMI_")
+                    InlineKeyboardButton(text="Back", callback_data="sumi_")
                  ],
                 ]
             ),
@@ -454,11 +461,11 @@ def repo_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Source Code", url="{REPOSITORY}"),
-                    InlineKeyboardButton(text="Support", url="https://t.me/suppporttxd"),
+                    InlineKeyboardButton(text="Source Code", url="https://github.com/ishikki-akabane/SUMI"),
+                    InlineKeyboardButton(text="Kaizuryu", url="t.me/kazumaclanxd"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="SUMI_")
+                    InlineKeyboardButton(text="Back", callback_data="sumi_")
                  ],
                 ]
             ),
@@ -471,31 +478,31 @@ def repo_callback_data(update, context):
         )
 
 @run_async
-def SUMI_callback_data(update, context):
+def sumi_callback_data(update, context):
     query = update.callback_query
     bot = context.bot
     uptime = get_readable_time((time.time() - StartTime))
-    if query.data == "SUMI_":
+    if query.data == "sumi_":
         query.message.edit_caption(
             ABOUT3.format(update.effective_user.first_name, update.effective_user.id, escape_markdown(context.bot.first_name)),
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Guide", callback_data="about_"),
-                    InlineKeyboardButton(text="Developer", url="t.me/{COTB}"),
+                    InlineKeyboardButton(text="Try Inline", switch_inline_query_current_chat=""),
+                    InlineKeyboardButton(text="Developer", url="t.me/ishikki_akabane"),
                  ],
                  [
                     InlineKeyboardButton(text="Support", callback_data="about_back"),
-                    InlineKeyboardButton(text="Source Code", callback_data="repo_"),
+                    InlineKeyboardButton(text="Source Code", url="https://github.com/ishikki-akabane/SUMI"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="SUMI_back")
+                    InlineKeyboardButton(text="Back", callback_data="sumi_back")
                  ],
                 ]
             ),
         )
-    elif query.data == "SUMI_back":
+    elif query.data == "sumi_back":
         first_name = update.effective_user.full_name
         id = update.effective_user.id
         query.message.edit_caption(
@@ -521,7 +528,7 @@ def get_help(update: Update, context: CallbackContext):
             module = args[1].lower()
             first_name = update.effective_user.full_name
             update.effective_message.reply_photo(
-            random.choice(SUMI_HELP_PIC), caption= f"Hey {first_name}, Click the Button Below to get help of {module.capitalize()}",
+            random.choice(SUMI_N_IMG), caption= f"Hey {first_name}, Click the Button Below to get help of {module.capitalize()}",
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
@@ -534,12 +541,12 @@ def get_help(update: Update, context: CallbackContext):
         first_name = update.effective_user.full_name
         first_nam = update.effective_user.id
         update.effective_message.reply_photo(
-            random.choice(SUMI_HELP_PIC), caption= "Hey [{}](tg://user?id={}) Click the Button Below to get the list of possible commands.".format(first_name, first_nam),
+            random.choice(SUMI_N_IMG), caption= "Hey [{}](tg://user?id={}) Click the Button Below to get the list of possible commands.".format(first_name, first_nam),
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text=" Click here", url="https://t.me/{BOT_USERNAME}?start=help")
+                  InlineKeyboardButton(text=" Click here", url="https://t.me/SUMI?start=help")
                   ]
                 ]
             ),
@@ -598,7 +605,7 @@ def send_settings(chat_id, user_id, user=False):
             chat_name = dispatcher.bot.getChat(chat_id).title
             dispatcher.bot.send_photo(
                 user_id,
-                photo=random.choice(PM_IMAGE),
+                photo=random.choice(PM_PHOTO),
                 caption="Which module would you like to check {}'s settings for?"
                 .format(chat_name),
                 reply_markup=InlineKeyboardMarkup(
@@ -629,7 +636,7 @@ def settings_button(update: Update, context: CallbackContext):
                                                                                      CHAT_SETTINGS[module].__mod_name__) + \
                    CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)
             query.message.reply_photo(
-                photo=random.choice(PM_IMAGE),
+                photo=random.choice(PM_PHOTO),
                 caption=text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup([[
@@ -643,7 +650,7 @@ def settings_button(update: Update, context: CallbackContext):
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_photo(
-                photo=random.choice(PM_IMAGE),
+                photo=random.choice(PM_PHOTO),
                 caption="Hi there! There are quite a few settings for {} - go ahead and pick what you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -654,7 +661,7 @@ def settings_button(update: Update, context: CallbackContext):
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_photo(
-                photo=random.choice(PM_IMAGE),
+                photo=random.choice(PM_PHOTO),
                 caption="Hi there! There are quite a few settings for {} - go ahead and pick what you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -664,7 +671,7 @@ def settings_button(update: Update, context: CallbackContext):
             chat_id = back_match.group(1)
             chat = bot.get_chat(chat_id)
             query.message.reply_photo(
-                photo=random.choice(PM_IMAGE),
+                photo=random.choice(PM_PHOTO),
                 caption="Hi there! There are quite a few settings for {} - go ahead and pick what you're interested in.".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
@@ -696,7 +703,7 @@ def get_settings(update: Update, context: CallbackContext):
         if is_user_admin(chat, user.id):
             text = "Click here to get this chat's settings, as well as yours."
             msg.reply_photo(
-                random.choice(SUMI_HELP_PIC), caption=text,
+                random.choice(SUMI_N_IMG), caption=text,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
                         text="Settings",
@@ -772,20 +779,20 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             name = dispatcher.bot.first_name
-            m = dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", SUMI_DISPACHER_PIC, caption=f"╌─┈╌─┈╌─┈╌─┈\nᏦϴΝΝᏆᏟᎻᏆᏔᎪ !! (◍•ᴗ•◍)\n*•{name} Updated Successfully!\n*• Ready To work Again!\n╌─┈╌─┈╌─┈╌─┈", parse_mode=ParseMode.MARKDOWN,
+            m = dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", SUMI_DISPACHER_PIC, caption=f"ᏦϴΝΝᏆᏟᎻᏆᏔᎪ !! (◍•ᴗ•◍)", parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
                        InlineKeyboardButton(
-                             text="UPDATES",
-                             url="https://t.me/{UPDATE_CHANNEL}")
+                             text="Off-Topic",
+                             url="https://t.me/animegenz")
                      ]
                 ]
             ),
         )
         except Unauthorized:
             LOGGER.warning(
-                "SUMI can't able to send message to support_chat, go and check!")
+                "Sumi can't able to send message to support_chat, go and check!")
         except BadRequest as e:
             LOGGER.warning(e.message)
 
@@ -800,8 +807,8 @@ def main():
     settings_callback_handler = CallbackQueryHandler(
         settings_button, pattern=r"stngs_")
 
-    about_callback_handler = CallbackQueryHandler(SUMI_callback_data, pattern=r"SUMI_")
-    SUMI_callback_handler = CallbackQueryHandler(about_callback_data, pattern=r"about_")
+    about_callback_handler = CallbackQueryHandler(sumi_callback_data, pattern=r"sumi_")
+    sumi_callback_handler = CallbackQueryHandler(about_callback_data, pattern=r"about_")
     repo_callback_handler = CallbackQueryHandler(repo_callback_data, pattern=r"repo_")
     donate_handler = CommandHandler("donate", donate)
     migrate_handler = MessageHandler(Filters.status_update.migrate,
@@ -814,7 +821,7 @@ def main():
     dispatcher.add_handler(help_callback_handler)
     dispatcher.add_handler(about_callback_handler)
     dispatcher.add_handler(repo_callback_handler)
-    dispatcher.add_handler(SUMI_callback_handler)
+    dispatcher.add_handler(sumi_callback_handler)
     dispatcher.add_handler(settings_callback_handler)
     dispatcher.add_handler(migrate_handler)
     dispatcher.add_handler(donate_handler)
@@ -823,7 +830,7 @@ def main():
 
     if WEBHOOK:
         LOGGER.info("Using webhooks.")
-        updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
+        updater.start_webhook(listen="127.0.0.1", port=PORT, url_path=TOKEN)
 
         if CERT_PATH:
             updater.bot.set_webhook(
@@ -832,7 +839,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("SUMI Is Online, REPO MAINTAINED BY @ISHIKKI_AKABANE")
+        LOGGER.info("Sumi Is Online")
         allowed_updates = ['message', 'edited_message', 'callback_query', 'callback_query', 'my_chat_member',
                            'chat_member', 'chat_join_request', 'channel_post', 'edited_channel_post', 'inline_query']
         updater.start_polling(
