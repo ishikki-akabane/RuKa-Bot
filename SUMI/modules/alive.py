@@ -11,7 +11,7 @@ import random
 from telethon import events, Button, custom, version
 from SUMI.events import register
 from SUMI import telethn as tbot
-from SUMI import OWNER_ID, OWNER_NAME, COTB, REPOSITORY, GROUP_ALIVE_PIC
+from SUMI import OWNER_ID, OWNER_NAME, COTB, GROUP_ALIVE_PIC, BOT_NAME
 from SUMI import StartTime, dispatcher
 from telethon.tl.types import ChannelParticipantsAdmins
 from pyrogram import __version__ as pyro
@@ -46,7 +46,7 @@ async def hmm(yes):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
-    text2 = f"➢ **Mᴏsʜɪ Mᴏsʜɪ [{yes.sender.first_name}](tg://user?id={yes.sender.id}), I'ᴍ SUMI**\n"
+    text2 = f"➢ **Mᴏsʜɪ Mᴏsʜɪ [{yes.sender.first_name}](tg://user?id={yes.sender.id}), I'ᴍ {BOT_NAME}**\n"
     text2 += f"➢ **My Uptime** - `{uptime}`\n"
     text2 += f"➢ **Telethon Version** - `{version.__version__}`\n"
     text2 += f"➢ **PTB Version** - `{telegram.__version__}`\n"
