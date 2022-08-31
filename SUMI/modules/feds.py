@@ -13,8 +13,8 @@ from SUMI import (
     LOGGER,
     SUPPORT_CHAT,
     OWNER_ID,
-    SUDO_USERS,
-    WHITELIST_USERS,
+    DRAGONS,
+    WOLVES,
     dispatcher,
 )
 from SUMI.modules.disable import DisableAbleCommandHandler
