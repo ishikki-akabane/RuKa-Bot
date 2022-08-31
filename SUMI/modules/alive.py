@@ -10,7 +10,8 @@ from datetime import datetime
 import random
 from telethon import events, Button, custom, version
 from SUMI.events import register
-from SUMI import telethn as tbot, OWNER_ID, OWNER_NAME, COTB, REPOSITORY, GROUP_ALIVE_PIC
+from SUMI import telethn as tbot
+from SUMI import OWNER_ID, OWNER_NAME, COTB, REPOSITORY, GROUP_ALIVE_PIC
 from SUMI import StartTime, dispatcher
 from telethon.tl.types import ChannelParticipantsAdmins
 from pyrogram import __version__ as pyro
@@ -53,5 +54,5 @@ async def hmm(yes):
     text2 += f"➢ **MY MASTER** - [{OWNER_NAME}](tg://user?id={OWNER_ID})\n"
     text2 += f"➢ **MY DEVELOPER** - [ᏆՏᎻᏆᏦᏦᏆ ᎪᏦᎪᏴᎪΝᎬ](https://t.me/ishikki_akabane)"
     BUTTON = [[Button.url("Support Chat", "https://t.me/{SUPPORT_CHAT}"), Button.url("Updates", "https://t.me/{UPDATE_CHANNEL}")]]
-    on = await tbot.send_file(yes.chat_id, file="{GROUP_ALIVE_PIC}",caption=text2, buttons=BUTTON)
+    on = await tbot.send_file(yes.chat_id, file=GROUP_ALIVE_PIC,caption=text2, buttons=BUTTON)
 
