@@ -294,29 +294,6 @@ def join_fed(update: Update, context: CallbackContext):
             "This group has joined the federation: {}!".format(getfed["fname"])
         )
 
-R_IMG = "https://telegra.ph/file/5a07ded9ebce5b693c4ff.jpg"
-#DONT REMOVE THIS CREDITS
-TEXT2 = """*‣ REPO OWNER:*
-• [Ishikki Akabane](t.me/ishikki_akabane) (◍•ᴗ•◍)
-┈─╌┈─╌┈─╌┈─╌
-My source codes are now public, you can use them for creating your own bot
-IF you need any help or want to report any bug, please visit @suppporttxd
-**Click The Button Below To Get My Repo**"""
-
-def repo(update: Update, context: CallbackContext):
-    update.effective_message.reply_photo(
-        R_IMG, caption= TEXT2,
-        parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                InlineKeyboardButton(text="Source CODE", url={REPOSITORY}),
-                InlineKeyboardButton(text="DEVELOPER", url="https://t.me/{COTB}")
-                ]
-            ]
-        )
-    )
-
 	
 def leave_fed(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -2434,7 +2411,6 @@ LEAVE_FED_HANDLER = CommandHandler("leavefed", leave_fed, run_async=True)
 PROMOTE_FED_HANDLER = CommandHandler("fpromote", user_join_fed, run_async=True)
 DEMOTE_FED_HANDLER = CommandHandler("fdemote", user_demote_fed, run_async=True)
 INFO_FED_HANDLER = CommandHandler("fedinfo", fed_info, run_async=True)
-REPO_HANDLER = CommandHandler("repo", repo, run_async=True)
 BAN_FED_HANDLER = DisableAbleCommandHandler(["fban", "sfban"], fed_ban, run_async=True)
 UN_BAN_FED_HANDLER = CommandHandler("unfban", unfban, run_async=True)
 FED_BROADCAST_HANDLER = CommandHandler("fbroadcast", fed_broadcast, run_async=True)
@@ -2464,7 +2440,6 @@ dispatcher.add_handler(RENAME_FED)
 dispatcher.add_handler(JOIN_FED_HANDLER)
 dispatcher.add_handler(LEAVE_FED_HANDLER)
 dispatcher.add_handler(PROMOTE_FED_HANDLER)
-dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DEMOTE_FED_HANDLER)
 dispatcher.add_handler(INFO_FED_HANDLER)
 dispatcher.add_handler(BAN_FED_HANDLER)
