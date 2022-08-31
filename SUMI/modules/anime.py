@@ -5,10 +5,10 @@ import textwrap
 import bs4
 import jikanpy
 import requests
-from SUMI import dispatcher
+from SUMI import dispatcher, REPOSITORY
 from SUMI.modules.disable import DisableAbleCommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
-from telegram.ext import CallbackContext, run_async
+from telegram.ext import CallbackContext, CommandHandler, run_async
 
 info_btn = "More Information"
 kaizoku_btn = "Kaizoku ☠️"
@@ -254,6 +254,28 @@ def anime(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
 
+R_IMG = "https://telegra.ph/file/5a07ded9ebce5b693c4ff.jpg"
+#DONT REMOVE THIS CREDITS
+TEXT2 = """*‣ REPO OWNER:*
+• [Ishikki Akabane](t.me/ishikki_akabane) (◍•ᴗ•◍)
+┈─╌┈─╌┈─╌┈─╌
+My source codes are now public, you can use them for creating your own bot
+IF you need any help or want to report any bug, please visit @suppporttxd
+**Click The Button Below To Get My Repo**"""
+
+def repo(update: Update, context: CallbackContext):
+    update.effective_message.reply_photo(
+        R_IMG, caption= TEXT2,
+        parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                InlineKeyboardButton(text="Source CODE", url={REPOSITORY}),
+                InlineKeyboardButton(text="DEVELOPER", url="https://t.me/Ishikki_akabane")
+                ]
+            ]
+        )
+    )
 
 def character(update: Update, context: CallbackContext):
     message = update.effective_message
