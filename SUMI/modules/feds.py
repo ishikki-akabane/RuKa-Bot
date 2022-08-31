@@ -43,6 +43,7 @@ from telegram.ext import (
     CommandHandler,
     run_async,
 )
+from SUMI import COTB, REPOSITORY
 from telegram.utils.helpers import mention_html, mention_markdown
 
 # Hello bot owner, I spended for feds many hours of my life, Please don't remove this if you still respect MrYacha and peaktogoo and AyraHikari too
@@ -291,7 +292,30 @@ def join_fed(update: Update, context: CallbackContext):
             "This group has joined the federation: {}!".format(getfed["fname"])
         )
 
+R_IMG = "https://telegra.ph/file/5a07ded9ebce5b693c4ff.jpg"
+#DONT REMOVE THIS CREDITS
+TEXT2 = """*‣ REPO OWNER:*
+• [Ishikki Akabane](t.me/ishikki_akabane) (◍•ᴗ•◍)
+┈─╌┈─╌┈─╌┈─╌
+My source codes are now public, you can use them for creating your own bot
+IF you need any help or want to report any bug, please visit @suppporttxd
+**Click The Button Below To Get My Repo**"""
 
+def repo(update: Update, context: CallbackContext):
+    update.effective_message.reply_photo(
+        R_IMG, caption= TEXT2,
+        parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                InlineKeyboardButton(text="Source CODE", url={REPOSITORY}),
+                InlineKeyboardButton(text="DEVELOPER", url="https://t.me/{COTB}")
+                ]
+            ]
+        )
+    )
+
+	
 def leave_fed(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     chat = update.effective_chat
