@@ -17,7 +17,7 @@ import SUMI.modules.sql.users_sql as sql
 from SUMI.modules.sudoers import bot_sys_stats as bss
 
 from SUMI import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
-                          OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
+                          OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK, BOT_NAME
                           SUPPORT_CHAT, dispatcher, StartTime, telethn, updater, pgram, pbot)
 
 #Rewritten by ISHIKKI-AKABANE                         
@@ -65,8 +65,8 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Konichiwa {},*
-*I'm SUMI, I'm A Powerful Group Management Bot.*
-❍ *Owner - [Ishikki Akabane](https://t.me/ishikki-akabane)* 
+*I'm {BOT_NAME}, I'm A Powerful Group Management Bot.*
+❍ *Owner - [{OWNER_NAME}](https://t.me/{OWNER_USERNAME})* 
 ❍ *Devoloper - [Ishikki Akabane](https://t.me/ishikki_akabane)*  #Please let it be the same
 ❍ *Uptime* - {}
 **ᴄʟɪᴄᴋ ᴛʜᴇ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ꜰᴏʀ ᴍᴏʀᴇ.**
@@ -75,7 +75,7 @@ PM_START_TEXT = """
 buttons = [
     [
                         InlineKeyboardButton(
-                             text="➕️ Add Sumi To Your Chat ➕️",
+                             text="➕️ Add SUMI To Your Chat ➕️",
                              url="https://t.me/SUMIxdbot?startgroup=true"),
                     ],
                    [
@@ -94,11 +94,18 @@ buttons = [
     ]
 
 ABOUT1 = """
-*‣ Let's Make Your Group Well Managed Now*\n\n‣ *Admin Tools*:-\nBasic Admin tools help you to protect and powerup your group. You can ban members, Kick members, Promote someone as admin through commands of bot.\n\n‣ *Greetings*:-\nLets set a welcome message to welcome new users coming to your group by sending /setwelcome [message] to set a welcome message.\n\n‣ *Anti-flood*:-\nUsers/Spammers flooding non-stop? send /setflood [number] And /setfloodmode [mute/ban/tmute] To Stop flooding From Spammers.\n\n‣ *Rules*:-\nDon't want to explain rules to each newbie? Setup rules by sending /setrules [message] to set a Rules.\n\n‣ *Reports*:-\nEnable reporting so that your users can report troublemakers to admins send /reports [on\off] to enable/disable reports.
+*‣ Let's Make Your Group Well Managed Now*
+‣ *Admin Tools*:-
+Basic Admin tools help you to protect and powerup your group. You can ban members, Kick members, Promote someone as admin through commands of bot.
+‣ *Greetings*:-
+Lets set a welcome message to welcome new users coming to your group by sending /setwelcome [message] to set a welcome message.
+‣ *Anti-flood*:-\nUsers/Spammers flooding non-stop? send /setflood [number] And /setfloodmode [mute/ban/tmute] To Stop flooding From Spammers.
+‣ *Rules*:-\nDon't want to explain rules to each newbie? Setup rules by sending /setrules [message] to set a Rules.
+‣ *Reports*:-\nEnable reporting so that your users can report troublemakers to admins send /reports [on\off] to enable/disable reports.
 """
 
 ABOUT2 = """
-*‣ sumi Support Chats*\nJoin My Support Group/Channel For Reporting Problems And Updates On @SUMI.
+*‣ sumi Support Chats*\nJoin My Support Group/Channel For Reporting Problems And Updates On @SUMIXD.
 """
 
 REPO_TXT = """
@@ -109,7 +116,7 @@ REPO_TXT = """
 • Report Any Kind Of Bugs At [Support](t.me/Suppportt)
 """
 
-ABOUT3 = """Hello [{}], My name is *Asuka Langley Soryu*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
+ABOUT3 = """Hello [{}], My name is *SUMI*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
             \n ‣ I can Restrict Users.
             \n ‣ I can Greet Users with customizable welcome message and even set a group rules
             \n ‣ I have an advanced Anti-Flood System which will help you to safe group from Spammmer.
