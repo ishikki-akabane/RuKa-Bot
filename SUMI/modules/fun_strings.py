@@ -1,5 +1,3 @@
-from SUMI import COTB
-
 RUN_STRINGS = (
     "Now you see me, now you don't."
     "ε=ε=ε=ε=┌(;￣▽￣)┘",
@@ -400,11 +398,12 @@ SEX  = (
     "Jhaante Na Chuchi, Baatein Uchi-Uchi",
     "Masturbation Is Your Only Option.",
     "Ahhh... Not There, Ahhhhhh...",
-    "Damn, why you added this command @{COTB}"
-    "Damn, why you added this command @{COTB}"
-    "Damn, why you added this command @{COTB}"
-    "Save me from perverts @{COTB}"
-    "Save me from perverts @{COTB}"
-    "Save me from perverts @{COTB}"
-    "I'm Ready For A White Shower, Daddy!")
+    "Damn, why you added this command @ishikki_akabane",
+    "Damn, why you added this command @ishikki_akabane",
+    "Damn, why you added this command @ishikki_akabane",
+    "Save me from perverts @ishikki_akabane",
+    "Save me from perverts @ishikki_akabane",
+    "Save me from perverts @ishikki_akabane",
+    "I'm Ready For A White Shower, Daddy!"
+)
 
