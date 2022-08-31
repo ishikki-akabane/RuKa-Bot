@@ -65,10 +65,11 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Konichiwa {},*
-*I'm {BOT_NAME}, I'm A Powerful Group Management Bot.*
-❍ *Owner - [{OWNER_NAME}](https://t.me/{OWNER_USERNAME})* 
-❍ *Devoloper - [Ishikki Akabane](https://t.me/ishikki_akabane)*  #Please let it be the same
+*I'm Sumi Sakurasawa, I'm A Powerful Group Management Bot.*
+❍ *Owner - [Ishikki Akabane](https://t.me/ishikki_akabane)*
 ❍ *Uptime* - {}
+❍ *Users* - {}
+❍ *Chats* - {}
 **ᴄʟɪᴄᴋ ᴛʜᴇ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ꜰᴏʀ ᴍᴏʀᴇ.**
 """
 
@@ -80,7 +81,7 @@ buttons = [
                     ],
                    [
                        InlineKeyboardButton(
-                             text="Kazuma",
+                             text="Kazuma Clan",
                              url="https://t.me/kazumaclanxd"),
                        InlineKeyboardButton(
                              text="About",
@@ -113,7 +114,7 @@ REPO_TXT = """
 • [Ishikki Akabane](t.me/ishikki_akabane)
 \n*‣ Note:*
 • If You Want This Bot's Repo You Can Get It From The Button Below.
-• Report Any Kind Of Bugs At [Support](t.me/Suppportt)
+• Report Any Kind Of Bugs At [Support](t.me/Suppporttxd)
 """
 
 ABOUT3 = """Hello [{}], My name is *SUMI*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
@@ -127,11 +128,8 @@ ABOUT3 = """Hello [{}], My name is *SUMI*. A Powerful Telegram Group Management 
             \n\n*If you have any Question, You can join Support Chat. My Developer Team will Answer. Check Support Button Below*"""
 
 HELP_STRINGS = """
-Hey [{}] *sumi* here!
-I Help Admins To Manage Their Groups!
+Hey [{}], I'm HERE!
 Main commands available :
- ‣ /help: PM's you this message.
- ‣ /privacy: to view the privacy policy, and interact with your data.
  ‣ /help <module name>: PM's you info about that module.
  ‣ /settings:
    • in PM: will send you your settings for all supported modules.
@@ -139,24 +137,12 @@ Main commands available :
 For all command use / or !
 """
 
-
-SUMI_IMG = (
-      "https://telegra.ph/file/645e0b5ca6382d6d73ab5.jpg",
-      "https://telegra.ph/file/3c6cb9b50381170c95278.jpg",
-)
-
-TEXXT = "Yes B!tch, I Am Alive And Working Fine.\nCheck Out The Buttons Mentioned Below.",
+SUMI_PIC = "https://telegra.ph/file/eedea672a770ec92363bd.jpg"
 
 SUMI_N_IMG = (
-      "https://telegra.ph/file/0b5e88c90238c357641a7.jpg",
-      "https://telegra.ph/file/3c93a66c6751088a00fbd.jpg",
-      "https://telegra.ph/file/3b4eed00be4dfaa189fff.jpg",
-      "https://telegra.ph/file/6cbc8452a2796ad58c2f9.jpg",
-      "https://telegra.ph/file/3c6cb9b50381170c95278.jpg"
-
+  "https://te.legra.ph/file/d49e4321e971e90d2d588.jpg",
+  "https://te.legra.ph/file/d49e4321e971e90d2d588.jpg"
 )
-
-SUMI_PIC = "https://telegra.ph/file/eedea672a770ec92363bd.jpg"
 
 SUMI_VID = "https://telegra.ph/file/8d49b6f49362e7778785e.jpg"
 
@@ -164,7 +150,7 @@ PM_PHOTO = "https://te.legra.ph/file/2d75ceb5c898288390b4b.jpg"
 
 SUMI_DISPACHER_PIC = "https://te.legra.ph/file/ab4397a139620f1fc8b20.jpg"
 
-DONATE_STRING = """ Adding Me To Your Groups Is Donation For Me Though I Would Appreciate If You Join My Creator's Network @TheKaizuryu"""
+DONATE_STRING = """ Adding Me To Your Groups Is Donation For Me Though I Would Appreciate If You tell me your honest review about the bot"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -290,7 +276,6 @@ def start(update: Update, context: CallbackContext):
                 caption=PM_START_TEXT.format(
                     escape_markdown(first_name),
                     escape_markdown(uptime),
-                    platform.python_version(),
                     sql.num_users(),
                     sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
@@ -303,14 +288,14 @@ def start(update: Update, context: CallbackContext):
         chat = update.effective_chat.title
         update.effective_message.reply_video(
                 video="https://te.legra.ph/file/0a27889037311e508efdf.mp4",
-                caption="--------------- \nMoshi Moshi",
+                caption="---------------\nMoshi Moshi\nSUMI Speaking!\nI Am Alive and working perfectly fine\nMy Master - @ishikki_akabane\n---------------",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
                        InlineKeyboardButton(
                              text="Support",
-                             url="t.me/Suppportt"),
+                             url="t.me/Suppporttxd"),
                        InlineKeyboardButton(
                              text="Updates",
                              url="t.me/Updatesxd")
@@ -380,7 +365,7 @@ def help_button(update, context):
             help_buttons.append(
                 [
                     InlineKeyboardButton(text="Back", callback_data="help_back"),
-                    InlineKeyboardButton(text='Support', url='https://t.me/Suppportt')
+                    InlineKeyboardButton(text='Support', url='https://t.me/Suppporttxd')
                 ]
                     )
             query.message.edit_caption(
@@ -446,7 +431,7 @@ def about_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/Suppportt"),
+                    InlineKeyboardButton(text="Support", url="t.me/Suppporttxd"),
                     InlineKeyboardButton(text="Updates", url="t.me/Updatesxd"),
                  ],
                  [
@@ -469,7 +454,7 @@ def repo_callback_data(update, context):
                 [
                  [
                     InlineKeyboardButton(text="Source Code", url="https://github.com/ishikki-akabane/SUMI"),
-                    InlineKeyboardButton(text="Kaizuryu", url="t.me/kazumaclanxd"),
+                    InlineKeyboardButton(text="Developer", url="t.me/ishikki_akabane"),
                  ],
                  [
                     InlineKeyboardButton(text="Back", callback_data="sumi_")
@@ -496,12 +481,12 @@ def sumi_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Try Inline", switch_inline_query_current_chat=""),
+                    InlineKeyboardButton(text="Guide", callback_data="about_"),
                     InlineKeyboardButton(text="Developer", url="t.me/ishikki_akabane"),
                  ],
                  [
                     InlineKeyboardButton(text="Support", callback_data="about_back"),
-                    InlineKeyboardButton(text="Source Code", url="https://github.com/ishikki-akabane/SUMI"),
+                    InlineKeyboardButton(text="Source Code", callback_data="repo_"),
                  ],
                  [
                     InlineKeyboardButton(text="Back", callback_data="sumi_back")
@@ -516,7 +501,6 @@ def sumi_callback_data(update, context):
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
                     escape_markdown(uptime),
-                    platform.python_version(),
                     sql.num_users(),
                     sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
@@ -553,7 +537,7 @@ def get_help(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text=" Click here", url="https://t.me/SUMI?start=help")
+                  InlineKeyboardButton(text=" Click here", url="https://t.me/SUMIxd?start=help")
                   ]
                 ]
             ),
@@ -724,12 +708,6 @@ def get_settings(update: Update, context: CallbackContext):
         send_settings(chat.id, user.id, True)
 
 
-@pgram.on_callback_query(filters.regex("pingCB"))
-async def pingCB(_, CallbackQuery):
-    uptime = get_readable_time((time.time() - StartTime))
-    text = f"Haven't Slept Since {uptime}"
-    await pgram.answer_callback_query(CallbackQuery.id, text)
-
 @run_async
 def donate(update: Update, context: CallbackContext):
     user = update.effective_message.from_user
@@ -791,8 +769,8 @@ def main():
                 [
                   [
                        InlineKeyboardButton(
-                             text="Off-Topic",
-                             url="https://t.me/animegenz")
+                             text="Owner",
+                             url="https://t.me/ishikki_akabane")
                      ]
                 ]
             ),
@@ -837,7 +815,7 @@ def main():
 
     if WEBHOOK:
         LOGGER.info("Using webhooks.")
-        updater.start_webhook(listen="127.0.0.1", port=PORT, url_path=TOKEN)
+        updater.start_webhook(listen="0.0.0.1", port=PORT, url_path=TOKEN)
 
         if CERT_PATH:
             updater.bot.set_webhook(
