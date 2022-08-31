@@ -6,6 +6,7 @@ import re
 import time
 import uuid
 from io import BytesIO
+import requests
 
 import SUMI.modules.sql.feds_sql as sql
 from SUMI import (
@@ -16,6 +17,8 @@ from SUMI import (
     DRAGONS,
     WOLVES,
     dispatcher,
+    COTB,
+    REPOSITORY,
 )
 from SUMI.modules.disable import DisableAbleCommandHandler
 from SUMI.modules.helper_funcs.alternate import send_message
@@ -43,7 +46,6 @@ from telegram.ext import (
     CommandHandler,
     run_async,
 )
-from SUMI import COTB, REPOSITORY
 from telegram.utils.helpers import mention_html, mention_markdown
 
 # Hello bot owner, I spended for feds many hours of my life, Please don't remove this if you still respect MrYacha and peaktogoo and AyraHikari too
