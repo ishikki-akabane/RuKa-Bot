@@ -5,7 +5,7 @@ import textwrap
 import bs4
 import jikanpy
 import requests
-from SUMI import dispatcher, REPOSITORY
+from SUMI import dispatcher
 from SUMI.modules.disable import DisableAbleCommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
@@ -253,29 +253,6 @@ def anime(update: Update, context: CallbackContext):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
-
-R_IMG = "https://telegra.ph/file/5a07ded9ebce5b693c4ff.jpg"
-#DONT REMOVE THIS CREDITS
-TEXT2 = """*‣ REPO OWNER:*
-• [Ishikki Akabane](t.me/ishikki_akabane) (◍•ᴗ•◍)
-┈─╌┈─╌┈─╌┈─╌
-My source codes are now public, you can use them for creating your own bot
-IF you need any help or want to report any bug, please visit @suppporttxd
-**Click The Button Below To Get My Repo**"""
-
-def repo(update: Update, context: CallbackContext):
-    update.effective_message.reply_photo(
-        R_IMG, caption= TEXT2,
-        parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                InlineKeyboardButton(text="Source CODE", url={REPOSITORY}),
-                InlineKeyboardButton(text="DEVELOPER", url="https://t.me/Ishikki_akabane")
-                ]
-            ]
-        )
-    )
 
 def character(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -572,7 +549,6 @@ USER_HANDLER = DisableAbleCommandHandler("user", user, run_async=True)
 UPCOMING_HANDLER = DisableAbleCommandHandler("upcoming", upcoming, run_async=True)
 KAIZOKU_SEARCH_HANDLER = DisableAbleCommandHandler("kaizoku", kaizoku, run_async=True)
 KAYO_SEARCH_HANDLER = DisableAbleCommandHandler("kayo", kayo, run_async=True)
-REPO_HANDLER = CommandHandler("repo", repo)
 
 dispatcher.add_handler(ANIME_HANDLER)
 dispatcher.add_handler(CHARACTER_HANDLER)
@@ -582,7 +558,6 @@ dispatcher.add_handler(USER_HANDLER)
 dispatcher.add_handler(KAIZOKU_SEARCH_HANDLER)
 dispatcher.add_handler(KAYO_SEARCH_HANDLER)
 dispatcher.add_handler(UPCOMING_HANDLER)
-dispatcher.add_handler(REPO_HANDLER)
 
 __mod_name__ = "Anime"
 __command_list__ = [
