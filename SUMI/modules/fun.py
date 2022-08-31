@@ -193,6 +193,29 @@ def toss(update: Update, context: CallbackContext):
 def cosplay(update: Update, context: CallbackContext):
     update.effective_message.reply_photo(random.choice(fun_strings.COSPLAY))
 
+R_IMG = "https://telegra.ph/file/5a07ded9ebce5b693c4ff.jpg"  #DONT REMOVE THIS CREDITS
+TEXT2 = """*‣ REPO OWNER:*
+• [Ishikki Akabane](t.me/ishikki_akabane) (◍•ᴗ•◍)
+┈─╌┈─╌┈─╌┈─╌
+My source codes are now public, you can use them for creating your own bot
+Visit @suppporttxd if you face any issue related to the bot or for any kind of help
+**Click The Button Below To Get My Repo**""" #DONT REMOVE THIS CREDITS
+
+@run_async
+def repo(update: Update, context: CallbackContext):
+    update.effective_message.reply_photo(
+        R_IMG, caption= TEXT2,
+        parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                InlineKeyboardButton(text="Source CODE", url="https://github.com/ishikki-akabane/SUMI"),
+                InlineKeyboardButton(text="DEVELOPER", url="https://t.me/ishikki_akabane")
+                ]
+            ]
+        )
+    )
+
 @run_async
 def shrug(update: Update, context: CallbackContext):
     msg = update.effective_message
@@ -293,6 +316,7 @@ RUNS_HANDLER = DisableAbleCommandHandler("runs", runs)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 ROLL_HANDLER = DisableAbleCommandHandler("roll", roll)
+REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
 TOSS_HANDLER = DisableAbleCommandHandler("toss", toss)
 SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug)
 BLUETEXT_HANDLER = DisableAbleCommandHandler("bluetext", bluetext)
@@ -319,6 +343,7 @@ dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(SEX_HANDLER)
 dispatcher.add_handler(COSPLAY_HANDLER)
 dispatcher.add_handler(FLIRT_HANDLER)  #@ishikki_akabane 
+dispatcher.add_handler(REPO_HANDLER)
 
 __mod_name__ = "Fun"
 __command_list__ = [
