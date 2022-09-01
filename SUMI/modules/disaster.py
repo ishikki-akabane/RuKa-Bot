@@ -562,7 +562,7 @@ __handlers__ = [
     SUDOLIST_HANDLER, DEVLIST_HANDLER
 ]
 
-__help__ ="""
+__help__ = """
 *⚠️ Notice:*
 Commands listed here only work for users with special access are mainly used for troubleshooting, debugging purposes.
 Group admins/group owners do not need these commands.
@@ -649,4 +649,4 @@ Group admins/group owners do not need these commands.
   ❍ /install*:* <reply to a .py>*:* Install module
 Visit @suppporttxd for more information. """
 
-__mod_name__ "SuperUser"
+__mod_name__ = "SuperUser"
