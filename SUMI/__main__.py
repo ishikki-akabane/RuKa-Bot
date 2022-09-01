@@ -117,15 +117,17 @@ REPO_TXT = """
 • Report Any Kind Of Bugs At [Support](t.me/Suppporttxd)
 """
 
-ABOUT3 = """Hello [{}], My name is *SUMI*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
-            \n ‣ I can Restrict Users.
-            \n ‣ I can Greet Users with customizable welcome message and even set a group rules
-            \n ‣ I have an advanced Anti-Flood System which will help you to safe group from Spammmer.
-            \n ‣ I can Warn Users until they reach max Warns, with each predefined actions such as Ban, Mute and Kick etc.
-            \n ‣ I have Note Keeping System, Blacklists, And even Predetermined replies on certain keywords.
-            \n ‣ I check Admins Permissions before perform any Command and more Stuffs.
-            \n ‣ I have an advanced Artificial Chatbot System, so can talk with users like humans.
-            \n\n*If you have any Question, You can join Support Chat. My Developer Team will Answer. Check Support Button Below*"""
+ABOUT3 = """
+Hello [{}], My name is *SUMI*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
+‣ I can Restrict Users.
+‣ I can Greet Users with customizable welcome message and even set a group rules
+‣ I have an advanced Anti-Flood System which will help you to safe group from Spammmer.
+‣ I can Warn Users until they reach max Warns, with each predefined actions such as Ban, Mute and Kick etc.
+‣ I have Note Keeping System, Blacklists, And even Predetermined replies on certain keywords.
+‣ I check Admins Permissions before perform any Command and more Stuffs.
+‣ I have an advanced Artificial Chatbot System, so can talk with users like humans.
+*If you have any Question, Please Visit Our Support Group
+"""
 
 HELP_STRINGS = """
 Hey [{}], I'm HERE!
@@ -364,8 +366,7 @@ def help_button(update, context):
             )
             help_buttons.append(
                 [
-                    InlineKeyboardButton(text="Back", callback_data="help_back"),
-                    InlineKeyboardButton(text='Support', url='https://t.me/Suppporttxd')
+                    InlineKeyboardButton(text="Back", callback_data="help_back")
                 ]
                     )
             query.message.edit_caption(
