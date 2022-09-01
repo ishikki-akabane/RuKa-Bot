@@ -364,11 +364,8 @@ def help_button(update, context):
                     )
                     + help_text
             )
-            help_buttons.append(
-                [
-                    InlineKeyboardButton(text="Back", callback_data="help_back")
-                ]
-                    )
+            help_buttons = [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+              
             query.message.edit_caption(
                 text,
                 parse_mode=ParseMode.MARKDOWN,
