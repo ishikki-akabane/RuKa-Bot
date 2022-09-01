@@ -172,10 +172,4 @@ __handlers__ = [
 
 ]
 
-__mod_name__ = "AnimeQuotes"
-__help__ = """
-*AnimeQuotes & Quotes*
-
- ➢ /animequotes - gives a random anime quote
- ➢ /quote - gives a random quote
-"""
+__mod_name__ = "Animequotes"
