@@ -92,4 +92,3 @@ python-rapidjson==1.5
 pytimeparse
 AnilistPython
 pyjokes
-heroku3
