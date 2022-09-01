@@ -63,7 +63,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-PM_START_TEXT = """
+PM_START_TEXT = f"""
 *Konichiwa {},*
 *I'm Sumi Sakurasawa, I'm A Powerful Group Management Bot.*
 ❍ *Owner - [Ishikki Akabane](https://t.me/ishikki_akabane)*
@@ -106,10 +106,10 @@ Lets set a welcome message to welcome new users coming to your group by sending 
 """
 
 ABOUT2 = """
-*‣ sumi Support Chats*\nJoin My Support Group/Channel For Reporting Problems And Updates On @SUMIXD.
+*‣ sumi Support Chats*\nJoin My Support Group/Channel For Reporting Problems And Updates.
 """
 
-REPO_TXT = """
+REPO_TXT = f"""
 *‣ Owner:*
 • [Ishikki Akabane](t.me/ishikki_akabane)
 \n*‣ Note:*
@@ -486,7 +486,7 @@ def sumi_callback_data(update, context):
                     InlineKeyboardButton(text="Developer", url="t.me/ishikki_akabane"),
                  ],
                  [
-                    InlineKeyboardButton(text="Support", callback_data="about_back"),
+                    InlineKeyboardButton(text="Support", callback_data="about_"),
                     InlineKeyboardButton(text="Source Code", callback_data="repo_"),
                  ],
                  [
