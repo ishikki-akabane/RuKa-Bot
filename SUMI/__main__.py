@@ -364,12 +364,20 @@ def help_button(update, context):
                     )
                     + help_text
             )
-            help_buttons = [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
-              
+            
             query.message.edit_caption(
                 text,
                 parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(help_buttons),
+                reply_markup=InlineKeyboardMarkup(
+                  [
+                        [
+                            InlineKeyboardButton(
+                                text=gs("Back"),
+                                callback_data="help_back",
+                            ),
+                        ]
+                    ]
+                ),
             )
 
         elif prev_match:
