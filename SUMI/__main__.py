@@ -63,7 +63,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-PM_START_TEXT = f"""
+PM_START_TEXT = """
 *Konichiwa {},*
 *I'm {BOT_NAME}, I'm A Powerful Group Management Bot.*
 ❍ *Owner - [Ishikki Akabane](https://t.me/ishikki_akabane)*
