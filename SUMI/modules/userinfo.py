@@ -1,5 +1,3 @@
-
-
 import html
 import re
 import os
@@ -38,8 +36,7 @@ from SUMI import (
     SUPPORT_CHAT,
     UPDATE_CHANNEL,
     NETWORK_USERNAME,
-    NETWORK_NAME,
-    SUMI_STATS_PIC
+    NETWORK_NAME
 )
 from SUMI.__main__ import STATS, TOKEN, USER_INFO
 from SUMI.modules.sql import SESSION
@@ -52,7 +49,7 @@ from SUMI.modules.helper_funcs.chat_status import sudo_plus
 from SUMI.modules.helper_funcs.extraction import extract_user
 from SUMI import telethn
 
-SUMI_IMG = "https://telegra.ph/file/645e0b5ca6382d6d73ab5.jpg"
+SUMI_STATS_PIC = "https://te.legra.ph/file/cb81518d97562d5eca417.jpg"
 
 def no_by_per(totalhp, percentage):
     """
@@ -287,7 +284,7 @@ def info(update: Update, context: CallbackContext):
     if user.username:
         text += f"\n➢ Username: @{html.escape(user.username)}"
 
-    text += f"\n➢ Userlink: {mention_html(user.id, 'link')}"
+    text += f"\n➢ Userlink: {mention_html(user.id, "link")}"
 
     if chat.type != "private" and user_id != bot.id:
         _stext = "\n➢ Presence: <code>{}</code>"
