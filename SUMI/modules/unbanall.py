@@ -21,14 +21,8 @@ from telethon.tl import types
 from telethon.tl.types import *
 
 sudo = 5030730429
-BOT_ID = 1241223850
+BOT_ID = 5436228376
 CMD_HELP = '/ !'
-
-
-
-
-
-# ================================================
 
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
