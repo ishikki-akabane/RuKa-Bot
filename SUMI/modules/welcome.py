@@ -9,7 +9,7 @@ from functools import partial
 from pyrogram import Client , filters
 from pyrogram.types import Message
 import SUMI.modules.sql.welcome_sql as sql
-from SUMI import (DEV_USERS, LOGGER, OWNER_ID, DRAGONS, DEMONS, TIGERS, BOT_USERNAME, SUMI_DIS_WEL, SUMI_OWNER_WEL_IMG, SUMI_WELCOME, NETWORK_USERNAME, NETWORK_NAME,
+from SUMI import (DEV_USERS, LOGGER, OWNER_ID, DRAGONS, DEMONS, TIGERS, BOT_USERNAME,
                           WOLVES, sw, dispatcher, EVENT_LOGS, JOIN_LOGGER, pgram)
 from SUMI.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
@@ -53,7 +53,15 @@ VALID_WELCOME_FORMATTERS = [
     "chatname",
     "mention",
 ]
-SUMI_RESP = "https://telegra.ph/file/9e425294e1ece4fcfd4ab.jpg"
+
+
+SUMI_RESP = "https://te.legra.ph/file/918c725fedd1dc7546629.jpg"
+SUMI_DIS_WEL = "https://te.legra.ph/file/5dac11bee50894b3bf0d3.jpg"
+SUMI_OWNER_WEL_IMG = "https://te.legra.ph/file/5643139a70fd89238e6ca.jpg"
+SUMI_WELCOME = "https://te.legra.ph/file/52b423bc8c9886fb03aab.jpg"
+NETWORK_USERNAME = "kazumaclanXD"
+NETWORK_NAME = "Kazuma Clan"
+
 ENUM_FUNC_MAP = {
     sql.Types.TEXT.value: dispatcher.bot.send_message,
     sql.Types.BUTTON_TEXT.value: dispatcher.bot.send_message,
