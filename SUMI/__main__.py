@@ -130,7 +130,7 @@ Hello [{}], My name is *SUMI*. A Powerful Telegram Group Management Bot built to
 """
 
 HELP_STRINGS = """
-Hey [{}], I'm HERE!
+Heya, I'm HERE!
 Main commands available :
  ‣ /help <module name>: PM's you info about that module.
  ‣ /settings:
@@ -369,21 +369,15 @@ def help_button(update, context):
                 text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                  [
-                        [
-                            InlineKeyboardButton(
-                                text=gs("Back"),
-                                callback_data="help_back",
-                            ),
-                        ]
-                    ]
+                    [[InlineKeyboardButton(text="⬅ ʙᴀᴄᴋ", callback_data="help_back"),
+                      InlineKeyboardButton(text="⬅ ʜᴏᴍᴇ", callback_data="sumi_back")]]
                 ),
             )
 
         elif prev_match:
             curr_page = int(prev_match.group(1))
             query.message.edit_caption(
-                HELP_STRINGS.format(update.effective_user.first_name, update.effective_user.id),
+                HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")))
@@ -391,14 +385,14 @@ def help_button(update, context):
         elif next_match:
             next_page = int(next_match.group(1))
             query.message.edit_caption(
-                HELP_STRINGS.format(update.effective_user.first_name, update.effective_user.id),
+                HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")))
 
         elif back_match:
             query.message.edit_caption(
-                HELP_STRINGS.format(update.effective_user.first_name, update.effective_user.id),
+                HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")))
