@@ -105,6 +105,7 @@ if ENV:
     IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
     IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "IshikkiAkabane")
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
