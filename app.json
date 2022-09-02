@@ -77,16 +77,6 @@
          "required": false,
          "value": "suppporttxd"
       },
-      "NETWORK_USERNAME": {
-         "description": "Your Network or Community username(without @). IF YOU DONT HAVE ONE, SKIP THIS FIELD",
-         "required": false,
-         "value": "KAZUMACLANXD"
-      },
-      "NETWORK_NAME": {
-         "description": "Your Network or Community name. IF YOU DONT HAVE ONE, SKIP THIS FIELD.",
-         "required": false,
-         "value": "KAZUMA CLAN"
-      },
       "EVENT_LOGS": {
          "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
          "required": true,
@@ -151,56 +141,6 @@
          "required": false,
          "value": "5030730429"
       },
-      "SUMI_GROUP_ALIVE_PIC": {
-         "description": "Paste link of your image which will be shown when you send /alive.",
-         "required": false,
-         "value": ""
-      },
-      "SUMI_AFKVID": {
-         "description": "Paste link of your video or gif which will be shown when someone goes afk",
-         "required": false,
-         "value": ""
-      },
-      "SUMI_STATS_PIC": {
-         "description": "Paste link of your image which will be shown when you send /stats",
-         "required": false,
-         "value": ""
-      },
-      "SUMI_WELCOME": {
-         "description": "Paste link of your image which will be shown when someone adds the bot to group",
-         "required": false,
-         "value": ""
-      },
-      "SUMI_DIS_WEL": {
-         "description": "Paste link of your image which will be shown to welcome dragons and dev Disasters when they join a group ",
-         "required": false,
-         "value": ""
-      },
-      "SUMI_OWNER_WEL_IMG": {
-         "description": "Paste link of your image which will be shown to welcome the owner in the group when he joins",
-         "required": false,
-         "value": ""
-      },
-      "SUMI_DISPACHER_PIC": {
-         "description": "Paste link of your image which will be shown when you deploy your bot",
-         "required": false,
-         "value": ""
-      },
-      "SUMI_HELP_PIC": {
-         "description": "Paste link of your image which will be shown",
-         "required": false,
-         "value": ""
-      },
-      "SUMI_PM_IMAGE": {
-         "description": "Paste link of your image which will be shown in the pm start when you send /start in bot's pm",
-         "required": false,
-         "value": ""
-      },
-      "SUMI_GROUPSTART_VID": {
-         "description": "Paste link of your video or gif which will be shown when you send /start in groups",
-         "required": false,
-         "value": ""
-      },
       "ENV": {
          "description": "Setting this to ANYTHING will enable environment variables. Leave it as it is",
          "value": "ANYTHING"
@@ -219,6 +159,15 @@
          "description": "The Heroku App URL :-  https://<appname>.herokuapp.com/",
          "required": false,
          "value": "https://<appname>.herokuapp.com/"
+      },
+      "HEROKU_API_KEY": {
+         "description": "The Heroku API Key :-  Get your from heroku Dashboard",
+         "required": false,
+         "value": ""
+      },
+      "HEROKU_APP_NAME": {
+        "description": "Enter the Heroku app name here (Must an exact same name with your input above).",
+        "required": false
       },
       "No_LOAD": {
          "description": "Dont load these modules cause they shit, space separation",
