@@ -116,10 +116,10 @@ if ENV:
     DEBUG = bool(os.environ.get('IS_DEBUG', False))
     REDIS_URL = os.environ.get("REDIS_URL", "") # REDIS URL (From:- Heroku & Redis)
     OWNER_NAME = os.environ.get("OWNER_NAME", None)
-    COTB = os.environ.get("COTB", "Ishikki_Akabane")
+    COTB = "Ishikki_Akabane"
     UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
-    NETWORK_USERNAME = os.environ.get("NETWORK_USERNAME", "KazumaClanXD")
-    NETWORK_NAME = os.environ.get("NETWORK_NAME", "KAZUMA CLAN")
+    NETWORK_USERNAME = "KazumaClanXD"
+    NETWORK_NAME = "KAZUMA CLAN"
     AFKVID = os.environ.get("SUMI_AFKVID", "https://te.legra.ph/file/3e4d749465d63706d70ea.mp4")
     GROUP_ALIVE_PIC = os.environ.get("SUMI_GROUP_ALIVE_PIC", "https://te.legra.ph/file/69ff2cfadf7ad504449f2.jpg")
     SUMI_DISPACHER_PIC = os.environ.get("SUMI_DISPACHER_PIC", "https://te.legra.ph/file/ab4397a139620f1fc8b20.jpg")
