@@ -66,7 +66,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 *Konichiwa {},*
 *I'm Sumi Sakurasawa, I'm A Powerful Group Management Bot.*
-❍ *Owner - @Ishikki Akabane*
+❍ *Owner - @IshikkiAkabane*
 ❍ *Uptime* - {}
 ❍ *Users* - {}
 ❍ *Chats* - {}
