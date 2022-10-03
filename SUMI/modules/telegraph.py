@@ -12,7 +12,7 @@ r = telegraph.create_account(short_name=Anonymous)
 auth_url = r["auth_url"]
 
 
-@register(pattern="^/t(gm|gt|) ?(.*)")
+@register(pattern="^/tele(gm|gt|) ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -81,8 +81,8 @@ def resize_image(image):
 
 __help__ = """
 I can upload files to Telegraph
- ➢ /tgm :Get Telegraph Link Of Replied Media
- ➢ /tgt :Get Telegraph Link of Replied Text
+ ➢ /telegm :Get Telegraph Link Of Replied Media
+ ➢ /telegt :Get Telegraph Link of Replied Text
 """
 
 __mod_name__ = "Telegraph"
