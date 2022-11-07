@@ -64,9 +64,9 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 PM_START_TEXT = """
-*Konichiwa {},*
-*I'm Sumi Sakurasawa, I'm A Powerful Group Management Bot.*
-❍ *Owner - @IshikkiAkabane*
+*Hello {},*
+*I'm Kira, I'm A Powerful Group Management Bot.*
+❍ *Owner - Karma*
 ❍ *Uptime* - {}
 ❍ *Users* - {}
 ❍ *Chats* - {}
@@ -76,13 +76,13 @@ PM_START_TEXT = """
 buttons = [
     [
                         InlineKeyboardButton(
-                             text="➕️ Add SUMI To Your Chat ➕️",
-                             url="https://t.me/SUMIxdbot?startgroup=true"),
+                             text="➕️ Add Kira To Your Chat ➕️",
+                             url="https://t.me/Kira_HyperxBot?startgroup=true"),
                     ],
                    [
                        InlineKeyboardButton(
-                             text="Kazuma Clan",
-                             url="https://t.me/kazumaclanxd"),
+                             text="Infamous Hydra",
+                             url="https://t.me/Infamous_HydraxNetwork"),
                        InlineKeyboardButton(
                              text="About",
                              callback_data="sumi_"),
@@ -139,18 +139,18 @@ Main commands available :
 For all command use / or !
 """
 
-SUMI_PIC = "https://telegra.ph/file/eedea672a770ec92363bd.jpg"
+SUMI_PIC = "https://telegra.ph/file/842fb1be4be5c02646da0.jpg"
 
 SUMI_N_IMG = (
-  "https://te.legra.ph/file/d49e4321e971e90d2d588.jpg",
-  "https://te.legra.ph/file/d49e4321e971e90d2d588.jpg"
+  "https://telegra.ph/file/842fb1be4be5c02646da0.jpg",
+  "https://telegra.ph/file/842fb1be4be5c02646da0.jpg"
 )
 
-SUMI_VID = "https://telegra.ph/file/8d49b6f49362e7778785e.jpg"
+SUMI_VID = "https://telegra.ph/file/842fb1be4be5c02646da0.jpg"
 
-PM_PHOTO = "https://te.legra.ph/file/2d75ceb5c898288390b4b.jpg"
+PM_PHOTO = "https://telegra.ph/file/f61247b3b718e96136cad.jpg"
 
-SUMI_DISPACHER_PIC = "https://te.legra.ph/file/ab4397a139620f1fc8b20.jpg"
+SUMI_DISPACHER_PIC = "https://telegra.ph/file/842fb1be4be5c02646da0.jpg"
 
 DONATE_STRING = """ Adding Me To Your Groups Is Donation For Me Though I Would Appreciate If You tell me your honest review about the bot"""
 
@@ -289,18 +289,18 @@ def start(update: Update, context: CallbackContext):
         first = update.effective_user.full_name
         chat = update.effective_chat.title
         update.effective_message.reply_video(
-                video="https://te.legra.ph/file/0a27889037311e508efdf.mp4",
-                caption="---------------\nMoshi Moshi\nSUMI Speaking!\nI Am Alive and working perfectly fine\nMy Master - @ishikki_akabane\n---------------",
+                video="https://telegra.ph/file/f3c7c457147f0c33bf24c.mp4",
+                caption="---------------\nMoshi Moshi\nKira Speaking!\nI Am Alive and working perfectly fine\nMy Master - @uMnotAhackeR\n---------------",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
                        InlineKeyboardButton(
                              text="Support",
-                             url="t.me/Suppporttxd"),
+                             url="t.me/KiraxSupport"),
                        InlineKeyboardButton(
                              text="Updates",
-                             url="t.me/Updatesxd")
+                             url="t.me/Kira_BotxUpdate")
                      ]
                 ]
             ),
@@ -431,8 +431,8 @@ def about_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/Suppporttxd"),
-                    InlineKeyboardButton(text="Updates", url="t.me/Updatesxd"),
+                    InlineKeyboardButton(text="Support", url="t.me/KiraxSupport"),
+                    InlineKeyboardButton(text="Updates", url="t.me/Kira_BotxUpdate"),
                  ],
                  [
                     InlineKeyboardButton(text="Back", callback_data="sumi_")
@@ -537,7 +537,7 @@ def get_help(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text=" Click here", url="https://t.me/SUMIxdbot?start=help")
+                  InlineKeyboardButton(text=" Click here", url="https://t.me/Kira_HyperxBot?start=help")
                   ]
                 ]
             ),
@@ -769,8 +769,8 @@ def main():
                 [
                   [
                        InlineKeyboardButton(
-                             text="Owner",
-                             url="https://t.me/ishikki_akabane")
+                             text="Assist",
+                             url="https://t.me/Mr_Nerdy")
                      ]
                 ]
             ),
