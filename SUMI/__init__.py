@@ -122,7 +122,7 @@ if ENV:
     NETWORK_USERNAME = "KazumaClanXD"
     NETWORK_NAME = "KAZUMA CLAN"
     AFKVID = os.environ.get("SUMI_AFKVID", "https://te.legra.ph/file/3e4d749465d63706d70ea.mp4")
-    GROUP_ALIVE_PIC = os.environ.get("SUMI_GROUP_ALIVE_PIC", "https://te.legra.ph/file/69ff2cfadf7ad504449f2.jpg")
+    GROUP_ALIVE_PIC = os.environ.get("SUMI_GROUP_ALIVE_PIC", "https://telegra.ph/file/26dca58da283645b6d19b.jpg")
     SUMI_DISPACHER_PIC = os.environ.get("SUMI_DISPACHER_PIC", "https://te.legra.ph/file/ab4397a139620f1fc8b20.jpg")
     SUMI_HELP_PIC = os.environ.get("SUMI_HELP_PIC", "https://te.legra.ph/file/d49e4321e971e90d2d588.jpg")
     PM_IMAGE = os.environ.get("SUMI_PM_IMAGE", "https://te.legra.ph/file/2d75ceb5c898288390b4b.jpg")
