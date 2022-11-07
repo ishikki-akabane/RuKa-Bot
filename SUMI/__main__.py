@@ -290,7 +290,7 @@ def start(update: Update, context: CallbackContext):
         chat = update.effective_chat.title
         update.effective_message.reply_video(
                 video="https://telegra.ph/file/f3c7c457147f0c33bf24c.mp4",
-                caption="---------------\nMoshi Moshi\nKira Speaking!\nI Am Alive and working perfectly fine\nMy Master - @uMnotAhackeR\n---------------",
+                caption="---------------\nMoshi Moshi\nKira Speaking!\nI Am Alive and working perfectly fine\nMy Master - Karma\n---------------",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
