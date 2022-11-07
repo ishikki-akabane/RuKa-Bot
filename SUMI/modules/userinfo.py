@@ -49,7 +49,7 @@ from SUMI.modules.helper_funcs.chat_status import sudo_plus
 from SUMI.modules.helper_funcs.extraction import extract_user
 from SUMI import telethn
 
-SUMI_STATS_PIC = "https://te.legra.ph/file/cb81518d97562d5eca417.jpg"
+SUMI_STATS_PIC = "https://telegra.ph/file/bffb235dce83578a45a81.jpg"
 
 def no_by_per(totalhp, percentage):
     """
