@@ -297,7 +297,7 @@ def start(update: Update, context: CallbackContext):
                   [
                        InlineKeyboardButton(
                              text="Support",
-                             url="t.me/KiraxSupport"),
+                             url="t.me/infamous_hydra"),
                        InlineKeyboardButton(
                              text="Updates",
                              url="t.me/Kira_BotxUpdate")
@@ -431,7 +431,7 @@ def about_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/KiraxSupport"),
+                    InlineKeyboardButton(text="Support", url="t.me/infamous_hydra"),
                     InlineKeyboardButton(text="Updates", url="t.me/Kira_BotxUpdate"),
                  ],
                  [
