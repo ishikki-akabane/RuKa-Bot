@@ -53,6 +53,6 @@ async def hmm(yes):
     text2 += f"➢ **Pyrogram Version** - `{pyro}`\n"
     text2 += f"➢ **MY MASTER** - [{OWNER_NAME}](tg://user?id={OWNER_ID})\n"
     text2 += f"➢ **MY DEVELOPER** - [ᏆՏᎻᏆᏦᏦᏆ ᎪᏦᎪᏴᎪΝᎬ](https://t.me/ishikki_akabane)"
-    BUTTON = [[Button.url("Support Chat", "https://t.me/{SUPPORT_CHAT}"), Button.url("Updates", "https://t.me/{UPDATE_CHANNEL}")]]
+    BUTTON = [[Button.url("Support Chat", f"https://t.me/{SUPPORT_CHAT}"), Button.url("Updates", f"https://t.me/{UPDATE_CHANNEL}")]]
     on = await tbot.send_file(yes.chat_id, file=GROUP_ALIVE_PIC,caption=text2, buttons=BUTTON)
 
