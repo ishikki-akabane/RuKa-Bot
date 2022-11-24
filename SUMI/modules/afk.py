@@ -63,7 +63,7 @@ def no_longer_afk(update, context):
                 "Hey {} Darling, Welcome Back! We Were Apart For {}",
                 "{} Is now back from his date! Time Taken: {}",
                 "Guys, {} got a girlfried, that's why he was busy for: {}",
-                "{} Came Back After Masturbating! Time Taken: {}",
+                "{} Came Back From Work! Time Taken: {}",
                 "OwO, Welcome back {}, you left us for {} ",
                 "OwO, Welcome Back {}! You Were Missing Since {} ",
             ]
