@@ -112,8 +112,8 @@ def slap(update: Update, context: CallbackContext):
 
     reply_text(reply, parse_mode=ParseMode.HTML)
 
-    if update.effective_user.id == 5030730429:
-        temp = "Are you stupid {user2}, Ishikki is MY LOVE"
+    if update.effective_user.id == 5590832024:
+        temp = "Are you stupid {user2}, Karma is MY LOVE"
 
     reply = temp.format(
         user1=user1, user2=user2, item=item, hits=hit, throws=throw)
