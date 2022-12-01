@@ -25,10 +25,10 @@ pm_start_text: |
    
    *Click on help to learn more!*
    
-grp_start_text: "Hi, I'm SUMI."
+grp_start_text: "Hi, I'm Kira."
 
 pm_help_text: |
-   Hello there! My name is *SUMI*. A part of *KAZUMA CLAN*.
+   Hello there! My name is *KIRA*. A part of *Infamous Hydra*.
    I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of
    the things I can help you with.
    *Main* commands available:
@@ -40,7 +40,7 @@ pm_help_text: |
       - in a group: will redirect you to pm, with all that chat's settings.
     Click on the buttons below to get documentation about specific modules!
 
-add_bot_to_group_btn: "Add SUMI"
+add_bot_to_group_btn: "Add Kira"
 support_chat_link_btn: "Support"
 updates_channel_link_btn: "Updates"
 src_btn: "Source code"
@@ -211,7 +211,7 @@ FED_USER_HELP: |
     • `/frules`*:* See Federation regulations
 
 formt_help_bse: |
-    SUMI supports a large number of formatting options to make your messages more expressive. Take a look!
+    Kira supports a large number of formatting options to make your messages more expressive. Take a look!
 
 md_help: |
     <b>Markdown Formatting</b>
@@ -265,7 +265,7 @@ antispam_help: |
      you and your groups by removing spam flooders as quickly as possible.
      *Note:* Users can appeal gbans or report spammers at @YorkTownEagleUnion
 
-     SUMI also integrates @Spamwatch API to remove Spammers as much as possible from your chatroom!
+     Kira also integrates @Spamwatch API to remove Spammers as much as possible from your chatroom!
      *What is SpamWatch?*
      SpamWatch maintains a large constantly updated ban-list of spambots, trolls, bitcoin spammers and unsavoury characters.
      Constantly help banning spammers off from your group automatically So, you wont have to worry about spammers storming your group.
@@ -456,7 +456,7 @@ greetings_help: |
        • `/welcomehelp`*:* view more formatting information for custom welcome/goodbye messages.
 
 nation_help: |
-      - /Lovers - Lists all KAZUMA CLAN members.
+      - /Lovers - Lists all Infamous Hydra members.
       - /dragons - Lists all Royal Nations.
       - /demons - Lists all Sakura Nations.
       - /tigers - Lists all Sardegnas Nations.
