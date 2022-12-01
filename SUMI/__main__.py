@@ -81,15 +81,15 @@ buttons = [
                     ],
                    [
                        InlineKeyboardButton(
-                             text="Infamous Hydra",
+                             text="Infamous🐉Hydra",
                              url="https://t.me/Infamous_Network"),
                        InlineKeyboardButton(
-                             text="About",
-                             callback_data="sumi_"),
+                             text="🍿Anime🍿",
+                             url="https://t.me/Anime_CulturexHydra"),
                    ],
                   [
                         InlineKeyboardButton(
-                             text="Help❔",
+                             text="Help🛠",
                              callback_data="help_back"),
                     ],
     ]
