@@ -20,7 +20,7 @@ from SUMI.modules.helper_funcs.readable_time import get_readable_time
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
 
-AFKVID = "https://te.legra.ph/file/3e4d749465d63706d70ea.mp4"
+AFKVID = "https://telegra.ph/file/3b1ee2b7dfd8feb0baf16.mp4"
 
 
 def afk(update, context):
