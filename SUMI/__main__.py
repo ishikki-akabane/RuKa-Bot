@@ -81,7 +81,7 @@ buttons = [
                     ],
                    [
                        InlineKeyboardButton(
-                             text="Infamous🐉Hydra",
+                             text="🐉 Network",
                              url="https://t.me/Infamous_Network"),
                        InlineKeyboardButton(
                              text="🍿Anime🍿",
@@ -89,7 +89,10 @@ buttons = [
                    ],
                   [
                         InlineKeyboardButton(
-                             text="Help🛠",
+                             text="💯Support💯",
+                             url="https://t.me/hydraXsupport"),
+                        InlineKeyboardButton(
+                             text="Help 🛠",
                              callback_data="help_back"),
                     ],
     ]
