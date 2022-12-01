@@ -65,10 +65,10 @@ def inlinequery(update: Update, _) -> None:
             "keyboard": ".anime",
         },
         {
-            "title": "SUMI",
-            "description": "SUMI Inline",
-            "message_text": "Click the button below to get the SUMI Inline.",
-            "thumb_urL": "https://telegra.ph/file/93b575c4c4da42d9fa4b2.jpg",
+            "title": "KIRA",
+            "description": "KIRA Inline",
+            "message_text": "Click the button below to get the KIRA Inline.",
+            "thumb_urL": "https://telegra.ph/file/240c9a43afcd58af2e6ae.jpg",
             "keyboard": ".SUMI",
         },
         {
@@ -79,10 +79,10 @@ def inlinequery(update: Update, _) -> None:
             "keyboard": ".kaizuryu",
         },
         {
-            "title": "Account info on SUMI",
-            "description": "Look up a Telegram account in SUMI database",
-            "message_text": "Click the button below to look up a person in SUMI database using their Telegram ID",
-            "thumb_urL": "https://telegra.ph/file/3c93a66c6751088a00fbd.jpg",
+            "title": "Account info on KIRA",
+            "description": "Look up a Telegram account in KIRA database",
+            "message_text": "Click the button below to look up a person in KIra database using their Telegram ID",
+            "thumb_urL": "https://telegra.ph/file/240c9a43afcd58af2e6ae.jpg",
             "keyboard": ".info",
         },
         {
