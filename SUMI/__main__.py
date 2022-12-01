@@ -82,7 +82,7 @@ buttons = [
                    [
                        InlineKeyboardButton(
                              text="Infamous Hydra",
-                             url="https://t.me/Infamous_HydraxNetwork"),
+                             url="https://t.me/Infamous_Network"),
                        InlineKeyboardButton(
                              text="About",
                              callback_data="sumi_"),
@@ -297,10 +297,10 @@ def start(update: Update, context: CallbackContext):
                   [
                        InlineKeyboardButton(
                              text="Support",
-                             url="t.me/infamous_hydra"),
+                             url="t.me/hydraXsupport"),
                        InlineKeyboardButton(
                              text="Updates",
-                             url="t.me/Kira_BotxUpdate")
+                             url="t.me/Hydra_BotxUpdate")
                      ]
                 ]
             ),
@@ -431,8 +431,8 @@ def about_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/infamous_hydra"),
-                    InlineKeyboardButton(text="Updates", url="t.me/Kira_BotxUpdate"),
+                    InlineKeyboardButton(text="Support", url="t.me/hydraXsupport"),
+                    InlineKeyboardButton(text="Updates", url="t.me/Hydra_BotxUpdate"),
                  ],
                  [
                     InlineKeyboardButton(text="Back", callback_data="sumi_")
