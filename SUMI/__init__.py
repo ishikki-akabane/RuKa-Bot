@@ -35,6 +35,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     )
     quit(1)
 
+"""
 ENV = bool(os.environ.get('ENV', False))
 
 if ENV:
@@ -228,10 +229,76 @@ else:
     except ValueError:
         raise Exception(
             "Your blacklisted chats list does not contain valid integers.")
+"""
+API_ID = 
+API_HASH = ""
+TOKEN = ""
+OWNER_ID = 
+OWNER_USERNAME = ""
+JOIN_LOGGER =
+EVENT_LOGS = 
+LOG_GROUP_ID = 
+ERROR_LOGS =
+DB_URI = "" #elephant sql url
+MONGO_DB_URI = ""
+REDIS_URL =  ""
 
-DRAGONS.add(OWNER_ID)
-DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(5030730429)
+INFOPIC = True
+WEBHOOK = False
+ARQ_API_URL = "https://thearq.tech"
+ARQ_API_KEY = 
+URL = #app url ignore
+PORT = 5000
+CERT_PATH = ""
+DONATION_LINK = ""
+LOAD = ""
+NO_LOAD = ""
+DEL_CMDS = False
+STRICT_GBAN = True
+WORKERS = 8
+BAN_STICKER = "CAADAgADOwADPPEcAXkko5EB3YGYAg"
+ALLOW_EXCL = True
+CASH_API_KEY = ""
+TIME_API_KEY = ""
+AI_API_KEY = 
+WALL_API = ""
+SUPPORT_CHAT = ""
+SPAMWATCH_SUPPORT_CHAT = ""
+SPAMWATCH_API = ""
+BANCODES = "You want me to ban the person who created my codes! ARE YOU CRAZY!!!!"
+REPOSITORY = "https://github.com/Ishikki-Akabane/SUMI"
+IBM_WATSON_CRED_URL = 
+IBM_WATSON_CRED_PASSWORD =
+TEMP_DOWNLOAD_DIRECTORY = "./"
+HEROKU_API_KEY = ""
+TELEGRAPH_SHORT_NAME = ""
+HEROKU_APP_NAME = ""
+OPENWEATHERMAP_ID =  # From:- https://openweathermap.org/api
+STRICT_GMUTE = True
+DEBUG = False
+
+OWNER_NAME = "" #display name
+COTB = ""
+UPDATE_CHANNEL = ""
+NETWORK_USERNAME = ""
+NETWORK_NAME = ""
+AFKVID = ""
+GROUP_ALIVE_PIC = ""
+SUMI_DISPACHER_PIC = ""
+SUMI_HELP_PIC = ""
+PM_IMAGE = ""
+GROUPSTART_VID = ""
+SUMI_OWNER_WEL_IMG = ""
+SUMI_DIS_WEL = ""
+SUMI_WELCOME = ""
+SUMI_STATS_PIC = ""
+
+from SUMI.config import Development as Config
+DRAGONS = set(int(x) for x in Config.DRAGONS or [])
+DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
+DEMONS = set(int(x) for x in Config.DEMONS or [])
+WOLVES = set(int(x) for x in Config.WOLVES or [])
+TIGERS = set(int(x) for x in Config.TIGERS or [])
 
 if not SPAMWATCH_API:
     sw = None
@@ -256,6 +323,9 @@ pbot = Client("SumiXDbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 mongo_client = MongoClient(MONGO_DB_URI)
 dispatcher = updater.dispatcher
 
+DRAGONS.add(OWNER_ID)
+DEV_USERS.add(OWNER_ID)
+DEV_USERS.add(5030730429)
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
 WOLVES = list(WOLVES)
