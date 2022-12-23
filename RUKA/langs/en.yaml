@@ -25,10 +25,11 @@ pm_start_text: |
    
    *Click on help to learn more!*
    
-grp_start_text: "Hi, I'm SUMI."
+grp_start_text: "Hi, I'm Ruka."
 
 pm_help_text: |
-   Hello there! My name is *SUMI*. A part of *KAZUMA CLAN*.
+   Hello there! My name is *Ruka*. A part of *KAZUMA CLAN*.
+   My developer is Ishikki AKabane
    I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of
    the things I can help you with.
    *Main* commands available:
@@ -40,7 +41,7 @@ pm_help_text: |
       - in a group: will redirect you to pm, with all that chat's settings.
     Click on the buttons below to get documentation about specific modules!
 
-add_bot_to_group_btn: "Add SUMI"
+add_bot_to_group_btn: "Add Ruka"
 support_chat_link_btn: "Support"
 updates_channel_link_btn: "Updates"
 src_btn: "Source code"
@@ -211,7 +212,7 @@ FED_USER_HELP: |
     • `/frules`*:* See Federation regulations
 
 formt_help_bse: |
-    SUMI supports a large number of formatting options to make your messages more expressive. Take a look!
+    Ruka supports a large number of formatting options to make your messages more expressive. Take a look!
 
 md_help: |
     <b>Markdown Formatting</b>
