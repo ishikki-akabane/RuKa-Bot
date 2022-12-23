@@ -12,7 +12,7 @@ from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from redis import StrictRedis
 from Python_ARQ import ARQ
 from pyrogram import Client, errors
-from SUMI.services.quoteapi import Quotly
+from RUKA.services.quoteapi import Quotly
 
 StartTime = time.time()
 
@@ -23,8 +23,8 @@ logging.basicConfig(
               logging.StreamHandler()],
     level=logging.INFO)
 
-LOGGER = logging.getLogger("[SUMI]")
-LOGGER.info("CREATED BY: ISHIKKI-AKABANE (t.me/Ishikki_Akabane)")
+LOGGER = logging.getLogger("[RUKA]")
+LOGGER.info("CREATED BY: ISHIKKI-AKABANE")
 
 log = logging.getLogger('[Your Bot Is DEPLOYING]')
 
@@ -101,7 +101,7 @@ if ENV:
     SPAMWATCH_SUPPORT_CHAT = os.environ.get('SPAMWATCH_SUPPORT_CHAT', "suppporttxd")
     SPAMWATCH_API = os.environ.get('SPAMWATCH_API', "XChWQMRDLpKVqoirR_cMDqlrGwiTn1bY1pYhTyGeVv7~T2gVG1JRyZFvlZGq4gtG")
     BANCODES = os.environ.get("BANCODES", "You want me to ban the person who created my codes! ARE YOU CRAZY!!!!")
-    REPOSITORY = os.environ.get("REPOSITORY", "https://github.com/Ishikki-Akabane/SUMI")
+    REPOSITORY = os.environ.get("REPOSITORY", "https://github.com/Ishikki-Akabane/RUKA")
     IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
     IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
@@ -121,16 +121,16 @@ if ENV:
     UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
     NETWORK_USERNAME = "KazumaClanXD"
     NETWORK_NAME = "KAZUMA CLAN"
-    AFKVID = os.environ.get("SUMI_AFKVID", "https://te.legra.ph/file/3e4d749465d63706d70ea.mp4")
-    GROUP_ALIVE_PIC = os.environ.get("SUMI_GROUP_ALIVE_PIC", "https://te.legra.ph/file/69ff2cfadf7ad504449f2.jpg")
-    SUMI_DISPACHER_PIC = os.environ.get("SUMI_DISPACHER_PIC", "https://te.legra.ph/file/ab4397a139620f1fc8b20.jpg")
-    SUMI_HELP_PIC = os.environ.get("SUMI_HELP_PIC", "https://te.legra.ph/file/d49e4321e971e90d2d588.jpg")
-    PM_IMAGE = os.environ.get("SUMI_PM_IMAGE", "https://te.legra.ph/file/2d75ceb5c898288390b4b.jpg")
-    GROUPSTART_VID = os.environ.get("SUMI_GROUPSTART_VID", "https://te.legra.ph/file/0a27889037311e508efdf.mp4")
-    SUMI_OWNER_WEL_IMG = os.environ.get("SUMI_OWNER_WEL_IMG", "https://te.legra.ph/file/f5b41a463bc226291e308.jpg")
-    SUMI_DIS_WEL = os.environ.get("SUMI_DIS_WEL", "https://te.legra.ph/file/574c133b9a41f16808f73.jpg")
-    SUMI_WELCOME = os.environ.get("SUMI_WELCOME", "https://te.legra.ph/file/52b423bc8c9886fb03aab.jpg")
-    SUMI_STATS_PIC = os.environ.get("SUMI_STATS_PIC", "https://te.legra.ph/file/cb81518d97562d5eca417.jpg")
+    AFKVID = os.environ.get("RUKA_AFKVID", "https://te.legra.ph/file/3e4d749465d63706d70ea.mp4")
+    GROUP_ALIVE_PIC = os.environ.get("RUKA_GROUP_ALIVE_PIC", "https://te.legra.ph/file/69ff2cfadf7ad504449f2.jpg")
+    RUKA_DISPACHER_PIC = os.environ.get("RUKA_DISPACHER_PIC", "https://te.legra.ph/file/ab4397a139620f1fc8b20.jpg")
+    RUKA_HELP_PIC = os.environ.get("RUKA_HELP_PIC", "https://te.legra.ph/file/d49e4321e971e90d2d588.jpg")
+    PM_IMAGE = os.environ.get("RUKA_PM_IMAGE", "https://te.legra.ph/file/2d75ceb5c898288390b4b.jpg")
+    GROUPSTART_VID = os.environ.get("RUKA_GROUPSTART_VID", "https://te.legra.ph/file/0a27889037311e508efdf.mp4")
+    RUKA_OWNER_WEL_IMG = os.environ.get("RUKA_OWNER_WEL_IMG", "https://te.legra.ph/file/f5b41a463bc226291e308.jpg")
+    RUKA_DIS_WEL = os.environ.get("RUKA_DIS_WEL", "https://te.legra.ph/file/574c133b9a41f16808f73.jpg")
+    RUKA_WELCOME = os.environ.get("RUKA_WELCOME", "https://te.legra.ph/file/52b423bc8c9886fb03aab.jpg")
+    RUKA_STATS_PIC = os.environ.get("RUKA_STATS_PIC", "https://te.legra.ph/file/cb81518d97562d5eca417.jpg")
 
 
     try:
@@ -140,7 +140,7 @@ if ENV:
             "Your blacklisted chats list does not contain valid integers.")
     
 else:
-    from SUMI.config import Development as Config
+    from RUKA.config import Development as Config
     TOKEN = Config.TOKEN
 
     try:
@@ -214,12 +214,12 @@ else:
     NETWORK_NAME = Config.NETWORK_NAME
     AFKVID = Config.AFKVID
     GROUP_ALIVE_PIC = Config.GROUP_ALIVE_PIC
-    SUMI_STATS_PIC = Config.SUMI_STATS_PIC
-    SUMI_WELCOME = Config.SUMI_WELCOME
-    SUMI_DIS_WEL = Config.SUMI_DIS_WEL
-    SUMI_OWNER_WEL_IMG = Config.SUMI_OWNER_WEL_IMG
-    SUMI_DISPACHER_PIC = Config.SUMI_DISPACHER_PIC
-    SUMI_HELP_PIC = Config.SUMI_HELP_PIC
+    RUKA_STATS_PIC = Config.RUKA_STATS_PIC
+    RUKA_WELCOME = Config.RUKA_WELCOME
+    RUKA_DIS_WEL = Config.RUKA_DIS_WEL
+    RUKA_OWNER_WEL_IMG = Config.RUKA_OWNER_WEL_IMG
+    RUKA_DISPACHER_PIC = Config.RUKA_DISPACHER_PIC
+    RUKA_HELP_PIC = Config.RUKA_HELP_PIC
     PM_IMAGE = Config.PM_IMAGE
     GROUPSTART_VID = Config.GROUPSTART_VID
 
@@ -251,8 +251,8 @@ aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("SUMI", API_ID, API_HASH)
-pbot = Client("SumiXDbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+telethn = TelegramClient("RUKA", API_ID, API_HASH)
+pbot = Client("RUKAXDbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 mongo_client = MongoClient(MONGO_DB_URI)
 dispatcher = updater.dispatcher
 
@@ -264,7 +264,7 @@ TIGERS = list(TIGERS)
 
 
 # Load at end to ensure all prev variables have been set
-from SUMI.modules.helper_funcs.handlers import (CustomCommandHandler,
+from RUKA.modules.helper_funcs.handlers import (CustomCommandHandler,
                                                         CustomMessageHandler,
                                                         CustomRegexHandler)
 
@@ -286,7 +286,7 @@ BOT_NAME = bottie.first_name
 BOT_MENTION = bottie.mention
 
 print(
-    "[SUMI] SUMI Is Starting."
+    "[RUKA] RUKA Is Starting."
 )
 
 REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
@@ -295,7 +295,7 @@ try:
 
     REDIS.ping()
 
-    LOGGER.info("[SUMI]:Connecting To Redis Database")
+    LOGGER.info("[RUKA]:Connecting To Redis Database")
 
 except BaseException:
 
@@ -306,10 +306,10 @@ finally:
    REDIS.ping()
 
 print(
-    "[SUMI] SERVERS Connected SUCCESSFULLY!!"
+    "[RUKA] SERVERS Connected SUCCESSFULLY!!"
 )
 print(
-    "[SUMI] INITIALIZING MODULES ERROR!!"
+    "[RUKA] INITIALIZING MODULES ERROR!!"
 )
 
 #-------Quote-------
