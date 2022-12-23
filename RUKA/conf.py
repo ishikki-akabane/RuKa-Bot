@@ -1,5 +1,5 @@
 from envparse import env
-from SUMI import LOGGER
+from RUKA import LOGGER
 
 DEFAULTS = {
     "LOAD_MODULES": True,
