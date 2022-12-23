@@ -3,7 +3,7 @@ import os
 
 
 def get_user_list(config, key):
-    with open('{}/SUMI/{}'.format(os.getcwd(), config),
+    with open('{}/RUKA/{}'.format(os.getcwd(), config),
               'r') as json_file:
         return json.load(json_file)[key]
 
@@ -19,7 +19,7 @@ class Config(object):
     TOKEN = "awoo"  #This var used to be API_KEY but it is now TOKEN, adjust accordingly.
     OWNER_ID = 5030730429 # If you dont know, run the bot and do /id in your private chat with it, also an integer
     OWNER_USERNAME = "ishikki_akabane"
-    SUPPORT_CHAT = 'suppporttxd'  #Your own group for support, do not add the @
+    SUPPORT_CHAT = 'BotsLabxd'  #Your own group for support, do not add the @
     JOIN_LOGGER = -123456789  #Prints any new group the bot is added to, prints just the name and ID.
     EVENT_LOGS = -123446789  #Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging and shit
 
@@ -57,6 +57,14 @@ class Config(object):
     AI_API_KEY = 'awoo'  #For chatbot, get one from https://coffeehouse.intellivoid.net/dashboard
     BL_CHATS = []  # List of groups that you want blacklisted.
     SPAMMERS = None
+    NETWORK_NAME = "" #Your Network or Community username(without @). IF YOU DONT HAVE ONE, SKIP THIS FIELD
+    NETWORK_USERNAME = "" #Your Network or Community name. IF YOU DONT HAVE ONE, SKIP THIS FIELD.
+    BOT_USERNAME = "" #Your bot username without @.
+    BOT_NAME = "" #Your bot Name.
+    REDIS_URL = "" #Paste your redis url in format redis://<username of admin role>:<password of admin role>@<endoint url>/<database name>. YOU CAN SKIP THIS IF YOU DONT HAVE ONE
+    ARQ_API_KEY = "" #For Some Modules. Get it from @ArqRobot
+    
+    #media
     SUMI_STATS_PIC = "" #Paste link of your image which will be shown when you send /stats
     SUMI_WELCOME = "" #Paste link of your image which will be shown when someone adds the bot to group
     SUMI_DIS_WEL = "" #Paste link of your image which will be shown to welcome dragons and dev Disasters when they join a group 
@@ -67,12 +75,7 @@ class Config(object):
     GROUPSTART_VID = "" #Paste link of your video or gif which will be shown when you send /start in groups
     GROUP_ALIVE_PIC = "" #Paste link of your image which will be shown when you send /alive.
     AFKVID = "" #Paste link of your video or gif which will be shown when someone goes afk
-    NETWORK_NAME = "" #Your Network or Community username(without @). IF YOU DONT HAVE ONE, SKIP THIS FIELD
-    NETWORK_USERNAME = "" #Your Network or Community name. IF YOU DONT HAVE ONE, SKIP THIS FIELD.
-    BOT_USERNAME = "" #Your bot username without @.
-    BOT_NAME = "" #Your bot Name.
-    REDIS_URL = "" #Paste your redis url in format redis://<username of admin role>:<password of admin role>@<endoint url>/<database name>. YOU CAN SKIP THIS IF YOU DONT HAVE ONE
-    ARQ_API_KEY = "" #For Some Modules. Get it from @ArqRobot
+
 
 #Damn, it was tough for me to rewrite this whole, please don't remove the credits from the code, i did too much hardwork for this
 #if you face any problem in the bot or its code, please let me know, i will try my best to fix it.
