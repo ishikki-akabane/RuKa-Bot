@@ -13,19 +13,19 @@ from typing import List
 from typing import Optional
 from pyrogram import Client, idle, filters
 
-import SUMI.modules.sql.users_sql as sql
-from SUMI.modules.sudoers import bot_sys_stats as bss
+import RUKA.modules.sql.users_sql as sql
+from RUKA.modules.sudoers import bot_sys_stats as bss
 
-from SUMI import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
+from RUKA import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
                           OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK, BOT_NAME,
                           SUPPORT_CHAT, dispatcher, StartTime, telethn, updater, pgram, pbot)
 
 #Rewritten by ISHIKKI-AKABANE                         
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from SUMI.modules import ALL_MODULES
-from SUMI.modules.helper_funcs.chat_status import is_user_admin
-from SUMI.modules.helper_funcs.misc import paginate_modules
+from RUKA.modules import ALL_MODULES
+from RUKA.modules.helper_funcs.chat_status import is_user_admin
+from RUKA.modules.helper_funcs.misc import paginate_modules
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       Update)
 from telegram.error import (BadRequest, ChatMigrated, NetworkError,
@@ -65,7 +65,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Konichiwa {},*
-*I'm Sumi Sakurasawa, I'm A Powerful Group Management Bot.*
+*I'm RUKA Sakurasawa, I'm A Powerful Group Management Bot.*
 ❍ *Owner - @IshikkiAkabane*
 ❍ *Uptime* - {}
 ❍ *Users* - {}
@@ -76,8 +76,8 @@ PM_START_TEXT = """
 buttons = [
     [
                         InlineKeyboardButton(
-                             text="➕️ Add SUMI To Your Chat ➕️",
-                             url="https://t.me/SUMIxdbot?startgroup=true"),
+                             text="➕️ Add RUKA To Your Chat ➕️",
+                             url="https://t.me/RUKAxdbot?startgroup=true"),
                     ],
                    [
                        InlineKeyboardButton(
@@ -85,7 +85,7 @@ buttons = [
                              url="https://t.me/kazumaclanxd"),
                        InlineKeyboardButton(
                              text="About",
-                             callback_data="sumi_"),
+                             callback_data="RUKA_"),
                    ],
                   [
                         InlineKeyboardButton(
@@ -106,7 +106,7 @@ Lets set a welcome message to welcome new users coming to your group by sending 
 """
 
 ABOUT2 = """
-*‣ sumi Support Chats*\nJoin My Support Group/Channel For Reporting Problems And Updates.
+*‣ RUKA Support Chats*\nJoin My Support Group/Channel For Reporting Problems And Updates.
 """
 
 REPO_TXT = f"""
@@ -118,7 +118,7 @@ REPO_TXT = f"""
 """
 
 ABOUT3 = """
-Hello [{}], My name is *SUMI*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
+Hello [{}], My name is *RUKA*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
 ‣ I can Restrict Users.
 ‣ I can Greet Users with customizable welcome message and even set a group rules
 ‣ I have an advanced Anti-Flood System which will help you to safe group from Spammmer.
@@ -139,18 +139,18 @@ Main commands available :
 For all command use / or !
 """
 
-SUMI_PIC = "https://telegra.ph/file/eedea672a770ec92363bd.jpg"
+RUKA_PIC = "https://telegra.ph/file/eedea672a770ec92363bd.jpg"
 
-SUMI_N_IMG = (
+RUKA_N_IMG = (
   "https://te.legra.ph/file/d49e4321e971e90d2d588.jpg",
   "https://te.legra.ph/file/d49e4321e971e90d2d588.jpg"
 )
 
-SUMI_VID = "https://telegra.ph/file/8d49b6f49362e7778785e.jpg"
+RUKA_VID = "https://telegra.ph/file/8d49b6f49362e7778785e.jpg"
 
 PM_PHOTO = "https://te.legra.ph/file/2d75ceb5c898288390b4b.jpg"
 
-SUMI_DISPACHER_PIC = "https://te.legra.ph/file/ab4397a139620f1fc8b20.jpg"
+RUKA_DISPACHER_PIC = "https://te.legra.ph/file/ab4397a139620f1fc8b20.jpg"
 
 DONATE_STRING = """ Adding Me To Your Groups Is Donation For Me Though I Would Appreciate If You tell me your honest review about the bot"""
 
@@ -165,7 +165,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("SUMI.modules." +
+    imported_module = importlib.import_module("RUKA.modules." +
                                               module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
@@ -290,7 +290,7 @@ def start(update: Update, context: CallbackContext):
         chat = update.effective_chat.title
         update.effective_message.reply_video(
                 video="https://te.legra.ph/file/0a27889037311e508efdf.mp4",
-                caption="---------------\nMoshi Moshi\nSUMI Speaking!\nI Am Alive and working perfectly fine\nMy Master - @ishikki_akabane\n---------------",
+                caption="---------------\nMoshi Moshi\nRUKA Speaking!\nI Am Alive and working perfectly fine\nMy Master - @ishikki_akabane\n---------------",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -370,7 +370,7 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(text="⬅ ʙᴀᴄᴋ", callback_data="help_back"),
-                      InlineKeyboardButton(text="⬅ ʜᴏᴍᴇ", callback_data="sumi_back")]]
+                      InlineKeyboardButton(text="⬅ ʜᴏᴍᴇ", callback_data="RUKA_back")]]
                 ),
             )
 
@@ -417,7 +417,7 @@ def about_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Back", callback_data="sumi_")
+                    InlineKeyboardButton(text="Back", callback_data="RUKA_")
                  ],
                 ]
             ),
@@ -435,7 +435,7 @@ def about_callback_data(update, context):
                     InlineKeyboardButton(text="Updates", url="t.me/Updatesxd"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="sumi_")
+                    InlineKeyboardButton(text="Back", callback_data="RUKA_")
                  ],
                 ]
             ),
@@ -453,11 +453,11 @@ def repo_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Source Code", url="https://github.com/ishikki-akabane/SUMI"),
+                    InlineKeyboardButton(text="Source Code", url="https://github.com/ishikki-akabane/RUKA"),
                     InlineKeyboardButton(text="Developer", url="t.me/ishikki_akabane"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="sumi_")
+                    InlineKeyboardButton(text="Back", callback_data="RUKA_")
                  ],
                 ]
             ),
@@ -470,11 +470,11 @@ def repo_callback_data(update, context):
         )
 
 @run_async
-def sumi_callback_data(update, context):
+def RUKA_callback_data(update, context):
     query = update.callback_query
     bot = context.bot
     uptime = get_readable_time((time.time() - StartTime))
-    if query.data == "sumi_":
+    if query.data == "RUKA_":
         query.message.edit_caption(
             ABOUT3.format(update.effective_user.first_name, update.effective_user.id, escape_markdown(context.bot.first_name)),
             parse_mode=ParseMode.MARKDOWN,
@@ -489,12 +489,12 @@ def sumi_callback_data(update, context):
                     InlineKeyboardButton(text="Source Code", callback_data="repo_"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="sumi_back")
+                    InlineKeyboardButton(text="Back", callback_data="RUKA_back")
                  ],
                 ]
             ),
         )
-    elif query.data == "sumi_back":
+    elif query.data == "RUKA_back":
         first_name = update.effective_user.full_name
         id = update.effective_user.id
         query.message.edit_caption(
@@ -519,7 +519,7 @@ def get_help(update: Update, context: CallbackContext):
             module = args[1].lower()
             first_name = update.effective_user.full_name
             update.effective_message.reply_photo(
-            random.choice(SUMI_N_IMG), caption= f"Hey {first_name}, Click the Button Below to get help of {module.capitalize()}",
+            random.choice(RUKA_N_IMG), caption= f"Hey {first_name}, Click the Button Below to get help of {module.capitalize()}",
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
@@ -532,12 +532,12 @@ def get_help(update: Update, context: CallbackContext):
         first_name = update.effective_user.full_name
         first_nam = update.effective_user.id
         update.effective_message.reply_photo(
-            random.choice(SUMI_N_IMG), caption= "Hey [{}](tg://user?id={}) Click the Button Below to get the list of possible commands.".format(first_name, first_nam),
+            random.choice(RUKA_N_IMG), caption= "Hey [{}](tg://user?id={}) Click the Button Below to get the list of possible commands.".format(first_name, first_nam),
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text=" Click here", url="https://t.me/SUMIxdbot?start=help")
+                  InlineKeyboardButton(text=" Click here", url="https://t.me/RUKAxdbot?start=help")
                   ]
                 ]
             ),
@@ -694,7 +694,7 @@ def get_settings(update: Update, context: CallbackContext):
         if is_user_admin(chat, user.id):
             text = "Click here to get this chat's settings, as well as yours."
             msg.reply_photo(
-                random.choice(SUMI_N_IMG), caption=text,
+                random.choice(RUKA_N_IMG), caption=text,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
                         text="Settings",
@@ -764,7 +764,7 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             name = dispatcher.bot.first_name
-            m = dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", SUMI_DISPACHER_PIC, caption=f"ᏦϴΝΝᏆᏟᎻᏆᏔᎪ !! (◍•ᴗ•◍)", parse_mode=ParseMode.MARKDOWN,
+            m = dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", RUKA_DISPACHER_PIC, caption=f"ᏦϴΝΝᏆᏟᎻᏆᏔᎪ !! (◍•ᴗ•◍)", parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
@@ -777,7 +777,7 @@ def main():
         )
         except Unauthorized:
             LOGGER.warning(
-                "Sumi can't able to send message to support_chat, go and check!")
+                "RUKA can't able to send message to support_chat, go and check!")
         except BadRequest as e:
             LOGGER.warning(e.message)
 
@@ -792,8 +792,8 @@ def main():
     settings_callback_handler = CallbackQueryHandler(
         settings_button, pattern=r"stngs_")
 
-    about_callback_handler = CallbackQueryHandler(sumi_callback_data, pattern=r"sumi_")
-    sumi_callback_handler = CallbackQueryHandler(about_callback_data, pattern=r"about_")
+    about_callback_handler = CallbackQueryHandler(RUKA_callback_data, pattern=r"RUKA_")
+    RUKA_callback_handler = CallbackQueryHandler(about_callback_data, pattern=r"about_")
     repo_callback_handler = CallbackQueryHandler(repo_callback_data, pattern=r"repo_")
     donate_handler = CommandHandler("donate", donate)
     migrate_handler = MessageHandler(Filters.status_update.migrate,
@@ -806,7 +806,7 @@ def main():
     dispatcher.add_handler(help_callback_handler)
     dispatcher.add_handler(about_callback_handler)
     dispatcher.add_handler(repo_callback_handler)
-    dispatcher.add_handler(sumi_callback_handler)
+    dispatcher.add_handler(RUKA_callback_handler)
     dispatcher.add_handler(settings_callback_handler)
     dispatcher.add_handler(migrate_handler)
     dispatcher.add_handler(donate_handler)
@@ -824,7 +824,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("Sumi Is Online")
+        LOGGER.info("RUKA Is Online")
         allowed_updates = ['message', 'edited_message', 'callback_query', 'callback_query', 'my_chat_member',
                            'chat_member', 'chat_join_request', 'channel_post', 'edited_channel_post', 'inline_query']
         updater.start_polling(
