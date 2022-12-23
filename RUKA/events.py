@@ -1,5 +1,5 @@
 from telethon import events
-from SUMI import telethn
+from RUKA import telethn
 
 
 def register(**args):
