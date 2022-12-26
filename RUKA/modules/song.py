@@ -4,9 +4,9 @@ import aiohttp
 import youtube_dl
 
 from pyrogram import filters
-from SUMI import pbot
+from RUKA import pbot
 from youtube_search import YoutubeSearch
-from SUMI.utils.errors import capture_err
+from RUKA.utils.errors import capture_err
 
 
 def time_to_seconds(time):
