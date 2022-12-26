@@ -13,9 +13,9 @@ from pyrogram import Client
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Chat, Message, User
 
-from SUMI import OWNER_ID, SUPPORT_CHAT
-from SUMI import pgram
-from SUMI.utils.errors import split_limits
+from RUKA import OWNER_ID, SUPPORT_CHAT
+from RUKA import pgram
+from RUKA.utils.errors import split_limits
 
 
 def get_user(message: Message, text: str) -> [int, str, None]:
