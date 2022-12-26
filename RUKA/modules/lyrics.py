@@ -5,9 +5,9 @@ from tswift import Song
 from telegram import Bot, Update, Message, Chat
 from telegram.ext import CallbackContext, run_async
 
-from SUMI import dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.alternate import typing_action
+from RUKA import dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.alternate import typing_action
 
 
 @run_async
