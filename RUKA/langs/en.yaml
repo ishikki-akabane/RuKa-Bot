@@ -458,10 +458,10 @@ greetings_help: |
 
 nation_help: |
       - /Lovers - Lists all KAZUMA CLAN members.
-      - /dragons - Lists all Royal Nations.
-      - /demons - Lists all Sakura Nations.
-      - /tigers - Lists all Sardegnas Nations.
-      - /wolves - Lists all Neptunia Nations.
+      - /dragons - Lists all SUDO.
+      - /demons - Lists all SUPPORT.
+      - /tigers - Lists all TIGERS.
+      - /wolves - Lists all WOLVES.
       Note: These commands list users with special bot priveleges and can only be used by them.
       You can visit @suppporttxd to query more about these.
 
