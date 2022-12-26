@@ -4,14 +4,14 @@ import nekos
 import requests
 from PIL import Image
 from telegram import ParseMode
-from SUMI import dispatcher, updater
-import SUMI.modules.sql.nsfw_sql as sql
-from SUMI.modules.log_channel import gloggable
+from RUKA import dispatcher, updater
+import RUKA.modules.sql.nsfw_sql as sql
+from RUKA.modules.log_channel import gloggable
 from telegram import Message, Chat, Update, Bot, MessageEntity
 from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.ext import CommandHandler, run_async, CallbackContext
-from SUMI.modules.helper_funcs.filters import CustomFilters
-from SUMI.modules.helper_funcs.chat_status import user_admin
+from RUKA.modules.helper_funcs.filters import CustomFilters
+from RUKA.modules.helper_funcs.chat_status import user_admin
 from telegram.utils.helpers import mention_html, mention_markdown, escape_markdown
 
 @run_async
