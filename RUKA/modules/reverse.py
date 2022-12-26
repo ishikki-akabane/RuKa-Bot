@@ -9,9 +9,9 @@ import requests
 from bs4 import BeautifulSoup
 from telegram import InputMediaPhoto, TelegramError
 
-from SUMI import dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.alternate import typing_action
+from RUKA import dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.alternate import typing_action
 
 opener = urllib.request.build_opener()
 useragent = (
