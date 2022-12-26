@@ -4,11 +4,11 @@ import html
 import random
 import time
 
-from SUMI import dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler
+from RUKA import dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async, CallbackQueryHandler
-from SUMI.modules.helper_funcs.chat_status import (is_user_admin)
-from SUMI.modules.helper_funcs.extraction import extract_user
+from RUKA.modules.helper_funcs.chat_status import (is_user_admin)
+from RUKA.modules.helper_funcs.extraction import extract_user
 from telegram import ParseMode, Update, InlineKeyboardMarkup, InlineKeyboardButton, replymarkup, ChatPermissions
 from telegram.error import BadRequest
 
