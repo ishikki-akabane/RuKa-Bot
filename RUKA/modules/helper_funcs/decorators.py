@@ -1,12 +1,12 @@
-from SUMI.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
+from RUKA.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
 from telegram.ext import CommandHandler, MessageHandler, CallbackQueryHandler, InlineQueryHandler
 from telegram.ext.filters import BaseFilter
-from SUMI import dispatcher as d, LOGGER
+from RUKA import dispatcher as d, LOGGER
 from typing import Optional, Union, List
 
 
 
-class SUMITelegramHandler:
+class RUKATelegramHandler:
     def __init__(self, d):
         self._dispatcher = d
 
@@ -25,7 +25,7 @@ class SUMITelegramHandler:
                     self._dispatcher.add_handler(
                         CommandHandler(command, func, filters=filters, run_async=run_async, pass_args=pass_args), group
                     )
-                LOGGER.debug(f"[SUMICMD] Loaded handler {command} for function {func.__name__} in group {group}")
+                LOGGER.debug(f"[RUKACMD] Loaded handler {command} for function {func.__name__} in group {group}")
             except TypeError:
                 if can_disable:
                     self._dispatcher.add_handler(
@@ -35,7 +35,7 @@ class SUMITelegramHandler:
                     self._dispatcher.add_handler(
                         CommandHandler(command, func, filters=filters, run_async=run_async, pass_args=pass_args, pass_chat_data=pass_chat_data)
                     )
-                LOGGER.debug(f"[SUMICMD] Loaded handler {command} for function {func.__name__}")
+                LOGGER.debug(f"[RUKACMD] Loaded handler {command} for function {func.__name__}")
 
             return func
 
@@ -52,7 +52,7 @@ class SUMITelegramHandler:
                     self._dispatcher.add_handler(
                         MessageHandler(pattern, func, run_async=run_async), group
                     )
-                LOGGER.debug(f"[SUMIMSG] Loaded filter pattern {pattern} for function {func.__name__} in group {group}")
+                LOGGER.debug(f"[RUKAMSG] Loaded filter pattern {pattern} for function {func.__name__} in group {group}")
             except TypeError:
                 if can_disable:
                     self._dispatcher.add_handler(
@@ -62,7 +62,7 @@ class SUMITelegramHandler:
                     self._dispatcher.add_handler(
                         MessageHandler(pattern, func, run_async=run_async)
                     )
-                LOGGER.debug(f"[SUMIMSG] Loaded filter pattern {pattern} for function {func.__name__}")
+                LOGGER.debug(f"[RUKAMSG] Loaded filter pattern {pattern} for function {func.__name__}")
 
             return func
         return _message
@@ -70,18 +70,18 @@ class SUMITelegramHandler:
     def callbackquery(self, pattern: str = None, run_async: bool = True):
         def _callbackquery(func):
             self._dispatcher.add_handler(CallbackQueryHandler(pattern=pattern, callback=func, run_async=run_async))
-            LOGGER.debug(f'[SUMICALLBACK] Loaded callbackquery handler with pattern {pattern} for function {func.__name__}')
+            LOGGER.debug(f'[RUKACALLBACK] Loaded callbackquery handler with pattern {pattern} for function {func.__name__}')
             return func
         return _callbackquery
 
     def inlinequery(self, pattern: Optional[str] = None, run_async: bool = True, pass_user_data: bool = True, pass_chat_data: bool = True, chat_types: List[str] = None):
         def _inlinequery(func):
             self._dispatcher.add_handler(InlineQueryHandler(pattern=pattern, callback=func, run_async=run_async, pass_user_data=pass_user_data, pass_chat_data=pass_chat_data, chat_types=chat_types))
-            LOGGER.debug(f'[SUMIINLINE] Loaded inlinequery handler with pattern {pattern} for function {func.__name__} | PASSES USER DATA: {pass_user_data} | PASSES CHAT DATA: {pass_chat_data} | CHAT TYPES: {chat_types}')
+            LOGGER.debug(f'[RUKAINLINE] Loaded inlinequery handler with pattern {pattern} for function {func.__name__} | PASSES USER DATA: {pass_user_data} | PASSES CHAT DATA: {pass_chat_data} | CHAT TYPES: {chat_types}')
             return func
         return _inlinequery
 
-SUMIcmd = SUMITelegramHandler(d).command
-SUMImsg = SUMITelegramHandler(d).message
-SUMIcallback = SUMITelegramHandler(d).callbackquery
-SUMIinline = SUMITelegramHandler(d).inlinequery
+RUKAcmd = RUKATelegramHandler(d).command
+RUKAmsg = RUKATelegramHandler(d).message
+RUKAcallback = RUKATelegramHandler(d).callbackquery
+RUKAinline = RUKATelegramHandler(d).inlinequery
