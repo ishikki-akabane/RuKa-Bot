@@ -3,8 +3,8 @@ import subprocess
 import sys
 from time import sleep
 
-from SUMI import dispatcher
-from SUMI.modules.helper_funcs.chat_status import dev_plus
+from RUKA import dispatcher
+from RUKA.modules.helper_funcs.chat_status import dev_plus
 from telegram import TelegramError, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
 
