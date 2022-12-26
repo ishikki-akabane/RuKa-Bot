@@ -9,20 +9,20 @@ from telegram.utils.helpers import mention_html
 
 from alphabet_detector import AlphabetDetector
 
-import SUMI.modules.sql.locks_sql as sql
-from SUMI import dispatcher, DRAGONS, LOGGER
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.chat_status import (
+import RUKA.modules.sql.locks_sql as sql
+from RUKA import dispatcher, DRAGONS, LOGGER
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.chat_status import (
     can_delete,
     is_user_admin,
     user_not_admin,
     is_bot_admin,
     user_admin,
 )
-from SUMI.modules.log_channel import loggable
-from SUMI.modules.connection import connected
+from RUKA.modules.log_channel import loggable
+from RUKA.modules.connection import connected
 
-from SUMI.modules.helper_funcs.alternate import send_message, typing_action
+from RUKA.modules.helper_funcs.alternate import send_message, typing_action
 
 ad = AlphabetDetector()
 
