@@ -114,7 +114,7 @@ REPO_TXT = f"""
 • [Ishikki Akabane](t.me/ishikki_akabane)
 \n*‣ Note:*
 • If You Want This Bot's Repo You Can Get It From The Button Below.
-• Report Any Kind Of Bugs At [Support](t.me/Suppporttxd)
+• Report Any Kind Of Bugs At [Support](t.me/BotslabXD)
 """
 
 ABOUT3 = """
