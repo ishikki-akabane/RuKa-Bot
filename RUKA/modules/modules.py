@@ -1,11 +1,11 @@
 import importlib
 import collections
 
-from SUMI import dispatcher, telethn
-from SUMI.__main__ import (CHAT_SETTINGS, DATA_EXPORT, DATA_IMPORT,
+from RUKA import dispatcher, telethn
+from RUKA.__main__ import (CHAT_SETTINGS, DATA_EXPORT, DATA_IMPORT,
                                    HELPABLE, IMPORTED, MIGRATEABLE, STATS,
                                    USER_INFO, USER_SETTINGS)
-from SUMI.modules.helper_funcs.chat_status import dev_plus, sudo_plus
+from RUKA.modules.helper_funcs.chat_status import dev_plus, sudo_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
 
@@ -161,7 +161,7 @@ def listmodules(update: Update, context: CallbackContext):
     for helpable_module in HELPABLE:
         helpable_module_info = IMPORTED[helpable_module]
         file_info = IMPORTED[helpable_module_info.__mod_name__.lower()]
-        file_name = file_info.__name__.rsplit("SUMI.modules.", 1)[1]
+        file_name = file_info.__name__.rsplit("RUKA.modules.", 1)[1]
         mod_name = file_info.__mod_name__
         module_list.append(f'- <code>{mod_name} ({file_name})</code>\n')
     module_list = "Following modules are loaded : \n\n" + ''.join(module_list)
