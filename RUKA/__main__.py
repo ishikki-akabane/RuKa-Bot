@@ -431,7 +431,7 @@ def about_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/Suppporttxd"),
+                    InlineKeyboardButton(text="Support", url="t.me/BotsLAbXD"),
                     InlineKeyboardButton(text="Updates", url="t.me/Updatesxd"),
                  ],
                  [
