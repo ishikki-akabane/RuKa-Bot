@@ -6,10 +6,10 @@ from telegram.ext import CallbackContext
 from telegram.chatmemberupdated import ChatMemberUpdated
 from telegram.ext.chatmemberhandler import ChatMemberHandler
 
-from SUMI import dispatcher
-from SUMI.modules.log_channel import loggable
+from RUKA import dispatcher
+from RUKA.modules.log_channel import loggable
 
-import SUMI.modules.sql.logger_sql as sql
+import RUKA.modules.sql.logger_sql as sql
 
 # Module to extract and log (optional: send to chat) status changes in chat members using ChatMemberUpdated 
 # https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/chatmemberbot.py
