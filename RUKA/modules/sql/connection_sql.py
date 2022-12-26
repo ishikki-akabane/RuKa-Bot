@@ -2,7 +2,7 @@ import threading
 import time
 from typing import Union
 from sqlalchemy import Column, String, Boolean, UnicodeText, Integer
-from SUMI.modules.sql import SESSION, BASE
+from RUKA.modules.sql import SESSION, BASE
 from sqlalchemy.sql.sqltypes import BigInteger
 
 
