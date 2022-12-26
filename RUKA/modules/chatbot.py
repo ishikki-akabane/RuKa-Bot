@@ -3,7 +3,7 @@ import re
 import os
 import html
 import requests
-import SUMI.modules.sql.chatbot_sql as sql
+import RUKA.modules.sql.chatbot_sql as sql
 
 from time import sleep
 from telegram import ParseMode
@@ -15,10 +15,10 @@ from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
 from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.utils.helpers import mention_html, mention_markdown, escape_markdown
 
-from SUMI.modules.helper_funcs.filters import CustomFilters
-from SUMI.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from SUMI import dispatcher, updater, SUPPORT_CHAT, AI_API_KEY
-from SUMI.modules.log_channel import gloggable
+from RUKA.modules.helper_funcs.filters import CustomFilters
+from RUKA.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from RUKA import dispatcher, updater, SUPPORT_CHAT, AI_API_KEY
+from RUKA.modules.log_channel import gloggable
 
 @run_async
 @user_admin_no_reply
@@ -40,7 +40,7 @@ def kukirm(update: Update, context: CallbackContext) -> str:
             )
         else:
             update.effective_message.edit_text(
-                "SUMI Chat Bot Disabled by {}.".format(mention_html(user.id, user.first_name)),
+                "RUKA Chat Bot Disabled by {}.".format(mention_html(user.id, user.first_name)),
                 parse_mode=ParseMode.HTML,
             )
 
@@ -66,7 +66,7 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
             )
         else:
             update.effective_message.edit_text(
-                "SUMI Chat Bot Enabled By {}.".format(mention_html(user.id, user.first_name)),
+                "RUKA Chat Bot Enabled By {}.".format(mention_html(user.id, user.first_name)),
                 parse_mode=ParseMode.HTML,
             )
 
@@ -117,7 +117,7 @@ def chatbot(update: Update, context: CallbackContext):
             return
         anon = message.text
         bot.send_chat_action(chat_id, action="typing")
-        url = f"https://kukiapi.xyz/api/apikey={AI_API_KEY}/SUMI/@ISHIKKI_AKABANE/message={anon}" 
+        url = f"https://kukiapi.xyz/api/apikey={AI_API_KEY}/RUKA/@ISHIKKI_AKABANE/message={anon}" 
         request = requests.get(url) 
         results = json.loads(request.text) 
         result = f"{results['reply']}"
@@ -126,7 +126,7 @@ def chatbot(update: Update, context: CallbackContext):
 
 def list_all_chats(update: Update, context: CallbackContext):
     chats = sql.get_all_kuki_chats()
-    text = "<b>SUMI Enabled Chats</b>\n"
+    text = "<b>RUKA Enabled Chats</b>\n"
     for chat in chats:
         try:
             x = context.bot.get_chat(int(*chat))
