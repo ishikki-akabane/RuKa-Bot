@@ -4,7 +4,7 @@ from time import perf_counter
 from functools import wraps
 from cachetools import TTLCache
 from threading import RLock
-from SUMI import (
+from RUKA import (
     DEL_CMDS,
     DEV_USERS,
     DRAGONS,
@@ -468,6 +468,6 @@ def user_can_change(func):
 
     return info_changer
 
-from SUMI.modules import connection
+from RUKA.modules import connection
 
 connected = connection.connected
