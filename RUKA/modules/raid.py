@@ -11,7 +11,7 @@ from telegram.utils.helpers import mention_html
 from RUKA.modules.log_channel import loggable
 from RUKA.modules.helper_funcs.anonymous import user_admin, AdminPerms
 from RUKA.modules.helper_funcs.chat_status import bot_admin, connection_status, user_admin_no_reply
-from RUKA.modules.helper_funcs.decorators import SUMIcmd, SUMIcallback
+from RUKA.modules.helper_funcs.decorators import RUKAcmd, RUKAcallback
 from .. import LOGGER, updater
 
 import RUKA.modules.sql.welcome_sql as sql
@@ -36,7 +36,7 @@ def get_readable_time(time: int) -> str:
     return "{} hour(s)".format(t[0]) if time >= 3600 else "{} minutes".format(t[1])
 
 
-@SUMIcmd(command="raid", pass_args=True)
+@RUKAcmd(command="raid", pass_args=True)
 @bot_admin
 @connection_status
 @loggable
@@ -100,7 +100,7 @@ def setRaid(update: Update, context: CallbackContext) -> Optional[str]:
             msg.reply_text("Unknown time given, give me something like 5m or 1h", parse_mode=ParseMode.HTML)
 
 
-@SUMIcallback(pattern="enable_raid=")
+@RUKAcallback(pattern="enable_raid=")
 @connection_status
 @user_admin_no_reply
 @loggable
@@ -137,7 +137,7 @@ def enable_raid_cb(update: Update, ctx: CallbackContext) -> Optional[str]:
     )
 
 
-@SUMIcallback(pattern="disable_raid=")
+@RUKAcallback(pattern="disable_raid=")
 @connection_status
 @user_admin_no_reply
 @loggable
@@ -163,7 +163,7 @@ def disable_raid_cb(update: Update, _: CallbackContext) -> Optional[str]:
     return logmsg
 
 
-@SUMIcallback(pattern="cancel_raid=")
+@RUKAcallback(pattern="cancel_raid=")
 @connection_status
 @user_admin_no_reply
 def disable_raid_cb(update: Update, _: CallbackContext):
@@ -174,7 +174,7 @@ def disable_raid_cb(update: Update, _: CallbackContext):
         parse_mode=ParseMode.HTML)
 
 
-@SUMIcmd(command="raidtime")
+@RUKAcmd(command="raidtime")
 @connection_status
 @loggable
 @user_admin(AdminPerms.CAN_CHANGE_INFO)
@@ -208,7 +208,7 @@ def raidtime(update: Update, context: CallbackContext) -> Optional[str]:
         msg.reply_text("Unknown time given, give me something like 5m or 1h", parse_mode=ParseMode.HTML)
 
 
-@SUMIcmd(command="raidactiontime", pass_args=True)
+@RUKAcmd(command="raidactiontime", pass_args=True)
 @connection_status
 @user_admin(AdminPerms.CAN_CHANGE_INFO)
 @loggable
