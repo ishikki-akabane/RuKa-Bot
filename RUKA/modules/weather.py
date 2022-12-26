@@ -1,4 +1,4 @@
-from SUMI import telethn as tbot
+from RUKA import telethn as tbot
 import io
 import os
 import time
@@ -9,9 +9,9 @@ from telethon.tl import functions
 from telethon.tl import types
 from telethon.tl.types import *
 
-from SUMI import *
+from RUKA import *
 
-from SUMI.events import register
+from RUKA.events import register
 
 
 async def is_register_admin(chat, user):
