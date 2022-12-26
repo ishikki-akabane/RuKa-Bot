@@ -59,8 +59,6 @@ class Config(object):
     SPAMMERS = None
     NETWORK_NAME = "" #Your Network or Community username(without @). IF YOU DONT HAVE ONE, SKIP THIS FIELD
     NETWORK_USERNAME = "" #Your Network or Community name. IF YOU DONT HAVE ONE, SKIP THIS FIELD.
-    BOT_USERNAME = "" #Your bot username without @.
-    BOT_NAME = "" #Your bot Name.
     REDIS_URL = "" #Paste your redis url in format redis://<username of admin role>:<password of admin role>@<endoint url>/<database name>. YOU CAN SKIP THIS IF YOU DONT HAVE ONE
     ARQ_API_KEY = "" #For Some Modules. Get it from @ArqRobot
     
