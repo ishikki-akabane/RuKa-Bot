@@ -10,9 +10,9 @@ from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       TelegramError, Update, constants)
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
-from SUMI import dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.gifkang import convert_gif
+from RUKA import dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.gifkang import convert_gif
 
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
 
@@ -541,7 +541,7 @@ def makepack_internal(
             success = context.bot.create_new_sticker_set(
                 user.id,
                 packname,
-                f"{name}s Pack :: @SUMI" + extra_version,
+                f"{name}s Pack :: @RUKA" + extra_version,
                 png_sticker=png_sticker,
                 emojis=emoji,
             )
@@ -549,7 +549,7 @@ def makepack_internal(
             success = context.bot.create_new_sticker_set(
                 user.id,
                 packname,
-                f"{name}s Pack :: @SUMI" + extra_version,
+                f"{name}s Pack :: @RUKA" + extra_version,
                 tgs_sticker=tgs_sticker,
                 emojis=emoji,
             )
@@ -557,7 +557,7 @@ def makepack_internal(
             success = context.bot.create_new_sticker_set(
                 user.id,
                 packname,
-                f"{name}s Pack :: @SUMI" + extra_version,
+                f"{name}s Pack :: @RUKA" + extra_version,
                 webm_sticker=webm_sticker,
                 emojis=emoji,
             )
