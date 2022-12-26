@@ -562,7 +562,7 @@ __handlers__ = [
     SUDOLIST_HANDLER, DEVLIST_HANDLER
 ]
 
-__help__ = """
+__help__ = f"""
 *⚠️ Notice:*
 Commands listed here only work for users with special access are mainly used for troubleshooting, debugging purposes.
 Group admins/group owners do not need these commands.
@@ -647,6 +647,6 @@ Group admins/group owners do not need these commands.
  *Owner only*
   ❍ /send*:* <module name>*:* Send module
   ❍ /install*:* <reply to a .py>*:* Install module
-Visit @suppporttxd for more information. """
+Visit @{SUPPORT_CHAT} for more information. """
 
 __mod_name__ = "SuperUser"

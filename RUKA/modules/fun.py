@@ -198,7 +198,7 @@ TEXT2 = """*‣ REPO OWNER:*
 • [Ishikki Akabane](t.me/ishikki_akabane) (◍•ᴗ•◍)
 ┈─╌┈─╌┈─╌┈─╌
 My source codes are now public, you can use them for creating your own bot
-Visit @suppporttxd if you face any issue related to the bot or for any kind of help
+Visit @BotsLAbXD if you face any issue related to the bot or for any kind of help
 **Click The Button Below To Get My Repo**""" #DONT REMOVE THIS CREDITS
 
 @run_async
