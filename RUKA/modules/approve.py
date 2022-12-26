@@ -1,11 +1,11 @@
 import html
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI import dispatcher, DRAGONS
-from SUMI.modules.helper_funcs.extraction import extract_user
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA import dispatcher, DRAGONS
+from RUKA.modules.helper_funcs.extraction import extract_user
 from telegram.ext import CallbackContext, run_async, CallbackQueryHandler
-import SUMI.modules.sql.approve_sql as sql
-from SUMI.modules.helper_funcs.chat_status import user_admin
-from SUMI.modules.log_channel import loggable
+import RUKA.modules.sql.approve_sql as sql
+from RUKA.modules.helper_funcs.chat_status import user_admin
+from RUKA.modules.log_channel import loggable
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Update
 from telegram.utils.helpers import mention_html
 from telegram.error import BadRequest
