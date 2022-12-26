@@ -266,7 +266,7 @@ antispam_help: |
      you and your groups by removing spam flooders as quickly as possible.
      *Note:* Users can appeal gbans or report spammers at @YorkTownEagleUnion
 
-     SUMI also integrates @Spamwatch API to remove Spammers as much as possible from your chatroom!
+     RUKA also integrates @Spamwatch API to remove Spammers as much as possible from your chatroom!
      *What is SpamWatch?*
      SpamWatch maintains a large constantly updated ban-list of spambots, trolls, bitcoin spammers and unsavoury characters.
      Constantly help banning spammers off from your group automatically So, you wont have to worry about spammers storming your group.
@@ -320,7 +320,7 @@ log_help: |
       • forwarding the `/setlog` to the group
 
 markdown_help_text: |
-      Markdown is a very powerful formatting tool supported by telegram. SUMI has some enhancements, to make sure that
+      Markdown is a very powerful formatting tool supported by telegram. RUKA has some enhancements, to make sure that
       saved messages are correctly parsed, and to allow you to create buttons.
 
       - <code>_italic_</code>: wrapping text with '_' will produce italic text
@@ -370,8 +370,8 @@ misc_help: |
       Tired of telegram's stupidity? well here you go
       *Available commands:*
       • /antichannel <on/off>: Bans and deletes anyone who tries to talk as channel and forces em to talk as themselves
-      • /antilinkedchan <on/off>: Makes SUMI automatically delete linked channel posts from chatroom
-      • /antichannelpin <on/off>: Makes SUMI automatically unpin linked channel posts from chatroom
+      • /antilinkedchan <on/off>: Makes RUKA automatically delete linked channel posts from chatroom
+      • /antichannelpin <on/off>: Makes RUKA automatically unpin linked channel posts from chatroom
 
 muting_help: |
       *Admins only:*
