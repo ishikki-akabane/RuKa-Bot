@@ -1,4 +1,4 @@
 @echo off
-TITLE SUMI
-:: Enables virtual env mode and then starts SUMI
-env\scripts\activate.bat && py -m SUMI
+TITLE RUKA
+:: Enables virtual env mode and then starts RUKA
+env\scripts\activate.bat && py -m RUKA
