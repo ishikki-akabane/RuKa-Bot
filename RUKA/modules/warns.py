@@ -16,26 +16,26 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 
-from SUMI import dispatcher  # BAN_STICKER
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.alternate import typing_action
-from SUMI.modules.helper_funcs.chat_status import (
+from RUKA import dispatcher  # BAN_STICKER
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.alternate import typing_action
+from RUKA.modules.helper_funcs.chat_status import (
     is_user_admin,
     bot_admin,
     user_admin_no_reply,
     user_admin,
     can_restrict,
 )
-from SUMI.modules.helper_funcs.extraction import (
+from RUKA.modules.helper_funcs.extraction import (
     extract_text,
     extract_user_and_text,
     extract_user,
 )
-from SUMI.modules.helper_funcs.filters import CustomFilters
-from SUMI.modules.helper_funcs.misc import split_message
-from SUMI.modules.helper_funcs.string_handling import split_quotes
-from SUMI.modules.log_channel import loggable
-from SUMI.modules.sql import warns_sql as sql
+from RUKA.modules.helper_funcs.filters import CustomFilters
+from RUKA.modules.helper_funcs.misc import split_message
+from RUKA.modules.helper_funcs.string_handling import split_quotes
+from RUKA.modules.log_channel import loggable
+from RUKA.modules.sql import warns_sql as sql
 
 WARN_HANDLER_GROUP = 9
 CURRENT_WARNING_FILTER_STRING = "<b>Current warning filters in this chat:</b>\n"
@@ -100,7 +100,7 @@ def warn(
                         "Remove Warn", callback_data="rm_warn({})".format(user.id)
                     ),
                     InlineKeyboardButton(
-                        "Rules", url="http://t.me/SUMI?start={}".format(chat.id)
+                        "Rules", url="http://t.me/RUKA?start={}".format(chat.id)
                     )
                 ]
             ]
