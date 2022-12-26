@@ -1,6 +1,6 @@
 
 
-from SUMI import REDIS
+from RUKA import REDIS
 
 
 # AFK
