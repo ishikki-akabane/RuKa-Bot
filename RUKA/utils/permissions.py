@@ -1,9 +1,9 @@
 from functools import wraps
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
-from SUMI import pbot as app
-from SUMI import DRAGONS, DEV_USERS, WOLVES, DEMONS, TIGERS
-from SUMI.utils.adminperms import member_permissions
+from RUKA import pbot as app
+from RUKA import DRAGONS, DEV_USERS, WOLVES, DEMONS, TIGERS
+from RUKA.utils.adminperms import member_permissions
 
 SUDO = DRAGONS, DEV_USERS, WOLVES, DEMONS, TIGERS
 
