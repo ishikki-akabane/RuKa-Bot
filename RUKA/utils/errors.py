@@ -2,7 +2,7 @@
 import sys
 import traceback
 from functools import wraps
-from SUMI import pgram, SUPPORT_CHAT
+from RUKA import pgram, SUPPORT_CHAT
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 
 
