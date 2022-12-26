@@ -1,10 +1,10 @@
 from telegram.ext.filters import Filters
-from SUMI.modules.helper_funcs.decorators import SUMIcmd, SUMImsg
+from RUKA.modules.helper_funcs.decorators import SUMIcmd, SUMImsg
 from telegram import Update, message
 from telegram.ext import CallbackContext
-from SUMI.modules.helper_funcs.anonymous import user_admin, AdminPerms
+from RUKA.modules.helper_funcs.anonymous import user_admin, AdminPerms
 import html
-from SUMI.modules.sql.antichannel_sql import antichannel_status, disable_antichannel, enable_antichannel
+from RUKA.modules.sql.antichannel_sql import antichannel_status, disable_antichannel, enable_antichannel
 
 
 @SUMIcmd(command="antichannel", group=100)
