@@ -8,21 +8,21 @@ import importlib
 from functools import partial
 from pyrogram import Client , filters
 from pyrogram.types import Message
-import SUMI.modules.sql.welcome_sql as sql
-from SUMI import (DEV_USERS, LOGGER, OWNER_ID, DRAGONS, DEMONS, TIGERS, BOT_USERNAME,
+import RUKA.modules.sql.welcome_sql as sql
+from RUKA import (DEV_USERS, LOGGER, OWNER_ID, DRAGONS, DEMONS, TIGERS, BOT_USERNAME,
                           WOLVES, sw, dispatcher, EVENT_LOGS, JOIN_LOGGER, pgram)
-from SUMI.modules.helper_funcs.chat_status import (
+from RUKA.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
     user_admin,
 )
-from SUMI.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from SUMI.modules.helper_funcs.msg_types import get_welcome_type
-from SUMI.modules.helper_funcs.string_handling import (
+from RUKA.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from RUKA.modules.helper_funcs.msg_types import get_welcome_type
+from RUKA.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
     markdown_parser,
 )
-from SUMI.modules.log_channel import loggable
-from SUMI.modules.sql.global_bans_sql import is_user_gbanned
+from RUKA.modules.log_channel import loggable
+from RUKA.modules.sql.global_bans_sql import is_user_gbanned
 from telegram import (
     ChatPermissions,
     InlineKeyboardButton,
@@ -40,8 +40,8 @@ from telegram.ext import (
     run_async,
 )
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
-from SUMI.modules.helper_funcs.misc import paginate_modules
-from SUMI.modules import ALL_MODULES
+from RUKA.modules.helper_funcs.misc import paginate_modules
+from RUKA.modules import ALL_MODULES
 
 VALID_WELCOME_FORMATTERS = [
     "first",
@@ -55,10 +55,10 @@ VALID_WELCOME_FORMATTERS = [
 ]
 
 
-SUMI_RESP = "https://te.legra.ph/file/918c725fedd1dc7546629.jpg"
-SUMI_DIS_WEL = "https://te.legra.ph/file/5dac11bee50894b3bf0d3.jpg"
-SUMI_OWNER_WEL_IMG = "https://te.legra.ph/file/5643139a70fd89238e6ca.jpg"
-SUMI_WELCOME = "https://te.legra.ph/file/52b423bc8c9886fb03aab.jpg"
+RUKA_RESP = "https://te.legra.ph/file/918c725fedd1dc7546629.jpg"
+RUKA_DIS_WEL = "https://te.legra.ph/file/5dac11bee50894b3bf0d3.jpg"
+RUKA_OWNER_WEL_IMG = "https://te.legra.ph/file/5643139a70fd89238e6ca.jpg"
+RUKA_WELCOME = "https://te.legra.ph/file/52b423bc8c9886fb03aab.jpg"
 NETWORK_USERNAME = "kazumaclanXD"
 NETWORK_NAME = "Kazuma Clan"
 
@@ -199,7 +199,7 @@ def new_member(update: Update, context: CallbackContext):
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_video(
-                SUMI_OWNER_WEL_IMG, caption= "Behold!!! Owner Of @{BOT_USERNAME} Joined Your Chat.",
+                RUKA_OWNER_WEL_IMG, caption= "Behold!!! Owner Of @{BOT_USERNAME} Joined Your Chat.",
                     reply_to_message_id=reply)
                 welcome_log = (f"{html.escape(chat.title)}\n"
                                f"#USER_JOINED\n"
@@ -209,7 +209,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
                 update.effective_message.reply_photo(
-                SUMI_DIS_WEL, caption= "Be cool! one of the devs just joined.",
+                RUKA_DIS_WEL, caption= "Be cool! one of the devs just joined.",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -217,7 +217,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Sudos
             elif new_mem.id in DRAGONS:
                 update.effective_message.reply_photo(
-                SUMI_DIS_WEL, caption= "Whoa! A Dragon disaster just joined! Stay Alert!",
+                RUKA_DIS_WEL, caption= "Whoa! A Dragon disaster just joined! Stay Alert!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -246,7 +246,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome yourself
             elif new_mem.id == bot.id:
                 update.effective_message.reply_photo(
-                SUMI_WELCOME, caption= "Hey {}, I'm {}!\n❤️ Thank You For Adding Me To {}\n"
+                RUKA_WELCOME, caption= "Hey {}, I'm {}!\n❤️ Thank You For Adding Me To {}\n"
                     "Check Out Our Support Channel And Network From The Buttons Below!".format(
                       user.first_name, context.bot.first_name, chat.title
                     ),
@@ -274,7 +274,7 @@ def new_member(update: Update, context: CallbackContext):
 
             elif new_mem.id == 5030730429:
                 update.effective_message.reply_photo(
-                SUMI_RESP, caption= "Ohh damn, Legend Arrives\nHow are you sir",
+                RUKA_RESP, caption= "Ohh damn, Legend Arrives\nHow are you sir",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -1049,7 +1049,7 @@ def __chat_settings__(chat_id, user_id):
 HELPABLE = {}
 
 HELP_STRINGS = """
-Hey [{}](tg://user?id={}) your *SUMI* is here! 
+Hey [{}](tg://user?id={}) your *RUKA* is here! 
 I Help Admins To Manage Their Groups! 
 Main commands available :
  ➢ /help: PM's you this message.
@@ -1062,7 +1062,7 @@ For all command use / or !
 """
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("SUMI.modules." +
+    imported_module = importlib.import_module("RUKA.modules." +
                                               module_name)
     if hasattr(imported_module, "__help__") and imported_module.__help__:
         HELPABLE[imported_module.__mod_name__.lower()] = imported_module
