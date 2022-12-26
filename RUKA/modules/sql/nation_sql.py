@@ -4,7 +4,7 @@ import traceback
 from sqlalchemy.sql.sqltypes import BigInteger
 from sqlalchemy import Column, String
 from sqlalchemy.dialects import postgresql
-from SUMI.modules.sql import BASE, SESSION
+from RUKA.modules.sql import BASE, SESSION
 
 class Royals(BASE):
 
