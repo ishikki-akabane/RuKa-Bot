@@ -4,9 +4,9 @@ from typing import List
 from telegram import Update
 from telegram.ext import run_async, CallbackContext
 
-from SUMI import dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.chat_status import user_admin
+from RUKA import dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.chat_status import user_admin
 
 # sleep how many times after each edit in 'love'
 EDIT_SLEEP = 1
