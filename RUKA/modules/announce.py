@@ -5,13 +5,13 @@ from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
 from RUKA.modules.log_channel import loggable
-from RUKA.modules.helper_funcs.decorators import SUMIcmd
+from RUKA.modules.helper_funcs.decorators import RUKAcmd
 
 import RUKA.modules.sql.logger_sql as sql
 from RUKA.modules.helper_funcs.anonymous import user_admin as u_admin, AdminPerms
 
 
-@SUMIcmd(command="announce", pass_args=True)
+@RUKAcmd(command="announce", pass_args=True)
 @u_admin(AdminPerms.CAN_CHANGE_INFO)
 @loggable
 def announcestat(update: Update, context: CallbackContext) -> str:
