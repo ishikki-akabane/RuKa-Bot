@@ -6,11 +6,11 @@ from telegram import ParseMode, Update, ChatPermissions
 from telegram.ext import CallbackContext, run_async
 from telegram.error import BadRequest
 
-import SUMI.modules.game_strings as game_strings
-from SUMI import dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.chat_status import (is_user_admin)
-from SUMI.modules.helper_funcs.extraction import extract_user
+import RUKA.modules.game_strings as game_strings
+from RUKA import dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.chat_status import (is_user_admin)
+from RUKA.modules.helper_funcs.extraction import extract_user
 
 
 @run_async
