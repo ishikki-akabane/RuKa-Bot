@@ -2,8 +2,8 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from SUMI import pgram as app
-from SUMI.utils.errors import capture_err
+from RUKA import pgram as app
+from RUKA.utils.errors import capture_err
 
 __mod_name__ = "WebSS"
 __help__ = "➢ /webss | .webss [URL] - Take A Screenshot Of A Webpage"
