@@ -7,9 +7,9 @@ import time
 import psutil
 from pyrogram import filters
 
-from SUMI import (StartTime, DEV_USERS, BOT_NAME, pgram)
-import SUMI.utils.formatter as formatter
-import SUMI.modules.sql.users_sql as sql
+from RUKA import (StartTime, DEV_USERS, BOT_NAME, pgram)
+import RUKA.utils.formatter as formatter
+import RUKA.modules.sql.users_sql as sql
 
 
 
