@@ -12,9 +12,9 @@ from telethon.errors import *
 from telethon.tl import *
 from telethon import *
 
-from SUMI import DRAGONS, DEV_USERS, OWNER_ID, dispatcher, telethn as bot
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.chat_status import (
+from RUKA import DRAGONS, DEV_USERS, OWNER_ID, dispatcher, telethn as bot
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.chat_status import (
     bot_admin,
     can_pin,
     can_promote,
@@ -27,12 +27,12 @@ from SUMI.modules.helper_funcs.chat_status import (
     can_manage_voice_chats,
 )
 
-from SUMI.modules.helper_funcs.extraction import (
+from RUKA.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from SUMI.modules.log_channel import loggable
-from SUMI.modules.helper_funcs.alternate import send_message
+from RUKA.modules.log_channel import loggable
+from RUKA.modules.helper_funcs.alternate import send_message
 
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
