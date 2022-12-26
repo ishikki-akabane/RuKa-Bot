@@ -297,7 +297,7 @@ def start(update: Update, context: CallbackContext):
                   [
                        InlineKeyboardButton(
                              text="Support",
-                             url="t.me/Suppporttxd"),
+                             url="t.me/BotsLabXD"),
                        InlineKeyboardButton(
                              text="Updates",
                              url="t.me/Updatesxd")
