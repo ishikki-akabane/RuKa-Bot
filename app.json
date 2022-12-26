@@ -24,16 +24,6 @@
       "required": true,
       "value": ""
    },
-   "BOT_USERNAME": {
-      "description": "Your bot username without @.",
-      "required": false,
-      "value": "RUKAAXDbot"
-   },
-   "BOT_NAME": {
-      "description": "Your bot Name.",
-      "required": false,
-      "value": "RUKA"
-   },
    "API_ID": {
       "description": "Get API_ID from my.telegram.org, used for telethon based modules.",
       "required": true,
