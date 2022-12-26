@@ -1,8 +1,8 @@
 from typing import Optional
 
-import SUMI.modules.sql.rules_sql as sql
-from SUMI import dispatcher
-from SUMI.modules.helper_funcs.string_handling import markdown_parser
+import RUKA.modules.sql.rules_sql as sql
+from RUKA import dispatcher
+from RUKA.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -14,8 +14,8 @@ from telegram import (
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters
 from telegram.utils.helpers import escape_markdown
-from SUMI.modules.helper_funcs.decorators import SUMIcmd
-from SUMI.modules.helper_funcs.anonymous import user_admin, AdminPerms
+from RUKA.modules.helper_funcs.decorators import SUMIcmd
+from RUKA.modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 
 @SUMIcmd(command='rules', filters=Filters.chat_type.groups)
@@ -121,7 +121,7 @@ def __chat_settings__(chat_id, user_id):
     return f"This chat has had it's rules set: `{bool(sql.get_rules(chat_id))}`"
 
 
-from SUMI.modules.language import gs
+from RUKA.modules.language import gs
 
 
 def get_help(chat):
