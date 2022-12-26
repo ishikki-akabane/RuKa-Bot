@@ -13,23 +13,23 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import escape_markdown, mention_html
 
-from SUMI import DRAGONS, LOGGER, dispatcher
-from SUMI.modules.connection import connected
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.alternate import send_message, typing_action
-from SUMI.modules.helper_funcs.chat_status import user_admin
-from SUMI.modules.helper_funcs.extraction import extract_text
-from SUMI.modules.helper_funcs.filters import CustomFilters
-from SUMI.modules.helper_funcs.handlers import MessageHandlerChecker
-from SUMI.modules.helper_funcs.misc import build_keyboard_parser
-from SUMI.modules.helper_funcs.msg_types import get_filter_type
-from SUMI.modules.helper_funcs.string_handling import (
+from RUKA import DRAGONS, LOGGER, dispatcher
+from RUKA.modules.connection import connected
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.alternate import send_message, typing_action
+from RUKA.modules.helper_funcs.chat_status import user_admin
+from RUKA.modules.helper_funcs.extraction import extract_text
+from RUKA.modules.helper_funcs.filters import CustomFilters
+from RUKA.modules.helper_funcs.handlers import MessageHandlerChecker
+from RUKA.modules.helper_funcs.misc import build_keyboard_parser
+from RUKA.modules.helper_funcs.msg_types import get_filter_type
+from RUKA.modules.helper_funcs.string_handling import (
     button_markdown_parser,
     escape_invalid_curly_brackets,
     markdown_to_html,
     split_quotes,
 )
-from SUMI.modules.sql import cust_filters_sql as sql
+from RUKA.modules.sql import cust_filters_sql as sql
 
 HANDLER_GROUP = 10
 
