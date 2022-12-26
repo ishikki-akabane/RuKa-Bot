@@ -6,7 +6,7 @@ from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins
 
-from SUMI import telethn, OWNER_ID, DEV_USERS, DRAGONS, DEMONS
+from RUKA import telethn, OWNER_ID, DEV_USERS, DRAGONS, DEMONS
 
 # =================== CONSTANT ===================
 
@@ -97,7 +97,7 @@ async def rm_deletedacc(show):
     await memek.edit(del_status)
         
 from telethon.tl.types import UserStatusLastMonth, UserStatusLastWeek, ChatBannedRights
-from SUMI.events import register
+from RUKA.events import register
 from telethon import *
 from telethon.tl.functions.channels import (EditBannedRequest)
                                             
