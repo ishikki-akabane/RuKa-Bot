@@ -1089,7 +1089,7 @@ def help_button(update, context):
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Back",
                                        callback_data="help_back"),
                   InlineKeyboardButton(text="Support",
-                                       url="t.me/AsukaSupport")]]))
+                                       url="t.me/botslab")]]))
 
         elif prev_match:
             curr_page = int(prev_match.group(1))
