@@ -1,8 +1,8 @@
 import time
 from telethon import events
 
-from SUMI import telethn
-from SUMI.modules.helper_funcs.telethn.chatstatus import (
+from RUKA import telethn
+from RUKA.modules.helper_funcs.telethn.chatstatus import (
     can_delete_messages,
     user_is_admin,
 )
