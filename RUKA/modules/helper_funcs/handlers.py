@@ -1,6 +1,6 @@
-import SUMI.modules.sql.blacklistusers_sql as sql
-from SUMI import ALLOW_EXCL
-from SUMI import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES
+import RUKA.modules.sql.blacklistusers_sql as sql
+from RUKA import ALLOW_EXCL
+from RUKA import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES
 
 from telegram import Update
 from telegram.ext import CommandHandler, MessageHandler, RegexHandler, Filters
