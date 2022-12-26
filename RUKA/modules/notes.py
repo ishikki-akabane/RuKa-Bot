@@ -2,13 +2,13 @@ import re, ast, random
 from io import BytesIO
 from typing import Optional
 
-import SUMI.modules.sql.notes_sql as sql
-from SUMI import LOGGER, dispatcher, DRAGONS
-from SUMI.modules.helper_funcs.chat_status import connection_status
-from SUMI.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from SUMI.modules.helper_funcs.msg_types import get_note_type
-from SUMI.modules.helper_funcs.handlers import MessageHandlerChecker
-from SUMI.modules.helper_funcs.string_handling import escape_invalid_curly_brackets
+import RUKA.modules.sql.notes_sql as sql
+from RUKA import LOGGER, dispatcher, DRAGONS
+from RUKA.modules.helper_funcs.chat_status import connection_status
+from RUKA.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from RUKA.modules.helper_funcs.msg_types import get_note_type
+from RUKA.modules.helper_funcs.handlers import MessageHandlerChecker
+from RUKA.modules.helper_funcs.string_handling import escape_invalid_curly_brackets
 from telegram import (
     MAX_MESSAGE_LENGTH,
     InlineKeyboardMarkup,
@@ -24,7 +24,7 @@ from telegram.ext import (
     Filters,
 )
 
-from SUMI.modules.helper_funcs.decorators import SUMIcmd, SUMImsg, SUMIcallback
+from RUKA.modules.helper_funcs.decorators import SUMIcmd, SUMImsg, SUMIcallback
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
@@ -509,7 +509,7 @@ def __chat_settings__(chat_id, user_id):
     notes = sql.get_all_chat_notes(chat_id)
     return f"There are `{len(notes)}` notes in this chat."
 
-from SUMI.modules.language import gs
+from RUKA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "notes_help")
