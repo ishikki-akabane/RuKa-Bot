@@ -4,10 +4,10 @@ from collections.abc import Iterable
 from telegram.ext import CommandHandler, CallbackQueryHandler
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 
-from SUMI import dispatcher
-import SUMI.modules.sql.language_sql as sql
-from SUMI.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from SUMI.langs import get_string, get_languages, get_language
+from RUKA import dispatcher
+import RUKA.modules.sql.language_sql as sql
+from RUKA.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from RUKA.langs import get_string, get_languages, get_language
 
 
 
