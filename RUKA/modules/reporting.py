@@ -1,10 +1,10 @@
 import html
 
-from SUMI import (LOGGER, DRAGONS, TIGERS, WOLVES, dispatcher)
-from SUMI.modules.helper_funcs.chat_status import (user_admin,
+from RUKA import (LOGGER, DRAGONS, TIGERS, WOLVES, dispatcher)
+from RUKA.modules.helper_funcs.chat_status import (user_admin,
                                                            user_not_admin)
-from SUMI.modules.log_channel import loggable
-from SUMI.modules.sql import reporting_sql as sql
+from RUKA.modules.log_channel import loggable
+from RUKA.modules.sql import reporting_sql as sql
 from telegram import (Chat, InlineKeyboardButton, InlineKeyboardMarkup,
                       ParseMode, Update)
 from telegram.error import BadRequest, Unauthorized
