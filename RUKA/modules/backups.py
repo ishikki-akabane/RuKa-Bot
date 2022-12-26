@@ -312,7 +312,7 @@ def export_data(update, context):
         },
     }
     baccinfo = json.dumps(backup, indent=4)
-    f = open("Asuka {}.backup".format(chat_id), "w")
+    f = open("Ruka {}.backup".format(chat_id), "w")
     f.write(str(baccinfo))
     f.close()
     context.bot.sendChatAction(current_chat_id, "upload_document")
