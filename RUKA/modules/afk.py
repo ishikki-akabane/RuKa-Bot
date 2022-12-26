@@ -8,14 +8,14 @@ from telegram import MessageEntity, ParseMode
 from telegram.error import BadRequest
 from telegram.ext import Filters, MessageHandler, run_async
 
-from SUMI import dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
-from SUMI.modules.redis.afk_redis import start_afk, end_afk, is_user_afk, afk_reason
-from SUMI import REDIS
-from SUMI.modules.users import get_user_id
+from RUKA import dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
+from RUKA.modules.redis.afk_redis import start_afk, end_afk, is_user_afk, afk_reason
+from RUKA import REDIS
+from RUKA.modules.users import get_user_id
 
-from SUMI.modules.helper_funcs.alternate import send_message
-from SUMI.modules.helper_funcs.readable_time import get_readable_time
+from RUKA.modules.helper_funcs.alternate import send_message
+from RUKA.modules.helper_funcs.readable_time import get_readable_time
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
