@@ -3,12 +3,12 @@ import random
 import time
 
 from pyjokes import get_joke  #thanks to @ishikki_akabane who did nothing and just copypasted this joke feature
-from SUMI.events import register
-import SUMI.modules.fun_strings as fun_strings
-from SUMI import dispatcher, COTB
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.chat_status import is_user_admin
-from SUMI.modules.helper_funcs.extraction import extract_user
+from RUKA.events import register
+import RUKA.modules.fun_strings as fun_strings
+from RUKA import dispatcher, COTB
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.chat_status import is_user_admin
+from RUKA.modules.helper_funcs.extraction import extract_user
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ChatPermissions, ParseMode, Update)
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, run_async
@@ -209,7 +209,7 @@ def repo(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                InlineKeyboardButton(text="Source CODE", url="https://github.com/ishikki-akabane/SUMI"),
+                InlineKeyboardButton(text="Source CODE", url="https://github.com/ishikki-akabane/RUKA"),
                 InlineKeyboardButton(text="DEVELOPER", url="https://t.me/ishikki_akabane")
                 ]
             ]
