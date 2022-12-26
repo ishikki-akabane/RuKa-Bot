@@ -2,9 +2,9 @@ import sre_constants
 
 import regex
 import telegram
-from SUMI import LOGGER, dispatcher
-from SUMI.modules.disable import DisableAbleMessageHandler
-from SUMI.modules.helper_funcs.regex_helper import (infinite_loop_check)
+from RUKA import LOGGER, dispatcher
+from RUKA.modules.disable import DisableAbleMessageHandler
+from RUKA.modules.helper_funcs.regex_helper import (infinite_loop_check)
 from telegram import Update
 from telegram.ext import CallbackContext, Filters, run_async
 
