@@ -3,8 +3,8 @@
 import os
 import secureme
 
-from SUMI import telethn
-from SUMI.events import register
+from RUKA import telethn
+from RUKA.events import register
 
 @register(pattern="^/encrypt ?(.*)")
 async def hmm(event):
