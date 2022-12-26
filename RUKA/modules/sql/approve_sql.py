@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, String, UnicodeText, BigInteger, func, distinct
 
-from SUMI.modules.sql import BASE, SESSION
+from RUKA.modules.sql import BASE, SESSION
 
 
 class Approvals(BASE):
