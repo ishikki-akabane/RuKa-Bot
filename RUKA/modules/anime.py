@@ -5,8 +5,8 @@ import textwrap
 import bs4
 import jikanpy
 import requests
-from SUMI import dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler
+from RUKA import dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
 
