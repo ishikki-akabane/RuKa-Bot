@@ -6,18 +6,18 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, MessageHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-import SUMI.modules.sql.blacklist_sql as sql
-from SUMI import dispatcher, LOGGER
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from SUMI.modules.helper_funcs.extraction import extract_text
-from SUMI.modules.helper_funcs.misc import split_message
-from SUMI.modules.log_channel import loggable
-from SUMI.modules.warns import warn
-from SUMI.modules.helper_funcs.string_handling import extract_time
-from SUMI.modules.connection import connected
+import RUKA.modules.sql.blacklist_sql as sql
+from RUKA import dispatcher, LOGGER
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from RUKA.modules.helper_funcs.extraction import extract_text
+from RUKA.modules.helper_funcs.misc import split_message
+from RUKA.modules.log_channel import loggable
+from RUKA.modules.warns import warn
+from RUKA.modules.helper_funcs.string_handling import extract_time
+from RUKA.modules.connection import connected
 
-from SUMI.modules.helper_funcs.alternate import send_message, typing_action
+from RUKA.modules.helper_funcs.alternate import send_message, typing_action
 
 BLACKLIST_GROUP = 11
 
