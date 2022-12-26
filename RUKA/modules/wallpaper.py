@@ -1,8 +1,8 @@
 from random import randint
 
 import requests as r
-from SUMI import SUPPORT_CHAT, WALL_API, dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler
+from RUKA import SUPPORT_CHAT, WALL_API, dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler
 from telegram import Update
 from telegram.ext import CallbackContext, run_async
 
