@@ -2,9 +2,9 @@ from datetime import datetime
 from functools import wraps
 
 from telegram.ext import CallbackContext
-from SUMI.modules.helper_funcs.decorators import SUMIcmd, SUMIcallback
-from SUMI.modules.helper_funcs.misc import is_module_loaded
-from SUMI.modules.language import gs
+from RUKA.modules.helper_funcs.decorators import SUMIcmd, SUMIcallback
+from RUKA.modules.helper_funcs.misc import is_module_loaded
+from RUKA.modules.language import gs
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
@@ -20,9 +20,9 @@ if is_module_loaded(FILENAME):
     from telegram.error import BadRequest, Unauthorized
     from telegram.utils.helpers import escape_markdown
 
-    from SUMI import EVENT_LOGS as GBAN_LOGS, LOGGER as log, dispatcher
-    from SUMI.modules.helper_funcs.chat_status import user_admin as u_admin, is_user_admin
-    from SUMI.modules.sql import log_channel_sql as sql
+    from RUKA import EVENT_LOGS as GBAN_LOGS, LOGGER as log, dispatcher
+    from RUKA.modules.helper_funcs.chat_status import user_admin as u_admin, is_user_admin
+    from RUKA.modules.sql import log_channel_sql as sql
 
 
     def loggable(func):
@@ -253,7 +253,7 @@ def log_settings(update: Update, _: CallbackContext):
     msg.reply_text("Toggle channel log settings", reply_markup=btn)
 
 
-from SUMI.modules.sql import log_channel_sql as sql
+from RUKA.modules.sql import log_channel_sql as sql
 
 
 @SUMIcallback(pattern=r"log_tog_.*")
