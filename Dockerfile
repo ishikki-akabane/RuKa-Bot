@@ -1,6 +1,6 @@
 FROM python:3.10.1-buster
 
-WORKDIR /root/SUMI
+WORKDIR /root/RUKA
 
 COPY . .
 
