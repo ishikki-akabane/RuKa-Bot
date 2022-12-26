@@ -1,19 +1,16 @@
 from PIL import Image, ImageFont, ImageDraw
-
 import textwrap
-
 import os
 
-from SUMI.events import register
-
-from SUMI import (
+from RUKA.events import register
+from RUKA import (
     LOGGER,
     TEMP_DOWNLOAD_DIRECTORY
     )
 
 
 
-from SUMI import telethn as bot 
+from RUKA import telethn as bot 
 
 
 @register(pattern="^/mmf ?(.*)")
@@ -73,7 +70,7 @@ async def drawText(image_path, text):
 
     else:
 
-        fnt = "./SUMI/resources/default.ttf"
+        fnt = "./RUKA/resources/default.ttf"
 
     m_font = ImageFont.truetype(fnt, int((70 / 640) * i_width))
 
