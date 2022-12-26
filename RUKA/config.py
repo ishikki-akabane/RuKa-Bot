@@ -79,7 +79,7 @@ class Config(object):
 
 #Damn, it was tough for me to rewrite this whole, please don't remove the credits from the code, i did too much hardwork for this
 #if you face any problem in the bot or its code, please let me know, i will try my best to fix it.
-#you can directly pm me(t.me/ishikki_akabane) or you can come in our support group (t.me/suppporttxd)
+#you can directly pm me(t.me/ishikki_akabane) or you can come in our support group (t.me/BotsLabXD)
 #thankyou
 
 class Production(Config):
