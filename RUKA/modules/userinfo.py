@@ -22,7 +22,7 @@ from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
     
-from SUMI import (
+from RUKA import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -38,18 +38,18 @@ from SUMI import (
     NETWORK_USERNAME,
     NETWORK_NAME
 )
-from SUMI.__main__ import STATS, TOKEN, USER_INFO
-from SUMI.modules.sql import SESSION
-import SUMI.modules.sql.userinfo_sql as sql
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.sql.global_bans_sql import is_user_gbanned
-from SUMI.modules.redis.afk_redis import is_user_afk, afk_reason
-from SUMI.modules.sql.users_sql import get_user_num_chats
-from SUMI.modules.helper_funcs.chat_status import sudo_plus
-from SUMI.modules.helper_funcs.extraction import extract_user
-from SUMI import telethn
+from RUKA.__main__ import STATS, TOKEN, USER_INFO
+from RUKA.modules.sql import SESSION
+import RUKA.modules.sql.userinfo_sql as sql
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.sql.global_bans_sql import is_user_gbanned
+from RUKA.modules.redis.afk_redis import is_user_afk, afk_reason
+from RUKA.modules.sql.users_sql import get_user_num_chats
+from RUKA.modules.helper_funcs.chat_status import sudo_plus
+from RUKA.modules.helper_funcs.extraction import extract_user
+from RUKA import telethn
 
-SUMI_STATS_PIC = "https://te.legra.ph/file/cb81518d97562d5eca417.jpg"
+RUKA_STATS_PIC = "https://te.legra.ph/file/cb81518d97562d5eca417.jpg"
 
 def no_by_per(totalhp, percentage):
     """
@@ -464,7 +464,7 @@ def stats(update, context):
     status += "*➢ Uptime:* " + str(botuptime) + "\n"
     try:
         update.effective_message.reply_photo(
-            SUMI_STATS_PIC,
+            RUKA_STATS_PIC,
             status
             + "\n*Bot statistics*:\n"
             + "\n".join([mod.__stats__() for mod in STATS])
@@ -507,9 +507,9 @@ def stats(update, context):
 
 
 def stats1(update: Update, context: CallbackContext):
-    stats = "🌐 <b>⌈ Current SuMi Stats ⌋</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = "🌐 <b>⌈ Current RUKA Stats ⌋</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
-    update.effective_message.reply_photo(SUMI_STATS_PIC,caption=result, parse_mode=ParseMode.HTML)
+    update.effective_message.reply_photo(RUKA_STATS_PIC,caption=result, parse_mode=ParseMode.HTML)
 
 
 def about_bio(update: Update, context: CallbackContext):
