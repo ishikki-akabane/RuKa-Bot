@@ -3,8 +3,8 @@
 from telegram import  Update, ParseMode 
 from telegram.ext import run_async ,CallbackContext
 from gpytranslate import SyncTranslator
-from SUMI import dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler
+from RUKA import dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler
 trans = SyncTranslator()
  
 def ttranslate(update: Update, context: CallbackContext) -> None:
