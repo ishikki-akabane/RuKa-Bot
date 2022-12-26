@@ -14,11 +14,11 @@ from telegram import (
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters
 from telegram.utils.helpers import escape_markdown
-from RUKA.modules.helper_funcs.decorators import SUMIcmd
+from RUKA.modules.helper_funcs.decorators import RUKAcmd
 from RUKA.modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 
-@SUMIcmd(command='rules', filters=Filters.chat_type.groups)
+@RUKAcmd(command='rules', filters=Filters.chat_type.groups)
 def get_rules(update: Update, _: CallbackContext):
     chat_id = update.effective_chat.id
     send_rules(update, chat_id)
@@ -77,7 +77,7 @@ def send_rules(update, chat_id, from_pm=False):
         )
 
 
-@SUMIcmd(command='setrules', filters=Filters.chat_type.groups)
+@RUKAcmd(command='setrules', filters=Filters.chat_type.groups)
 @user_admin(AdminPerms.CAN_CHANGE_INFO)
 def set_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
@@ -95,7 +95,7 @@ def set_rules(update: Update, context: CallbackContext):
         update.effective_message.reply_text("Successfully set rules for this group.")
 
 
-@SUMIcmd(command='clearrules', filters=Filters.chat_type.groups)
+@RUKAcmd(command='clearrules', filters=Filters.chat_type.groups)
 @user_admin(AdminPerms.CAN_CHANGE_INFO)
 def clear_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
