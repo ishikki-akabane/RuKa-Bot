@@ -1,6 +1,3 @@
-#Modules from AsukaRobot
-#credit goes to the original writer of this module
-
 import os
 import re
 import urllib
@@ -212,11 +209,6 @@ def scam(imgspage, lim):
     return imglinks
 
 
-REVERSE_HANDLER = DisableAbleCommandHandler(
-    ["reverse", "grs", "p", "pp", "lens"],
-    reverse,
-    pass_args=True,
-    run_async=True,
-)
+REVERSE_HANDLER = DisableAbleCommandHandler(["reverse", "grs", "p", "pp", "lens"], reverse, pass_args=True, run_async=True)
 
 dispatcher.add_handler(REVERSE_HANDLER)
