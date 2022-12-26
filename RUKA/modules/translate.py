@@ -7,7 +7,7 @@ from SUMI import dispatcher
 from SUMI.modules.disable import DisableAbleCommandHandler
 trans = SyncTranslator()
  
-def totranslate(update: Update, context: CallbackContext) -> None:
+def ttranslate(update: Update, context: CallbackContext) -> None:
     message = update.effective_message
     reply_msg = message.reply_to_message
     if not reply_msg:
@@ -15,7 +15,7 @@ def totranslate(update: Update, context: CallbackContext) -> None:
             "Reply to messages or write messages from other languages ​​for translating into the intended language\n\n"
             "Example: `/tr en-ja` to translate from English to Japanese\n"
             "Or use: `/tr ja` for automatic detection and translating it into japanese.\n"
-            "See [List of Language Codes](t.me/AsukaSuppport) for a list of language codes.",
+            "See [List of Language Codes](t.me/botslabxd) for a list of language codes.",
             parse_mode="markdown",
             disable_web_page_preview=True)
         return
@@ -48,7 +48,7 @@ __help__ = """ You can translate messages on telegram in a simple way
 """
 __mod_name__ = "Translator"
  
-TRANSLATE_HANDLER = DisableAbleCommandHandler(["tr", "tl"], totranslate, run_async=True)
+TRANSLATE_HANDLER = DisableAbleCommandHandler(["tr", "tl"], ttranslate, run_async=True)
  
 dispatcher.add_handler(TRANSLATE_HANDLER)
  
