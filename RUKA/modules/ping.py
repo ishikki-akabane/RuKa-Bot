@@ -5,7 +5,7 @@ import re
 import os
 import asyncio
 from typing import List
-from SUMI.modules.sudoers import bot_sys_stats
+from RUKA.modules.sudoers import bot_sys_stats
 
 import requests
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
@@ -18,9 +18,9 @@ from telegram.ext import (
     MessageHandler,
 )
 
-from SUMI import StartTime, dispatcher, pgram
+from RUKA import StartTime, dispatcher, pgram
 from pyrogram import filters
-from SUMI.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.disable import DisableAbleCommandHandler
 
 sites_list = {
     "Telegram": "https://api.telegram.org",
