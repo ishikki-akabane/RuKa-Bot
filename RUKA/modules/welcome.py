@@ -533,7 +533,7 @@ def left_member(update: Update, context: CallbackContext):
             
             elif left_mem.id == 5030730429:
                 update.effective_message.reply_text(
-                    "See you later at the @Suppporttxd!",
+                    "See you later at the @BotsLabXD!",
                     reply_to_message_id=reply,
                 )
                 return
