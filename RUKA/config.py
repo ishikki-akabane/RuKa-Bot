@@ -65,12 +65,12 @@ class Config(object):
     ARQ_API_KEY = "" #For Some Modules. Get it from @ArqRobot
     
     #media
-    SUMI_STATS_PIC = "" #Paste link of your image which will be shown when you send /stats
-    SUMI_WELCOME = "" #Paste link of your image which will be shown when someone adds the bot to group
-    SUMI_DIS_WEL = "" #Paste link of your image which will be shown to welcome dragons and dev Disasters when they join a group 
-    SUMI_OWNER_WEL_IMG = "" #Paste link of your image which will be shown to welcome the owner in the group when he joins
-    SUMI_DISPACHER_PIC = "" #Paste link of your image which will be shown when you deploy your bot
-    SUMI_HELP_PIC = "" #Paste link of your image which will be shown
+    RUKA_STATS_PIC = "" #Paste link of your image which will be shown when you send /stats
+    RUKA_WELCOME = "" #Paste link of your image which will be shown when someone adds the bot to group
+    RUKA_DIS_WEL = "" #Paste link of your image which will be shown to welcome dragons and dev Disasters when they join a group 
+    RUKA_OWNER_WEL_IMG = "" #Paste link of your image which will be shown to welcome the owner in the group when he joins
+    RUKA_DISPACHER_PIC = "" #Paste link of your image which will be shown when you deploy your bot
+    RUKA_HELP_PIC = "" #Paste link of your image which will be shown
     PM_IMAGE = "" #Paste link of your image which will be shown in the pm start when you send /start in bot's pm
     GROUPSTART_VID = "" #Paste link of your video or gif which will be shown when you send /start in groups
     GROUP_ALIVE_PIC = "" #Paste link of your image which will be shown when you send /alive.
