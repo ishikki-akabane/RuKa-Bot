@@ -10,11 +10,11 @@ from telegram.ext import (
     CommandHandler,
 )
 
-import SUMI.modules.sql.users_sql as sql
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI import DEV_USERS, LOGGER, OWNER_ID, dispatcher
-from SUMI.modules.helper_funcs.chat_status import dev_plus, sudo_plus
-from SUMI.modules.sql.users_sql import get_all_users
+import RUKA.modules.sql.users_sql as sql
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA import DEV_USERS, LOGGER, OWNER_ID, dispatcher
+from RUKA.modules.helper_funcs.chat_status import dev_plus, sudo_plus
+from RUKA.modules.sql.users_sql import get_all_users
 
 
 USERS_GROUP = 4
