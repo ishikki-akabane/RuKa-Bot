@@ -16,10 +16,10 @@ from telegram.utils.helpers import mention_html
 from typing import Optional, List
 from telegram import TelegramError
 
-import SUMI.modules.sql.users_sql as sql
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.filters import CustomFilters
-from SUMI import (
+import RUKA.modules.sql.users_sql as sql
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.filters import CustomFilters
+from RUKA import (
     DEV_USERS,
     LOGGER,
     OWNER_ID,
@@ -31,7 +31,7 @@ from SUMI import (
     COTB,
     dispatcher,
 )
-from SUMI.modules.helper_funcs.chat_status import (
+from RUKA.modules.helper_funcs.chat_status import (
     user_admin_no_reply,
     bot_admin,
     can_restrict,
@@ -44,9 +44,9 @@ from SUMI.modules.helper_funcs.chat_status import (
     can_delete,
     dev_plus,
 )
-from SUMI.modules.helper_funcs.extraction import extract_user_and_text
-from SUMI.modules.helper_funcs.string_handling import extract_time
-from SUMI.modules.log_channel import gloggable, loggable
+from RUKA.modules.helper_funcs.extraction import extract_user_and_text
+from RUKA.modules.helper_funcs.string_handling import extract_time
+from RUKA.modules.log_channel import gloggable, loggable
 
 
 

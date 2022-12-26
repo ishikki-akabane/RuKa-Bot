@@ -5,17 +5,17 @@ from telegram import ParseMode, Message
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async
 
-import SUMI.modules.sql.notes_sql as sql
-from SUMI import dispatcher, LOGGER, OWNER_ID, JOIN_LOGGER
-from SUMI.__main__ import DATA_IMPORT
-from SUMI.modules.helper_funcs.chat_status import user_admin
-from SUMI.modules.helper_funcs.alternate import typing_action
+import RUKA.modules.sql.notes_sql as sql
+from RUKA import dispatcher, LOGGER, OWNER_ID, JOIN_LOGGER
+from RUKA.__main__ import DATA_IMPORT
+from RUKA.modules.helper_funcs.chat_status import user_admin
+from RUKA.modules.helper_funcs.alternate import typing_action
 
-import SUMI.modules.sql.rules_sql as rulessql
-import SUMI.modules.sql.blacklist_sql as blacklistsql
-from SUMI.modules.sql import disable_sql as disabledsql
-import SUMI.modules.sql.locks_sql as locksql
-from SUMI.modules.connection import connected
+import RUKA.modules.sql.rules_sql as rulessql
+import RUKA.modules.sql.blacklist_sql as blacklistsql
+from RUKA.modules.sql import disable_sql as disabledsql
+import RUKA.modules.sql.locks_sql as locksql
+from RUKA.modules.connection import connected
 
 
 @run_async
