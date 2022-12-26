@@ -335,7 +335,7 @@ def export_data(update, context):
         reply_to_message_id=msg.message_id,
         parse_mode=ParseMode.MARKDOWN,
     )
-    os.remove("Asuka {}.backup".format(chat_id))  # Cleaning file
+    os.remove("Ruka {}.backup".format(chat_id))  # Cleaning file
 
 
 # Temporary data
