@@ -9,10 +9,10 @@ from io import BytesIO
 from datetime import datetime
 import random
 from telethon import events, Button, custom, version
-from SUMI.events import register
-from SUMI import telethn as tbot
-from SUMI import OWNER_ID, OWNER_NAME, COTB, GROUP_ALIVE_PIC, BOT_NAME
-from SUMI import StartTime, dispatcher
+from RUKA.events import register
+from RUKA import telethn as tbot
+from RUKA import OWNER_ID, OWNER_NAME, COTB, GROUP_ALIVE_PIC, BOT_NAME
+from RUKA import StartTime, dispatcher
 from telethon.tl.types import ChannelParticipantsAdmins
 from pyrogram import __version__ as pyro
 
