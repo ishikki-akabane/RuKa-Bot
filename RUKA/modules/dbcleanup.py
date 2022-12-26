@@ -1,9 +1,9 @@
 from time import sleep
 
-import SUMI.modules.sql.global_bans_sql as gban_sql
-import SUMI.modules.sql.users_sql as user_sql
-from SUMI import DEV_USERS, OWNER_ID, dispatcher
-from SUMI.modules.helper_funcs.chat_status import dev_plus
+import RUKA.modules.sql.global_bans_sql as gban_sql
+import RUKA.modules.sql.users_sql as user_sql
+from RUKA import DEV_USERS, OWNER_ID, dispatcher
+from RUKA.modules.helper_funcs.chat_status import dev_plus
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
