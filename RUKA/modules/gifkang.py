@@ -4,7 +4,7 @@ from typing import Dict, List, Union
 from html import escape
 import ffmpeg
 
-from SUMI import NO_LOAD
+from RUKA import NO_LOAD
 from telegram import MAX_MESSAGE_LENGTH, Bot, InlineKeyboardButton, ParseMode
 from telegram.error import TelegramError
 
