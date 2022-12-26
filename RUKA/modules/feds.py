@@ -8,8 +8,8 @@ import uuid
 from io import BytesIO
 import requests
 
-import SUMI.modules.sql.feds_sql as sql
-from SUMI import (
+import RUKA.modules.sql.feds_sql as sql
+from RUKA import (
     EVENT_LOGS,
     LOGGER,
     SUPPORT_CHAT,
@@ -20,18 +20,18 @@ from SUMI import (
     COTB,
     REPOSITORY,
 )
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.alternate import send_message
-from SUMI.modules.helper_funcs.chat_status import (
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.alternate import send_message
+from RUKA.modules.helper_funcs.chat_status import (
     is_user_admin,
     can_delete,
 )
-from SUMI.modules.helper_funcs.extraction import (
+from RUKA.modules.helper_funcs.extraction import (
     extract_unt_fedban,
     extract_user,
     extract_user_fban,
 )
-from SUMI.modules.helper_funcs.string_handling import markdown_parser
+from RUKA.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
