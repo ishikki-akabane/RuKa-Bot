@@ -456,14 +456,14 @@ greetings_help: |
       *Welcome markdown:*
        • `/welcomehelp`*:* view more formatting information for custom welcome/goodbye messages.
 
-nation_help: |
+super_help: |
       - /Lovers - Lists all KAZUMA CLAN members.
       - /dragons - Lists all SUDO.
       - /demons - Lists all SUPPORT.
       - /tigers - Lists all TIGERS.
       - /wolves - Lists all WOLVES.
       Note: These commands list users with special bot priveleges and can only be used by them.
-      You can visit @suppporttxd to query more about these.
+      You can visit @BotsLAbXD to query more about these.
 
 nlp_help: |
 
