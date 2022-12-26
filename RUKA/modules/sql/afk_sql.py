@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, UnicodeText, Boolean, BigInteger
 
-from SUMI.modules.sql import BASE, SESSION
+from RUKA.modules.sql import BASE, SESSION
 
 
 class AFK(BASE):
