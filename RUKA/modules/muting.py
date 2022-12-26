@@ -4,17 +4,17 @@ import html
 import re
 from typing import Optional
 
-from SUMI import LOGGER, TIGERS, dispatcher
-from SUMI.modules.helper_funcs.chat_status import (bot_admin,
+from RUKA import LOGGER, TIGERS, dispatcher
+from RUKA.modules.helper_funcs.chat_status import (bot_admin,
                                                           user_admin_no_reply,
                                                            can_restrict,
                                                            connection_status,
                                                            is_user_admin,
                                                            user_admin)
-from SUMI.modules.helper_funcs.extraction import (extract_user,
+from RUKA.modules.helper_funcs.extraction import (extract_user,
                                                           extract_user_and_text)
-from SUMI.modules.helper_funcs.string_handling import extract_time
-from SUMI.modules.log_channel import loggable
+from RUKA.modules.helper_funcs.string_handling import extract_time
+from RUKA.modules.log_channel import loggable
 
 from telegram import (
     Bot, 
