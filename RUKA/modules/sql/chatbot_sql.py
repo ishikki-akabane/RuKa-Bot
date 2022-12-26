@@ -1,7 +1,7 @@
 import threading
 
 from sqlalchemy import Column, String
-from SUMI.modules.sql import BASE, SESSION
+from RUKA.modules.sql import BASE, SESSION
 
 class KukiChats(BASE):
     __tablename__ = "kuki_chats"
