@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, UnicodeText, Integer, String, Boolean
 
-from SUMI.modules.sql import BASE, SESSION
+from RUKA.modules.sql import BASE, SESSION
 
 
 class GloballyMutedUsers(BASE):
