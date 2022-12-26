@@ -7,9 +7,9 @@ from PIL import Image
 from telegram import Update
 from telegram.ext import CallbackContext, run_async
 
-from SUMI import dispatcher
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.thonkify_dict import thonkifydict
+from RUKA import dispatcher
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.thonkify_dict import thonkifydict
 
 
 @run_async
