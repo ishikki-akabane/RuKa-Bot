@@ -8,13 +8,13 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Upda
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
-from SUMI.modules.log_channel import loggable
-from SUMI.modules.helper_funcs.anonymous import user_admin, AdminPerms
-from SUMI.modules.helper_funcs.chat_status import bot_admin, connection_status, user_admin_no_reply
-from SUMI.modules.helper_funcs.decorators import SUMIcmd, SUMIcallback
+from RUKA.modules.log_channel import loggable
+from RUKA.modules.helper_funcs.anonymous import user_admin, AdminPerms
+from RUKA.modules.helper_funcs.chat_status import bot_admin, connection_status, user_admin_no_reply
+from RUKA.modules.helper_funcs.decorators import SUMIcmd, SUMIcallback
 from .. import LOGGER, updater
 
-import SUMI.modules.sql.welcome_sql as sql
+import RUKA.modules.sql.welcome_sql as sql
 
 j = updater.job_queue
 
