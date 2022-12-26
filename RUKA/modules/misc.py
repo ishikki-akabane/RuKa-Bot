@@ -1,6 +1,6 @@
-from SUMI.modules.helper_funcs.chat_status import user_admin
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI import dispatcher
+from RUKA.modules.helper_funcs.chat_status import user_admin
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA import dispatcher
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram import ParseMode, Update
