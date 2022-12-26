@@ -1,7 +1,7 @@
 import subprocess
 
-from SUMI import LOGGER, dispatcher
-from SUMI.modules.helper_funcs.chat_status import dev_plus
+from RUKA import LOGGER, dispatcher
+from RUKA.modules.helper_funcs.chat_status import dev_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler
 from telegram.ext.dispatcher import run_async
