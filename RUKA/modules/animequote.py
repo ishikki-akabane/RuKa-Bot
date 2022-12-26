@@ -1,5 +1,3 @@
-#Owned By @TheKaizuryu & @Xelcius
-
 import json
 import requests
 import html
