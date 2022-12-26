@@ -1,18 +1,18 @@
 import html
 from typing import Optional
 
-import SUMI.modules.sql.blsticker_sql as sql
-from SUMI import LOGGER, dispatcher
-from SUMI.modules.connection import connected
-from SUMI.modules.disable import DisableAbleCommandHandler
-from SUMI.modules.helper_funcs.alternate import send_message
-from SUMI.modules.helper_funcs.chat_status import (user_admin,
+import RUKA.modules.sql.blsticker_sql as sql
+from RUKA import LOGGER, dispatcher
+from RUKA.modules.connection import connected
+from RUKA.modules.disable import DisableAbleCommandHandler
+from RUKA.modules.helper_funcs.alternate import send_message
+from RUKA.modules.helper_funcs.chat_status import (user_admin,
                                                            user_not_admin)
-from SUMI.modules.helper_funcs.misc import split_message
-from SUMI.modules.helper_funcs.string_handling import extract_time
+from RUKA.modules.helper_funcs.misc import split_message
+from RUKA.modules.helper_funcs.string_handling import extract_time
 
-from SUMI.modules.log_channel import loggable
-from SUMI.modules.warns import warn
+from RUKA.modules.log_channel import loggable
+from RUKA.modules.warns import warn
 from telegram import (Chat, Message, ParseMode, Update, User, ChatPermissions)
 from telegram.error import BadRequest
 from telegram.ext import (CallbackContext, CommandHandler, Filters,
