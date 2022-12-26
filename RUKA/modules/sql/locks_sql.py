@@ -3,7 +3,7 @@ import threading
 
 from sqlalchemy import Column, String, Boolean
 
-from SUMI.modules.sql import SESSION, BASE
+from RUKA.modules.sql import SESSION, BASE
 
 
 class Permissions(BASE):
