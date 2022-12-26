@@ -1,6 +1,6 @@
 import threading
 
-from SUMI.modules.sql import BASE, SESSION
+from RUKA.modules.sql import BASE, SESSION
 from sqlalchemy import Column, Integer, UnicodeText
 
 
