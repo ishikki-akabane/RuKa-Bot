@@ -1,3 +1,7 @@
+#Ishikki_AKABANE
+#BotsLabXD
+#visit support group for any kind of help
+
 import logging
 import os
 import sys
