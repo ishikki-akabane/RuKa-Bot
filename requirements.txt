@@ -26,7 +26,6 @@ psutil
 googletrans
 coffeehouse
 speedtest-cli
-nltk
 Pillow
 future
 emoji
