@@ -8,68 +8,21 @@ import re
 import os
 import random
 import platform
-import asyncio
-from typing import List
-from typing import Optional
-from pyrogram import Client, idle, filters
 
-import RUKA.modules.sql.users_sql as sql
-from RUKA.modules.sudoers import bot_sys_stats as bss
-
-from RUKA import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
-                          OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK, BOT_NAME,
-                          SUPPORT_CHAT, dispatcher, StartTime, telethn, updater, pgram, pbot)
+from RUKA import (CERT_PATH, LOGGER, OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK, dispatcher, StartTime, updater)
 
 #Rewritten by ISHIKKI-AKABANE                         
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from RUKA.modules import ALL_MODULES
-from RUKA.modules.helper_funcs.chat_status import is_user_admin
-from RUKA.modules.helper_funcs.misc import paginate_modules
-from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
-                      Update)
-from telegram.error import (BadRequest, ChatMigrated, NetworkError,
-                            TelegramError, TimedOut, Unauthorized)
-from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
-                          Filters, MessageHandler)
-from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
-from telegram.utils.helpers import escape_markdown
 
-
-def get_readable_time(seconds: int) -> str:
-    count = 0
-    ping_time = ""
-    time_list = []
-    time_suffix_list = ["s", "m", "h", "days"]
-
-    while count < 4:
-        count += 1
-        if count < 3:
-            remainder, result = divmod(seconds, 60)
-        else:
-            remainder, result = divmod(seconds, 24)
-        if seconds == 0 and remainder == 0:
-            break
-        time_list.append(int(result))
-        seconds = int(remainder)
-
-    for x in range(len(time_list)):
-        time_list[x] = str(time_list[x]) + time_suffix_list[x]
-    if len(time_list) == 4:
-        ping_time += time_list.pop() + ", "
-
-    time_list.reverse()
-    ping_time += ":".join(time_list)
-
-    return ping_time
 
 PM_START_TEXT = """
-*Konichiwa {},*
+*Konichiwa ,*
 *I'm RUKA Sakurasawa, I'm A Powerful Group Management Bot.*
 ❍ *Owner - @IshikkiAkabane*
-❍ *Uptime* - {}
-❍ *Users* - {}
-❍ *Chats* - {}
+❍ *Uptime* - 
+❍ *Users* - 
+❍ *Chats* - 
 **ᴄʟɪᴄᴋ ᴛʜᴇ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ꜰᴏʀ ᴍᴏʀᴇ.**
 """
 
@@ -164,6 +117,7 @@ DATA_EXPORT = []
 CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
+"""
 for module_name in ALL_MODULES:
     imported_module = importlib.import_module("RUKA.modules." +
                                               module_name)
@@ -204,7 +158,9 @@ for module_name in ALL_MODULES:
     if hasattr(imported_module, "__user_settings__"):
         USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
 
+"""
 
+"""
 # do not async
 def send_help(chat_id, text, keyboard=None):
     if not keyboard:
@@ -757,6 +713,10 @@ def migrate_chats(update: Update, context: CallbackContext):
 
     LOGGER.info("Successfully migrated!")
     raise DispatcherHandlerStop
+"""
+
+def start(update: Update, context: CallbackContext):
+    update.effective_message.reply_text(PM_START_TEXT)
 
 
 def main():
@@ -781,9 +741,9 @@ def main():
         except BadRequest as e:
             LOGGER.warning(e.message)
 
-    test_handler = CommandHandler("test", test)
-    start_handler = CommandHandler("start", start)
 
+    start_handler = CommandHandler("start", start)
+    """
     help_handler = CommandHandler("help", get_help)
     help_callback_handler = CallbackQueryHandler(
         help_button, pattern=r"help_.*")
@@ -812,6 +772,8 @@ def main():
     dispatcher.add_handler(donate_handler)
 
     dispatcher.add_error_handler(error_callback)
+    """
+    dispatcher.add_handler(start_handler)
 
     if WEBHOOK:
         LOGGER.info("Using webhooks.")
@@ -829,17 +791,17 @@ def main():
                            'chat_member', 'chat_join_request', 'channel_post', 'edited_channel_post', 'inline_query']
         updater.start_polling(
                 timeout=15, read_latency=4, allowed_updates=allowed_updates, drop_pending_updates=True)
-
+    """
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
     else:
         telethn.run_until_disconnected()
-
+    """
     updater.idle()
 
 
 if __name__ == '__main__':
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    telethn.start(bot_token=TOKEN)
-    pbot.start()
+    #telethn.start(bot_token=TOKEN)
+    #pbot.start()
     main()
