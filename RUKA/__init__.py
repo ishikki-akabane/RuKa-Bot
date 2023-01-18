@@ -252,7 +252,7 @@ session_name = TOKEN.split(":")[0]
 
 #install aiohttp session
 print("[INFO]: INITIALZING AIOHTTP SESSION")
-aiohttpsession = ClientSession() 
+#aiohttpsession = ClientSession() 
 
 #install arq
 print("[INFO]: INITIALIZING ARQ CLIENT")
