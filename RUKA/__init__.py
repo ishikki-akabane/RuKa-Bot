@@ -247,9 +247,9 @@ TOKEN = ""
 WORKERS = 8
 MONGO_DB_URI = ""
 REDIS_URL = ""
-WEBHOOK
-CERT_PATH
-URL
+WEBHOOK = ""
+CERT_PATH = ""
+URL = ""
 SUPPORT_CHAT = "DEVSLAB"
 session_name = TOKEN.split(":")[0]
 #pgram = Client(session_name, api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
