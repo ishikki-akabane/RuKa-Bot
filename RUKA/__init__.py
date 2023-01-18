@@ -6,17 +6,13 @@ import logging
 import os
 import sys
 import time
-import spamwatch
-import aiohttp
 import telegram.ext as tg
 from telethon.sessions import StringSession
 from telethon import TelegramClient
 from aiohttp import ClientSession
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from redis import StrictRedis
-from Python_ARQ import ARQ
 from pyrogram import Client, errors
-from RUKA.services.quoteapi import Quotly
 
 StartTime = time.time()
 
@@ -39,6 +35,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     )
     quit(1)
 
+"""
 ENV = bool(os.environ.get('ENV', False))
 
 if ENV:
@@ -233,6 +230,7 @@ else:
         raise Exception(
             "Your blacklisted chats list does not contain valid integers.")
 
+
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(5030730429)
@@ -244,8 +242,17 @@ if not SPAMWATCH_API:
 else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
+"""
+TOKEN = ""
+WORKERS = 8
+MONGO_DB_URI = ""
+REDIS_URL = ""
+WEBHOOK
+CERT_PATH
+URL
+SUPPORT_CHAT = "DEVSLAB"
 session_name = TOKEN.split(":")[0]
-pgram = Client(session_name, api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+#pgram = Client(session_name, api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 #install aiohttp session
 print("[INFO]: INITIALZING AIOHTTP SESSION")
@@ -253,13 +260,14 @@ aiohttpsession = ClientSession()
 
 #install arq
 print("[INFO]: INITIALIZING ARQ CLIENT")
-arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
+#arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("RUKA", API_ID, API_HASH)
-pbot = Client("RUKAXDbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+#telethn = TelegramClient("RUKA", API_ID, API_HASH)
+#pbot = Client("RUKAXDbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 mongo_client = MongoClient(MONGO_DB_URI)
 dispatcher = updater.dispatcher
 
+"""
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
 WOLVES = list(WOLVES)
@@ -288,6 +296,7 @@ BOT_ID = bottie.id
 BOT_USERNAME = bottie.username
 BOT_NAME = bottie.first_name
 BOT_MENTION = bottie.mention
+"""
 
 print(
     "[RUKA] RUKA Is Starting."
@@ -316,6 +325,7 @@ print(
     "[RUKA] INITIALIZING MODULES ERROR!!"
 )
 
+
 #-------Quote-------
-quotly = Quotly()
+#quotly = Quotly()
 #-------------------
