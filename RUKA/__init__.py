@@ -264,7 +264,7 @@ print("[INFO]: INITIALIZING ARQ CLIENT")
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 #telethn = TelegramClient("RUKA", API_ID, API_HASH)
 #pbot = Client("RUKAXDbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
-mongo_client = MongoClient(MONGO_DB_URI)
+#mongo_client = MongoClient(MONGO_DB_URI)
 dispatcher = updater.dispatcher
 
 """
@@ -301,7 +301,7 @@ BOT_MENTION = bottie.mention
 print(
     "[RUKA] RUKA Is Starting."
 )
-
+"""
 REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
 
 try:
@@ -317,6 +317,7 @@ except BaseException:
 finally:
 
    REDIS.ping()
+"""
 
 print(
     "[RUKA] SERVERS Connected SUCCESSFULLY!!"
