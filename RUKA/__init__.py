@@ -9,10 +9,6 @@ import time
 import telegram.ext as tg
 from telethon.sessions import StringSession
 from telethon import TelegramClient
-from aiohttp import ClientSession
-from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
-from redis import StrictRedis
-from pyrogram import Client, errors
 
 StartTime = time.time()
 
@@ -301,6 +297,7 @@ BOT_MENTION = bottie.mention
 print(
     "[RUKA] RUKA Is Starting."
 )
+
 """
 REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
 
