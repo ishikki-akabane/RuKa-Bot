@@ -11,7 +11,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
 from telegram.error import BadRequest, Forbidden
 
-# Enable Logging========================================================X
+# Enable Logging========================================================================================X
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
@@ -19,18 +19,18 @@ logging.basicConfig(
 )
 LOGGER = logging.getLogger(__name__)
 
-# Python version must be above or equal to 3.7==========================X
+# Python version must be above or equal to 3.7==========================================================X
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     LOGGER.error(
-        "You MUST have a python version of at least 3.9! Multiple features depend on this. Bot quitting.",
+        "You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting.",
     )
     quit(1)
 
-# Starts the clock to note since how long the bot is running============X
+# Starts the clock to note since how long the bot is running============================================X
 StartTime = time.time()
 
 
-# ENVIRONMENT VARIABLE==============================================X
+# ENVIRONMENT VARIABLE==================================================================================X
 ENV = bool(os.environ.get("ENV", False))
 
 if ENV:
