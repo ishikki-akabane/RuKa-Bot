@@ -48,6 +48,5 @@ async def start_init(application: Application):
 
 
 # Build application for python-telegram-bot, similar to old version dispatcher and updater
-
 application = ApplicationBuilder().token(TOKEN).post_init(start_init).build()
 asyncio.get_event_loop().run_until_complete(application.bot.initialize())
