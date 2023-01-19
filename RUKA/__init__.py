@@ -48,20 +48,18 @@ if ENV:
     except ValueError:
         raise Exception("Your support or sudo or dev users list does not contain valid integers")
 
+    # FOR TELETHON AND PYROGRAM BASED BOTS, Login to https://my.telegram.org and fill it
     API_ID = os.environ.get("API_ID", None)
     API_HASH = os.environ.get("API_HASH", None)
 
-    SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "DevsLab")
+    # IMPORTANT VARIABLES
+    SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "DevsLab") #Support group for users
     JOIN_LOGGER = os.environ.get("JOIN_LOGGER", None) #channel where the bot will send new chat joined messages
     EVENT_LOGS = os.environ.get("EVENT_LOGS", None) #channel where the bot will print stuffs like gban messages
     ERROR_LOGS = os.environ.get("ERROR_LOGS", None) #channel where the bot will print error when it encounters it
-    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "Ishikki AKabane")
-    INFOPIC = bool(os.environ.get("INFOPIC", True))
+    UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "UpdatesXD") #Channel where they can read about new updates about the bot
+    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "Ishikki_AKabane") #Owner UserName without @
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
-    LOAD = os.environ.get("LOAD", "").split()
-    NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
-    DEL_CMDS = bool(os.environ.get("DEL_CMDS", False))
-    STRICT_GBAN = bool(os.environ.get("STRICT_GBAN", False))
     WORKERS = int(os.environ.get("WORKERS", 8))
     ALLOW_EXCL = os.environ.get("ALLOW_EXCL", False)
     # For ARQ based Modules, use public ARQ KEY if you dont have @ISHIKKI_AKABANE
@@ -88,7 +86,6 @@ if ENV:
 
     # Optional
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
-    VIRUS_API_KEY = os.environ.get("VIRUS_API_KEY", None)
     CASH_API_KEY = os.environ.get("CASH_API_KEY", None)
     TIME_API_KEY = os.environ.get("TIME_API_KEY", None)
     AI_API_KEY = os.environ.get("AI_API_KEY", None)
@@ -114,20 +111,18 @@ else:
     except ValueError:
         raise Exception("Your support or sudo or dev users list does not contain valid integers.")
 
-    API_ID = Config.API_ID
+    # FOR TELETHON AND PYROGRAM BASED BOTS, Login to https://my.telegram.org and fill it
+    API_ID = int(Config.API_ID)
     API_HASH = API_HASH
 
+    # IMPORTANT VARIABLES
     SUPPORT_CHAT = Config.SUPPORT_CHAT
     JOIN_LOGGER = Config.JOIN_LOGGER #channel where the bot will send new chat joined messages
     EVENT_LOGS = Config.EVENT_LOGS #channel where the bot will print stuffs like gban messages
     ERROR_LOGS = Config.ERROR_LOGS #channel where the bot will print error when it encounters it
+    UPDATES_CHANNEL = Config.UPDATES_CHANNEL #Channel where they can read about new updates about the bot
     OWNER_USERNAME = Config.OWNER_USERNAME
-    INFOPIC = Config.INFOPIC
     TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
-    LOAD = Config.LOAD
-    NO_LOAD = Config.NO_LOAD
-    DEL_CMDS = Config.DEL_CMDS
-    STRICT_GBAN = Config.STRICT_GBAN
     WORKERS = Config.WORKERS
     ALLOW_EXCL = Config.ALLOW_EXCL
     # For ARQ based Modules, use public ARQ KEY if you dont have @ISHIKKI_AKABANE
@@ -148,17 +143,12 @@ else:
     MONGO_DB_URI = Config.MONGO_DB_URI #MongoDB database
     REDIS_URL = Config.REDIS_URL #Redis Database
 
-    # If using Heroku
-    HEROKU_API_KEY = Config.HEROKU_API_KEY
-    HEROKU_APP_NAME = Config.HEROKU_APP_NAME
-
     # Optional
     OPENWEATHERMAP_ID = Config.OPENWEATHERMAP_ID
-    VIRUS_API_KEY = Config.VIRUS_API_KEY
     CASH_API_KEY = Config.CASH_API_KEY
     TIME_API_KEY = Config.TIME_API_KEY
     AI_API_KEY = Config.AI_API_KEY
-    WALL_API = Config.WALL_API
+    WALL_API = Config.WALLPAPERS_API
     
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
     ALLOW_CHATS = Config.ALLOW_CHATS
