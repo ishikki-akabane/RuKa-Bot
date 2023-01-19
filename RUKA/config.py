@@ -20,7 +20,7 @@ class Config(object):
     EVENT_LOGS = (-1001190806654)  # Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging
     ERROR_LOGS = (-1001212354666)  # Prints error info
     UPDATES_CHANNEL = "UpdatesXD" #Channel where they can read about new updates about the bot
-    TEMP_DOWNLOAD_DIRECTORY
+    TEMP_DOWNLOAD_DIRECTORY = "./"
     WORKERS = 8 # Number of subthreads to use. Set as number of threads your processor uses
     ALLOW_EXCL = True
     # For ARQ based Modules, use public ARQ KEY if you dont have @ISHIKKI_AKABANE
