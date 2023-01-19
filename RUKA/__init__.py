@@ -113,7 +113,7 @@ else:
 
     # FOR TELETHON AND PYROGRAM BASED BOTS, Login to https://my.telegram.org and fill it
     API_ID = int(Config.API_ID)
-    API_HASH = API_HASH
+    API_HASH = Config.API_HASH
 
     # IMPORTANT VARIABLES
     SUPPORT_CHAT = Config.SUPPORT_CHAT
