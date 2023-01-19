@@ -32,8 +32,8 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
 StartTime = time.time()
 
 
-TOKEN = ""
+TOKEN = "5312061963:AAEI3ug5nKWG_3t_ZZ1SWwH2T8ab8D1Azfg"
 
 
-application = ApplicationBuilder().token(TOKEN).post_init(post_init).build()
+application = ApplicationBuilder().token(TOKEN).build()
 asyncio.get_event_loop().run_until_complete(application.bot.initialize())
