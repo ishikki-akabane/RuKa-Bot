@@ -23,15 +23,15 @@ ADMIN_STR = """
 ANIME_STR = """
 Get information about anime, manga or characters from [AniList](anilist.co).
 *Available commands:*
- • `/anime <anime>`*:* returns information about the anime.
- • `/character <character>`*:* returns information about the character.
- • `/manga <manga>`*:* returns information about the manga.
- • `/user <user>`*:* returns information about a MyAnimeList user.
- • `/upcoming`*:* returns a list of new anime in the upcoming seasons.
- • `/kaizoku <anime>`*:* search an anime on animekaizoku.com
- • `/kayo <anime>`*:* search an anime on animekayo.com
- • `/airing <anime>`*:* returns anime airing info.
- • /whatanime - reply to gif or video
+ ❍ `/anime <anime>`*:* returns information about the anime.
+ ❍ `/character <character>`*:* returns information about the character.
+ ❍ `/manga <manga>`*:* returns information about the manga.
+ ❍ `/user <user>`*:* returns information about a MyAnimeList user.
+ ❍ `/upcoming`*:* returns a list of new anime in the upcoming seasons.
+ ❍ `/kaizoku <anime>`*:* search an anime on animekaizoku.com
+ ❍ `/kayo <anime>`*:* search an anime on animekayo.com
+ ❍ `/airing <anime>`*:* returns anime airing info.
+ ❍ /whatanime - reply to gif or video
 """
 
 ANTIFLOOD = """
@@ -39,12 +39,12 @@ ANTIFLOOD = """
 will result in restricting that user.
  This will mute users if they send more than 10 messages in a row, bots are ignored.
  ❍ /flood*:* Get the current flood control setting
-• *Admins only:*
+*Admins only:*
  ❍ /setflood <int/'no'/'off'>*:* enables or disables flood control
  *Example:* `/setflood 10`
  ❍ /setfloodmode <ban/kick/mute/tban/tmute> <value>*:* Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
-• *Note:*
- • Value must be filled for tban and tmute!!
+*Note:*
+ ❍ Value must be filled for tban and tmute!!
  It can be:
  `5m` = 5 minutes
  `6h` = 6 hours
