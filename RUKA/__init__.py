@@ -8,7 +8,7 @@ import random
 import asyncio
 
 from telegram import Update
-from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
+from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, Application
 from telegram.error import BadRequest, Forbidden
 
 # Enable Logging========================================================================================X
@@ -139,7 +139,7 @@ else:
     CERT_PATH = Config.CERT_PATH
 
     # Database | Ignore if you dont have and use public database of @ishikki_akabane
-    DB_URI = Config.DATABASE_URL #SQL DATABASE
+    DB_URI = Config.DATABASE_URI #SQL DATABASE
     MONGO_DB_URI = Config.MONGO_DB_URI #MongoDB database
     REDIS_URL = Config.REDIS_URL #Redis Database
 
