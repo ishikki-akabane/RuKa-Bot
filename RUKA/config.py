@@ -63,12 +63,12 @@ class Config(object):
 
 """
 Hello, it was very tough for me to write this whole, so please don't remove the credits from the code, i did too much hardwork for this.
-I have tried my best to make this repo very simple, plus i have added many comments for users to understand why i used that lib or imported that modules
+I have tried my best to make this repo very simple, plus i have added many comments for users to understand for example: why i used that lib or imported that modules,
 so that it can be easy for those who are new to this. Still if you face any problems, you can directly reach to me (@ishikki_akabane) and i will gladly help you or you can
 come in our Public support group @DevsLab
 
 If You have any suggesstions or some new idea, you can create a pull request or can drop that idea in our support group, we will try to add it ^ ^
-THANK YOU, if you like this repo, please give star :/
+THANK YOU, if you like this repo, please give star "-"
 """
 
 class Production(Config):
