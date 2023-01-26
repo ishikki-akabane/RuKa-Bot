@@ -1,6 +1,6 @@
 FROM python:3.10.1-buster
 
-WORKDIR /root/Ruka-Bot
+WORKDIR /root/RUKA
 
 COPY . .
 
