@@ -43,6 +43,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
 
+async def send_alive(context: ContextTypes.DEFAULT_TYPE):
+    try:
+        await context.bot.send_message(-1001765891293, random.choice(ALIVE_TEXT))
+    except:
+        await context.bot.send_message(OWNER_ID, "Can't send alive message to group")
+        raise
+
+
 def main():
     if SUPPORT_CHAT is not None:
         try:
