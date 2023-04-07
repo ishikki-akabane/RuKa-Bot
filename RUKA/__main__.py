@@ -66,7 +66,7 @@ def main():
     dp.add_handler(start_handler)
 
     LOGGER.info("Using long polling.")
-    application.run_polling(timeout=15, drop_pending_updates=False)
+    dp.run_polling(timeout=15, drop_pending_updates=False)
 
 if __name__ == "__main__":
     LOGGER.info("Successfully loaded modules: ")
