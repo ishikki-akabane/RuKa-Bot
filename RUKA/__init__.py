@@ -14,8 +14,7 @@ import time
 import telegram.ext as tg
 import asyncio
 
-from telegram.ext import Updater
-from telegram.ext import dispatcher
+from telegram.ext import ApplicationBuilder
 
 # Enable Logging========================================================================================X
 logging.basicConfig(
@@ -171,5 +170,6 @@ else:
 #=======================================================================================================X
 
 # Build dispatcher object for python-telegram-bot
-updater = dispatcher(TOKEN, update_queue=None)
+dp = ApplicationBuilder().token(TOKEN).build()
+#updater = dispatcher(TOKEN, update_queue=None)
 #dp = updater.dispatcher # dp = dispatcher
