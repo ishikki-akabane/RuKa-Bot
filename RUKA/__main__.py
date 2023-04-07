@@ -1,8 +1,16 @@
-from RUKA import application, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT
-from RUKA.strings.main import PM_START_MSG
+"""
+Made by Ishikki Akabane
+Dont just kang or clone
+Learn to value someone's hardwork, so please dont remove credits
+Made with dedication and love
+If you face any issues, feel free to visit @DevsLAB,
+or into my DM to abuse me or for help or just to say thanks.
+Thankyou if read this notice fully :), have a wonderful cody day
+"""
+from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT
 from RUKA.tools.time import get_readable_time
 
-from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
+from telegram.ext import ContextTypes, CommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, Chat, User
 from telegram.constants import ParseMode
 
@@ -16,7 +24,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if update.effective_chat.type == "private":
         await message.reply_text(
-            PM_START_MSG.format(uptime),
+            "Im alive master, still in development.\nAlive since {}".format(uptime),
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -43,18 +51,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
 
-async def send_alive(context: ContextTypes.DEFAULT_TYPE):
-    try:
-        await context.bot.send_message(-1001765891293, random.choice(ALIVE_TEXT))
-    except:
-        await context.bot.send_message(OWNER_ID, "Can't send alive message to group")
-        raise
-
-
 def main():
     if SUPPORT_CHAT is not None:
         try:
-            application.bot.send_message(SUPPORT_CHAT, "Bot Build completed!!")
+            dp.bot.send_message(SUPPORT_CHAT, "Bot Build completed!!")
         except Forbidden:
             LOGGER.warning(
                 "Bot isn't able to send message to support chat, go and check!",
@@ -63,7 +63,7 @@ def main():
             LOGGER.warning(e.message)
 
     start_handler = CommandHandler("start", start)
-    application.add_handler(start_handler)
+    dp.add_handler(start_handler)
 
     LOGGER.info("Using long polling.")
     application.run_polling(timeout=15, drop_pending_updates=False)
