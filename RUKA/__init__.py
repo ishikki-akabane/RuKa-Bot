@@ -1,20 +1,17 @@
 import logging
 import os
-import platform
 import sys
 import time
 import telegram.ext as tg
-import random
 import asyncio
 
-from telegram import Update
-from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, Application
-from telegram.error import BadRequest, Forbidden
+from telegram.ext import Dispatcher, Updater
+
 
 # Enable Logging========================================================================================X
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
+    handlers=[logging.FileHandler("logs.txt"), logging.StreamHandler()],
     level=logging.INFO,
 )
 LOGGER = logging.getLogger(__name__)
@@ -42,6 +39,7 @@ if ENV:
         raise Exception("Your OWNER_ID env variable is not a valid integer")
 
     try:
+        WHITE_LIST = set(int(x) for x in os.environ.get("WHITE_LIST", "").split())
         SUPPORT_USERS = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
         SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
         DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "").split())
@@ -59,21 +57,24 @@ if ENV:
     ERROR_LOGS = os.environ.get("ERROR_LOGS", None) #channel where the bot will print error when it encounters it
     UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "UpdatesXD") #Channel where they can read about new updates about the bot
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "Ishikki_AKabane") #Owner UserName without @
+
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     WORKERS = int(os.environ.get("WORKERS", 8))
-    ALLOW_EXCL = os.environ.get("ALLOW_EXCL", False)
+    ALLOW_EXCL = bool(os.environ.get("ALLOW_EXCL", False))
+
     # For ARQ based Modules, use public ARQ KEY if you dont have @ISHIKKI_AKABANE
     ARQ_API_KEY = "ZWXCEZ-RTVXHT-NOVURC-FHCFZD-ARQ"
     ARQ_API_URL = "https://thearq.tech"
+
     # For SPAMWATCH ANTISPAM SYSTEM, USE PUBLIC ONE IF YOU DONT HAVE
-    SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", None)
+    SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", "DevsLab")
     SPAMWATCH_API = os.environ.get("SPAMWATCH_API", "XChWQMRDLpKVqoirR_cMDqlrGwiTn1bY1pYhTyGeVv7~T2gVG1JRyZFvlZGq4gtG")
 
     # Important for webhooks
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
-    URL = os.environ.get("URL", "")  # Does not contain token, contains your app url
+    URL = os.environ.get("URL", "")  # contains your app url
     PORT = int(os.environ.get("PORT", 5000))
-    CERT_PATH = os.environ.get("CERT_PATH")
+    CERT_PATH = os.environ.get("CERT_PATH", "")
 
     # Database | Ignore if you dont have and use public database of @ishikki_akabane
     DB_URI = os.environ.get("DATABASE_URL", "") #SQL DATABASE
@@ -92,7 +93,8 @@ if ENV:
     WALL_API = os.environ.get("WALL_API", None)
     
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
-    ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
+    ALLOW_CHATS = bool(os.environ.get("ALLOW_CHATS", True))
+    INFOPIC = bool(os.environ.get("INFOPIC", True))
 
 else:
     from RUKA.config import Development as Config
@@ -105,6 +107,7 @@ else:
         raise Exception("Your OWNER_ID variable is not a valid integer")
     
     try:
+        WHITE_LIST = set(int(x) for x in Config.WHITE_LIST or [])
         SUPPORT_USERS = set(int(x) for x in Config.SUPPORT_USERS or [])
         SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or [])
         DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
@@ -122,12 +125,15 @@ else:
     ERROR_LOGS = Config.ERROR_LOGS #channel where the bot will print error when it encounters it
     UPDATES_CHANNEL = Config.UPDATES_CHANNEL #Channel where they can read about new updates about the bot
     OWNER_USERNAME = Config.OWNER_USERNAME
+
     TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
     WORKERS = Config.WORKERS
     ALLOW_EXCL = Config.ALLOW_EXCL
+
     # For ARQ based Modules, use public ARQ KEY if you dont have @ISHIKKI_AKABANE
     ARQ_API_KEY = Config.ARQ_API_KEY
     ARQ_API_URL = "https://thearq.tech"
+
     # For SPAMWATCH ANTISPAM SYSTEM, USE PUBLIC ONE IF YOU DONT HAVE
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
     SPAMWATCH_API = Config.SPAMWATCH_API
@@ -152,24 +158,13 @@ else:
     
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
     ALLOW_CHATS = Config.ALLOW_CHATS
+    INFOPIC = Config.INFOPIC
 #=======================================================================================================X
 
 
 TOKEN = "5312061963:AAEI3ug5nKWG_3t_ZZ1SWwH2T8ab8D1Azfg"
-SUPPORT_CHAT = -1001856564943
 
 
-async def start_init(application: Application):
-    try:
-        await application.bot.send_message(SUPPORT_CHAT, "Bot Build Start....!!")
-    except Forbidden:
-        LOGGER.warning(
-            "Bot isn't able to send message to support_chat, go and check!",
-        )
-    except BadRequest as e:
-        LOGGER.warning(e.message)
-
-
-# Build application for python-telegram-bot, similar to old version dispatcher and updater
-application = ApplicationBuilder().token(TOKEN).post_init(start_init).build()
-asyncio.get_event_loop().run_until_complete(application.bot.initialize())
+# Build dispatcher object for python-telegram-bot
+updater = Updater(token=TOKEN)
+dp = updater.dispatcher # dp = dispatcher
