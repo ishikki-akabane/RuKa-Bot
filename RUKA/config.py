@@ -51,6 +51,7 @@ class Config(object):
 
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
     ALLOW_CHATS = True
+    INFOPIC = True
 
 
     # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
