@@ -12,7 +12,7 @@ RUKA
     ```media.py```
     modules
     tools
-    strings
     database
         ```mongodb.py```
+        ```sql```
     
