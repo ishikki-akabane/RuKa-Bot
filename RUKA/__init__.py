@@ -14,7 +14,7 @@ import time
 import telegram.ext as tg
 import asyncio
 
-from telegram.ext import Dispatcher, Updater
+from telegram.ext import Updater
 
 
 # Enable Logging========================================================================================X
