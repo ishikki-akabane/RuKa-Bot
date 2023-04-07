@@ -14,9 +14,9 @@ class Config(object):
     OWNER_USERNAME = "Ishikki_AKABANE" #OWNER Username without @
 
     SUPPORT_CHAT = "DevsLAB"  # Your own group for support, do not add the @
-    JOIN_LOGGER = (-1001253661229)  # Prints any new group the bot is added to, prints just the name and ID.
-    EVENT_LOGS = (-1001190806654)  # Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging
-    ERROR_LOGS = (-1001212354666)  # Prints error info
+    JOIN_LOGGER = -1001253661229  # Prints any new group the bot is added to, prints just the name and ID.
+    EVENT_LOGS = -1001190806654  # Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging
+    ERROR_LOGS = -1001212354666  # Prints error info
     UPDATES_CHANNEL = "UpdatesXD" #Channel where they can read about new updates about the bot
     TEMP_DOWNLOAD_DIRECTORY = "./"
     WORKERS = 8 # Number of subthreads to use. Set as number of threads your processor uses
