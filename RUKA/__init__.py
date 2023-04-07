@@ -14,7 +14,7 @@ import time
 import telegram.ext as tg
 import asyncio
 
-from telegram.ext import ApplicationBuilder
+from telegram.ext import ApplicationBuilder, Application
 
 # Enable Logging========================================================================================X
 logging.basicConfig(
@@ -128,6 +128,7 @@ else:
 
     # IMPORTANT VARIABLES
     SUPPORT_CHAT = Config.SUPPORT_CHAT
+    SUPPORT_ID = Config.SUPPORT_ID
     JOIN_LOGGER = Config.JOIN_LOGGER #channel where the bot will send new chat joined messages
     EVENT_LOGS = Config.EVENT_LOGS #channel where the bot will print stuffs like gban messages
     ERROR_LOGS = Config.ERROR_LOGS #channel where the bot will print error when it encounters it
@@ -169,7 +170,15 @@ else:
     INFOPIC = Config.INFOPIC
 #=======================================================================================================X
 
+async def booting_msg(application: Application):
+    try:
+        await application.bot.sendMessage(SUPPORT_ID, "Ruka Online!!!")
+    except Exception as e:
+        LOGGER.warning(
+            "Bot isn't able to send message to support_chat, go and check!",
+        )
+        print(e)
+
 # Build dispatcher object for python-telegram-bot
-dp = ApplicationBuilder().token(TOKEN).build()
-#updater = dispatcher(TOKEN, update_queue=None)
-#dp = updater.dispatcher # dp = dispatcher
+dp = ApplicationBuilder().token(TOKEN).post_init(booting_msg).build()
+
