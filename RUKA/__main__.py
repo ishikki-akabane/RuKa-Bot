@@ -7,6 +7,8 @@ If you face any issues, feel free to visit @DevsLAB,
 or into my DM to abuse me or for help or just to say thanks.
 Thankyou if read this notice fully :), have a wonderful cody day
 """
+import time
+
 from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT
 from RUKA.tools.time import get_readable_time
 
@@ -52,15 +54,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 def main():
-    if SUPPORT_CHAT is not None:
-        try:
-            dp.bot.send_message(SUPPORT_CHAT, "Bot Build completed!!")
-        except Forbidden:
-            LOGGER.warning(
-                "Bot isn't able to send message to support chat, go and check!",
-            )
-        except BadRequest as e:
-            LOGGER.warning(e.message)
 
     start_handler = CommandHandler("start", start)
     dp.add_handler(start_handler)
