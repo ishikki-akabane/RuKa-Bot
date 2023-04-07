@@ -60,9 +60,10 @@ if ENV:
 
     # IMPORTANT VARIABLES
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "DevsLab") #Support group for users
-    JOIN_LOGGER = os.environ.get("JOIN_LOGGER", None) #channel where the bot will send new chat joined messages
-    EVENT_LOGS = os.environ.get("EVENT_LOGS", None) #channel where the bot will print stuffs like gban messages
-    ERROR_LOGS = os.environ.get("ERROR_LOGS", None) #channel where the bot will print error when it encounters it
+    SUPPORT_ID = int(os.environ.get("SUPPORT_ID", None)) #Support group id
+    JOIN_LOGGER = int(os.environ.get("JOIN_LOGGER", None)) #channel where the bot will send new chat joined messages
+    EVENT_LOGS = int(os.environ.get("EVENT_LOGS", None)) #channel where the bot will print stuffs like gban messages
+    ERROR_LOGS = int(os.environ.get("ERROR_LOGS", None)) #channel where the bot will print error when it encounters it
     UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "UpdatesXD") #Channel where they can read about new updates about the bot
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "Ishikki_AKabane") #Owner UserName without @
 
