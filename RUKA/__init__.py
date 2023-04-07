@@ -171,5 +171,5 @@ else:
 #=======================================================================================================X
 
 # Build dispatcher object for python-telegram-bot
-updater = Updater(token=TOKEN)
+updater = Updater(bot_token=TOKEN)
 dp = updater.dispatcher # dp = dispatcher
