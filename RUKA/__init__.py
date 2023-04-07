@@ -1,3 +1,12 @@
+"""
+Made by Ishikki Akabane
+Dont just kang or clone
+Learn to value someone's hardwork, so please dont remove credits
+Made with dedication and love
+If you face any issues, feel free to visit @DevsLAB,
+or into my DM to abuse me or for help or just to say thanks.
+Thankyou if read this notice fully :), have a wonderful cody day
+"""
 import logging
 import os
 import sys
@@ -160,10 +169,6 @@ else:
     ALLOW_CHATS = Config.ALLOW_CHATS
     INFOPIC = Config.INFOPIC
 #=======================================================================================================X
-
-
-TOKEN = "5312061963:AAEI3ug5nKWG_3t_ZZ1SWwH2T8ab8D1Azfg"
-
 
 # Build dispatcher object for python-telegram-bot
 updater = Updater(token=TOKEN)
