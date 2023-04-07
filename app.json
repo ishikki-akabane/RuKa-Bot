@@ -45,7 +45,12 @@
     },
     "SUPPORT_CHAT": {
        "description": "Your Telegram support group chat username",
-       "required": true,
+       "required": false,
+       "value": ""
+    },
+    "SUPPORT_ID": {
+       "description": "Your Telegram support group chat username",
+       "required": false,
        "value": ""
     },
     "EVENT_LOGS": {
