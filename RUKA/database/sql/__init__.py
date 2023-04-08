@@ -17,4 +17,3 @@ def start():
 
 # Use the session to query your database
 session = start()
-result = session.query(User).filter(User.id == 1).one()
