@@ -30,4 +30,4 @@
 - feds_subs (****)
 - feds_settings (****)
 - gban_table (**user_id, name, reason, proof**)
-- 
+- gban_settings (****)
