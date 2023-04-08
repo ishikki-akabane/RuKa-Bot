@@ -1,5 +1,8 @@
 # A asyncpg for postgres connections
 from RUKA import DB_URI
+from RUKA.database.sql.createtable1 import (
+    CREATE_USER_TABLE
+)
 import asyncpg
 import asyncio
 
@@ -12,6 +15,9 @@ class Database:
 
         async def connect():
             self.pool = await asyncpg.create_pool(self.uri, min_size=1, max_size=MAX_CONNECTIONS)
+            async with self.pool.acquire() as conn:
+                await conn.execute(CREATE_USER_TABLE)
+                #await conn.commit()
 
         asyncio.get_event_loop().run_until_complete(connect())
 
@@ -21,6 +27,7 @@ class Database:
                 print(f"Executing query: {query}, with data: {args}")
                 result = await conn.execute(query, *args)
                 if commit:
+                    await conn.commit()
                     return None
                 else:
                     return await result.fetchall()
