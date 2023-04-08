@@ -15,14 +15,14 @@ class Config(object):
 
     SUPPORT_CHAT = "DevsLAB"  # Your own group for support, do not add the @
     SUPPORT_ID = -100 # Your support group's id
-    JOIN_LOGGER = -1001253661229  # Prints any new group the bot is added to, prints just the name and ID.
-    EVENT_LOGS = -1001190806654  # Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging
-    ERROR_LOGS = -1001212354666  # Prints error info
+    JOIN_LOGGER = -100  # Prints any new group the bot is added to, prints just the name and ID.
+    EVENT_LOGS = -100  # Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging
+    ERROR_LOGS = -100  # Prints error info
     UPDATES_CHANNEL = "UpdatesXD" #Channel where they can read about new updates about the bot
     TEMP_DOWNLOAD_DIRECTORY = "./"
     WORKERS = 8 # Number of subthreads to use. Set as number of threads your processor uses
     ALLOW_EXCL = True
-    # For ARQ based Modules, use public ARQ KEY if you dont have @ISHIKKI_AKABANE
+    # For ARQ based Modules, use public ARQ KEY if you dont have provided by @ISHIKKI_AKABANE
     ARQ_API_KEY = "ZWXCEZ-RTVXHT-NOVURC-FHCFZD-ARQ"
     # For SPAMWATCH ANTISPAM SYSTEM, USE PUBLIC ONE IF YOU DONT HAVE
     SPAMWATCH_SUPPORT_CHAT = "@DEVSLAB"
@@ -41,7 +41,7 @@ class Config(object):
 
     # OPTIONAL | Ignore if you dont have and use public API KEY's of @ishikki_akabane
     # For WEATHER, Get Your API key from https://openweathermap.org/api
-    OPENWEATHERMAP_ID = ""
+    OPENWEATHERMAP_ID = "lol"
     # For CASH, Get your API key from https://www.alphavantage.co/support/#api-key
     CASH_API_KEY = "V7NS1NBFEL4X24L6"
     # For TIME, Get your API key from https://timezonedb.com/api
