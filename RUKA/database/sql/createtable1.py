@@ -9,4 +9,3 @@ CREATE_USER_TABLE = '''
 
 
 
-#asyncio.run(create_table1())
