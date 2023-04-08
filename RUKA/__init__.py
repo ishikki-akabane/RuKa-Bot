@@ -60,10 +60,10 @@ if ENV:
 
     # IMPORTANT VARIABLES
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "DevsLab") #Support group for users
-    SUPPORT_ID = int(os.environ.get("SUPPORT_ID", None)) #Support group id
-    JOIN_LOGGER = int(os.environ.get("JOIN_LOGGER", None)) #channel where the bot will send new chat joined messages
-    EVENT_LOGS = int(os.environ.get("EVENT_LOGS", None)) #channel where the bot will print stuffs like gban messages
-    ERROR_LOGS = int(os.environ.get("ERROR_LOGS", None)) #channel where the bot will print error when it encounters it
+    SUPPORT_ID = int(os.environ.get("SUPPORT_ID", "-100")) #Support group id
+    JOIN_LOGGER = int(os.environ.get("JOIN_LOGGER", "-100")) #channel where the bot will send new chat joined messages
+    EVENT_LOGS = int(os.environ.get("EVENT_LOGS", "-100")) #channel where the bot will print stuffs like gban messages
+    ERROR_LOGS = int(os.environ.get("ERROR_LOGS", "-100")) #channel where the bot will print error when it encounters it
     UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "UpdatesXD") #Channel where they can read about new updates about the bot
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "Ishikki_AKabane") #Owner UserName without @
 
@@ -176,7 +176,7 @@ async def booting_msg(application: Application):
         await application.bot.sendMessage(SUPPORT_ID, "Ruka Online!!!")
     except Exception as e:
         LOGGER.warning(
-            "Bot isn't able to send message to support_chat, go and check!",
+            "Bot isn't able to send message to support_chat!",
         )
         print(e)
 
