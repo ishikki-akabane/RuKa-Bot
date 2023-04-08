@@ -12,6 +12,7 @@ import time
 from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT
 from RUKA.tools.time import get_readable_time
 
+from RUKA.database.sql.user_sql import sql_adduser
 from telegram.ext import ContextTypes, CommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, Chat, User
 from telegram.constants import ParseMode
@@ -23,6 +24,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     first_name = update.effective_user.first_name
     uptime = get_readable_time((time.time() - StartTime))
+    result = await sql_adduser(user_id, first_name)
+    if result:
+        print(result)
+        return
 
     if update.effective_chat.type == "private":
         await message.reply_text(
