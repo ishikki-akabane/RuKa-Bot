@@ -1,7 +1,4 @@
 #FIRST
-from RUKA.database.sql import SQLDB
-import asyncio
-
 
 CREATE_USER_TABLE = '''
         CREATE TABLE IF NOT EXISTS user_table (
