@@ -27,7 +27,7 @@ class Database:
                 print(f"Executing query: {query}, with data: {args}")
                 result = await conn.execute(query, *args)
                 if commit:
-                    await conn.commit()
+                    #await conn.commit()
                     return None
                 else:
                     return await result.fetchall()
