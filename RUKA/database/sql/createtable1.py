@@ -1,5 +1,6 @@
 #FIRST
 from RUKA.database.sql import SQLDB
+import asyncio
 
 
 user_table_query = '''
@@ -12,3 +13,6 @@ user_table_query = '''
 async def create_table1():
     r1 = await SQLDB(user_table_query, commit=True)
     return True
+
+
+asyncio.run(create_table1())
