@@ -17,7 +17,6 @@ class Database:
             self.pool = await asyncpg.create_pool(self.uri, min_size=1, max_size=MAX_CONNECTIONS)
             async with self.pool.acquire() as conn:
                 await conn.execute(CREATE_USER_TABLE)
-                #await conn.commit()
 
         asyncio.get_event_loop().run_until_complete(connect())
 
@@ -27,7 +26,6 @@ class Database:
                 print(f"Executing query: {query}, with data: {args}")
                 result = await conn.execute(query, *args)
                 if commit:
-                    #await conn.commit()
                     return None
                 else:
                     return await result.fetchall()
@@ -38,5 +36,7 @@ SQLDB = sql_con.execute  # Your SQLdb object for executing with one param commit
 
 """
 Dont simply kang, please give credits and one star for this help
+https://github.com/ishikki-akabane/Ruka-Bot
+
 This method solves the `To many connections error` in elephant sql or any other free postgresql
 """
