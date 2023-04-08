@@ -1,19 +1,35 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import scoped_session, sessionmaker
+# A asyncpg for postgres connections
 from RUKA import DB_URI
+import asyncpg
+import asyncio
 
-MAX_POOL_SIZE = 5
+MAX_CONNECTIONS = 5 # default to 5 since elephant allow only 5 connections
 
-engine = create_engine(DB_URI, pool_size=MAX_POOL_SIZE, max_overflow=0)
-BASE = declarative_base()
-Session = scoped_session(sessionmaker(bind=engine))
+class Database:
+    def __init__(self, uri):
+        self.pool = None
+        self.uri = uri
 
-# Define your models here
+        async def connect():
+            self.pool = await asyncpg.create_pool(self.uri, min_size=1, max_size=MAX_CONNECTIONS)
 
-def start():
-    BASE.metadata.create_all(engine)
-    return Session()
+        asyncio.get_event_loop().run_until_complete(connect())
 
-# Use the session to query your database
-session = start()
+    async def execute(self, query, *args, commit=False):
+        async with self.pool.acquire() as conn:
+            async with conn.transaction():
+                print(f"Executing query: {query}, with data: {args}")
+                result = await conn.execute(query, *args)
+                if commit:
+                    return None
+                else:
+                    return await result.fetchall()
+
+
+sql_con = Database(DB_URI)
+SQLDB = sql_con.execute  # Your SQLdb object for executing with one param commit whose default value set to False
+
+"""
+Dont simply kang, please give credits and one star for this help
+This method solves the `To many connections error` in elephant sql or any other free postgresql
+"""
