@@ -1,5 +1,6 @@
 # SQL
 - SQL DB object = ```SQLDB```
+Created by [赤羽 I S H I K K I](https://github.com/ishikki-akabane)
 
 ## TABLES
 - table_name (**coulunm names**)
