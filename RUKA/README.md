@@ -6,20 +6,7 @@
 * ```OWNER``` - Have all rights and access to the bots command
 
 ## File System
-RUKA
-    ```__init__.py```
-    ```__main__.py```
-    ```config.py```
-    ```media.py```
-    **modules**
-    **tools**
-    database
-        ```mongodb.py```
-        sql
-
-
-RUKA
-- RUKA
+- `*RUKA*`
     - ├── ```__init__.py```
     - ├── ```__main__.py```
     - ├── ```config.py```
@@ -29,3 +16,6 @@ RUKA
     - ├── **database**
         - ├── ```mongodb.py```
         - ├── **sql**
+
+```python
+print("hello")
