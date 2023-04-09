@@ -19,18 +19,16 @@ RUKA
 
 
 RUKA
-├── README.md
-├── requirements.txt
-└── src
-    ├── auth
-    │   ├── __init__.py
-    │   ├── models.py
-    │   └── views.py
-    ├── chat
-    │   ├── __init__.py
-    │   ├── models.py
-    │   └── views.py
-    └── utils
-        ├── __init__.py
-        ├── email.py
-        └── logger.py
+- src
+  ├─ auth
+  │  ├─ __init__.py
+  │  ├─ models.py
+  │  └─ views.py
+  ├─ chat
+  │  ├─ __init__.py
+  │  ├─ models.py
+  │  └─ views.py
+  └─ utils
+     ├─ __init__.py
+     ├─ email.py
+     └─ logger.py
