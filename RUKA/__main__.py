@@ -25,10 +25,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     first_name = update.effective_user.first_name
     uptime = get_readable_time((time.time() - StartTime))
-    result = await sql_adduser(user_id, first_name)
-    if result:
-        print(result)
-        return
 
     if update.effective_chat.type == "private":
         await message.reply_text(
