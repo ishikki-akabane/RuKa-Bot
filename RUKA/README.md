@@ -18,6 +18,6 @@
         - ├── **sql**
 
 ```python
-print("""Dont just kang, give credits inside the code and one star for my efforts,
+Dont just kang, give credits inside the code and one star for my efforts,
 if you are good person who cares about the effors of developer then i respect you broo/sisi
-Thankyou :)""")
+Thankyou :)
