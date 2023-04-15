@@ -35,7 +35,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     [
                         InlineKeyboardButton(
                             text="☑ ᴀᴅᴅ RᴜKᴀ ☑",
-                            url="t.me/Rukaaxdbot?startgroup=true"
+                            url="t.me/RukaProbot?startgroup=true"
                         )
                     ],
                     [
