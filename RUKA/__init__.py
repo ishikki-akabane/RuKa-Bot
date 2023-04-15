@@ -5,7 +5,7 @@ Learn to value someone's hardwork, so please dont remove credits
 Made with dedication and love
 If you face any issues, feel free to visit @DevsLAB,
 or into my DM to abuse me or for help or just to say thanks.
-Thankyou if read this notice fully :), have a wonderful cody day
+Thankyou if you read this notice fully :), have a wonderful cody day
 """
 import logging
 import os
