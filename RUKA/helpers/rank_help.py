@@ -4,7 +4,7 @@ from telegram.ext import ContextTypes
 from RUKA import DEV_USERS, SUDO_USERS, SUPPORT_USERS, WHITE_LIST, OWNER_ID, LOGGER
 
 
-async def status(rank):
+def status(rank):
     async def decorator(func):
         @wraps(func)
         async def wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE):
