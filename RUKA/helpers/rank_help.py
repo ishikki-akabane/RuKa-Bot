@@ -26,9 +26,6 @@ def status(rank):
             elif rank == 'owner' and user_id != OWNER_ID:
                 await message.reply_text("Only my dear owner can you use this!!")
                 return
-            else:
-                LOGGER.info("wrong usage!! Status decorator of RUKA.helpers.rank_help not used correctly in ")
-                return
 
             return func(update, context)
         return wrapper
