@@ -169,6 +169,8 @@ else:
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
     ALLOW_CHATS = Config.ALLOW_CHATS
     INFOPIC = Config.INFOPIC
+
+LOGGER.info("[RUKA]: VARIABLES LOADED")
 #=======================================================================================================X
 
 async def booting_msg(application: Application):
