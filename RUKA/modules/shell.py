@@ -6,10 +6,10 @@ from telegram.constants import ParseMode
 from telegram.ext import ContextTypes, CommandHandler
 
 from RUKA import LOGGER, dp
-from RUKA.helpers.rank_help import dev_plus
+from RUKA.helpers.rank_help import status
 
 
-@dev_plus
+
 async def shell(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     cmd = message.text.split(" ", 1)
