@@ -8,15 +8,25 @@ or into my DM to abuse me or for help or just to say thanks.
 Thankyou if read this notice fully :), have a wonderful cody day
 """
 import time
+import importlib
 
 from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT
 from RUKA.tools.time import get_readable_time
+from RUKA.modules import ALL_MODULES
 
 from RUKA.database.sql.user_sql import sql_adduser
 
 from telegram.ext import ContextTypes, CommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, Chat, User
 from telegram.constants import ParseMode
+
+
+
+for module_name in ALL_MODULES:
+    imported_module = importlib.import_module("RUKA.modules." + module_name)
+    if not hasattr(imported_module, "__mod_name__"):
+        imported_module.__mod_name__ = imported_module.__name__
+
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -60,9 +70,9 @@ def main():
     start_handler = CommandHandler("start", start)
     dp.add_handler(start_handler)
 
-    LOGGER.info("Using long polling.")
+    LOGGER.info("Ruka is now deployed!!!\nUsing long polling...")
     dp.run_polling(timeout=15, drop_pending_updates=False)
 
 if __name__ == "__main__":
-    LOGGER.info("Successfully loaded modules: ")
+    LOGGER.info("Successfully loaded all modules")
     main()
