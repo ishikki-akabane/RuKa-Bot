@@ -1,7 +1,7 @@
 import os
 
 import requests
-from telegram import ParseMode, Update
+from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
 from RUKA import dp
