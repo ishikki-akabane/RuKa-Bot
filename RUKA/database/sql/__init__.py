@@ -1,5 +1,5 @@
 # A asyncpg for postgres connections
-from RUKA import DB_URI
+from RUKA import DB_URI, LOGGER
 from RUKA.database.sql.createtable1 import (
     CREATE_USER_TABLE
 )
@@ -30,7 +30,7 @@ class Database:
                 else:
                     return await result.fetchall()
 
-
+LOGGER.info("[RUKA]: SQL DATABASE CONNECTION SUCCESSFUL!!!")
 sql_con = Database(DB_URI)
 SQLDB = sql_con.execute  # Your SQLdb object for executing with one param commit whose default value set to False
 
