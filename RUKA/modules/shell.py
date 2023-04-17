@@ -9,7 +9,7 @@ from RUKA import LOGGER, dp
 from RUKA.helpers.rank_help import status
 
 
-
+@status(rank="dev")
 async def shell(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     cmd = message.text.split(" ", 1)
