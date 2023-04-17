@@ -32,6 +32,7 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
         file_path = os.path.join("temp", f"{new_id}.jpg")
         file_obj = await context.bot.get_file(file_id)
         file_url = file_obj.file_path
+        print(file_url)
 
     else:
         await msg.reply_text(
@@ -62,6 +63,6 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await msg.reply_text(text)
     except Exception as e:
         await msg.reply_text("Cant find anything!!")
-
+        print(e)
 
 dp.add_handler(CommandHandler("pp", reverse))
