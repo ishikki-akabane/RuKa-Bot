@@ -14,7 +14,7 @@ async def shell(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     cmd = message.text.split(" ", 1)
     if len(cmd) == 1:
-        message.reply_text("ɴᴏ ᴄᴏᴍᴍᴀɴᴅ ᴡᴀs ɢɪᴠᴇɴ ᴛᴏ ᴇxᴇᴄᴜᴛᴇ!")
+        await message.reply_text("ɴᴏ ᴄᴏᴍᴍᴀɴᴅ ᴡᴀs ɢɪᴠᴇɴ ᴛᴏ ᴇxᴇᴄᴜᴛᴇ!")
         return
     cmd = cmd[1]
     process = subprocess.Popen(
