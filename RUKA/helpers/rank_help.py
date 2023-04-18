@@ -5,7 +5,7 @@ from RUKA import DEV_USERS, SUDO_USERS, SUPPORT_USERS, WHITE_LIST, OWNER_ID, LOG
 
 
 def status(rank):
-    async def decorator(func):
+    def decorator(func):
         @wraps(func)
         async def wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE):
             user_id = update.effective_user.id
