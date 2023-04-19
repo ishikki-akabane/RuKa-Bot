@@ -30,7 +30,7 @@ class Database:
                 else:
                     return await result.fetchall()
 
-LOGGER.info("[RUKA]: SQL DATABASE CONNECTION SUCCESSFUL!!!")
+LOGGER.info("----SQL DATABASE CONNECTION SUCCESSFUL!!!")
 sql_con = Database(DB_URI)
 SQLDB = sql_con.execute  # Your SQLdb object for executing with one param commit whose default value set to False
 
