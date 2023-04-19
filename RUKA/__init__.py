@@ -170,7 +170,7 @@ else:
     ALLOW_CHATS = Config.ALLOW_CHATS
     INFOPIC = Config.INFOPIC
 
-LOGGER.info("[RUKA]: VARIABLES LOADED")
+LOGGER.info("--- VARIABLES LOADED")
 #=======================================================================================================X
 
 async def booting_msg(application: Application):
