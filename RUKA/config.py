@@ -6,8 +6,8 @@ class Config(object):
     # REQUIRED
 
     # Login to https://my.telegram.org and fill in these slots with the details given by it
-    API_ID = 123456
-    API_HASH = "d3a6dbd3e466159f7170f6af7fb3fgfgf"
+    API_ID = 13600724
+    API_HASH = "ee59fd28d0d065c6b7d105082c6a0ba0"
 
     TOKEN = "BOT_TOKEN"  # BOT TOKEN, get it from @botfather
     OWNER_ID = "5030730429"  # If you dont know, run @KAZUMABOT and send /id
