@@ -70,7 +70,7 @@ def main():
     start_handler = CommandHandler("start", start)
     dp.add_handler(start_handler)
 
-    LOGGER.info("Ruka is now deployed!!!\nUsing long polling...")
+    LOGGER.info("Ruka is now deployed!!!\n---Using long polling...")
     dp.run_polling(timeout=15, drop_pending_updates=False)
 
 if __name__ == "__main__":
