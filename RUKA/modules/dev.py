@@ -19,5 +19,9 @@ async def logs(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_document(document=f, filename=f.name, chat_id=user.id)
 
 
+async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+
 
 dp.add_handler(CommandHandler("logs", logs, block=False))
+dp.add_handler(CommandHandler("stats", stats, block=False))
