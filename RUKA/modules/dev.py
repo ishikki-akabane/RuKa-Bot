@@ -1,3 +1,7 @@
+import psutil
+import os
+import datetime
+
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import ContextTypes, CommandHandler
@@ -20,6 +24,36 @@ async def logs(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    message = update.effective_message
+    # Get system memory usage
+    mem = psutil.virtual_memory()
+    total_mem = round(mem.total / (1024 ** 2), 2)
+    used_mem = round(mem.used / (1024 ** 2), 2)
+    free_mem = round(mem.free / (1024 ** 2), 2)
+    mem_percent = mem.percent
+
+    # Get system storage usage
+    disk = psutil.disk_usage('/')
+    total_disk = round(disk.total / (1024 ** 3), 2)
+    used_disk = round(disk.used / (1024 ** 3), 2)
+    free_disk = round(disk.free / (1024 ** 3), 2)
+    disk_percent = disk.percent
+
+    # Get system uptime
+    uptime = datetime.timedelta(seconds=int(time.time() - psutil.boot_time()))
+
+    # Get system load average
+    load_avg = os.getloadavg()
+
+    # Compose system stats message
+    msg = f"🖥 System Stats 🖥\n\n"
+    msg += f"🧠 Memory: {used_mem}MB used / {free_mem}MB free ({mem_percent}%)\n"
+    msg += f"💾 Storage: {used_disk}GB used / {free_disk}GB free ({disk_percent}%)\n"
+    msg += f"🕒 Uptime: {uptime}\n"
+    msg += f"💪 Load Avg: {load_avg[0]:.2f} (1 minute) / {load_avg[1]:.2f} (5 minutes) / {load_avg[2]:.2f} (15 minutes)"
+
+    # Send system stats message
+    await message.reply_text(msg)
 
 
 
