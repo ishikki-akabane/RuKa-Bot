@@ -14,10 +14,10 @@ class Config(object):
     OWNER_USERNAME = "Ishikki_AKABANE" #OWNER Username without @
 
     SUPPORT_CHAT = "DevsLAB"  # Your own group for support, do not add the @
-    SUPPORT_ID = -100 # Your support group's id
-    JOIN_LOGGER = -100  # Prints any new group the bot is added to, prints just the name and ID.
-    EVENT_LOGS = -100  # Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging
-    ERROR_LOGS = -100  # Prints error info
+    SUPPORT_ID = -1001856564943 # Your support group's id
+    JOIN_LOGGER = -1001856564943  # Prints any new group the bot is added to, prints just the name and ID.
+    EVENT_LOGS = -1001856564943  # Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging
+    ERROR_LOGS = -1001856564943  # Prints error info
     UPDATES_CHANNEL = "UpdatesXD" #Channel where they can read about new updates about the bot
     TEMP_DOWNLOAD_DIRECTORY = "./"
     WORKERS = 8 # Number of subthreads to use. Set as number of threads your processor uses
@@ -35,9 +35,9 @@ class Config(object):
     CERT_PATH = None
     
     #DATABASE | Ignore if you dont have and use public database of @ishikki_akabane
-    DATABASE_URI = ""  # needed for any database modules, recommended to use PostgreSQL or ElephantSQL
+    DATABASE_URI = "postgres://cugocwks:jgpqMTLw2rO6KMwnWDL6kAXwmaVMB1qW@john.db.elephantsql.com/cugocwks"  # needed for any database modules, recommended to use PostgreSQL or ElephantSQL
     MONGO_DB_URI = "" #MongoDB
-    REDIS_URL = "" #Redis
+    REDIS_URL = "redis://ishikki:Ishikki_143@redis-11102.c264.ap-south-1-1.ec2.cloud.redislabs.com:11102/" #Redis
 
     # OPTIONAL | Ignore if you dont have and use public API KEY's of @ishikki_akabane
     # For WEATHER, Get Your API key from https://openweathermap.org/api
@@ -54,7 +54,7 @@ class Config(object):
     ALLOW_CHATS = True
     INFOPIC = True
 
-
+    WHITE_LIST = [] #give comma after each ID
     # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
     SUPPORT_USERS = [] #give comma after each ID
     #List of id's (not usernames) for users which are allowed to gban and also have many rights
