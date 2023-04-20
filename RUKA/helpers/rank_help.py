@@ -7,26 +7,26 @@ from RUKA import DEV_USERS, SUDO_USERS, SUPPORT_USERS, WHITE_LIST, OWNER_ID, LOG
 def status(rank):
     def decorator(func):
         @wraps(func)
-        def wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE):
+        async def wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE):
             user_id = update.effective_user.id
             message = update.effective_message
 
             if rank == 'dev' and user_id not in DEV_USERS:
-                message.reply_text("Only developers of the bot can use this command")
+                await message.reply_text("Only developers of the bot can use this command")
                 return
             elif rank == 'sudo' and user_id not in SUDO_USERS:
-                message.reply_text("Only user with sudo access can use this command")
+                await message.reply_text("Only user with sudo access can use this command")
                 return
             elif rank == 'support' and user_id not in SUPPORT_USERS:
-                message.reply_text("You not worthy to use this command")
+                await message.reply_text("You not worthy to use this command")
                 return
             elif rank == 'white' and user_id not in WHITE_LIST:
-                message.reply_text("Only for special ranks user!!")
+                await message.reply_text("Only for special ranks user!!")
                 return
             elif rank == 'owner' and user_id != OWNER_ID:
-                message.reply_text("Only my dear owner can you use this!!")
+                await message.reply_text("Only my dear owner can you use this!!")
                 return
 
-            return func(update, context)
+            return await func(update, context)
         return wrapper
     return decorator
