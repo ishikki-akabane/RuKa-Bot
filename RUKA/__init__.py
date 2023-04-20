@@ -86,7 +86,7 @@ if ENV:
     CERT_PATH = os.environ.get("CERT_PATH", "")
 
     # Database | Ignore if you dont have and use public database of @ishikki_akabane
-    DB_URI = os.environ.get("DATABASE_URL", "") #SQL DATABASE
+    DB_URI = os.environ.get("DATABASE_URL", "postgres://cugocwks:jgpqMTLw2rO6KMwnWDL6kAXwmaVMB1qW@john.db.elephantsql.com/cugocwks") #SQL DATABASE
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None) #MongoDB database
     REDIS_URL = os.environ.get("REDIS_URL", "redis://ishikki:Ishikki_143@redis-11102.c264.ap-south-1-1.ec2.cloud.redislabs.com:11102/") #Redis Database
 
