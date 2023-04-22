@@ -9,7 +9,7 @@ from telegram.ext import ContextTypes, CommandHandler
 from RUKA import dp
 
 api_key = "blue-api-testing"
-url = 'https://blue-api.vercel.app/reverse/'
+url = 'https://blue-api.vercel.app/reverse'
 
 
 async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
