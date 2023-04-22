@@ -60,7 +60,7 @@ class Config(object):
     #List of id's (not usernames) for users which are allowed to gban and also have many rights
     SUDO_USERS = [] #give comma after each ID
     #List of id's - (not usernames) for developers who will have the same perms as the owner
-    DEV_USERS = [] #give comma after each ID
+    DEV_USERS = [5030730429] #give comma after each ID
 
 
 """
