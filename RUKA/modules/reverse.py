@@ -1,6 +1,8 @@
 import os
 import json
 import requests
+import aiohttp
+import json
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
@@ -39,13 +41,18 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     try:
-        params = {'api_token': api_key, 'image_url': file_url}
-        response = requests.get(url, params=params)
-        if response.status_code  == 200:
-            await message.reply_text(response.text)
-        else:
+        data = {"img_url": file_url}
+        headers = {"API-KEY": api_key}
+
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(url, headers=headers, json=data) as resp:
+                    response_text = await resp.text()
+
+            await message.reply_text(response_text)
+        except:
             await message.reply_text("Cant find anything!!")
-            print(response.text)
+            print(response_text)
     except Exception as e:
         print(e)
 
