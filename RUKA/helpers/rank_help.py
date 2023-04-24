@@ -4,8 +4,8 @@ from telegram.ext import ContextTypes
 from RUKA import DEV_USERS, SUDO_USERS, SUPPORT_USERS, WHITE_USERS, OWNER_ID, LOGGER
 
 #WHITE_LIST = DEV_USERS + SUDO_USERS + SUPPORT_USERS + WHITE_USERS
-SUPPORT_LIST = DEV_USERS + SUDO_USERS + SUPPORT_USERS
-SUDO_LIST = DEV_USERS + SUDO_USERS
+#SUPPORT_LIST = DEV_USERS + SUDO_USERS + SUPPORT_USERS
+#SUDO_LIST = DEV_USERS + SUDO_USERS
 
 def status(rank):
     def decorator(func):
@@ -17,10 +17,10 @@ def status(rank):
             if rank == 'dev' and user_id not in DEV_USERS:
                 await message.reply_text("Only developers of the bot can use this command")
                 return
-            elif rank == 'sudo' and user_id not in SUDO_LIST:
+            elif rank == 'sudo' and user_id not in SUDO_USERS:
                 await message.reply_text("Only user with sudo access can use this command")
                 return
-            elif rank == 'support' and user_id not in SUPPORT_LIST:
+            elif rank == 'support' and user_id not in SUPPORT_USERS:
                 await message.reply_text("You not worthy to use this command")
                 return
             elif rank == 'white' and user_id not in WHITE_USERS:
