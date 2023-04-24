@@ -121,10 +121,10 @@ else:
         raise Exception("Your OWNER_ID variable is not a valid integer")
     
     try:
-        WHITE_LIST = set(int(x) for x in Config.WHITE_LIST or [])
-        SUPPORT_USERS = set(int(x) for x in Config.SUPPORT_USERS or [])
-        SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or [])
-        DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
+        WHITE_LIST = Config.WHITE_LIST or []
+        SUPPORT_USERS = Config.SUPPORT_USERS or []
+        SUDO_USERS = Config.SUDO_USERS or []
+        DEV_USERS = Config.DEV_USERS or []
     except ValueError:
         raise Exception("Your support or sudo or dev users list does not contain valid integers.")
 
