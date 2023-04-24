@@ -15,6 +15,8 @@ from RUKA.helpers.errors import capture_error
 @capture_error
 async def git_pull_restart(update, context):
     # Change this to the path of your bot code directory
+    await context.bot.send_message(chat_id=update.message.chat_id, text='Pulling changes!')
+
     bot_code_dir = '/root/Ruka-bot'
 
     # Change this to the URL of your GitHub repo
