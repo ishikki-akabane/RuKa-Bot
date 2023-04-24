@@ -52,7 +52,7 @@ if ENV:
         raise Exception("Your OWNER_ID env variable is not a valid integer")
 
     try:
-        WHITE_LIST = set(int(x) for x in os.environ.get("WHITE_LIST", "").split())
+        WHITE_USERS = set(int(x) for x in os.environ.get("WHITE_USERS", "").split())
         SUPPORT_USERS = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
         SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
         DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "").split())
@@ -121,10 +121,10 @@ else:
         raise Exception("Your OWNER_ID variable is not a valid integer")
     
     try:
-        WHITE_LIST = set(int(x) for x in Config.WHITE_LIST or [])
-        SUPPORT_USERS = set(int(x) for x in Config.SUPPORT_USERS or [])
-        SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or [])
-        DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
+        WHITE_USERS = Config.WHITE_USERS or []
+        SUPPORT_USERS = Config.SUPPORT_USERS or []
+        SUDO_USERS = Config.SUDO_USERS or []
+        DEV_USERS = Config.DEV_USERS or []
     except ValueError:
         raise Exception("Your support or sudo or dev users list does not contain valid integers.")
 
@@ -180,7 +180,7 @@ LOGGER.info("----VARIABLES LOADED")
 DEV_USERS = list(DEV_USERS)
 SUDO_USERS = list(SUDO_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
-WHITE_LIST = list(WHITE_LIST)
+WHITE_USERS = list(WHITE_USERS)
 
 DEV_USERS = DEV_USERS.append(OWNER_ID)
 #=======================================================================================================X
