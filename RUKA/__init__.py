@@ -17,8 +17,10 @@ import asyncio
 from telegram.ext import ApplicationBuilder, Application
 
 # Enable Logging========================================================================================X
-if os.path.isfile("logs.txt"):
+try:
     os.remove("logs.txt")
+except:
+    pass
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
