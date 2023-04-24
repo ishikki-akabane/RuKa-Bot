@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import ContextTypes
 from RUKA import DEV_USERS, SUDO_USERS, SUPPORT_USERS, WHITE_USERS, OWNER_ID, LOGGER
 
-WHITE_LIST = DEV_USERS + SUDO_USERS + SUPPORT_USERS + WHITE_USERS
+#WHITE_LIST = DEV_USERS + SUDO_USERS + SUPPORT_USERS + WHITE_USERS
 SUPPORT_LIST = DEV_USERS + SUDO_USERS + SUPPORT_USERS
 SUDO_LIST = DEV_USERS + SUDO_USERS
 
@@ -23,7 +23,7 @@ def status(rank):
             elif rank == 'support' and user_id not in SUPPORT_LIST:
                 await message.reply_text("You not worthy to use this command")
                 return
-            elif rank == 'white' and user_id not in WHITE_LIST:
+            elif rank == 'white' and user_id not in WHITE_USERS:
                 await message.reply_text("Only for special ranks user!!")
                 return
             elif rank == 'owner' and user_id != OWNER_ID:
