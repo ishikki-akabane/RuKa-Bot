@@ -15,7 +15,6 @@ url = 'https://blue-api.vercel.app/reverse'
 async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     chat_id = update.effective_chat.id
-    rtmid = message.message_id
 
     reply = message.reply_to_message
 
@@ -30,12 +29,11 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await message.reply_text("Reply To An Image Or Sticker To Lookup!")
             return
 
+        a = await message.reply_text("searching...")
         file_path = os.path.join("temp", f"{new_id}.jpg")
-        print(file_path)
         file_obj = await context.bot.get_file(file_id)
-        print(file_obj)
         file_url = file_obj.file_path
-        print(file_url)
+
 
     else:
         await message.reply_text(
@@ -64,6 +62,8 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await message.reply_text("Cant find anything!!")
     except Exception as e:
         print(e)
+    
+    await a.delete()
 
 
 dp.add_handler(CommandHandler(["pp", "grs", "p", "reverse"], reverse))
