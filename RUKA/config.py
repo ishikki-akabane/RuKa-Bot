@@ -54,7 +54,7 @@ class Config(object):
     ALLOW_CHATS = True
     INFOPIC = True
 
-    WHITE_LIST = [1] #give comma after each ID
+    WHITE_USERS = [1] #give comma after each ID
     # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
     SUPPORT_USERS = [1] #give comma after each ID
     #List of id's (not usernames) for users which are allowed to gban and also have many rights
