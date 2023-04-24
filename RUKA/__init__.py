@@ -172,6 +172,13 @@ else:
 
 LOGGER.info("----VARIABLES LOADED")
 #=======================================================================================================X
+DEV_USERS = list(DEV_USERS)
+SUDO_USERS = list(SUDO_USERS)
+SUPPORT_USERS = list(SUPPORT_USERS)
+WHITE_LIST = list(WHITE_LIST)
+
+DEV_USERS = DEV_USERS.append(OWNER_ID)
+#=======================================================================================================X
 
 async def booting_msg(application: Application):
     try:
