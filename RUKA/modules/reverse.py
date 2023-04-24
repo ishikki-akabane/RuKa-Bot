@@ -55,7 +55,6 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await message.reply_text(response_text)
         except:
             await message.reply_text("Cant find anything!!")
-            print(response_text)
     except Exception as e:
         print(e)
 
