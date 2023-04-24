@@ -7,9 +7,12 @@ from telegram.ext import ContextTypes, CommandHandler
 
 from RUKA import LOGGER, dp
 from RUKA.helpers.rank_help import status
+from RUKA.helpers.errors import capture_error
+
 
 
 @status(rank="dev")
+@capture_error
 async def git_pull_restart(update, context):
     # Change this to the path of your bot code directory
     bot_code_dir = '/root/Ruka-bot'
