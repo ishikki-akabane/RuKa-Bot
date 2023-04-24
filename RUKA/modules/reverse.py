@@ -31,8 +31,11 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
         file_path = os.path.join("temp", f"{new_id}.jpg")
+        print(file_path)
         file_obj = await context.bot.get_file(file_id)
+        print(file_obj)
         file_url = file_obj.file_path
+        print(file_url)
 
     else:
         await message.reply_text(
