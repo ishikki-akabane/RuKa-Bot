@@ -3,7 +3,7 @@ import json
 import requests
 import aiohttp
 import json
-from telegram import Update
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, CommandHandler
 
 from RUKA import dp
@@ -50,9 +50,16 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.post(url, headers=headers, json=data) as resp:
-                    response_text = await resp.text()
+                    response_text = await resp.json()
 
-            await message.reply_text(response_text)
+            await message.reply_text(
+                text=response_text["reverse"],
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        InlineKeyboardButton(text="Link", url=response_text["url"])
+                    ]
+                )
+            )
         except:
             await message.reply_text("Cant find anything!!")
     except Exception as e:
