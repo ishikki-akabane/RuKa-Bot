@@ -2,8 +2,8 @@ import os
 import json
 
 
-def get_user_list(config, key):
-    with open("{}/RUKA/{}".format(os.getcwd(), config), "r") as json_file:
+def get_user_list(key):
+    with open("users.json", "r") as json_file:
         return json.load(json_file)[key]
 
 
@@ -60,13 +60,13 @@ class Config(object):
     ALLOW_CHATS = True
     INFOPIC = True
 
-    WHITE_USERS = [1] #give comma after each ID
+    WHITE_USERS = get_user_list("whitelists") #give comma after each ID
     # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
-    SUPPORT_USERS = [1] #give comma after each ID
+    SUPPORT_USERS = get_user_list("supports") #give comma after each ID
     #List of id's (not usernames) for users which are allowed to gban and also have many rights
-    SUDO_USERS = [1] #give comma after each ID
+    SUDO_USERS = get_user_list("sudos") #give comma after each ID
     #List of id's - (not usernames) for developers who will have the same perms as the owner
-    DEV_USERS = [5030730429] #give comma after each ID
+    DEV_USERS = get_user_list("devs") #give comma after each ID
 
 
 """
