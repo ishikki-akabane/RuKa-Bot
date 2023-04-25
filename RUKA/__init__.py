@@ -121,10 +121,10 @@ else:
         raise Exception("Your OWNER_ID variable is not a valid integer")
     
     try:
-        WHITE_USERS = Config.WHITE_USERS or []
-        SUPPORT_USERS = Config.SUPPORT_USERS or []
-        SUDO_USERS = Config.SUDO_USERS or []
-        DEV_USERS = Config.DEV_USERS or []
+        WHITE_USERS = set(int(x) for x in Config.DRAGONS or [])
+        SUPPORT_USERS = set(int(x) for x in Config.SUPPORT_USERS or [])
+        SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or [])
+        DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
     except ValueError:
         raise Exception("Your support or sudo or dev users list does not contain valid integers.")
 
@@ -184,6 +184,8 @@ WHITE_USERS = list(WHITE_USERS)
 
 DEV_USERS = DEV_USERS.append(OWNER_ID)
 #=======================================================================================================X
+bot_alive_pic = "https://graph.org/file/644b74fb6d35e863f1590.jpg"
+bot_alive_msg = "Ruka Alive"
 
 async def booting_msg(application: Application):
     try:
