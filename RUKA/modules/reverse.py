@@ -19,6 +19,7 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply = message.reply_to_message
 
     if reply:
+        
         if reply.sticker:
             file_id = reply.sticker.file_id
             new_id = reply.sticker.file_unique_id
@@ -50,11 +51,13 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 async with session.post(url, headers=headers, json=data) as resp:
                     response_text = await resp.json()
 
+            result = response_text["reverse"]
+            url_link = response_text["url"]
             await message.reply_text(
-                text=response_text["reverse"],
+                text=result,
                 reply_markup=InlineKeyboardMarkup(
                     [
-                        InlineKeyboardButton(text="Link", url=response_text["url"])
+                        InlineKeyboardButton(text="Link", url=url_link)
                     ]
                 )
             )
