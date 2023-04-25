@@ -1,9 +1,10 @@
 #FIRST
 
-CREATE_USER_TABLE = '''
-    CREATE TABLE IF NOT EXISTS user_table (
+CREATE_AFK_TABLE = '''
+    CREATE TABLE IF NOT EXISTS afk_table (
         user_id BIGINT,
-        name VARCHAR(255)
+        reason VARCHAR(255),
+        date dat
     )
 '''
 
