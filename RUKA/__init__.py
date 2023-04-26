@@ -105,6 +105,7 @@ if ENV:
     TIME_API_KEY = os.environ.get("TIME_API_KEY", None)
     AI_API_KEY = os.environ.get("AI_API_KEY", None)
     WALL_API = os.environ.get("WALL_API", None)
+    BLUE_API = os.environ.get("BLUE_API", None)
     
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
     ALLOW_CHATS = bool(os.environ.get("ALLOW_CHATS", True))
@@ -170,6 +171,7 @@ else:
     TIME_API_KEY = Config.TIME_API_KEY
     AI_API_KEY = Config.AI_API_KEY
     WALL_API = Config.WALLPAPERS_API
+    BLUE_API = Config.BLUE_API
     
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
     ALLOW_CHATS = Config.ALLOW_CHATS
