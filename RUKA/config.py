@@ -3,7 +3,7 @@ import json
 
 
 def get_user_list(key):
-    with open("users.json", "r") as json_file:
+    with open("{}/RUKA/{}".format(os.getcwd(), "users.json"), "r") as json_file:
         return json.load(json_file)[key]
 
 
@@ -55,6 +55,10 @@ class Config(object):
     AI_API_KEY = "lol"
     # For wallpapers, get one from https://wall.alphacoders.com/api.php
     WALLPAPERS_API = "lol"
+
+    # For all in one api - BLUE_API, get it from BlueApiBot
+    BLUE_API = "blue-api-testing"
+
 
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
     ALLOW_CHATS = True
