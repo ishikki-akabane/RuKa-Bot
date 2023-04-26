@@ -1,14 +1,12 @@
 import os
 import json
-import requests
 import aiohttp
 import json
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, CommandHandler
 
-from RUKA import dp
+from RUKA import dp, BLUE_API
 
-api_key = "blue-api-testing"
 url = 'https://blue-api.vercel.app/reverse'
 
 
@@ -44,7 +42,7 @@ async def reverse(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     try:
         data = {"img_url": file_url}
-        headers = {"API-KEY": api_key}
+        headers = {"API-KEY": BLUE_API}
 
         try:
             async with aiohttp.ClientSession() as session:
