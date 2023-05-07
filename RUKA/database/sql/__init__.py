@@ -1,8 +1,8 @@
 # A asyncpg for postgres connections
 from RUKA import DB_URI, LOGGER
-from RUKA.database.sql.createtable1 import (
-    CREATE_USER_TABLE
-)
+#from RUKA.database.sql.createtable1 import (
+#    CREATE_USER_TABLE
+#)
 import asyncpg
 import asyncio
 
