@@ -1,8 +1,8 @@
 {
-    "devs": [5030730429],
-    "sudos": [],
-    "supports": [],
-    "whitelists": []
+    "devs": [5030730429, 5961862314],
+    "sudos": [1],
+    "supports": [1],
+    "whitelists": [1]
 }
 
 
