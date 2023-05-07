@@ -17,7 +17,8 @@ class Database:
             self.pool = await asyncpg.create_pool(self.uri, min_size=1, max_size=MAX_CONNECTIONS)
             async with self.pool.acquire() as conn:
                 try:
-                    await conn.execute(CREATE_USER_TABLE)
+                    #await conn.execute(CREATE_USER_TABLE)
+                    a = 2
                 except:
                     pass
 
