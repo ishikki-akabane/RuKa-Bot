@@ -122,7 +122,7 @@ else:
         raise Exception("Your OWNER_ID variable is not a valid integer")
     
     try:
-        WHITE_USERS = set(int(x) for x in Config.DRAGONS or [])
+        WHITE_USERS = set(int(x) for x in Config.WHITE_USERS or [])
         SUPPORT_USERS = set(int(x) for x in Config.SUPPORT_USERS or [])
         SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or [])
         DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
