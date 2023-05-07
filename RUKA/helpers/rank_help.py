@@ -1,7 +1,8 @@
 from functools import wraps
 from telegram import Update
 from telegram.ext import ContextTypes
-from RUKA.helpers import DEVLIST, SUDOLIST, SUPPORTLIST, WHITELIST, OWNER_ID, LOGGER
+from RUKA.helpers import DEVLIST, SUDOLIST, SUPPORTLIST, WHITELIST
+from RUKA import OWNER_ID, LOGGER
 
 
 def status(rank):
