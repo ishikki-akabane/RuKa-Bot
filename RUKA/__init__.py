@@ -184,8 +184,7 @@ SUDO_USERS = list(SUDO_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
 WHITE_USERS = list(WHITE_USERS)
 
-DEV_USERS = DEV_USERS.append(OWNER_ID)
-LOGGER.info(f"{DEV_USERS}, {SUDO_USERS}, {SUPPORT_USERS}, {WHITE_USERS}")
+DEV_USERS.append(OWNER_ID)
 #=======================================================================================================X
 bot_alive_pic = "https://graph.org/file/644b74fb6d35e863f1590.jpg"
 bot_alive_msg = "Ruka Alive"
