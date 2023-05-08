@@ -8,7 +8,7 @@ from RUKA import dp, OWNER_ID
 from RUKA.helpers.extra import mention
 from RUKA.helpers.requests import bluerequest
 
-from telegram import Update
+from telegram import Update, ChatPermissions
 from telegram.ext import ContextTypes, CommandHandler
 from telegram.constants import ParseMode
 
@@ -48,13 +48,19 @@ async def slap(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await message.reply_text("You want to slap yourself ?")
         return
     elif defender.id == bot.id: # slaping the bot
-        await bot.restrict_chat_member(
-            chat.id,
-            attacker.id,
-            until_date=time.time() + 60
-        )
-        await message.reply_text("I will mute you for slapping me you perve")
-        return 
+        try:
+            permissions = ChatPermissions(can_send_messages=False)
+            await bot.restrict_chat_member(
+                chat.id,
+                attacker.id,
+                permissions,
+                until_date=time.time() + 60
+            )
+            await message.reply_text("I will mute you for slapping me you perve")
+            return
+        except:
+            await message.reply_text("stop slapping me just because i cant mute")
+            return
     elif defender.id == OWNER_ID:
         await message.reply_text("bruh, i cant slap my love :/")
         return
@@ -63,7 +69,7 @@ async def slap(update: Update, context: ContextTypes.DEFAULT_TYPE):
         response = await bluerequest(url)
         user1 = mention(attacker.id, attacker.first_name, mention=True)
         user2 = mention(defender.id, defender.first_name, mention=True)
-        await message.reply_animation(response["msg"], caption=f"{user1} slapped {user2} so hard, their ancestors felt it", parsemode=ParseMode.MARKDOWN)
+        await message.reply_animation(response["msg"], caption=f"{user1} slapped {user2} so hard, their ancestors felt it", parse_mode=ParseMode.MARKDOWN)
 
 
 dp.add_handler(CommandHandler("slap", slap))
