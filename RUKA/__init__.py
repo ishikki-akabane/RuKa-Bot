@@ -13,6 +13,7 @@ import sys
 import time
 import telegram.ext as tg
 import asyncio
+import aiohttp
 
 from telegram.ext import ApplicationBuilder, Application
 
@@ -191,13 +192,14 @@ bot_alive_msg = "Ruka Alive"
 
 async def booting_msg(application: Application):
     try:
-        await application.bot.sendMessage(SUPPORT_ID, "Ruka Online!!!")
+        await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
     except Exception as e:
         LOGGER.warning(
             "Bot isn't able to send message to support_chat!",
         )
         print(e)
 
+#=======================================================================================================X
 # Build dispatcher object for python-telegram-bot
 dp = ApplicationBuilder().token(TOKEN).post_init(booting_msg).build()
-
+aiosession = aiohttp.ClientSession()
