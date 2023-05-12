@@ -13,11 +13,11 @@ def capture_error(func):
             return await func(update, context, *args, **kwargs)
         except Exception as e:
             error_message = f"An error occurred: {e}\n\n"
-            traceback = traceback.format_exc()
+            tracebackk = traceback.format_exc()
             error_message += f"{traceback}"
             bot = context.bot
             chat_id = ERROR_LOGS
-            link = await paste(traceback)
+            link = await paste(tracebackk)
             await bot.send_message(
                 chat_id=chat_id,
                 text=error_message,
