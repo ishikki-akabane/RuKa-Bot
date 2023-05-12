@@ -205,7 +205,7 @@ async def booting_msg(application: Application):
     async with aiosession.post(url, headers=headers, json=data) as resp:
         response = await resp.json()
     
-    LOGGER.info(response)
+    LOGGER.info(response["msg"])
     """
     try:
         await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
