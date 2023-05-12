@@ -198,7 +198,7 @@ aiosession = aiohttp.ClientSession()
 
 async def booting_msg(application: Application):
     bot = Bot(token=TOKEN)
-    bot.initialize()
+    await bot.initialize()
     url = BLUE_URL + "/connect"
     headers = {"API-KEY": BLUE_API}
     print(bot)
