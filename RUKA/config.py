@@ -23,7 +23,7 @@ class Config(object):
     SUPPORT_ID = -1001856564943 # Your support group's id
     JOIN_LOGGER = -1001856564943  # Prints any new group the bot is added to, prints just the name and ID.
     EVENT_LOGS = -1001856564943  # Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging
-    ERROR_LOGS = -1001856564943  # Prints error info
+    ERROR_LOGS = -1001552477173  # Prints error info
     UPDATES_CHANNEL = "UpdatesXD" #Channel where they can read about new updates about the bot
     TEMP_DOWNLOAD_DIRECTORY = "./"
     WORKERS = 8 # Number of subthreads to use. Set as number of threads your processor uses
