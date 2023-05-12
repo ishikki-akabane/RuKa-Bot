@@ -198,9 +198,9 @@ async def booting_msg(application: Application):
     headers = {"API-KEY": BLUE_API}
     data = {"bot": application.bot, "owner": {"owner_id": OWNER_ID, "owner_username": OWNER_USERNAME}}
     async with aiosession.post(url, headers=headers, json=data) as resp:
-        response = await resp.json()
+        response = await resp.text
     
-    LOGGER.info(response["msg"])
+    LOGGER.info(response)
 
     """
     try:
