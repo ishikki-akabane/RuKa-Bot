@@ -17,7 +17,7 @@ import aiohttp
 import json
 
 from telegram.ext import ApplicationBuilder, Application
-
+from telegram import Bot
 # Enable Logging========================================================================================X
 try:
     os.remove("logs.txt")
@@ -197,9 +197,9 @@ aiosession = aiohttp.ClientSession()
 
 
 async def booting_msg(application: Application):
+    bot = Bot(token=TOKEN)
     url = BLUE_URL + "/connect"
     headers = {"API-KEY": BLUE_API}
-    bot = context.bot
     print(bot)
     """
     data = {"bot": application.bot, "owner": {"owner_id": OWNER_ID, "owner_username": OWNER_USERNAME}}
