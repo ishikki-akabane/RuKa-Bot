@@ -189,11 +189,6 @@ WHITE_USERS = list(WHITE_USERS)
 
 DEV_USERS.append(OWNER_ID)
 #=======================================================================================================X
-# Build dispatcher object for python-telegram-bot
-dp = ApplicationBuilder().token(TOKEN).post_init(booting_msg).build()
-aiosession = aiohttp.ClientSession()
-
-#=======================================================================================================X
 bot_alive_pic = "https://graph.org/file/644b74fb6d35e863f1590.jpg"
 bot_alive_msg = "Ruka Alive"
 
@@ -205,7 +200,7 @@ async def booting_msg(application: Application):
         response = await resp.json()
     
     LOGGER.info(response["msg"])
-    
+
     """
     try:
         await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
@@ -215,3 +210,8 @@ async def booting_msg(application: Application):
         )
         print(e)
     """
+
+#=======================================================================================================X
+aiosession = aiohttp.ClientSession()
+# Build dispatcher object for python-telegram-bot
+dp = ApplicationBuilder().token(TOKEN).post_init(booting_msg).build()
