@@ -193,6 +193,9 @@ DEV_USERS.append(OWNER_ID)
 bot_alive_pic = "https://graph.org/file/644b74fb6d35e863f1590.jpg"
 bot_alive_msg = "Ruka Alive"
 
+aiosession = aiohttp.ClientSession()
+
+
 async def booting_msg(application: Application):
     url = BLUE_URL + "/connect"
     headers = {"API-KEY": BLUE_API}
@@ -213,6 +216,6 @@ async def booting_msg(application: Application):
     """
 
 #=======================================================================================================X
-aiosession = aiohttp.ClientSession()
+
 # Build dispatcher object for python-telegram-bot
 dp = ApplicationBuilder().token(TOKEN).post_init(booting_msg).build()
