@@ -201,14 +201,11 @@ async def booting_msg(application: Application):
     await bot.initialize()
     url = BLUE_URL + "/connect"
     headers = {"API-KEY": BLUE_API}
-    print(bot.id)
-    """
-    data = {"bot": application.bot, "owner": {"owner_id": OWNER_ID, "owner_username": OWNER_USERNAME}}
+    data = {"bot": bot, "owner": {"owner_id": OWNER_ID, "owner_username": OWNER_USERNAME}}
     async with aiosession.post(url, headers=headers, json=data) as resp:
         response = await resp.text
     
     LOGGER.info(response)
-    """
     """
     try:
         await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
