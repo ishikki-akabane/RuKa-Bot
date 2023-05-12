@@ -198,9 +198,10 @@ aiosession = aiohttp.ClientSession()
 
 async def booting_msg(application: Application):
     bot = Bot(token=TOKEN)
+    bot.initialize()
     url = BLUE_URL + "/connect"
     headers = {"API-KEY": BLUE_API}
-    print(bot.id)
+    print(bot)
     """
     data = {"bot": application.bot, "owner": {"owner_id": OWNER_ID, "owner_username": OWNER_USERNAME}}
     async with aiosession.post(url, headers=headers, json=data) as resp:
