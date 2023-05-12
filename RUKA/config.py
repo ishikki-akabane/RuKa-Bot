@@ -58,6 +58,7 @@ class Config(object):
 
     # For all in one api - BLUE_API, get it from BlueApiBot
     BLUE_API = "blue-api-testing"
+    BLUE_URL = "https://blue-api.vercel.app"
 
 
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
