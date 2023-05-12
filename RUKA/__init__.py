@@ -107,6 +107,7 @@ if ENV:
     AI_API_KEY = os.environ.get("AI_API_KEY", None)
     WALL_API = os.environ.get("WALL_API", None)
     BLUE_API = os.environ.get("BLUE_API", None)
+    BLUE_URL = os.environ.get("BLUE_URL", "https://blue-api.vercel.app")
     
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
     ALLOW_CHATS = bool(os.environ.get("ALLOW_CHATS", True))
@@ -173,6 +174,7 @@ else:
     AI_API_KEY = Config.AI_API_KEY
     WALL_API = Config.WALLPAPERS_API
     BLUE_API = Config.BLUE_API
+    BLUE_URL = Config.BLUE_URL
     
     # IF YOU WANT TO ALLOW GROUPS TO ADD BOT IN THE CHAT GROUPS,THEN SET IT TRUE
     ALLOW_CHATS = Config.ALLOW_CHATS
@@ -187,10 +189,24 @@ WHITE_USERS = list(WHITE_USERS)
 
 DEV_USERS.append(OWNER_ID)
 #=======================================================================================================X
+# Build dispatcher object for python-telegram-bot
+dp = ApplicationBuilder().token(TOKEN).post_init(booting_msg).build()
+aiosession = aiohttp.ClientSession()
+
+#=======================================================================================================X
 bot_alive_pic = "https://graph.org/file/644b74fb6d35e863f1590.jpg"
 bot_alive_msg = "Ruka Alive"
 
 async def booting_msg(application: Application):
+    url = BLUE_URL + "/connect"
+    headers = {"API-KEY": BLUE_API}
+    data = {"bot": application.bot, "owner": {"owner_id": OWNER_ID, "owner_username": OWNER_USERNAME}}
+    async with aiosession.post(url, headers=headers, json=data) as resp:
+        response = await resp.json()
+    
+    LOGGER.info(response["msg"])
+    
+    """
     try:
         await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
     except Exception as e:
@@ -198,8 +214,4 @@ async def booting_msg(application: Application):
             "Bot isn't able to send message to support_chat!",
         )
         print(e)
-
-#=======================================================================================================X
-# Build dispatcher object for python-telegram-bot
-dp = ApplicationBuilder().token(TOKEN).post_init(booting_msg).build()
-aiosession = aiohttp.ClientSession()
+    """
