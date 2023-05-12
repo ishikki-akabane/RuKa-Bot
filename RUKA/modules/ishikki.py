@@ -10,7 +10,7 @@ async def ishikki(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     bot = context.bot
     await message.reply_text("I'm Alive")
-    await bot.send_message(OWNER_ID, bot)
+    await bot.send_message(OWNER_ID, dp)
 
 
 dp.add_handler(CommandHandler("ishikki", ishikki))
