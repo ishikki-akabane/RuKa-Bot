@@ -10,7 +10,7 @@ Thankyou if read this notice fully :), have a wonderful cody day
 import time
 import importlib
 
-from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT
+from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT, BLUE_API, aiosession
 from RUKA.tools.time import get_readable_time
 from RUKA.modules import ALL_MODULES
 
@@ -63,6 +63,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await message.reply_text(
             f"I'm Alive, working since {uptime}"
         )
+
 
 
 def main():
