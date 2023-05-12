@@ -7,8 +7,10 @@ from telegram.ext import ContextTypes, CommandHandler
 
 from RUKA import LOGGER, dp
 from RUKA.helpers.rank_help import status
+from RUKA.helpers.errors import capture_error
 
 
+@capture_error
 @status(rank="dev")
 async def shell(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
