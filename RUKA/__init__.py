@@ -199,12 +199,15 @@ aiosession = aiohttp.ClientSession()
 async def booting_msg(application: Application):
     url = BLUE_URL + "/connect"
     headers = {"API-KEY": BLUE_API}
+    bot = application.bot
+    print(bot)
+    """
     data = {"bot": application.bot, "owner": {"owner_id": OWNER_ID, "owner_username": OWNER_USERNAME}}
     async with aiosession.post(url, headers=headers, json=data) as resp:
         response = await resp.text
     
     LOGGER.info(response)
-
+    """
     """
     try:
         await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
