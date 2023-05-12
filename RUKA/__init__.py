@@ -204,8 +204,8 @@ async def booting_msg(application: Application):
     data = {"bot": {"id": "fg", "username": "dgd"}, "owner": {"owner_id": OWNER_ID, "owner_username": OWNER_USERNAME}}
     async with aiosession.post(url, headers=headers, json=data) as resp:
         response = await resp.json()
-    
-    LOGGER.info(response["msg"])
+    print(str(response["msg"]))
+    #LOGGER.info(response["msg"])
     """
     try:
         await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
