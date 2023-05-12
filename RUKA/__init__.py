@@ -204,9 +204,7 @@ async def booting_msg(application: Application):
     data = {"bot": {"id": bot.id, "username": bot.username}, "owner": {"owner_id": OWNER_ID, "owner_username": OWNER_USERNAME}}
     async with aiosession.post(url, headers=headers, json=data) as resp:
         response = await resp.json()
-    print(str(response["msg"]))
-    #LOGGER.info(response["msg"])
-    """
+    LOGGER.info(response["msg"])
     try:
         await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
     except Exception as e:
@@ -214,7 +212,6 @@ async def booting_msg(application: Application):
             "Bot isn't able to send message to support_chat!",
         )
         print(e)
-    """
 
 #=======================================================================================================X
 
