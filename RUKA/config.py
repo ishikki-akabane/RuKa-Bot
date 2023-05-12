@@ -57,7 +57,7 @@ class Config(object):
     WALLPAPERS_API = "lol"
 
     # For all in one api - BLUE_API, get it from BlueApiBot
-    BLUE_API = "blue-api-testing"
+    BLUE_API = "blue-ishikki-personal"
     BLUE_URL = "https://blue-api.vercel.app"
 
 
