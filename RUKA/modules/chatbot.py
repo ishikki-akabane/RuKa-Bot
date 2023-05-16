@@ -10,6 +10,10 @@ from telegram.constants import ParseMode
 
 BOT_NAME = "Ruka"
 
+"""
+credits goes to Safone(t.me/asmsafone)
+For original api safone API
+"""
 
 @capture_error
 async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
