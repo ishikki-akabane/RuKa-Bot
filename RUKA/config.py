@@ -15,7 +15,7 @@ class Config(object):
     API_ID = 13600724
     API_HASH = "ee59fd28d0d065c6b7d105082c6a0ba0"
 
-    TOKEN = "6208314828:AAGxzYJdt6xqDeC1u3_4lyF-cZbKplw8t5Q"  # BOT TOKEN, get it from @botfather
+    TOKEN = os.environ.get("Token", "")  # BOT TOKEN, get it from @botfather
     OWNER_ID = "5030730429"  # If you dont know, run @KAZUMABOT and send /id
     OWNER_USERNAME = "Ishikki_AKABANE" #OWNER Username without @
 
