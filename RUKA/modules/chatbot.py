@@ -4,7 +4,7 @@ from RUKA.helpers.requests import bluerequest
 
 
 from telegram import Update
-from telegram.ext import ContextTypes, CommandHandler
+from telegram.ext import ContextTypes, CommandHandler, MessageHandler, filters
 from telegram.constants import ParseMode
 
 
