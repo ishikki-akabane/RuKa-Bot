@@ -8,7 +8,6 @@ from RUKA.helpers.errors import capture_error
 headers = {"API-KEY": BLUE_API}
 
 
-@capture_error
 async def bluerequest(url, data=None):
     if data == None:
         async with aiosession.get(url, headers=headers) as resp:
