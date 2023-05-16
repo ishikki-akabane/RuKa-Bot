@@ -1,9 +1,13 @@
+import asyncio
+import os
+import re
+
 import traceback
 from functools import wraps
 from telegram import Bot, InlineKeyboardMarkup, InlineKeyboardButton
 
 from RUKA.helpers.paste_help import paste
-from RUKA import ERROR_LOGS
+from RUKA import ERROR_LOGS, aiosession
 
 
 async def isPreviewUp(preview: str) -> bool:
