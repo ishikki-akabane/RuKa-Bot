@@ -4,12 +4,13 @@
 # then you are welcome to @devslab on telegram
 # i again repeat, i dont say this paste snippet is mine
 
+
 import socket
 from asyncio import get_running_loop
 from functools import partial
 
 
-def _netcat(host, port, content):
+def socket_set(host, port, content):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
     s.sendall(content.encode())
@@ -24,6 +25,6 @@ def _netcat(host, port, content):
 
 async def paste(content):
     loop = get_running_loop()
-    link = await loop.run_in_executor(None, partial(_netcat, "ezup.dev", 9999, content))
+    link = await loop.run_in_executor(None, partial(socket_set, "ezup.dev", 9999, content))
     return link
 
