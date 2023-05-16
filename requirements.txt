@@ -6,3 +6,4 @@ aiohttp
 
 #extra
 psutil
+aiofiles
