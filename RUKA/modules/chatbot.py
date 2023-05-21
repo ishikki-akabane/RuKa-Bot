@@ -38,4 +38,4 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
-dp.add_handler(MessageHandler(filters.REPLY, chatbot))
+dp.add_handler(MessageHandler(filters.REPLY, chatbot, block=False))
