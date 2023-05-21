@@ -31,4 +31,4 @@ async def chatgpt(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
-dp.add_handler(CommandHandler("ask", chatbot, block=False))
+dp.add_handler(CommandHandler("ask", chatgpt, block=False))
