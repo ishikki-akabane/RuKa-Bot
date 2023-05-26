@@ -202,9 +202,12 @@ async def booting_msg(application: Application):
     url = BLUE_URL + "/connect"
     headers = {"API-KEY": BLUE_API}
     data = {"bot": {"id": bot.id, "username": bot.username}, "owner": {"owner_id": OWNER_ID, "owner_username": OWNER_USERNAME}}
-    async with aiosession.post(url, headers=headers, json=data) as resp:
-        response = await resp.json()
-    LOGGER.info(response["msg"])
+    try:
+        async with aiosession.post(url, headers=headers, json=data) as resp:
+            response = await resp.json()
+        LOGGER.info(response["msg"])
+    except:
+        LOGGER.info("Blue-API FAiled To STARTUP!! REPORT TO @DEVSLAB")
     try:
         await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
     except Exception as e:
