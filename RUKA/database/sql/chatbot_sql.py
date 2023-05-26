@@ -4,7 +4,7 @@ from RUKA.database.sql import SQLDB
 async def sql_addchatbot(chat_id, version):
     chat_id = int(chat_id)
     query = '''INSERT INTO chatbot_table (chat_id, version)
-            VALUES ({}, {}, '{}')
+            VALUES ({}, {})
     '''
     result = await SQLDB(query.format(chat_id, version), commit=True)
     return result
