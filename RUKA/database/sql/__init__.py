@@ -1,12 +1,18 @@
 # A asyncpg for postgres connections
 from RUKA import DB_URI, LOGGER
-#from RUKA.database.sql.createtable1 import (
-#    CREATE_USER_TABLE
-#)
+from RUKA.database.sql.createtable1 import (
+    CREATE_CHATBOT_TABLE,
+    CREATE_AFK_TABLE
+)
 import asyncpg
 import asyncio
 
 MAX_CONNECTIONS = 5 # default to 5 since elephant allow only 5 connections
+tables = [
+    CREATE_CHATBOT_TABLE,
+    CREATE_AFK_TABLE
+]
+
 
 class Database:
     def __init__(self, uri):
@@ -17,8 +23,8 @@ class Database:
             self.pool = await asyncpg.create_pool(self.uri, min_size=1, max_size=MAX_CONNECTIONS)
             async with self.pool.acquire() as conn:
                 try:
-                    #await conn.execute(CREATE_USER_TABLE)
-                    a = 2
+                    for table in tables:
+                        await conn.execute(table)
                 except:
                     pass
 
