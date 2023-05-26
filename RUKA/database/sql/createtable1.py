@@ -8,5 +8,9 @@ CREATE_AFK_TABLE = '''
     )
 '''
 
-
-
+CREATE_CHATBOT_TABLE = '''
+    CREATE TABLE IF NOT EXISTS chatbot_table (
+        chat_id BIGINT,
+        version INTEGER
+    )
+'''
