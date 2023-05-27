@@ -35,22 +35,25 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
     version = await checkchat(chat_id)
     text = message.text
     bot = context.bot
+    
+    reply = message.reply_to_message
+    target_id = reply.from_user.id
+    if target_id == 6208314828:
+        if version == 1:
+            await bot.send_chat_action(chat_id=chat_id, action='typing')
+            user_id = update.effective_user.id
+            if text is not None:
+                msg = await chatbot1(text, user_id)
+                await message.reply_text(f"{msg}", parse_mode=ParseMode.MARKDOWN)
 
-    if version == 1:
-        await bot.send_chat_action(chat_id=chat_id, action='typing')
-        user_id = update.effective_user.id
-        if text is not None:
-            msg = await chatbot1(text, user_id)
-            await message.reply_text(f"{msg}", parse_mode=ParseMode.MARKDOWN)
+        elif version == 2:
+            await bot.send_chat_action(chat_id=update.effective_chat.id, action='typing')
+            if text is not None:
+                msg = await chatbot2(text)
+                await message.reply_text(f"{msg}", parse_mode=ParseMode.MARKDOWN)
 
-    elif version == 2:
-        await bot.send_chat_action(chat_id=update.effective_chat.id, action='typing')
-        if text is not None:
-            msg = await chatbot2(text)
-            await message.reply_text(f"{msg}", parse_mode=ParseMode.MARKDOWN)
-
-    else:
-        return
+        else:
+            return
     
         
 
