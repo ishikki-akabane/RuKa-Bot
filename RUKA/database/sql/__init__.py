@@ -33,13 +33,11 @@ class Database:
     async def execute(self, query, *args, commit=False):
         async with self.pool.acquire() as conn:
             async with conn.transaction():
-                print(f"Executing query: {query}, with data: {args}")
                 if commit:
                     result = await conn.execute(query, *args)
                     return None
                 else:
                     result = await conn.fetch(query, *args)
-                    print(f"::: {result}")
                     return result
 
 
