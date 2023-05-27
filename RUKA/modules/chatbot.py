@@ -35,9 +35,7 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     chat_id = update.effective_chat.id
     version = 2
-    aa = await sql_addchatbot(chat_id, version)
     status = await checkchat(chat_id)
-    print(status)
     if status:
         pass
     else:
