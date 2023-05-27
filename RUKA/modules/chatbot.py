@@ -37,6 +37,7 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
     version = 2
     aa = await sql_addchatbot(chat_id, version)
     status = await checkchat(chat_id)
+    print(status)
     if status:
         pass
     else:
