@@ -38,7 +38,9 @@ class Database:
                 if commit:
                     return None
                 else:
-                    return await result.fetchall()
+                    print(result)
+                    final = await result.fetchall()
+                    return final
 
 
 LOGGER.info("[Ishikki] - SQL DATABASE CONNECTION SUCCESSFUL!!!")
