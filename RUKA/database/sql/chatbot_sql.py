@@ -29,11 +29,10 @@ async def checkchat(chat_id):
     query = '''SELECT * FROM chatbot_table WHERE chat_id = {}'''
     result = await SQLDB(query.format(chat_id), commit=False)
     exist = len(result)
-    if exist >= 1:
+    if exist == 0:
+        return None
+    else:
         for row in result:
             version = row[1]
-            print(version)
         return version
-    else:
-        return False
     
