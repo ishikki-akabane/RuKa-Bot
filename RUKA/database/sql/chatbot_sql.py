@@ -26,8 +26,8 @@ async def sql_updatechatbot(chat_id, version):
 
 async def checkchat(chat_id):
     chat_id = int(chat_id)
-    query = '''SELECT * FROM chatbot_table'''
-    result = await SQLDB(query, commit=False)
-
+    query = '''SELECT * FROM chatbot_table WHERE chat_id = {}'''
+    result = await SQLDB(query.format(chat_id), commit=False)
+    print(f"::: {result}")
     return result
     
