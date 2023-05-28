@@ -60,6 +60,7 @@ async def chatbot_select(update: Update, context: ContextTypes.DEFAULT_TYPE):
 @capture_error
 async def chatbot_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
+    message = update.effective_message
     commands = query.data.split("=")
     if commands[0] == "chatbot":
         chat_id = int(commands[2])
@@ -67,27 +68,27 @@ async def chatbot_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         if commands[1] == "safone":
             if exist == 1:
-                await query.message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
+                await message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
             if exist == 2:
                 result = await sql_updatechatbot(chat_id, 1)
-                await query.message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
+                await message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
             else:
                 result = await sql_addchatbot(chat_id, 1)
-                await query.message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
+                await message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
             
         elif commands[1] == "kurumi":
             if exist == 1:
                 result = await sql_updatechatbot(chat_id, 2)
-                await query.message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
+                await message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
             if exist == 2:
-                await query.message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
+                await message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
             else:
                 result = await sql_addchatbot(chat_id, 2)
-                await query.message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
+                await message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
 
         elif commands[1] == "disable":
             result = await sql_removechatbot(chat_id)
-            await query.message.edit_text("Chatbot deactivated!!")
+            await message.edit_text("Chatbot deactivated!!")
 
         else:
             result = None
