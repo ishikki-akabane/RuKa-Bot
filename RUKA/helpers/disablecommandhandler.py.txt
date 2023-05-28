@@ -1,0 +1,33 @@
+disabled_commands = {}
+
+class DisableCommandHandler(CommandHandler):
+    def __init__(self, command, callback, pass_args=False, pass_update_queue=False, pass_job_queue=False, pass_user_data=False, pass_chat_data=False):
+        super().__init__(command, callback, pass_args, pass_update_queue, pass_job_queue, pass_user_data, pass_chat_data)
+
+    def check_update(self, update):
+        chat_id = update.effective_chat.id
+        if chat_id in disabled_commands and disabled_commands[chat_id] == self.command[0]:
+            return False
+        return super().check_update(update)
+
+def disable_command(update, context):
+    chat_id = update.effective_chat.id
+    command = context.args[0]  # Get the command to disable from the command arguments
+    if command.startswith('/'):
+        command = command[1:]  # Remove the leading slash if present
+    if command == 'joke' or command == 'quote':
+        disabled_commands[chat_id] = command
+        context.bot.send_message(chat_id=chat_id, text=f"Disabled /{command} command in this group.")
+    else:
+        context.bot.send_message(chat_id=chat_id, text="Invalid command.")
+
+def enable_command(update, context):
+    chat_id = update.effective_chat.id
+    command = context.args[0]  # Get the command to enable from the command arguments
+    if command.startswith('/'):
+        command = command[1:]  # Remove the leading slash if present
+    if chat_id in disabled_commands and disabled_commands[chat_id] == command:
+        del disabled_commands[chat_id]
+        context.bot.send_message(chat_id=chat_id, text=f"Enabled /{command} command in this group.")
+    else:
+        context.bot.send_message(chat_id=chat_id, text="Command is not disabled in this group.")
