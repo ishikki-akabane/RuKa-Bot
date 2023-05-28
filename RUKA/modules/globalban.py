@@ -44,7 +44,7 @@ async def gban(update: Update, context: ContextTypes.DEFAULT_TYPE):
             except:
                 target_name = "None"
         else:
-            return message.reply_text("Bro wtf, you havent provided me anything :/")
+            return await message.reply_text("Bro wtf, you havent provided me anything :/")
     
     exist = await checkgban(target_id)
     if exist:
@@ -103,7 +103,7 @@ async def revert(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await sql_revertgban(target_id)
         await message.reply_text("I have ungbanned that person as you said my master :)")
     else:
-        return message.reply_text("Bro wtf, you havent provided me anything :/")
+        return await message.reply_text("Bro wtf, you havent provided me anything :/")
 
 
 
