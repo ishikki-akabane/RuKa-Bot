@@ -16,7 +16,7 @@ from RUKA.modules import ALL_MODULES
 
 from RUKA.database.sql.user_sql import sql_adduser
 
-from telegram.ext import ContextTypes, CommandHandler
+from telegram.ext import ContextTypes, CommandHandler, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, Chat, User
 from telegram.constants import ParseMode
 
