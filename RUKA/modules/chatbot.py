@@ -129,10 +129,18 @@ async def chatbotlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chatbots = await chatbot_list()
     if chatbots:
         chatfile = "I'm talking with these peoples:)\n"
-        chatfile += "[x] -    [Chat ID]    - [Version]"
+        chatfile += "[x] -       [Chat ID]       - [Version]\n"
         for chatbot in chatbots:
-            chatfile += f"[x] - {chatbot[0]} - {chatbot[1]}"
-        await message.reply_text(text=chatfile)
+            chatfile += f"[x] - {chatbot[0]} - {chatbot[1]}\n"
+
+        with BytesIO(str.encode(chatfile)) as output:
+            output.name = "AIchatlist.txt"
+            await message.reply_document(
+                document=output,
+                filename="AIchatlist.txt",
+                caption="currently active chatbot groups::",
+            )
+    await message.reply_text(text=chatfile)
         
 
 
