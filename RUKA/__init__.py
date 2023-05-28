@@ -181,7 +181,7 @@ else:
     ALLOW_CHATS = Config.ALLOW_CHATS
     INFOPIC = Config.INFOPIC
 
-LOGGER.info("----VARIABLES LOADED")
+LOGGER.info("[VARIABLES LOADED] - All variables successfully loaded")
 #=======================================================================================================X
 DEV_USERS = list(DEV_USERS)
 SUDO_USERS = list(SUDO_USERS)
@@ -207,13 +207,13 @@ async def booting_msg(application: Application):
             response = await resp.json()
         LOGGER.info(response["msg"])
     except:
-        LOGGER.info("Blue-API FAiled To STARTUP!! REPORT TO @DEVSLAB")
+        LOGGER.info("[BLUE-API] - Blue-API FAiled To STARTUP!! REPORT TO @DEVSLAB")
     try:
         await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
         n = 4
     except Exception as e:
         LOGGER.warning(
-            "Bot isn't able to send message to support_chat!",
+            "[ERROR] - Bot isn't able to send message to support_chat!",
         )
         print(e)
 
