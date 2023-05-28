@@ -1,3 +1,5 @@
+from io import BytesIO
+
 from RUKA import dp, BLUE_URL
 from RUKA.helpers.errors import capture_error
 from RUKA.helpers.requests import bluerequest
