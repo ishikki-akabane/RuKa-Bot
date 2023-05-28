@@ -29,7 +29,7 @@ async def chatbot2(text):
 
 
 @capture_error
-def chatbot_select(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def chatbot_select(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     message = update.effective_message
     chat_id = update.effective_chat.id
@@ -58,7 +58,7 @@ def chatbot_select(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 @capture_error
-def chatbot_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def chatbot_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     commands = query.data.split("=")
     if commands[0] == "chatbot":
