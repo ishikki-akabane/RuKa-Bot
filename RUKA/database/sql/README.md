@@ -11,6 +11,7 @@ Created by [赤羽 I S H I K K I](https://github.com/ishikki-akabane)
 - chatbot_table(**chat_id, version**)
 - gban_table(**user_id, name, reason**)
 
+
 - antiflood_table (****)
 - antiflood_settings (**chat_id, floodtype, value**)
 - approval_table (**chat_id, user_id**)
