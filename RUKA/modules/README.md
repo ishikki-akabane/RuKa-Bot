@@ -5,6 +5,7 @@
 - chatbot
 - dev
 - fun
+- gban
 - github
 - paste
 - reverse
