@@ -62,7 +62,7 @@ async def chatbot_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     commands = query.data.split("=")
     if commands[0] == "chatbot":
-        chat_id = int(commands[1])
+        chat_id = int(commands[2])
         exist = checkchat(chat_id)
         
         if commands[1] == "safone":
