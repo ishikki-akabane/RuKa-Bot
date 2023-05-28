@@ -38,7 +38,6 @@ async def checkchat(chat_id):
     
     
 async def chatbot_list():
-
     query = '''SELECT * FROM chatbot_table'''
     result = await SQLDB(query, commit=False)
     exist = len(result)
@@ -49,6 +48,6 @@ async def chatbot_list():
         for row in result:
             chat_id = row[0]
             version = row[1]
-            chatbot_dict = {chat_id: version}
-            CHATbot.append(chatbot_dict)
+            chatbot_list = [chat_id, version]
+            CHATbot.append(chatbot_list)
         return CHATbot
