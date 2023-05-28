@@ -134,9 +134,9 @@ async def chatbotlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
         chatfile += "[x] -   [Chat ID]    - [Version]\n\n"
         for chatbot in chatbots:
             if chatbot[0] > 10:
-                chatfile += f"[x] - {chatbot[0]} - {chatbot[1]}\n"
-            else:
                 chatfile += f"[x] -   {chatbot[0]}   - {chatbot[1]}\n"
+            else:
+                chatfile += f"[x] - {chatbot[0]} - {chatbot[1]}\n"
         with BytesIO(str.encode(chatfile)) as output:
             output.name = "AIchatlist.txt"
             await message.reply_document(
