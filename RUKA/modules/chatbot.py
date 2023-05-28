@@ -3,6 +3,7 @@ from io import BytesIO
 from RUKA import dp, BLUE_URL
 from RUKA.helpers.errors import capture_error
 from RUKA.helpers.requests import bluerequest
+from RUKA.helpers.rank_help import status
 from RUKA.database.sql.chatbot_sql import sql_addchatbot, sql_removechatbot, sql_updatechatbot, checkchat, chatbot_list
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
@@ -125,6 +126,7 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
    
 
+@status(rank=dev)
 @capture_error
 async def chatbotlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
