@@ -126,7 +126,7 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
    
 
-@status(rank=dev)
+@status(rank="dev")
 @capture_error
 async def chatbotlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
