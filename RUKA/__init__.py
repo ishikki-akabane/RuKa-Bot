@@ -209,7 +209,7 @@ async def booting_msg(application: Application):
     except:
         LOGGER.info("Blue-API FAiled To STARTUP!! REPORT TO @DEVSLAB")
     try:
-        #await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
+        await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
         n = 4
     except Exception as e:
         LOGGER.warning(
