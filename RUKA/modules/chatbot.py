@@ -126,7 +126,7 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
 @capture_error
 async def chatbotlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
-    chatbots = await chatbot_list
+    chatbots = await chatbot_list()
     await message.reply_text(text=chatbots)
         
 
