@@ -1,7 +1,7 @@
 from RUKA import dp, BLUE_URL
 from RUKA.helpers.errors import capture_error
 from RUKA.helpers.requests import bluerequest
-from RUKA.database.sql.chatbot_sql import sql_addchatbot, sql_removechatbot, sql_updatechatbot, checkchat
+from RUKA.database.sql.chatbot_sql import sql_addchatbot, sql_removechatbot, sql_updatechatbot, checkchat, chatbot_list
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, CommandHandler, MessageHandler, filters, CallbackQueryHandler
@@ -120,7 +120,13 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         else:
             return
-    
+   
+
+@capture_error
+async def chatbotlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    message = update.effective_message
+    chatbots = await chatbot_list
+    await message.reply_text(text=chatbots)
         
 
 
@@ -128,3 +134,4 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
 dp.add_handler(MessageHandler(filters.REPLY, chatbot, block=False))
 dp.add_handler(CommandHandler("chatbot", chatbot_select, block=False))
 dp.add_handler(CallbackQueryHandler(chatbot_handler, block=False))
+dp.add_handler(CommandHandler("chatbotstats", chatbotlist, block=False))
