@@ -127,7 +127,12 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def chatbotlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     chatbots = await chatbot_list()
-    await message.reply_text(text=chatbots)
+    if chatbots:
+        chatfile = "I'm talking with these peoples:)\n"
+        chatfile += "[x] -    [Chat ID]    - [Version]"
+        for chatbot in chatbots:
+            chatfile += f"[x] - {chatbot[0]} - {chatbot[1]}"
+        await message.reply_text(text=chatfile)
         
 
 
