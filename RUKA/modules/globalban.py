@@ -133,7 +133,7 @@ async def gbanlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await message.reply_text(text="No one is gbanned sir :)")
         
 
-dp.add_handler(CommandHandler("gban", gbna, block=False))
+dp.add_handler(CommandHandler("gban", gban, block=False))
 dp.add_handler(CallbackQueryHandler(gban_handler, block=False))
 dp.add_handler(CommandHandler("revert", revert, block=False))
 dp.add_handler(CommandHandler("gbanlist", gbanlist, block=False))
