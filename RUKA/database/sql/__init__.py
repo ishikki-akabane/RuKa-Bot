@@ -2,7 +2,8 @@
 from RUKA import DB_URI, LOGGER
 from RUKA.database.sql.createtable1 import (
     CREATE_CHATBOT_TABLE,
-    CREATE_AFK_TABLE
+    CREATE_AFK_TABLE,
+    CREATE_GBAN_TABLE
 )
 import asyncpg
 import asyncio
@@ -10,7 +11,8 @@ import asyncio
 MAX_CONNECTIONS = 5 # default to 5 since elephant allow only 5 connections
 tables = [
     CREATE_CHATBOT_TABLE,
-    CREATE_AFK_TABLE
+    #CREATE_AFK_TABLE,
+    CREATE_GBAN_TABLE
 ]
 
 
@@ -41,7 +43,7 @@ class Database:
                     return result
 
 
-LOGGER.info("[Ishikki] - SQL DATABASE CONNECTION SUCCESSFUL!!!")
+LOGGER.info("[Ishikki] - [SQL] DATABASE CONNECTION SUCCESSFUL!!!")
 sql_con = Database(DB_URI)
 SQLDB = sql_con.execute  # Your SQLdb object for executing with one param commit whose default value set to False
 
@@ -50,4 +52,5 @@ Dont simply kang, please give credits and one star for this help
 https://github.com/ishikki-akabane/Ruka-Bot
 
 This method solves the `To many connections error` in elephant sql or any other free postgresql
+Founded by IShikki, dont say its yours
 """
