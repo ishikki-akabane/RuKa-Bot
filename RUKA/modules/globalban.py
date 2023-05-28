@@ -10,7 +10,7 @@ from telegram.ext import ContextTypes, CommandHandler, MessageHandler, filters, 
 from telegram.constants import ParseMode
 
 
-@status(rank=sudo)
+@status(rank="sudo")
 @capture_error
 async def gban(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -87,7 +87,7 @@ async def gban_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await message.edit_text("Ok boss, i wont overide the reason :)")
 
 
-@status(rank=sudo)
+@status(rank="sudo")
 @capture_error
 async def revert(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -108,7 +108,7 @@ async def revert(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
-@status(rank=sudo)
+@status(rank="sudo")
 @capture_error
 async def gbanlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
