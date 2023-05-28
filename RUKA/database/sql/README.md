@@ -8,7 +8,8 @@ Created by [赤羽 I S H I K K I](https://github.com/ishikki-akabane)
 - chat_table (**chat_id, name**)
 
 - afk_table (**user_id, is_afk, reason, time**)
-- chatbot_table(**chat_id, version, status**)
+- chatbot_table(**chat_id, version**)
+- gban_table(**user_id, name, reason**)
 
 - antiflood_table (****)
 - antiflood_settings (**chat_id, floodtype, value**)
