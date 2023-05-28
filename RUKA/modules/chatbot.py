@@ -12,6 +12,7 @@ BOT_NAME = "Ruka"
 
 
 async def chatbot1(text, user_id):
+    """credits goes to safone api for this wonderfull chatbot version"""
     url = BLUE_URL + "/chatbot1"
     data = {"param": {"query": text, "user_id": user_id, "bot_name": BOT_NAME}}
     query = await bluerequest(url, data=data)
@@ -27,6 +28,71 @@ async def chatbot2(text):
     return msg
 
 
+@capture_error
+def chatbot_select(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user = update.effective_user
+    message = update.effective_message
+    chat_id = update.effective_chat.id
+    version = await checkchat(chat_id)
+    keyboard = InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton(text="Safone", callback_data=f"chatbot=safone={chat_id}")],
+            [InlineKeyboardButton(text="Kurumi", callback_data=f"chatbot=kurumi={chat_id}")],
+            [InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data=f"chatbot=disable={chat_id}")],
+        ]
+    )
+    if version == 1:
+        msg = "Your chatbot is activated!!\nchatbot: Safone\n"
+    elif version == 2:
+        msg = "Your chatbot is activated!!\nchatbot: Kurumi\n"
+    else:
+        msg = "Your chatbot is a deactivated!!\n"
+
+    msg += f"\nWhich chatbot you want to activate?\nsafone: An advanced chatbot created by safone\nKurumi: A beta-testing chatbot(still in development)"
+
+    await message.reply_text(
+        msg,
+        reply_markup=keyboard,
+        parse_mode=ParseMode.MARKDOWN,
+    )
+
+
+@capture_error
+def chatbot_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    commands = query.data.split("=")
+    if commands[0] == "chatbot":
+        chat_id = int(commands[1])
+        exist = checkchat(chat_id)
+        
+        if commands[1] == "safone":
+            if exist == 1:
+                await query.message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
+            if exist == 2:
+                result = await sql_updatechatbot(chat_id, 1)
+                await query.message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
+            else:
+                result = await sql_addchatbot(chat_id, 1)
+                await query.message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
+            
+        elif commands[1] == "kurumi":
+            if exist == 1:
+                result = await sql_updatechatbot(chat_id, 2)
+                await query.message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
+            if exist == 2:
+                await query.message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
+            else:
+                result = await sql_addchatbot(chat_id, 2)
+                await query.message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
+
+        elif commands[1] == "disable":
+            result = await sql_removechatbot(chat_id)
+            await query.message.edit_text("Chatbot deactivated!!")
+
+        else:
+            result = None
+            await query.message.edit_text("Chatbot deactivated!!")
+
 
 @capture_error
 async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -35,7 +101,7 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
     version = await checkchat(chat_id)
     text = message.text
     bot = context.bot
-    
+
     reply = message.reply_to_message
     target_id = reply.from_user.id
     if target_id == 6208314828:
@@ -60,3 +126,4 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 dp.add_handler(MessageHandler(filters.REPLY, chatbot, block=False))
+dp.add_handler(CommandHandler("chatbot", chatbot_select, block=False))
