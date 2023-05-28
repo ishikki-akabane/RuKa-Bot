@@ -1,5 +1,5 @@
 # By ishikki-akabane
-# dont remove credits nigga
+# dont remove credits, humble request
 
 def mention(user, name, mention=True):
     if mention == True:
