@@ -7,3 +7,12 @@ from telegram.ext import ContextTypes, CommandHandler, MessageHandler, filters, 
 from telegram.constants import ParseMode
 
 
+
+@capture_error
+async def gban(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    message = update.effective_message
+    chat_id = update.effective_chat.id
+    args = context.args
+
+    exist = await checkgban()
