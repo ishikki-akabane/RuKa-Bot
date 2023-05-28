@@ -4,7 +4,7 @@ Thankyou :) , have code-full day for you.
 """
 import time
 
-from RUKA import dp, OWNER_ID
+from RUKA import dp, OWNER_ID, BLUE_URL
 from RUKA.helpers.extra import mention
 from RUKA.helpers.requests import bluerequest
 
@@ -13,7 +13,7 @@ from telegram.ext import ContextTypes, CommandHandler
 from telegram.constants import ParseMode
 
 
-baseblue_url = "https://blue-api.vercel.app"
+BLUE_URL = "https://blue-api.vercel.app"
 """
     slap_lines = [
         f"{user1} just slapped {user2} with a wet noodle! It's super effective!",
@@ -30,11 +30,6 @@ async def slap(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     chat = update.effective_chat
 
-    reply_text = (
-        message.reply_to_message.reply_text
-        if message.reply_to_message
-        else message.reply_text
-    )
 
     reply = message.reply_to_message
     if not reply:
@@ -42,7 +37,7 @@ async def slap(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     attacker = update.effective_user # user who is slapping
-    defender = message.reply_to_message.from_user # user who is going to get slapped
+    defender = reply.from_user # user who is going to get slapped
     
     if attacker.id == defender.id: # same persons
         await message.reply_text("You want to slap yourself ?")
@@ -65,7 +60,7 @@ async def slap(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await message.reply_text("bruh, i cant slap my love :/")
         return
     else:
-        url = baseblue_url + "/slap"
+        url = BLUE_URL + "/slap"
         response = await bluerequest(url)
         user1 = mention(attacker.id, attacker.first_name, mention=True)
         user2 = mention(defender.id, defender.first_name, mention=True)
@@ -77,11 +72,6 @@ async def kiss(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     chat = update.effective_chat
 
-    reply_text = (
-        message.reply_to_message.reply_text
-        if message.reply_to_message
-        else message.reply_text
-    )
 
     reply = message.reply_to_message
     if not reply:
@@ -89,14 +79,14 @@ async def kiss(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     attacker = update.effective_user # user who is kissing
-    defender = message.reply_to_message.from_user # user who is going to get kissed
+    defender = reply.from_user # user who is going to get kissed
     
     if attacker.id == defender.id: # same persons
         await message.reply_text("You want to kiss yourself ?")
         return
     
     else:
-        url = baseblue_url + "/kiss"
+        url = BLUE_URL + "/kiss"
         response = await bluerequest(url)
         user1 = mention(attacker.id, attacker.first_name, mention=True)
         user2 = mention(defender.id, defender.first_name, mention=True)
