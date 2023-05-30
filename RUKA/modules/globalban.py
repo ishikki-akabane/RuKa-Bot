@@ -1,3 +1,4 @@
+import BytesIO
 from RUKA import dp
 from RUKA.helpers.errors import capture_error
 from RUKA.helpers.rank_help import status
@@ -68,7 +69,7 @@ async def gban(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     await sql_savegban(target_id, reason, target_name)
     user = mention(target_id, target_name, mention=True)
-    await message.reply_text(f"{user} has been banned globally!")
+    await message.reply_text(f"{user} has been banned globally!", parse_mode=ParseMode.MARKDOWN)
 
 
 @capture_error
@@ -99,7 +100,9 @@ async def revert(update: Update, context: ContextTypes.DEFAULT_TYPE):
             target_id = int(target_id)
         except:
             return message.reply_text("User id is not valid!!")
-        
+        exist = await checkgban(target_id)
+        if not exist:
+            await message.reply_text("This user is not gbanned :/")
         await sql_revertgban(target_id)
         await message.reply_text("I have ungbanned that person as you said my master :)")
     else:
