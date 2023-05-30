@@ -1,4 +1,4 @@
-import BytesIO
+from io import BytesIO
 from RUKA import dp
 from RUKA.helpers.errors import capture_error
 from RUKA.helpers.rank_help import status
