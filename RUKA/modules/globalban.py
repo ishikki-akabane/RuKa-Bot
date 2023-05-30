@@ -33,11 +33,11 @@ async def gban(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 target_id = args[0]
                 target_id = int(target_id)
             except:
-                return message.reply_text("User id is not valid!!")
+                return await message.reply_text("User id is not valid!!")
             try:
                 reason = message.text.split(None, 1)[1].split(None, 1)[1]
             except:
-                return message.reply_text("Provide me a reason baka!!")
+                return await message.reply_text("Provide me a reason baka!!")
             try:
                 target_chat = await bot.get_chat(target_id)
                 target_name = target_chat.first_name
@@ -66,7 +66,7 @@ async def gban(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
     
-    await sql_savegban(target_id, reason, name)
+    await sql_savegban(target_id, reason, target_name)
     user = mention(target_id, target_name, mention=True)
     await message.reply_text(f"{user} has been banned globally!")
 
