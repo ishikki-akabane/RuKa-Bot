@@ -25,7 +25,7 @@ async def info(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if len(args) > 0:
             if args[0][0] == "@":
                 user_name = args[0]
-                username = username[1:]
+                user_name = user_name[1:]
                 target = await bot.get_chat(user_name)
                 await message.reply_text(f"{target.id}")
                 return
