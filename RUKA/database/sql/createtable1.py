@@ -1,4 +1,15 @@
 #FIRST
+CREATE_USERS_TABLE = '''
+    CREATE TABLE IF NOT EXISTS users_table (
+        user_id BIGINT,
+        user_name VARCHAR(255),
+        bio VARCHAR(255),
+        me VARCHAR(255)
+    )
+'''
+
+
+
 
 CREATE_AFK_TABLE = '''
     CREATE TABLE IF NOT EXISTS afk_table (
