@@ -103,6 +103,8 @@ async def revert(update: Update, context: ContextTypes.DEFAULT_TYPE):
         exist = await checkgban(target_id)
         if not exist:
             await message.reply_text("This user is not gbanned :/")
+            return
+            
         await sql_revertgban(target_id)
         await message.reply_text("I have ungbanned that person as you said my master :)")
     else:
