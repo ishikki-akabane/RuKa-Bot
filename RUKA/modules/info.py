@@ -23,6 +23,12 @@ async def info(update: Update, context: ContextTypes.DEFAULT_TYPE):
         target = reply.from_user
     else:
         if len(args) > 0:
+            if args[0][0] == "@":
+                user_name = args[0]
+                target = await bot.get_chat(user_name)
+                await message.reply_text(f"{target.id}")
+                return
+
             try:
                 target_id = args[0]
                 target_id = int(target_id)
@@ -30,10 +36,6 @@ async def info(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await message.reply_text(f"{target.first_name}")
             except Exception as e:
                 print(e)
-                if args[0][0] == "@":
-                    user_name = args[0]
-                    target_id = await get_user_id(user_name)
-                    await message.reply_text(f"{target_id}")
                 return await message.reply_text("User id is not valid!!")
         else:
             return await message.reply_text("Bro wtf, you havent provided me anything :/")
