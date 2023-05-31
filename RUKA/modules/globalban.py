@@ -1,5 +1,5 @@
 from io import BytesIO
-from RUKA import dp
+from RUKA import dp, SUPPORT_CHAT
 from RUKA.helpers.errors import capture_error
 from RUKA.helpers.rank_help import status
 from RUKA.helpers.extra import mention
@@ -68,6 +68,10 @@ async def gban(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     
     await sql_savegban(target_id, reason, target_name)
+    try:
+        await bot.send_message(chat_id=target_id, text=f"You have been gbanned globally!\nReason: {reason}\n\nAppeal By: @{SUPPORT_CHAT}")
+    except: # peer id issue
+        pass
     user = mention(target_id, target_name, mention=True)
     await message.reply_text(f"{user} has been banned globally!", parse_mode=ParseMode.MARKDOWN)
 
@@ -104,7 +108,7 @@ async def revert(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if not exist:
             await message.reply_text("This user is not gbanned :/")
             return
-            
+
         await sql_revertgban(target_id)
         await message.reply_text("I have ungbanned that person as you said my master :)")
     else:
