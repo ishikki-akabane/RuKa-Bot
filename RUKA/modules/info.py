@@ -16,6 +16,7 @@ async def info(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     chat_id = update.effective_chat.id
     args = context.args
+    bot = context.bot
 
     reply = message.reply_to_message
     if reply:
