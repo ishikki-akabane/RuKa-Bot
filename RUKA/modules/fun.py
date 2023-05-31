@@ -13,7 +13,6 @@ from telegram.ext import ContextTypes, CommandHandler
 from telegram.constants import ParseMode
 
 
-BLUE_URL = "https://blue-api.vercel.app"
 """
     slap_lines = [
         f"{user1} just slapped {user2} with a wet noodle! It's super effective!",
