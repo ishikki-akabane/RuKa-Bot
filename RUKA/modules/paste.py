@@ -49,7 +49,8 @@ async def paste_func(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if not pattern.search(document.mime_type):
             return await msg.edit_text("ᴏɴʟʏ ᴛᴇxᴛ ғɪʟᴇs ᴄᴀɴ ʙᴇ ᴘᴀsᴛᴇᴅ.")
 
-        doc = await bot.get_file(document.file_id).download()
+        doc_file = await bot.get_file(document.file_id)
+        doc = doc_file.download()
 
         async with aiofiles.open(doc, mode="r") as f:
             content = await f.read()
