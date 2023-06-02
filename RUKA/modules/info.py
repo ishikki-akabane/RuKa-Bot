@@ -56,7 +56,7 @@ async def info(update: Update, context: ContextTypes.DEFAULT_TYPE):
 userID: {target_id}
 firstname: {first_name}
 lastname: {last_name}
-username: {username}
+username: {user_name}
 ---------------
 """
     await message.reply_text(
