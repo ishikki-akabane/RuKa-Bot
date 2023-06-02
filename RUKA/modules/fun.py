@@ -95,3 +95,7 @@ async def kiss(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 dp.add_handler(CommandHandler("slap", slap, block=False))
 dp.add_handler(CommandHandler("kiss", kiss, block=False))
+
+
+__mod_name__ = "chatbot"
+__help__ = ""
