@@ -33,11 +33,15 @@ async def chatbot2(text):
 
 
 async def chatbot3(text):
-    url = BLUE_URL + "/chatbot2"
-    data = {"param": {"query": text, "bot_name": BOT_NAME}}
-    query = await bluerequest(url, data=data)
-    msg = query["msg"]
-    return msg
+    # Provided By :- @NovaXMod
+    # Created by :- @TheSOME1HING
+    url = "https://sugoi-api.vercel.app/chat?msg="
+    response = requests.get(url + text)
+    if response.status_code == 200:
+        data = response.json()['response']
+        return data
+    else:
+        data = "Unknown error!! report to @DEvsLab"
 
 
 @capture_error
@@ -63,7 +67,7 @@ async def chatbot_select(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         msg = "Your chatbot is a deactivated!!\n"
 
-    msg += f"\nWhich chatbot you want to activate?\nsafone: An advanced chatbot created by safone\nKurumi: A beta-testing chatbot(still in development)\nSugoi AI: A talkative chatter"
+    msg += f"\nWhich chatbot you want to activate?\nsafone: An advanced chatbot created by safone\nKurumi: A beta-testing chatbot(still in development)\nSugoi AI: A talkative chatter by Novaxmod"
 
     await message.reply_text(
         msg,
