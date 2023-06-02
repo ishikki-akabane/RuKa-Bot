@@ -60,3 +60,7 @@ async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 dp.add_handler(CommandHandler("logs", logs, block=False))
 dp.add_handler(CommandHandler("stats", stats, block=False))
+
+
+__mod_name__ = "chatbot"
+__help__ = ""
