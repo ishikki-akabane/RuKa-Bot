@@ -11,3 +11,8 @@ if a == 2:
     disablecommandhandler = CommandHandler
 else:
     disablecommandhandler = CommandHandler
+
+
+
+__mod_name__ = "chatbot"
+__help__ = ""
