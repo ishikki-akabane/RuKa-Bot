@@ -188,3 +188,7 @@ dp.add_handler(MessageHandler(filters.REPLY, chatbot, block=False))
 dp.add_handler(CommandHandler("chatbot", chatbot_select, block=False))
 dp.add_handler(CallbackQueryHandler(chatbot_handler, pattern=r'^chatbot', block=False))
 dp.add_handler(CommandHandler("chatbotstats", chatbotlist, block=False))
+
+
+__mod_name__ = "chatbot"
+__help__ = ""
