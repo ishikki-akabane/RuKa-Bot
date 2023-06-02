@@ -143,6 +143,6 @@ async def gbanlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
 
 dp.add_handler(CommandHandler("gban", gban, block=False))
-dp.add_handler(CallbackQueryHandler(gban_handler, block=False))
+dp.add_handler(CallbackQueryHandler(gban_handler, pattern=r'^gban', block=False))
 dp.add_handler(CommandHandler("revert", revert, block=False))
 dp.add_handler(CommandHandler("gbanlist", gbanlist, block=False))
