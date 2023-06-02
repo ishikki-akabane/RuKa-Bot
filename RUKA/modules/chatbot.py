@@ -1,4 +1,5 @@
 from io import BytesIO
+import requests
 
 from RUKA import dp, BLUE_URL
 from RUKA.helpers.errors import capture_error
@@ -31,6 +32,14 @@ async def chatbot2(text):
     return msg
 
 
+async def chatbot3(text):
+    url = BLUE_URL + "/chatbot2"
+    data = {"param": {"query": text, "bot_name": BOT_NAME}}
+    query = await bluerequest(url, data=data)
+    msg = query["msg"]
+    return msg
+
+
 @capture_error
 async def chatbot_select(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
@@ -41,6 +50,7 @@ async def chatbot_select(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             [InlineKeyboardButton(text="Safone", callback_data=f"chatbot=safone={chat_id}")],
             [InlineKeyboardButton(text="Kurumi", callback_data=f"chatbot=kurumi={chat_id}")],
+            [InlineKeyboardButton(text="Sugoi AI", callback_data=f"chatbot=sugoi={chat_id}")],
             [InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data=f"chatbot=disable={chat_id}")],
         ]
     )
@@ -48,10 +58,12 @@ async def chatbot_select(update: Update, context: ContextTypes.DEFAULT_TYPE):
         msg = "Your chatbot is activated!!\nchatbot: Safone\n"
     elif version == 2:
         msg = "Your chatbot is activated!!\nchatbot: Kurumi\n"
+    elif version == 3:
+        msg = "Your chatbot is activated!!\nchatbot: Sugoi AI\n"
     else:
         msg = "Your chatbot is a deactivated!!\n"
 
-    msg += f"\nWhich chatbot you want to activate?\nsafone: An advanced chatbot created by safone\nKurumi: A beta-testing chatbot(still in development)"
+    msg += f"\nWhich chatbot you want to activate?\nsafone: An advanced chatbot created by safone\nKurumi: A beta-testing chatbot(still in development)\nSugoi AI: A talkative chatter"
 
     await message.reply_text(
         msg,
@@ -72,7 +84,7 @@ async def chatbot_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if commands[1] == "safone":
             if exist == 1:
                 await message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
-            if exist == 2:
+            elif exist in [2, 3]:
                 result = await sql_updatechatbot(chat_id, 1)
                 await message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
             else:
@@ -80,14 +92,24 @@ async def chatbot_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await message.edit_text("SafOne ChatBot Activated!!\nHey buddy, how are you?")
             
         elif commands[1] == "kurumi":
-            if exist == 1:
+            if exist in [1, 3]:
                 result = await sql_updatechatbot(chat_id, 2)
                 await message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
-            if exist == 2:
+            elif exist == 2:
                 await message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
             else:
                 result = await sql_addchatbot(chat_id, 2)
                 await message.edit_text("KurumiAPI ChatBot Activated!!\nHeya fellow, wassup?")
+        
+        elif commands[1] == "sugoi":
+            if exist in [1, 2]:
+                result = await sql_updatechatbot(chat_id, 3)
+                await message.edit_text("Sugoi AI ChatBot Activated!!\nHeya guyss, sup?")
+            elif exist == 3:
+                await message.edit_text("Sugoi AI ChatBot Activated!!\nHeya guyss, sup?")
+            else:
+                result = await sql_addchatbot(chat_id, 3)
+                await message.edit_text("Sugoi AI ChatBot Activated!!\nHeya guyss, sup?")
 
         elif commands[1] == "disable":
             result = await sql_removechatbot(chat_id)
@@ -117,9 +139,15 @@ async def chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await message.reply_text(f"{msg}", parse_mode=ParseMode.MARKDOWN)
 
         elif version == 2:
-            await bot.send_chat_action(chat_id=update.effective_chat.id, action='typing')
+            await bot.send_chat_action(chat_id=chat_id, action='typing')
             if text is not None:
                 msg = await chatbot2(text)
+                await message.reply_text(f"{msg}", parse_mode=ParseMode.MARKDOWN)
+
+        elif version == 3:
+            await bot.send_chat_action(chat_id=chat_id, action='typing')
+            if text is not None:
+                msg = await chatbot3(text)
                 await message.reply_text(f"{msg}", parse_mode=ParseMode.MARKDOWN)
 
         else:
@@ -154,5 +182,5 @@ async def chatbotlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 dp.add_handler(MessageHandler(filters.REPLY, chatbot, block=False))
 dp.add_handler(CommandHandler("chatbot", chatbot_select, block=False))
-dp.add_handler(CallbackQueryHandler(chatbot_handler, block=False))
+dp.add_handler(CallbackQueryHandler(chatbot_handler, pattern=r'^chatbot', block=False))
 dp.add_handler(CommandHandler("chatbotstats", chatbotlist, block=False))
