@@ -24,6 +24,7 @@ if a == 2:
                 LOGGER.error(f"Command: {command} is not a valid bot command")
 
             print("done")
+            print(DISABLE_CMDS)
 
 else:
     disablecommandhandler = CommandHandler
