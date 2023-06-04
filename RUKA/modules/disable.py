@@ -1,3 +1,5 @@
+import asyncio
+
 from RUKA import dp, OWNER_ID, LOGGER
 from RUKA.helpers.errors import capture_error
 
