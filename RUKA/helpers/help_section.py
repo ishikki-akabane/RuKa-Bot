@@ -32,12 +32,24 @@ print(">>>>>>>>>>>>>>>", module_names)
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import importlib
-
+import os
 
 # Create the menu function
 def create_menu():
     keyboard = []
     modules_dir = '../modules'
+
+    # Get the current working directory
+    current_directory = os.getcwd()
+
+    # Iterate over the directories and files within the current directory
+    for item in os.listdir(current_directory):
+        # Check if the item is a directory
+        if os.path.isdir(item):
+            print("Directory:", item)
+        # Check if the item is a file
+        elif os.path.isfile(item):
+            print("File:", item)
 
     # Iterate over the module files
     for filename in os.listdir(modules_dir):
