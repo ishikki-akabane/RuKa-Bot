@@ -12,3 +12,6 @@ There are many decorators created here to make things clear and easy
     - ```support```
     - ```white```
 
+## OTHER HELPERS
+- paste_help
+- requests
