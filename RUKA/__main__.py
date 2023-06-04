@@ -77,7 +77,7 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 # Define the callback function for handling button presses
-def button_callback(update, context):
+async def button_callback(update, context):
     query = update.callback_query
     data = query.data
 
