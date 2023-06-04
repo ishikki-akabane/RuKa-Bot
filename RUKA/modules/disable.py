@@ -11,6 +11,16 @@ DISABLE_CMDS = []
 
 a = 2
 if a == 2:
+    class DisableCommandHandler(CommandHandler):
+        def __init__(self, command, callback, block = True, filters: filters_module.BaseFilter = None):
+            super().__init__(command, callback, block=block)
+
+    def check_update(self, update):
+        chat_id = update.effective_chat.id
+        #if chat_id in disabled_commands and disabled_commands[chat_id] == self.command[0]:
+        #    return False
+        return super().check_update(update)
+    """
     class disablecommandhandler(CommandHandler):
         def __init__(self, command, callback, block = True, filters: filters_module.BaseFilter = None):
 
@@ -26,7 +36,8 @@ if a == 2:
 
             print("done")
             print(DISABLE_CMDS)
-
+    """
+    
 else:
     disablecommandhandler = CommandHandler
 
