@@ -42,6 +42,7 @@ if a == 2:
     class DisableCommandHandler(CommandHandler):
         def __init__(self, command, callback, block = True, filters: filters_module.BaseFilter = None):
             super().__init__(command, callback, block=block)
+            self.command = command
 
             if type(command) == list:
                 for comnd in command:
@@ -53,16 +54,15 @@ if a == 2:
             else:
                 LOGGER.error(f"Command: {command} is not a valid bot command")
 
-            print(DISABLE_CMDS)
+            print("d1:::", DISABLE_CMDS)
 
         def check_update(self, update):
             chat_id = update.effective_chat.id
-            print(self.command)
+            print("d1:::", self.command)
             disabled_cmd = check_disable(chat_id, self.command)
             if self.command in disabled_cmd:
                 return False
             return super().check_update(update)
-
 
 else:
     disablecommandhandler = CommandHandler
