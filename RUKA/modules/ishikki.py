@@ -5,7 +5,7 @@ from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 from telegram.constants import ParseMode
 
-from RUKA.modules.disable import disablecommandhandler
+from RUKA.modules.disable import DisableCommandHandler
 
 
 @capture_error
@@ -17,4 +17,4 @@ async def ishikki(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await bot.send_message(OWNER_ID, text=f"hello, {user_id}")
 
 
-dp.add_handler(disablecommandhandler("ishikki", ishikki))
+dp.add_handler(DisableCommandHandler("ishikki", ishikki))
