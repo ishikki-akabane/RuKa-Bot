@@ -17,4 +17,4 @@ async def ishikki(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await bot.send_message(OWNER_ID, text=f"hello, {user_id}")
 
 
-dp.add_handler(DisableCommandHandler("ishikki", ishikki))
+dp.add_handler(DisableCommandHandler(["ishikki", "ishu"], ishikki))
