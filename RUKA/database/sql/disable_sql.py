@@ -30,3 +30,23 @@ async def checkdisable(chat_id):
             command = row[1]
             commands.append(command)
         return commands
+
+
+async def sql_get_alldisabled_cache():
+    query = '''SELECT * FROM disable_table'''
+    result = await SQLDB(query.format(chat_id), commit=False)
+    exist = len(result)
+    disabled_cache_dict = {}
+    if exist == 0:
+        return None
+    else:
+        for row in result:
+            chat_id = row[0]
+            command = row[1]
+            listed_chats = disabled_cache_dict.keys()
+            if chat_id in listed_chats:
+                cmds = disabled_cache_dict[chat_id]
+                cmds.append(command)
+            else:
+                disabled_cache_dict[chat_id] = [command]
+        return disabled_cache_dict
