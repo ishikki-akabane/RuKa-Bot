@@ -22,12 +22,12 @@ def non_async_function():
 
 DISABLED_CHATS = non_async_function()
 DISABLE_CMDS = []
-print(DISABLED_CHATS)
-print(DISABLE_CMDS)
 
 
 def check_disable(chat_id, command):
-    print(command)
+    if type(command) == list:
+        command = command[0]
+
     try:
         cmds = DISABLED_CHATS[chat_id]
     except KeyError:
@@ -55,16 +55,12 @@ if a == 2:
             else:
                 LOGGER.error(f"Command: {command} is not a valid bot command")
 
-            print("d1:::", DISABLE_CMDS)
 
         def check_update(self, update):
             chat_id = update.effective_chat.id
-            print("d1:::", self.command)
-
             disabled_cmd = check_disable(chat_id, self.command)
-            for cmd in disabled_cmds:
-                if cmd in self.commands:
-                    return False
+            if disabled_cmd == True:
+                return False
             return super().check_update(update)
 
 else:
