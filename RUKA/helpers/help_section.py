@@ -37,7 +37,7 @@ import importlib
 # Create the menu function
 def create_menu():
     keyboard = []
-    modules_dir = 'modules'
+    modules_dir = 'RUKA.modules'
 
     # Iterate over the module files
     for filename in os.listdir(modules_dir):
