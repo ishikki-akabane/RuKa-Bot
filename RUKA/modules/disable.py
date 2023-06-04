@@ -12,6 +12,11 @@ DISABLE_CMDS = []
 DISABLED_CHATS = {}
 
 
+def non_async_function(chat_id):
+    loop = asyncio.get_event_loop()
+    result = loop.run_until_complete(checkdisable(chat_id))
+    return result
+
 a = 2
 if a == 2:
     class DisableCommandHandler(CommandHandler):
@@ -30,13 +35,13 @@ if a == 2:
 
             print(DISABLE_CMDS)
 
-    def check_update(self, update):
-        chat_id = update.effective_chat.id
-        disabled_cmd = checkdisable(chat_id)
-        print(self.command[0])
-        if self.command[0] in disabled_cmd:
-            return False
-        return super().check_update(update)
+        def check_update(self, update):
+            chat_id = update.effective_chat.id
+            disabled_cmd = non_async_function(chat_id)
+            print(self.command[0])
+            if self.command[0] in disabled_cmd:
+                return False
+            return super().check_update(update)
 
 
 else:
