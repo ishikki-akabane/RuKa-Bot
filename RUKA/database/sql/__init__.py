@@ -34,7 +34,8 @@ class Database:
                 try:
                     for table in tables:
                         await conn.execute(table)
-                except:
+                except Exception as e:
+                    print(e)
                     pass
 
         asyncio.get_event_loop().run_until_complete(connect())
