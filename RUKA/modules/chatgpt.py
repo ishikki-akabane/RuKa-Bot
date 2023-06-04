@@ -18,7 +18,7 @@ async def chatgpt(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await bot.send_chat_action(chat_id=update.effective_chat.id, action='typing')
 
         url = BLUE_URL + "/chatgpt"
-        data = {"param": {"message": text, "chat_mode": "code_assistant"}}
+        data = {"param": {"message": text, "chat_mode": "assistant"}}
 
         query = await bluerequest(url, data=data)
         msg = query["msg"]
