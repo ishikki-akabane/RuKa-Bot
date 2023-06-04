@@ -12,7 +12,7 @@ DISABLE_CMDS = []
 a = 2
 if a == 2:
     class disablecommandhandler(CommandHandler):
-        def __init__(self, command, callback, block: bool, filters: filters_module.BaseFilter = None):
+        def __init__(self, command, callback, block: True, filters: filters_module.BaseFilter = None):
 
             if type(command) == list:
                 for comnd in command:
