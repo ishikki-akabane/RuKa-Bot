@@ -8,19 +8,30 @@ from telegram.ext import ContextTypes, CommandHandler
 from telegram.constants import ParseMode
 from telegram.ext import filters as filters_module
 
-from RUKA.database.sql.disable_sql import checkdisable, sql_disable, sql_enable
-
-DISABLE_CMDS = []
-DISABLED_CHATS = {}
+from RUKA.database.sql.disable_sql import checkdisable, sql_disable, sql_enable, sql_get_alldisabled_cache
 
 
-def non_async_function(chat_id):
+def non_async_function():
     loop = asyncio.get_event_loop()
     if loop.is_running():
-        result = asyncio.create_task(checkdisable(chat_id))
+        result = asyncio.create_task(sql_get_alldisabled_cache())
     else:
-        result = loop.run_until_complete(checkdisable(chat_id))
+        result = loop.run_until_complete(sql_get_alldisabled_cache())
     return result
+
+DISABLED_CHATS = non_async_function()
+DISABLE_CMDS = []
+
+
+def check_disable(chat_id, command):
+    try:
+        cmds = DISABLED_CHATS[chat_id]
+    except KeyError:
+        return False
+    if command in cmds:
+        return True
+    else:
+        return False
 
 
 a = 2
@@ -43,9 +54,9 @@ if a == 2:
 
         def check_update(self, update):
             chat_id = update.effective_chat.id
-            disabled_cmd = non_async_function(chat_id)
-            print(self.command[0])
-            if self.command[0] in disabled_cmd:
+            print(self.command)
+            disabled_cmd = check_disable(chat_id, self.command)
+            if self.command in disabled_cmd:
                 return False
             return super().check_update(update)
 
