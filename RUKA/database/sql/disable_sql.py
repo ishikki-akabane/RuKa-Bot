@@ -38,7 +38,7 @@ async def sql_get_alldisabled_cache():
     exist = len(result)
     disabled_cache_dict = {}
     if exist == 0:
-        return None
+        return disabled_cache_dict
     else:
         for row in result:
             chat_id = row[0]
