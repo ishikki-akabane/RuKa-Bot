@@ -11,7 +11,7 @@ DISABLE_CMDS = []
 
 a = 2
 if a == 2:
-    class DisableCommandHandler(CommandHandler):
+    class disablecommandhandler(CommandHandler):
         def __init__(self, command, callback, block = True, filters: filters_module.BaseFilter = None):
             super().__init__(command, callback, block=block)
 
@@ -37,7 +37,7 @@ if a == 2:
             print("done")
             print(DISABLE_CMDS)
     """
-    
+
 else:
     disablecommandhandler = CommandHandler
 
