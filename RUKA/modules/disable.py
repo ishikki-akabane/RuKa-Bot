@@ -4,6 +4,7 @@ from RUKA.helpers.errors import capture_error
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 from telegram.constants import ParseMode
+from telegram.ext import filters as filters_module
 
 
 DISABLE_CMDS = []
