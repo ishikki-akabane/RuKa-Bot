@@ -25,6 +25,8 @@ async def chatbot1(text, user_id):
 
 
 async def chatbot2(text):
+    # Provided by :- @DevsLab
+    # Created by :- @Ishikki_akabane
     url = BLUE_URL + "/chatbot2"
     data = {"param": {"query": text, "bot_name": BOT_NAME}}
     query = await bluerequest(url, data=data)
