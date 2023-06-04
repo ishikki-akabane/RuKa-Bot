@@ -27,6 +27,7 @@ print(DISABLE_CMDS)
 
 
 def check_disable(chat_id, command):
+    print(command)
     try:
         cmds = DISABLED_CHATS[chat_id]
     except KeyError:
@@ -44,11 +45,11 @@ if a == 2:
             super().__init__(command, callback, block=block)
             self.command = command
 
-            if type(command) == list:
-                for comnd in command:
-                    comnd = comnd.lower()
-                    DISABLE_CMDS.append(comnd)
-            elif type(command) == str:
+            if isinstance(command, list):
+                for cmd in command:
+                    cmd = cmd.lower()
+                    DISABLE_CMDS.append(cmd)
+            elif isinstance(command, str):
                 command = command.lower()
                 DISABLE_CMDS.append(command)
             else:
@@ -59,9 +60,11 @@ if a == 2:
         def check_update(self, update):
             chat_id = update.effective_chat.id
             print("d1:::", self.command)
+
             disabled_cmd = check_disable(chat_id, self.command)
-            if self.command in disabled_cmd:
-                return False
+            for cmd in disabled_cmds:
+                if cmd in self.commands:
+                    return False
             return super().check_update(update)
 
 else:
