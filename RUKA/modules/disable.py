@@ -14,7 +14,7 @@ if a == 2:
     class DisableCommandHandler(CommandHandler):
         def __init__(self, command, callback, block = True, filters: filters_module.BaseFilter = None):
             super().__init__(command, callback, block=block)
-            
+
             if type(command) == list:
                 for comnd in command:
                     comnd = comnd.lower()
@@ -25,7 +25,6 @@ if a == 2:
             else:
                 LOGGER.error(f"Command: {command} is not a valid bot command")
 
-            print("done")
             print(DISABLE_CMDS)
 
     def check_update(self, update):
