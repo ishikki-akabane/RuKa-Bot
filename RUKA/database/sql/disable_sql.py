@@ -34,7 +34,7 @@ async def checkdisable(chat_id):
 
 async def sql_get_alldisabled_cache():
     query = '''SELECT * FROM disable_table'''
-    result = await SQLDB(query.format(chat_id), commit=False)
+    result = await SQLDB(query, commit=False)
     exist = len(result)
     disabled_cache_dict = {}
     if exist == 0:
