@@ -19,8 +19,11 @@ def non_async_function():
         result = loop.run_until_complete(sql_get_alldisabled_cache())
     return result
 
+
 DISABLED_CHATS = non_async_function()
 DISABLE_CMDS = []
+print(DISABLED_CHATS)
+print(DISABLE_CMDS)
 
 
 def check_disable(chat_id, command):
