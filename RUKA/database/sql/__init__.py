@@ -6,6 +6,10 @@ from RUKA.database.sql.createtable1 import (
     CREATE_AFK_TABLE,
     CREATE_GBAN_TABLE
 )
+from RUKA.database.sql.createtable2 import (
+    CREATE_DISABLE_TABLE
+)
+
 import asyncpg
 import asyncio
 
@@ -15,6 +19,7 @@ tables = [
     CREATE_CHATBOT_TABLE,
     #CREATE_AFK_TABLE,
     CREATE_GBAN_TABLE,
+    CREATE_DISABLE_TABLE,
 ]
 
 
