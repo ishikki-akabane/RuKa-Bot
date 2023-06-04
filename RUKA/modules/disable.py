@@ -16,8 +16,12 @@ DISABLED_CHATS = {}
 
 def non_async_function(chat_id):
     loop = asyncio.get_event_loop()
-    result = loop.run_until_complete(checkdisable(chat_id))
+    if loop.is_running():
+        result = asyncio.create_task(checkdisable(chat_id))
+    else:
+        result = loop.run_until_complete(checkdisable(chat_id))
     return result
+
 
 a = 2
 if a == 2:
