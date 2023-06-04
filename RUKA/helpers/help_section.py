@@ -1,6 +1,7 @@
 import os
 import importlib
 
+"""
 # List to store the module names
 module_names = []
 
@@ -26,6 +27,7 @@ for filename in os.listdir(directory):
 
 # Print the list of module names
 print(">>>>>>>>>>>>>>>", module_names)
+"""
 #=-=============================================================================================================-=
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
