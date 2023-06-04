@@ -19,11 +19,6 @@ import json
 from telegram.ext import ApplicationBuilder, Application
 from telegram import Bot
 # Enable Logging========================================================================================X
-try:
-    os.remove("logs.txt")
-except:
-    pass
-
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[logging.FileHandler("logs.txt"), logging.StreamHandler()],
