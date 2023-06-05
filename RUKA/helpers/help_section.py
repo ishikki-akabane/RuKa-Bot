@@ -4,7 +4,7 @@ import os
 
 # Create the menu function
 # By @ishikki_akabane
-def create_menu():
+async def create_menu():
     keyboard = []
     modules_dir = 'RUKA/modules'
 
@@ -21,7 +21,7 @@ def create_menu():
                 mod_name = getattr(module, '__mod_name__')
                 help_text = getattr(module, '__help__',)
                 # Create the button with the module name as text and module_name as data
-                button = InlineKeyboardButton(text=mod_name, callback_data=f'module:{module_name}')
+                button = InlineKeyboardButton(text=mod_name, callback_data=f'module={module_name}')
                 keyboard.append(button)
             except:
                 pass
