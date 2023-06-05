@@ -193,4 +193,13 @@ dp.add_handler(CommandHandler("chatbotstats", chatbotlist, block=False))
 
 
 __mod_name__ = "chatbot"
-__help__ = "ruka have an advanced chatbot"
+__help__ = """🤖 Chatbot Feature:
+To enable the chatbot feature, simply type /chatbot and click on your desired chatbot from the options below. The available chatbot options are:
+
+- Safone: An advanced chatbot created by Safone.
+- Kurumi: Currently in development, this chatbot is being enhanced to provide even more features.
+- Sugoi: An advanced multi-language chatbot created by Nova.
+- Disable: To turn off the chatbot
+
+Reply to the bot message to interact with it and enjoy the chatbot experience!
+"""
