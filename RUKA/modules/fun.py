@@ -97,5 +97,5 @@ dp.add_handler(CommandHandler("slap", slap, block=False))
 dp.add_handler(CommandHandler("kiss", kiss, block=False))
 
 
-__mod_name__ = "chatbot"
-__help__ = ""
+__mod_name__ = "fun"
+__help__ = "fun masti"
