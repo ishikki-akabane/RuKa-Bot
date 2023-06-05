@@ -77,7 +77,7 @@ def create_menu():
             module_name = filename[:-3]
 
             # Load the module dynamically
-            module = importlib.import_module(f'modules.{module_name}')
+            module = importlib.import_module(f'RUKA.modules.{module_name}')
 
             # Get the values of __mod_name__ and __help__ variables from the module
             mod_name = getattr(module, '__mod_name__', module_name)
