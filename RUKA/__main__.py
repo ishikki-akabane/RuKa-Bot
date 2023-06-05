@@ -14,7 +14,7 @@ import os
 from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT, BLUE_API, aiosession, OWNER_ID
 from RUKA.tools.time import get_readable_time
 from RUKA.modules import ALL_MODULES
-#from RUKA.helpers.help_section import create_menu
+from RUKA.helpers.help_section import create_menu
 
 from RUKA.database.sql.user_sql import sql_adduser
 
@@ -64,39 +64,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await message.reply_text(
             f"I'm Alive, working since {uptime}"
         )
-
-
-# Create the menu function
-def create_menu():
-    keyboard = []
-    modules_dir = 'RUKA/modules'
-
-    # Iterate over the module files
-    for filename in os.listdir(modules_dir):
-        if filename.endswith('.py'):
-            # Construct the module name from the file name
-            module_name = filename[:-3]
-
-            # Load the module dynamically
-            module = importlib.import_module(f'RUKA.modules.{module_name}')
-            # Get the values of __mod_name__ and __help__ variables from the module
-            try:
-                mod_name = getattr(module, '__mod_name__')
-                help_text = getattr(module, '__help__',)
-                # Create the button with the module name as text and module_name as data
-                button = InlineKeyboardButton(text=mod_name, callback_data=f'module:{module_name}')
-                keyboard.append(button)
-            except:
-                pass
-
-    # Reshape the keyboard into 3 x 6 layout
-    keyboard = [keyboard[i:i + 3] for i in range(0, len(keyboard), 3)]
-    print("keyboard::::", keyboard)
-    # Create the InlineKeyboardMarkup with the keyboard layout
-    reply_markup = InlineKeyboardMarkup(keyboard)
-
-    # Send the menu message
-    return reply_markup
 
 
 async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
