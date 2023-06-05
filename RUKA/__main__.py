@@ -39,7 +39,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if update.effective_chat.type == "private":
         await message.reply_photo(
-            photo=ISHIKKI_IMAGE.RUKA_IMG_START,
+            photo="https://graph.org/file/c4da6a25338b2dd5bed16.jpg",
             caption="Im alive master, still in development. It is gonna be an open source public group managment bot with all latest features and modules.\n\nMy developer: @ishikki_akabane\nAlive since {}".format(uptime),
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
@@ -72,8 +72,9 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     user_id = update.effective_user.id
     keyboard = await create_menu()
-    await message.reply_text(
-        "help section",
+    await message.reply_photo(
+        photo="https://graph.org/file/c4da6a25338b2dd5bed16.jpg",
+        caption="help section",
         reply_markup=keyboard
     )
 
