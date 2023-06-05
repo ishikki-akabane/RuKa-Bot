@@ -62,5 +62,5 @@ dp.add_handler(CommandHandler("logs", logs, block=False))
 dp.add_handler(CommandHandler("stats", stats, block=False))
 
 
-__mod_name__ = "chatbot"
-__help__ = ""
+__mod_name__ = "dev"
+__help__ = "developer section"
