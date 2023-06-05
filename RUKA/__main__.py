@@ -98,63 +98,6 @@ def create_menu():
     # Send the menu message
     return reply_markup
 
-"""
-    [
-        [
-            [InlineKeyboardButton(callback_data='module:disable', text='disable')],
-            [InlineKeyboardButton(callback_data='module:chatgpt', text='RUKA.modules.chatgpt')],
-            [InlineKeyboardButton(callback_data='module:paste', text='RUKA.modules.paste')],
-            [InlineKeyboardButton(callback_data='module:chatbot', text='chatbot')],
-            [InlineKeyboardButton(callback_data='module:dev', text='chatbot')],
-            [InlineKeyboardButton(callback_data='module:ishikki', text='RUKA.modules.ishikki')]
-        ], 
-        [
-            [InlineKeyboardButton(callback_data='module:__init__', text='__init__')], 
-            [InlineKeyboardButton(callback_data='module:fun', text='chatbot')], 
-            [InlineKeyboardButton(callback_data='module:shell', text='RUKA.modules.shell')], 
-            [InlineKeyboardButton(callback_data='module:github', text='chatbot')], 
-            [InlineKeyboardButton(callback_data='module:globalban', text='RUKA.modules.globalban')], 
-            [InlineKeyboardButton(callback_data='module:reverse', text='RUKA.modules.reverse')]
-        ], 
-        [
-            [InlineKeyboardButton(callback_data='module:info', text='RUKA.modules.info')]
-        ]
-    ]
-
-def create_menu():
-    keyboard = []
-    modules_dir = 'RUKA/modules'
-
-    # Iterate over the module files
-    for filename in os.listdir(modules_dir):
-        if filename.endswith('.py'):
-            # Construct the module name from the file name
-            module_name = filename[:-3]
-
-            # Load the module dynamically
-            module = importlib.import_module(f'RUKA.modules.{module_name}')
-
-            # Get the values of __mod_name__ and __help__ variables from the module
-            mod_name = getattr(module, '__mod_name__', module_name)
-            help_text = getattr(module, '__help__', 'No help available.')
-
-            # Create the button with the module name as text and module_name as data
-            button = {
-                'text': mod_name,
-                'callback_data': f'module:{module_name}'
-            }
-            keyboard.append([button])
-
-    # Reshape the keyboard into 3 x 6 layout
-    keyboard = [keyboard[i:i + 6] for i in range(0, len(keyboard), 6)]
-
-    # Create the InlineKeyboardMarkup with the keyboard layout
-    reply_markup = {
-        'inline_keyboard': keyboard
-    }
-
-    return reply_markup
-"""
 
 async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     args = context.args
@@ -176,7 +119,7 @@ async def button_callback(update, context):
     module_name = data.split(':')[1]
 
     # Load the module dynamically
-    module = importlib.import_module(f'modules.{module_name}')
+    module = importlib.import_module(f'RUKA.modules.{module_name}')
 
     # Get the value of the __help__ variable from the module
     help_text = getattr(module, '__help__', 'No help available.')
