@@ -96,8 +96,6 @@ async def button_callback(update, context):
 
         # Edit the message with the help text
         await query.edit_message_caption(
-            chat_id=query.message.chat_id,
-            message_id=query.message.message_id,
             caption=help_text,
         )
 
@@ -105,15 +103,11 @@ async def button_callback(update, context):
         if data.split("=")[1] == "help":
             keyboard = await create_menu()
             await query.edit_message_caption(
-                chat_id=query.message.chat_id,
-                message_id=query.message.message_id,
                 caption="Help section.. :)",
                 reply_markup=keyboard
             )
         elif data.split("=")[1] == "about":
             await query.edit_message_caption(
-                chat_id=query.message.chat_id,
-                message_id=query.message.message_id,
                 caption="Ruko jara, thoda await karoo.. :)"
             )
         else:
