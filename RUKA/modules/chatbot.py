@@ -193,4 +193,4 @@ dp.add_handler(CommandHandler("chatbotstats", chatbotlist, block=False))
 
 
 __mod_name__ = "chatbot"
-__help__ = ""
+__help__ = "ruka have an advanced chatbot"
