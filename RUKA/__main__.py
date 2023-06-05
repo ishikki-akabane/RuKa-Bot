@@ -41,7 +41,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await message.reply_photo(
             photo="https://graph.org/file/c4da6a25338b2dd5bed16.jpg",
             caption="Im alive master, still in development. It is gonna be an open source public group managment bot with all latest features and modules.\n\nMy developer: @ishikki_akabane\nAlive since {}".format(uptime),
-            parse_mode=ParseMode.MARKDOWN,
+            #parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -82,7 +82,6 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # Define the callback function for handling button presses
 async def button_callback(update, context):
     query = update.callback_query
-    bot = context.bot
     data = query.data
 
     if data.split("=")[0] == "module":
@@ -96,7 +95,7 @@ async def button_callback(update, context):
         help_text = getattr(module, '__help__', 'No help available.')
 
         # Edit the message with the help text
-        await bot.edit_caption(
+        await query.edit_message_caption(
             chat_id=query.message.chat_id,
             message_id=query.message.message_id,
             caption=help_text,
@@ -105,19 +104,18 @@ async def button_callback(update, context):
 
 async def help_callback(update, context):
     query = update.callback_query
-    bot = context.bot
     data = query.data
     if data.split("=")[0] == "ishikki":
         if data.split("=")[1] == "help":
             keyboard = await create_menu()
-            await bot.edit_caption(
+            await query.edit_message_caption(
                 chat_id=query.message.chat_id,
                 message_id=query.message.message_id,
                 caption="Help section.. :)",
                 reply_markup=keyboard
             )
         elif data.split("=")[1] == "about":
-            await bot.edit_caption(
+            await query.edit_message_caption(
                 chat_id=query.message.chat_id,
                 message_id=query.message.message_id,
                 caption="Ruko jara, thoda await karoo.. :)"
