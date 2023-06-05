@@ -94,7 +94,7 @@ def create_menu():
 
     # Reshape the keyboard into 3 x 6 layout
     keyboard = [keyboard[i:i + 6] for i in range(0, len(keyboard), 6)]
-
+    print("keyboard::::", keyboard)
     # Create the InlineKeyboardMarkup with the keyboard layout
     reply_markup = InlineKeyboardMarkup([keyboard])
 
