@@ -13,7 +13,7 @@ import importlib
 from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT, BLUE_API, aiosession, OWNER_ID
 from RUKA.tools.time import get_readable_time
 from RUKA.modules import ALL_MODULES
-from RUKA.helpers.help_section import create_menu
+#from RUKA.helpers.help_section import create_menu
 
 from RUKA.database.sql.user_sql import sql_adduser
 
