@@ -68,7 +68,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # Create the menu function
 def create_menu():
     keyboard = []
-    modules_dir = 'RUKA.modules'
+    modules_dir = 'RUKA/modules'
 
     # Iterate over the module files
     for filename in os.listdir(modules_dir):
