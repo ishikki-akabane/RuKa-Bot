@@ -111,7 +111,9 @@ async def button_callback(update, context):
                 caption="Ruko jara, thoda await karoo.. :)"
             )
         else:
-            return
+            await query.edit_message_caption(
+                caption="Ruko jara, thoda await karoo.. :)"
+            )
     else:
         return
 
