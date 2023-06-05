@@ -88,7 +88,7 @@ def create_menu():
                 print(f"Mod name : {mod_name}")
                 # Create the button with the module name as text and module_name as data
                 button = InlineKeyboardButton(text=mod_name, callback_data=f'module:{module_name}')
-                keyboard.append([button])
+                keyboard.append(button)
             except:
                 pass
 
