@@ -43,5 +43,5 @@ async def git_pull_restart(update, context):
 
 dp.add_handler(CommandHandler("gitpull", git_pull_restart, block=False))
 
-__mod_name__ = "chatbot"
-__help__ = ""
+__mod_name__ = "github"
+__help__ = "git puull"
