@@ -11,7 +11,7 @@ import time
 import importlib
 import os
 
-from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT, BLUE_API, aiosession, OWNER_ID
+from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT, BLUE_API, aiosession, OWNER_ID, ISHIKKI_IMAGE
 from RUKA.tools.time import get_readable_time
 from RUKA.modules import ALL_MODULES
 from RUKA.helpers.help_section import create_menu
@@ -38,8 +38,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uptime = get_readable_time((time.time() - StartTime))
 
     if update.effective_chat.type == "private":
-        await message.reply_text(
-            "Im alive master, still in development.\nAlive since {}".format(uptime),
+        await message.reply_photo(
+            photo=ISHIKKI_IMAGE.RUKA_IMG_START,
+            caption="Im alive master, still in development. It is gonna be an open source public group managment bot with all latest features and modules.\n\nMy developer: @ishikki_akabane\nAlive since {}".format(uptime),
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -51,11 +52,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     ],
                     [
                         InlineKeyboardButton(text="OWNER", url=f"tg://user?id={OWNER_ID}"),
-                        InlineKeyboardButton(text="ABOUT", url="t.me/")
+                        InlineKeyboardButton(text="ABOUT", callback_data="ishikki=about")
                     ],
                     [
                         InlineKeyboardButton(text="updates", url="t.me/updatesxd"),
-                        InlineKeyboardButton(text="commands", url="t.me/")
+                        InlineKeyboardButton(text="commands", callback_data="ishikki=help")
                     ]
                 ]
             )
@@ -70,7 +71,7 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     args = context.args
     message = update.effective_message
     user_id = update.effective_user.id
-    keyboard = create_menu()
+    keyboard = await create_menu()
     await message.reply_text(
         "help section",
         reply_markup=keyboard
@@ -80,21 +81,49 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # Define the callback function for handling button presses
 async def button_callback(update, context):
     query = update.callback_query
+    bot = context.bot
     data = query.data
 
-    # Get the module name from the button data
-    module_name = data.split(':')[1]
+    if data.split("=")[0] == "module":
+        # Get the module name from the button data
+        module_name = data.split('=')[1]
 
-    # Load the module dynamically
-    module = importlib.import_module(f'RUKA.modules.{module_name}')
+        # Load the module dynamically
+        module = importlib.import_module(f'RUKA.modules.{module_name}')
 
-    # Get the value of the __help__ variable from the module
-    help_text = getattr(module, '__help__', 'No help available.')
+        # Get the value of the __help__ variable from the module
+        help_text = getattr(module, '__help__', 'No help available.')
 
-    # Edit the message with the help text
-    await context.bot.edit_message_text(chat_id=query.message.chat_id,
-                                  message_id=query.message.message_id,
-                                  text=help_text)
+        # Edit the message with the help text
+        await bot.edit_caption(
+            chat_id=query.message.chat_id,
+            message_id=query.message.message_id,
+            caption=help_text,
+        )
+
+
+async def help_callback(update, context):
+    query = update.callback_query
+    bot = context.bot
+    data = query.data
+    if data.split("=")[0] == "ishikki":
+        if data.split("=")[1] == "help":
+            keyboard = await create_menu()
+            await bot.edit_caption(
+                chat_id=query.message.chat_id,
+                message_id=query.message.message_id,
+                caption="Help section.. :)",
+                reply_markup=keyboard
+            )
+        elif data.split("=")[1] == "about":
+            await bot.edit_caption(
+                chat_id=query.message.chat_id,
+                message_id=query.message.message_id,
+                caption="Ruko jara, thoda await karoo.. :)"
+            )
+        else:
+            return
+
 
 
 def main():
@@ -102,7 +131,8 @@ def main():
     start_handler = CommandHandler("start", start)
     help_handler = CommandHandler("help", help_cmd)
     # Register the button callback handler
-    dp.add_handler(CallbackQueryHandler(button_callback))
+    dp.add_handler(CallbackQueryHandler(button_callback, block=False))
+    dp.add_handler(CallbackQueryHandler(help_callback, pattern=r'^ishikki', block=False))
     dp.add_handler(start_handler)
     dp.add_handler(help_handler)
 
