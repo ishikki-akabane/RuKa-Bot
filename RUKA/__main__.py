@@ -101,11 +101,7 @@ async def button_callback(update, context):
             caption=help_text,
         )
 
-
-async def help_callback(update, context):
-    query = update.callback_query
-    data = query.data
-    if data.split("=")[0] == "ishikki":
+    elif data.split("=")[0] == "ishikki":
         if data.split("=")[1] == "help":
             keyboard = await create_menu()
             await query.edit_message_caption(
@@ -122,6 +118,8 @@ async def help_callback(update, context):
             )
         else:
             return
+    else:
+        return
 
 
 
@@ -131,7 +129,7 @@ def main():
     help_handler = CommandHandler("help", help_cmd)
     # Register the button callback handler
     dp.add_handler(CallbackQueryHandler(button_callback, block=False))
-    dp.add_handler(CallbackQueryHandler(help_callback, pattern=r'^ishikki', block=False))
+    #dp.add_handler(CallbackQueryHandler(help_callback, pattern=r'^ishikki', block=False))
     dp.add_handler(start_handler)
     dp.add_handler(help_handler)
 
