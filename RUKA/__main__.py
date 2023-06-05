@@ -76,16 +76,13 @@ def create_menu():
         if filename.endswith('.py'):
             # Construct the module name from the file name
             module_name = filename[:-3]
-            print(module_name)
 
             # Load the module dynamically
-            module = importlib.import_module(f'RUKA.modules.{module_name}')
-            print(f";;;;;;; -- {module}")
+            module = importlib.import_module(f'RUKA.modules.{module_name}'))
             # Get the values of __mod_name__ and __help__ variables from the module
             try:
-                mod_name = getattr(module, '__mod_name__', module_name)
-                help_text = getattr(module, '__help__', 'No help available.')
-                print(f"Mod name : {mod_name}")
+                mod_name = getattr(module, '__mod_name__')
+                help_text = getattr(module, '__help__',)
                 # Create the button with the module name as text and module_name as data
                 button = InlineKeyboardButton(text=mod_name, callback_data=f'module:{module_name}')
                 keyboard.append(button)
