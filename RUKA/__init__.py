@@ -185,8 +185,11 @@ WHITE_USERS = list(WHITE_USERS)
 
 DEV_USERS.append(OWNER_ID)
 #=======================================================================================================X
-bot_alive_pic = "https://graph.org/file/644b74fb6d35e863f1590.jpg"
-bot_alive_msg = "Ruka Alive"
+class ISHIKKI_IMAGE():
+    RUKA_IMG_START = "https://graph.org/file/c4da6a25338b2dd5bed16.jpg"
+    RUKA_STARTUP_PIC = "https://graph.org/file/644b74fb6d35e863f1590.jpg"
+#=======================================================================================================X
+bot_alive_msg = "Ruka is now Alive"
 
 aiosession = aiohttp.ClientSession()
 
@@ -204,7 +207,7 @@ async def booting_msg(application: Application):
     except:
         LOGGER.info("[BLUE-API] - Blue-API FAiled To STARTUP!! REPORT TO @DEVSLAB")
     try:
-        #await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=bot_alive_pic, caption=bot_alive_msg)
+        await application.bot.sendPhoto(chat_id=SUPPORT_ID, photo=ISHIKKI_IMAGE.RUKA_STARTUP_PIC, caption=bot_alive_msg)
         n = 4
     except Exception as e:
         LOGGER.warning(
