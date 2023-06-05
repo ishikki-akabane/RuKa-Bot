@@ -37,7 +37,7 @@ import os
 # Create the menu function
 def create_menu():
     keyboard = []
-    modules_dir = 'RUKA/modules'
+    modules_dir = 'RUKA'
 
     # Get the current working directory
     current_directory = os.getcwd()
