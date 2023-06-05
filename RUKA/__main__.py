@@ -9,6 +9,7 @@ Thankyou if read this notice fully :), have a wonderful cody day
 """
 import time
 import importlib
+import os
 
 from RUKA import dp, LOGGER, StartTime, OWNER_USERNAME, SUPPORT_CHAT, BLUE_API, aiosession, OWNER_ID
 from RUKA.tools.time import get_readable_time
