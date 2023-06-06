@@ -55,6 +55,8 @@ async def paste_func(update: Update, context: ContextTypes.DEFAULT_TYPE):
         async with aiofiles.open(doc, mode="r") as f:
             content = await f.read()
         os.remove(doc)
+    else:
+        return await msg.edit_text("not supported!")
 
     link = await paste(content)
     preview = f"{link}/preview.png"
