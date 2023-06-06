@@ -22,10 +22,13 @@ async def create_menu():
             try:
                 mod_name = getattr(module, '__mod_name__')
                 help_text = getattr(module, '__help__',)
-                modules_name.append(mod_name)
-                modules_cll_name[mod_name] = module_name
             except Exception as e:
                 print(e)
+                pass
+            try:
+                modules_name.append(mod_name)
+                modules_cll_name[mod_name] = module_name
+            except:
                 pass
 
     modules_show_name.sort() # arranging them in alphabatical way
