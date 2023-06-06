@@ -39,7 +39,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if update.effective_chat.type == "private":
         await message.reply_photo(
-            photo="https://graph.org/file/c4da6a25338b2dd5bed16.jpg",
+            photo=ISHIKKI_IMAGE.RUKA_IMG_START,
             caption="Im alive master, still in development. It is gonna be an open source public group managment bot with all latest features and modules.\n\nMy developer: @ishikki_akabane\nAlive since {}".format(uptime),
             #parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
@@ -74,7 +74,7 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = await create_menu()
     print(keyboard)
     await message.reply_photo(
-        photo="https://graph.org/file/c4da6a25338b2dd5bed16.jpg",
+        photo=ISHIKKI_IMAGE.RUKA_IMG_START,
         caption="help section",
         reply_markup=keyboard
     )
@@ -98,6 +98,11 @@ async def button_callback(update, context):
         # Edit the message with the help text
         await query.edit_message_caption(
             caption=help_text,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton(text="Back", callback_data="ishikki=help")]
+                ]
+            )
         )
 
     elif data.split("=")[0] == "ishikki":
@@ -110,6 +115,29 @@ async def button_callback(update, context):
         elif data.split("=")[1] == "about":
             await query.edit_message_caption(
                 caption="Ruko jara, thoda await karoo.. :)"
+            )
+        elif data.split("=")[1] == "back_btn":
+            uptime = get_readable_time((time.time() - StartTime))
+            await query.edit_message_caption(
+                caption="Im alive master, still in development. It is gonna be an open source public group managment bot with all latest features and modules.\n\nMy developer: @ishikki_akabane\nAlive since {}".format(uptime),
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                text="☑ ᴀᴅᴅ RᴜKᴀ ☑",
+                                url="t.me/RukaProbot?startgroup=true"
+                            )
+                        ],
+                        [
+                            InlineKeyboardButton(text="OWNER", url=f"tg://user?id={OWNER_ID}"),
+                            InlineKeyboardButton(text="ABOUT", callback_data="ishikki=about")
+                        ],
+                        [
+                            InlineKeyboardButton(text="updates", url="t.me/updatesxd"),
+                            InlineKeyboardButton(text="commands", callback_data="ishikki=help")
+                        ]
+                    ]
+                )
             )
         else:
             await query.edit_message_caption(
