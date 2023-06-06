@@ -72,7 +72,6 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     user_id = update.effective_user.id
     keyboard = await create_menu()
-    print(keyboard)
     await message.reply_photo(
         photo=ISHIKKI_IMAGE.RUKA_IMG_START,
         caption="help section",
