@@ -27,10 +27,9 @@ async def create_menu():
                 pass
 
     # Reshape the keyboard into 3 x 6 layout
-    #keyboard.append([InlineKeyboardButton(text="Back", callback_data=f'ishikki=back_btn')])
     keyboard = [keyboard[i:i + 3] for i in range(0, len(keyboard), 3)]
+    keyboard.append([InlineKeyboardButton(text="Back", callback_data='ishikki=back_btn')])
     # Create the InlineKeyboardMarkup with the keyboard layout
-    print("::::", keyboard)
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     # Send the menu message
