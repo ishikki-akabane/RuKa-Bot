@@ -72,6 +72,7 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
     user_id = update.effective_user.id
     keyboard = await create_menu()
+    print(keyboard)
     await message.reply_photo(
         photo="https://graph.org/file/c4da6a25338b2dd5bed16.jpg",
         caption="help section",
