@@ -146,3 +146,15 @@ dp.add_handler(CommandHandler("gban", gban, block=False))
 dp.add_handler(CallbackQueryHandler(gban_handler, pattern=r'^gban', block=False))
 dp.add_handler(CommandHandler("revert", revert, block=False))
 dp.add_handler(CommandHandler("gbanlist", gbanlist, block=False))
+
+
+__mod_name__ = "Gban"
+__help__ = """
+GBAN HELP
+:- This is only for special rank user
+
+This module bans the user from all groups the bot is part of
+
+/gban : /gban <user ID> or reply to someone with command and give reasons
+/revert : /revert <user ID> or reply to someone to ungban him
+"""
