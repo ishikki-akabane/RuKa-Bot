@@ -26,7 +26,7 @@ async def create_menu():
                 print(e)
                 pass
             try:
-                modules_name.append(mod_name)
+                modules_show_name.append(mod_name)
                 modules_cll_name[mod_name] = module_name
             except:
                 pass
