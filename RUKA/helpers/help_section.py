@@ -25,7 +25,7 @@ async def create_menu():
                 modules_show_name.append(mod_name)
                 modules_cll_name[mod_name] = module_name
             except Exception as e:
-                print(e)
+                #print(e) if you face any trouble here, then this will help
                 pass
 
     

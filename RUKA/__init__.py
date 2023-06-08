@@ -186,7 +186,7 @@ WHITE_USERS = list(WHITE_USERS)
 DEV_USERS.append(OWNER_ID)
 #=======================================================================================================X
 class ISHIKKI_IMAGE():
-    RUKA_IMG_START = "https://graph.org/file/c4da6a25338b2dd5bed16.jpg"
+    RUKA_IMG_START = "https://graph.org/file/653341f199df582194481.mp4"
     RUKA_STARTUP_PIC = "https://graph.org/file/644b74fb6d35e863f1590.jpg"
 #=======================================================================================================X
 bot_alive_msg = "Ruka is now Alive"
