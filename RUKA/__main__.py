@@ -21,6 +21,14 @@ from RUKA.database.sql.user_sql import sql_adduser
 from telegram.ext import ContextTypes, CommandHandler, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, Chat, User
 from telegram.constants import ParseMode
+from telegram.error import (
+    BadRequest,
+    ChatMigrated,
+    NetworkError,
+    TelegramError,
+    TimedOut,
+    Forbidden,
+)
 
 
 for module_name in ALL_MODULES:
@@ -28,6 +36,28 @@ for module_name in ALL_MODULES:
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
+#====================================================
+START_TXT = """
+Im alive master, still in development.
+It is gonna be an open source public group managment bot with all latest features and modules.
+
+- My developer: @ishikki_akabane
+- Alive since {}
+"""
+
+HELP_TXT = """
+wait, bot is still in developement
+
+visit @devslab
+or contact @ishikki_akabane
+"""
+
+ABOUT_TXT = """
+waitooooo broo
+bot is still in development
+:)
+"""
+#====================================================
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -40,7 +70,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_chat.type == "private":
         await message.reply_photo(
             photo=ISHIKKI_IMAGE.RUKA_IMG_START,
-            caption="Im alive master, still in development. It is gonna be an open source public group managment bot with all latest features and modules.\n\nMy developer: @ishikki_akabane\nAlive since {}".format(uptime),
+            caption=START_TXT.format(uptime),
             #parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -74,7 +104,7 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = await create_menu()
     await message.reply_photo(
         photo=ISHIKKI_IMAGE.RUKA_IMG_START,
-        caption="help section",
+        caption=HELP_TXT,
         reply_markup=keyboard
     )
 
@@ -108,17 +138,17 @@ async def button_callback(update, context):
         if data.split("=")[1] == "help":
             keyboard = await create_menu()
             await query.edit_message_caption(
-                caption="Help section.. :)",
+                caption=HELP_TXT,
                 reply_markup=keyboard
             )
         elif data.split("=")[1] == "about":
             await query.edit_message_caption(
-                caption="Ruko jara, thoda await karoo.. :)"
+                caption=ABOUT_TXT
             )
         elif data.split("=")[1] == "back_btn":
             uptime = get_readable_time((time.time() - StartTime))
             await query.edit_message_caption(
-                caption="Im alive master, still in development. It is gonna be an open source public group managment bot with all latest features and modules.\n\nMy developer: @ishikki_akabane\nAlive since {}".format(uptime),
+                caption=START_TXT.format(uptime),
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -140,11 +170,46 @@ async def button_callback(update, context):
             )
         else:
             await query.edit_message_caption(
-                caption="Ruko jara, thoda await karoo.. :)"
+                caption=ABOUT_TXT
             )
     else:
         return
 
+
+# ERROR HANDLER
+async def error_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    error = context.error
+    try:
+        raise error
+    except Forbidden:
+        LOGGER.error("\nForbidden Error\n")
+        LOGGER.error(error)
+        raise error
+        # remove update.message.chat_id from conversation list
+    except BadRequest:
+        LOGGER.error("\nBadRequest Error\n")
+        LOGGER.error("BadRequest caught")
+        LOGGER.error(error)
+        raise error
+
+        # handle malformed requests - read more below!
+    except TimedOut:
+        LOGGER.error("\nTimedOut Error\n")
+        raise error
+        # handle slow connection problems
+    except NetworkError:
+        LOGGER.error("\n NetWork Error\n")
+        raise error
+        # handle other connection problems
+    except ChatMigrated as err:
+        LOGGER.error("\n ChatMigrated error\n")
+        raise error
+        LOGGER.error(err)
+        # the chat_id of a group has changed, use e.new_chat_id instead
+    except TelegramError:
+        LOGGER.error(error)
+        raise # then only it sends the message to the owner
+        # handle all other telegram related errors
 
 
 def main():
@@ -153,11 +218,11 @@ def main():
     help_handler = CommandHandler("help", help_cmd)
     # Register the button callback handler
     dp.add_handler(CallbackQueryHandler(button_callback, block=False))
-    #dp.add_handler(CallbackQueryHandler(help_callback, pattern=r'^ishikki', block=False))
     dp.add_handler(start_handler)
     dp.add_handler(help_handler)
+    dp.add_error_handler(error_callback)
 
-    LOGGER.info("Ruka is now deployed!!!\n----Using long polling...")
+    LOGGER.info("Ruka is now deployed!!!\n->->->-Using long polling...")
     dp.run_polling(timeout=15, drop_pending_updates=False)
 
 if __name__ == "__main__":
