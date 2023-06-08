@@ -29,8 +29,6 @@ async def create_menu():
                 pass
 
     
-    print(">>>", modules_show_name)
-    print(">>>", modules_cll_name)
     modules_show_name.sort() # arranging them in alphabatical way
     for mod in modules_show_name:
         # Create the button with the module name as text and module_name as data
