@@ -51,5 +51,4 @@ async def shell(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
 
 
-
 dp.add_handler(CommandHandler("sh", shell, block=False))
