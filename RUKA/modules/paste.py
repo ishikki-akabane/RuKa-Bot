@@ -33,8 +33,8 @@ async def isPreviewUp(preview: str) -> bool:
 
 @capture_error
 async def paste_func(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    msggg = await message.reply_text("ᴘᴀsᴛɪɴɢ...")
     message = update.effective_message
+    msggg = await message.reply_text("pasteing...")
     bot = context.bot
     reply = message.reply_to_message
     if not reply:
