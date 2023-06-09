@@ -68,8 +68,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uptime = get_readable_time((time.time() - StartTime))
 
     if update.effective_chat.type == "private":
-        await message.reply_photo(
-            photo=ISHIKKI_IMAGE.RUKA_IMG_START,
+        await message.reply_video(
+            video=ISHIKKI_IMAGE.RUKA_IMG_START,
             caption=START_TXT.format(uptime),
             #parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
