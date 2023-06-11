@@ -28,8 +28,8 @@ async def abcfunc(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
         return await message.reply_text("ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴡɪᴛʜ `/paste`", parse_mode=ParseMode.MARKDOWN)
-
-    await message.reply_text("ᴘᴀsᴛɪɴɢ...")
+    else:
+        await message.reply_text("ᴘᴀsᴛɪɴɢ...")
     if reply.text:
         content = str(reply.text)
     elif reply.document:
@@ -55,5 +55,5 @@ async def abcfunc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     await message.reply_text(content)
 
-dp.add_handler(CommandHandler("abc", abcfunc))
+dp.add_handler(DisableCommandHandler("abc", abcfunc))
 dp.add_handler(DisableCommandHandler(["ishikki", "ishu"], ishikki))
