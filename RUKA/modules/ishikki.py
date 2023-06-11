@@ -29,13 +29,13 @@ async def abcfunc(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         return await message.reply_text("ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴡɪᴛʜ `/paste`", parse_mode=ParseMode.MARKDOWN)
 
-    msg = await message.reply_text("ᴘᴀsᴛɪɴɢ...")
+    await message.reply_text("ᴘᴀsᴛɪɴɢ...")
     if reply.text:
         content = str(reply.text)
     elif reply.document:
         document = reply.document
         if document.file_size > 1048576:
-            return await msg.edit_text("ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ᴘᴀsᴛᴇ ғɪʟᴇs sᴍᴀʟʟᴇʀ ᴛʜᴀɴ 1ᴍʙ.")
+            return #await msg.edit_text("ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ᴘᴀsᴛᴇ ғɪʟᴇs sᴍᴀʟʟᴇʀ ᴛʜᴀɴ 1ᴍʙ.")
 
 
         file_id = document.file_id
