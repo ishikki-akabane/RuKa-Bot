@@ -6,7 +6,7 @@ from telegram.ext import ContextTypes, CommandHandler
 from telegram.constants import ParseMode
 
 from RUKA.modules.disable import DisableCommandHandler
-
+import aiofiles
 
 #pattern = re.compile(r"^text/|json$|yaml$|xml$|toml$|x-sh$|x-shellscript$")
 
