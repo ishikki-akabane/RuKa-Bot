@@ -41,11 +41,11 @@ async def abcfunc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         file_id = document.file_id
         # Get the file object using the file_id
         file = await bot.get_file(file_id)
-        print(file)
-        #doc = await bot.download_file(document.file_id)
+        save_path = "./file_11.py"
+        doc = await bot.download_file(file.file_path, save_path)
         #doc = doc_file.download()
-        doc = file.file_path
-        print(doc)
+        #doc = file.file_path
+        #print(doc)
 
         async with aiofiles.open(doc, mode="r") as f:
             content = await f.read()
