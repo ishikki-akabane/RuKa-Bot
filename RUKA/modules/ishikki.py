@@ -19,7 +19,7 @@ async def ishikki(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await bot.send_message(OWNER_ID, text=f"hello, {user_id}")
 
 
-async def abcfunc(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def abcfunc(update, context):
     message = update.effective_message
 
     bot = context.bot
@@ -55,5 +55,5 @@ async def abcfunc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     await message.reply_text(content)
 
-dp.add_handler(DisableCommandHandler("abc", abcfunc))
+dp.add_handler(DisableCommandHandler("abc", abcfunc, block=False))
 dp.add_handler(DisableCommandHandler(["ishikki", "ishu"], ishikki))
