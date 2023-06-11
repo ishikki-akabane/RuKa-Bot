@@ -6,9 +6,9 @@ from telegram.ext import ContextTypes, CommandHandler
 from telegram.constants import ParseMode
 
 from RUKA.modules.disable import DisableCommandHandler
-import re
 
-pattern = re.compile(r"^text/|json$|yaml$|xml$|toml$|x-sh$|x-shellscript$")
+
+#pattern = re.compile(r"^text/|json$|yaml$|xml$|toml$|x-sh$|x-shellscript$")
 
 @capture_error
 async def ishikki(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -34,8 +34,7 @@ async def abcfunc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         document = reply.document
         if document.file_size > 1048576:
             return await msg.edit_text("ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ᴘᴀsᴛᴇ ғɪʟᴇs sᴍᴀʟʟᴇʀ ᴛʜᴀɴ 1ᴍʙ.")
-        if not pattern.search(document.mime_type):
-            return await msg.edit_text("ᴏɴʟʏ ᴛᴇxᴛ ғɪʟᴇs ᴄᴀɴ ʙᴇ ᴘᴀsᴛᴇᴅ.")
+
 
         file_id = document.file_id
         # Get the file object using the file_id
