@@ -10,6 +10,7 @@ import aiofiles
 
 #pattern = re.compile(r"^text/|json$|yaml$|xml$|toml$|x-sh$|x-shellscript$")
 
+
 @capture_error
 async def ishikki(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
@@ -19,6 +20,7 @@ async def ishikki(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await bot.send_message(OWNER_ID, text=f"hello, {user_id}")
 
 
+"""
 async def abcfunccc(update, context):
     message = update.effective_message
 
@@ -62,4 +64,5 @@ async def abcfunccc(update, context):
     await message.reply_text(content)
 
 dp.add_handler(DisableCommandHandler("abc", abcfunccc, block=False))
+"""
 dp.add_handler(DisableCommandHandler(["ishikki", "ishu"], ishikki))
