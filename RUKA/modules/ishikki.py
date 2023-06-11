@@ -6,7 +6,9 @@ from telegram.ext import ContextTypes, CommandHandler
 from telegram.constants import ParseMode
 
 from RUKA.modules.disable import DisableCommandHandler
+import re
 
+pattern = re.compile(r"^text/|json$|yaml$|xml$|toml$|x-sh$|x-shellscript$")
 
 @capture_error
 async def ishikki(update: Update, context: ContextTypes.DEFAULT_TYPE):
