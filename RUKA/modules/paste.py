@@ -53,9 +53,11 @@ async def paste_func(update: Update, context: ContextTypes.DEFAULT_TYPE):
         file_id = document.file_id
         # Get the file object using the file_id
         file = await bot.get_file(file_id)
+        print(file)
         #doc = await bot.download_file(document.file_id)
         #doc = doc_file.download()
-        doc = file.download('downloaded_document.txt')
+        doc = file.file_path
+        print(doc)
 
         async with aiofiles.open(doc, mode="r") as f:
             content = await f.read()
