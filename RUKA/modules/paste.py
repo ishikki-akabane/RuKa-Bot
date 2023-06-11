@@ -31,10 +31,10 @@ async def isPreviewUp(preview: str) -> bool:
     return False
 
 
-#@capture_error
+@capture_error
 async def paste_func(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.effective_message
-    msggg = await message.reply_text("pasteing...")
+
     bot = context.bot
     reply = message.reply_to_message
     if not reply:
@@ -50,8 +50,12 @@ async def paste_func(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if not pattern.search(document.mime_type):
             return await msg.edit_text("ᴏɴʟʏ ᴛᴇxᴛ ғɪʟᴇs ᴄᴀɴ ʙᴇ ᴘᴀsᴛᴇᴅ.")
 
-        doc = await bot.download_file(document.file_id)
+        file_id = document.file_id
+        # Get the file object using the file_id
+        file = await bot.get_file(file_id)
+        #doc = await bot.download_file(document.file_id)
         #doc = doc_file.download()
+        doc = file.download('downloaded_document.txt')
 
         async with aiofiles.open(doc, mode="r") as f:
             content = await f.read()
