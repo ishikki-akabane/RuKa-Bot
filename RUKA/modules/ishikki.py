@@ -24,7 +24,9 @@ async def abcfunc(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     bot = context.bot
     reply = message.reply_to_message
-    if not reply:
+    if not reply or reply is None:
+
+
         return await message.reply_text("ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴡɪᴛʜ `/paste`", parse_mode=ParseMode.MARKDOWN)
 
     msg = await message.reply_text("ᴘᴀsᴛɪɴɢ...")
