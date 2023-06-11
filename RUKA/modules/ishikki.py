@@ -42,7 +42,7 @@ async def abcfunc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Get the file object using the file_id
         file = await bot.get_file(file_id)
         save_path = "./file_11.py"
-        doc = await bot.download_file(file.file_path, save_path)
+        doc = await file.download_to_drive()
         #doc = doc_file.download()
         #doc = file.file_path
         #print(doc)
