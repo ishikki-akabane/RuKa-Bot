@@ -8,7 +8,7 @@ from RUKA import dp, aiosession
 from RUKA.helpers.errors import capture_error
 from RUKA.helpers.paste_help import paste
 
-from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, InputFile  
 from telegram.ext import ContextTypes, CommandHandler
 from telegram.constants import ParseMode
 
