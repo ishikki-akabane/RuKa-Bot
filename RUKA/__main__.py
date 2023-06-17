@@ -149,6 +149,7 @@ async def button_callback(update, context):
             uptime = get_readable_time((time.time() - StartTime))
             await query.edit_message_caption(
                 caption=START_TXT.format(uptime),
+        
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -170,7 +171,8 @@ async def button_callback(update, context):
             )
         else:
             await query.edit_message_caption(
-                caption=ABOUT_TXT
+                caption=ABOUT_TXT,
+                parse_mode=ParseMode.MARKDOWN
             )
     else:
         return
