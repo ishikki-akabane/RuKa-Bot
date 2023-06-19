@@ -105,7 +105,7 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await message.reply_video(
         video=ISHIKKI_IMAGE.RUKA_IMG_START,
         caption=HELP_TXT,
-        parse_mode=ParseMode.HTML,
+        parse_mode=ParseMode.MARKDOWN,
         reply_markup=keyboard
     )
 
