@@ -105,7 +105,7 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await message.reply_video(
         video=ISHIKKI_IMAGE.RUKA_IMG_START,
         caption=HELP_TXT,
-        parse_mode=ParseMode.MARKDOWN_V2,
+        parse_mode=ParseMode.MARKDOWN,
         reply_markup=keyboard
     )
 
@@ -114,46 +114,41 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def button_callback(update, context):
     query = update.callback_query
     data = query.data
-
     if data.split("=")[0] == "module":
         # Get the module name from the button data
         module_name = data.split('=')[1]
-
         # Load the module dynamically
         module = importlib.import_module(f'RUKA.modules.{module_name}')
-
         # Get the value of the __help__ variable from the module
         help_text = getattr(module, '__help__', 'No help available.')
-
         # Edit the message with the help text
         await query.edit_message_caption(
             caption=help_text,
-            parse_mode=ParseMode.HTML,
+            parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton(text="Back", callback_data="ishikki=help")]
                 ]
             )
         )
-
     elif data.split("=")[0] == "ishikki":
         if data.split("=")[1] == "help":
             keyboard = await create_menu()
             await query.edit_message_caption(
                 caption=HELP_TXT,
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 reply_markup=keyboard
             )
         elif data.split("=")[1] == "about":
             await query.edit_message_caption(
                 caption=ABOUT_TXT,
-                parse_mode=ParseMode.HTML
+                parse_mode=ParseMode.MARKDOWN
             )
         elif data.split("=")[1] == "back_btn":
             uptime = get_readable_time((time.time() - StartTime))
             await query.edit_message_caption(
                 caption=START_TXT.format(uptime),
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
