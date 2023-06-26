@@ -171,7 +171,7 @@ async def button_callback(update, context):
         else:
             await query.edit_message_caption(
                 caption=ABOUT_TXT,
-                parse_mode=ParseMode.HTML
+                parse_mode=ParseMode.MARKDOWN
             )
     else:
         return
