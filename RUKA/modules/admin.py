@@ -20,7 +20,7 @@ async def ban(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if reply:
         target_id = reply.from_user.id
     elif len(args) == 0:
-        return await message.reply_text("Love Day :)\ngive me something to ban")
+        return await message.reply_text("Babe :)\ngive me something to ban")
     else:
         try:
             target_id = args[0]
