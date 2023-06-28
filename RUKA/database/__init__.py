@@ -2,17 +2,15 @@
 import asyncio
 import sys
 
-from motor import motor_asyncio
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from RUKA import MONGO_DB_URI 
-from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 
 
-MONGO_PORT = 27017
 MONGO_DB = "ishikki"
 
 
-motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URI, MONGO_PORT)
+motor = MongoClient(MONGO_DB_URI)
 db = motor[MONGO_DB]
 
 try:
