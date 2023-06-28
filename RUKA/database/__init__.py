@@ -8,7 +8,7 @@ from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 
 
-MONGO_PORT = "27017"
+MONGO_PORT = 27017
 MONGO_DB = "ishikki"
 
 
