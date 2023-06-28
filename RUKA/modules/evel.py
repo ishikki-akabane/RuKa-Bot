@@ -20,13 +20,13 @@ namespaces = {}
 @status(rank="dev")
 async def evaluate(update, context):
     bot = context.bot
-    send(do(eval, bot, update), bot, update)
+    await send(do(eval, bot, update), bot, update)
 
 
 @status(rank="dev")
 async def execute(update, context):
     bot = context.bot
-    send(do(exec, bot, update), bot, update)
+    await send(do(exec, bot, update), bot, update)
 
 
 @status(rank="dev")
@@ -36,7 +36,7 @@ async def clear_eve(update, context):
     global namespaces
     if update.message.chat_id in namespaces:
         del namespaces[update.message.chat_id]
-    send("Cleared locals.", bot, update)
+    await send("Cleared locals.", bot, update)
 
 
 #--------------------------#--------------------------#--------------------------#--------------------------#
@@ -48,7 +48,7 @@ async def send(msg, bot, update):
             await bot.send_document(chat_id=update.effective_chat.id, document=out_file)
     else:
         LOGGER.info(f"OUT: '{msg}'")
-        bot.send_message(
+        await bot.send_message(
             chat_id=update.effective_chat.id,
             text=f"`{msg}`",
             parse_mode=ParseMode.MARKDOWN,
