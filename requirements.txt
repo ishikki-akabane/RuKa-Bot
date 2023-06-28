@@ -12,4 +12,3 @@ dnspython
 #extra
 psutil
 aiofiles
-motor
