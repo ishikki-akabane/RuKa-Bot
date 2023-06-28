@@ -4,6 +4,12 @@ asyncpg
 requests
 aiohttp
 
+#database
+motor
+pymongo
+dnspython
+
 #extra
 psutil
 aiofiles
+motor
