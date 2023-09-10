@@ -182,7 +182,6 @@ async def chatbotlist(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
     else:
         await message.reply_text(text="No active chatbots sir :/")
-        
 
 
 
