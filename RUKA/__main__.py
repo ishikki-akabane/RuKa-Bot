@@ -1,11 +1,57 @@
 """
-Made by Ishikki Akabane
-Dont just kang or clone
-Learn to value someone's hardwork, so please dont remove credits
-Made with dedication and love
-If you face any issues, feel free to visit @DevsLAB,
-or into my DM to abuse me or for help or just to say thanks.
-Thankyou if read this notice fully :), have a wonderful cody day
+Main entry point for the Advanced Telegram Group Management Bot
+
+This script initializes and starts the bot, handles errors gracefully, and ensures
+efficient execution using uvloop for better performance.
+"""
+
+import asyncio
+import uvloop
+from pyrogram import Client
+import traceback
+import requests
+
+from . import LOGGER, TOKEN, API_HASH, API_ID, SUPPORT_CHAT
+
+class Bot(Client):
+    def __init__(self):
+        super().__init__(
+            "RUKAPROBOT",
+            api_id=API_ID,
+            api_hash=API_HASH,
+            bot_token=TOKEN,
+            plugins={"root": "RUKA.plugins"},
+        )
+    
+    async def start(self):
+        await super().start()
+        me = await self.get_me()  # Fetch bot information to confirm successful start
+        LOGGER.info(f"{me.first_name} (@{me.username}) started successfully.")
+
+        # Notify the support chat that the bot has started
+        try:
+            await self.send_message(SUPPORT_CHAT, f"{me.first_name} has started successfully!")
+        except Exception as e:
+            LOGGER.error(f"Failed to send start message to support chat: {e}")
+            LOGGER.debug(traceback.format_exc())
+
+    async def stop(self):
+        await super().stop()
+    
+    async def run_bot(self):
+        try:
+            await self.start()
+            await idle()  # Keep the bot running until interrupted
+        except (KeyboardInterrupt, SystemExit):
+            LOGGER.warning("Bot stopped by user.")
+        finally:
+            await self.stop()
+
+if __name__ == "__main__":
+    uvloop.install()
+    Bot().run()
+
+
 """
 import time
 import importlib
@@ -35,7 +81,7 @@ for module_name in ALL_MODULES:
     imported_module = importlib.import_module("RUKA.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
-
+"""
 #====================================================
 START_TXT = """
 Im alive master, still in development.
@@ -59,7 +105,7 @@ bot is still in development
 """
 #====================================================
 
-
+"""
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     args = context.args
     message = update.effective_message
@@ -229,3 +275,4 @@ def main():
 if __name__ == "__main__":
     LOGGER.info("Successfully loaded all modules")
     main()
+"""
