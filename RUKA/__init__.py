@@ -11,13 +11,11 @@ import logging
 import os
 import sys
 import time
-import telegram.ext as tg
 import asyncio
 import aiohttp
 import json
 
-from telegram.ext import ApplicationBuilder, Application
-from telegram import Bot
+
 # Enable Logging========================================================================================X
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
@@ -41,7 +39,7 @@ StartTime = time.time()
 ENV = bool(os.environ.get("ENV", False))
 
 if ENV:
-    TOKEN = os.environ.get("TOKEN", None) #Bot Token
+    TOKEN = os.environ.get("TOKEN", None) # Bot Token
 
     try:
         OWNER_ID = int(os.environ.get("OWNER_ID", None))
@@ -49,52 +47,32 @@ if ENV:
         raise Exception("Your OWNER_ID env variable is not a valid integer")
 
     try:
-        WHITE_USERS = set(int(x) for x in os.environ.get("WHITE_USERS", "").split())
         SUPPORT_USERS = set(int(x) for x in os.environ.get("SUPPORT_USERS", "").split())
-        SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
+        GUARDIAN_USERS = set(int(x) for x in os.environ.get("GUARDIAN_USERS", "").split())
+        ENFORCER_USERS = set(int(x) for x in os.environ.get("ENFORCER_USERS", "").split())
         DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "").split())
     except ValueError:
-        raise Exception("Your support or sudo or dev users list does not contain valid integers")
+        raise Exception("Your super userlist does not contain valid integers")
 
-    # FOR TELETHON AND PYROGRAM BASED BOTS, Login to https://my.telegram.org and fill it
+    # Login to https://my.telegram.org and create a app
     API_ID = os.environ.get("API_ID", None)
     API_HASH = os.environ.get("API_HASH", None)
 
     # IMPORTANT VARIABLES
-    SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "DevsLab") #Support group for users
-    SUPPORT_ID = int(os.environ.get("SUPPORT_ID", "-100")) #Support group id
-    JOIN_LOGGER = int(os.environ.get("JOIN_LOGGER", "-100")) #channel where the bot will send new chat joined messages
-    EVENT_LOGS = int(os.environ.get("EVENT_LOGS", "-100")) #channel where the bot will print stuffs like gban messages
-    ERROR_LOGS = int(os.environ.get("ERROR_LOGS", "-100")) #channel where the bot will print error when it encounters it
-    UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "UpdatesXD") #Channel where they can read about new updates about the bot
-    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "Ishikki_AKabane") #Owner UserName without @
+    SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "DevsLab")      # Support group for users
+    SUPPORT_ID = int(os.environ.get("SUPPORT_ID", "-100"))        # Support group id
+    JOIN_LOGGER = int(os.environ.get("JOIN_LOGGER", "-100"))      # channel where the bot will send new chat joined messages
+    EVENT_LOGS = int(os.environ.get("EVENT_LOGS", "-100"))        # channel where the bot will print stuffs like gban messages
+    ERROR_LOGS = int(os.environ.get("ERROR_LOGS", "-100"))        # channel where the bot will print error when it encounters it
+    UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "UpdatesXD")     # Channel where users can read about new updates about the bot
+    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "Ishikki_AKabane") # Owner UserName without @
 
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
-    WORKERS = int(os.environ.get("WORKERS", 8))
-    ALLOW_EXCL = bool(os.environ.get("ALLOW_EXCL", False))
-
-    # For ARQ based Modules, use public ARQ KEY if you dont have @ISHIKKI_AKABANE
-    ARQ_API_KEY = "ZWXCEZ-RTVXHT-NOVURC-FHCFZD-ARQ"
-    ARQ_API_URL = "https://thearq.tech"
-
-    # For SPAMWATCH ANTISPAM SYSTEM, USE PUBLIC ONE IF YOU DONT HAVE
-    SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", "DevsLab")
-    SPAMWATCH_API = os.environ.get("SPAMWATCH_API", "XChWQMRDLpKVqoirR_cMDqlrGwiTn1bY1pYhTyGeVv7~T2gVG1JRyZFvlZGq4gtG")
-
-    # Important for webhooks
-    WEBHOOK = bool(os.environ.get("WEBHOOK", False))
-    URL = os.environ.get("URL", "")  # contains your app url
-    PORT = int(os.environ.get("PORT", 5000))
-    CERT_PATH = os.environ.get("CERT_PATH", "")
 
     # Database | Ignore if you dont have and use public database of @ishikki_akabane
     DB_URI = os.environ.get("DATABASE_URL", "postgres://cugocwks:jgpqMTLw2rO6KMwnWDL6kAXwmaVMB1qW@john.db.elephantsql.com/cugocwks") #SQL DATABASE
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None) #MongoDB database
     REDIS_URL = os.environ.get("REDIS_URL", "redis://ishikki:Ishikki_143@redis-11102.c264.ap-south-1-1.ec2.cloud.redislabs.com:11102/") #Redis Database
-
-    # If using Heroku
-    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
-    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
 
     # Optional
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
