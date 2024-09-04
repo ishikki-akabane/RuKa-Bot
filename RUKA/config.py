@@ -1,12 +1,47 @@
+
+"""
+This file contains all necessary configuration settings that the bot will use.
+Users need to fill in these values before running the bot. 
+
+Ensure that you secure this file properly and do not share it publicly if it contains sensitive information.
+"""
+
 import os
 import json
 
 
 def get_user_list(key):
-    with open("{}/RUKA/{}".format(os.getcwd(), "users.json"), "r") as json_file:
+    with open("users.json", "r") as json_file:
         return json.load(json_file)[key]
 
+class Config:
+    # Basic Bot Configuration
+    TOKEN = os.getenv("TOKEN", "your-bot-token-here")
+    API_ID = int(os.getenv("API_ID", "your-api-id-here"))
+    API_HASH = os.getenv("API_HASH", "your-api-hash-here")
+    BOT_USERNAME = os.getenv("BOT_USERNAME", "your-bot-username-here")
 
+    # Database Configuration
+    DATABASE_URL = os.getenv("DATABASE_URL", "postgres://user:password@host:port/database")
+
+    # Logging and Monitoring
+    LOG_CHANNEL = int(os.getenv("LOG_CHANNEL", "-1001234567890"))  # Example: -1001234567890 (Private Channel ID)
+    
+    # Access Control
+    SUDO_USERS = list(map(int, os.getenv("SUDO_USERS", "123456789,987654321").split(',')))
+    OWNER_ID = int(os.getenv("OWNER_ID", "your-owner-id-here"))
+
+    # Optional Extras
+    SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "your-support-chat-username")  # Without '@'
+    
+    # Additional API integrations
+    BLUE_API = os.getenv("BLUE_API", "blue-ishikki-personal")
+
+
+
+
+
+"""
 class Config(object):
     LOGGER = True
     # REQUIRED
@@ -73,7 +108,7 @@ class Config(object):
     #List of id's - (not usernames) for developers who will have the same perms as the owner
     DEV_USERS = get_user_list("devs") #give comma after each ID
 
-
+"""
 """
 Hello, it was very tough for me to write this whole, so please don't remove the credits from the code, i did too much hardwork for this.
 I have tried my best to make this repo very simple, plus i have added many comments for users to understand for example: why i used that lib or imported that modules,
@@ -84,9 +119,11 @@ If You have any suggesstions or some new idea, you can create a pull request or 
 THANK YOU, if you like this repo, please give star "-"
 """
 
+"""
 class Production(Config):
     LOGGER = True
 
 
 class Development(Config):
     LOGGER = True
+"""
