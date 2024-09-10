@@ -67,3 +67,6 @@ class DATABASE:
                 LOGGER.error(f"Error adding user to database: {e}")
             return
 
+
+db = DATABASE(DATABASE_URL)
+
