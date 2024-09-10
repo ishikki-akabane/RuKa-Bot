@@ -1,5 +1,6 @@
 # Lazyyy
 
+from datetime import datetime
 from GramDB import GramDB, GramDBAsync
 from RUKA import DATABASE_URL, LOGGER
 
@@ -25,7 +26,8 @@ class DATABASE:
 
     def initialize(self):
         self.table_schemas = {
-            "users": ("_id", "uploads", "batch")
+            "users": ("_id", "name", "bio", "coins", "joined_date", "is_scanned"),
+            "groups": ("_id", "name", "member_count", "created_at", "is_scanned")
         }
         self.async_manager.run_async(self.create_table())
 
@@ -49,18 +51,30 @@ class DATABASE:
         else:
             return None
                 
-    async def add_user(self, user_id: int):
+    async def add_user(
+        self,
+        user_id: int,
+        name: str,
+        bio: str,
+        coins: int,
+        is_scanned: bool
+    ):
         data = await self.check_user(user_id)
         if data:
             return
         else:
+            current_time = datetime.now()
+            str_date = current_time.strftime("%d %B, %Y")            
             try:
                 await self.db.insert_one(
                     "users",
                     {
                         "_id": user_id,
-                        "uploads": [],
-                        "batch": []
+                        "name": name,
+                        "bio": bio,
+                        "coins": coins,
+                        "joined_date": str_date,
+                        "is_scanned": is_scanned
                     }
                 )
             except Exception as e:
