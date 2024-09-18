@@ -25,7 +25,7 @@ class Config:
     ERROR_LOG_CHANNEL = int(os.getenv("ERROR_LOG_CHANNEL", -1001552477173))
    
     # Access Control
-    DEV_USERS = list(map(int, os.getenv("DEV_USERS", "").split(',')))
+    DEV_USERS = list(map(int, os.getenv("DEV_USERS", "5030730429").split(',')))
     OWNER_ID = int(os.getenv("OWNER_ID", 5030730429))
 
     # Optional Extras
