@@ -1,0 +1,17 @@
+user:
+  name: ishikki
+  github: ishikki-akabane
+
+language: "python"
+python_version: "3.10"
+
+commands:
+  build:
+    - "pip install -r requirements.txt"
+  package:
+    - ""
+  start:
+    - "python3 -m RUKA"
+
+env:
+  - "ENVIRONMENT=production"
