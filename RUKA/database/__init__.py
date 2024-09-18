@@ -6,11 +6,13 @@ from RUKA import DATABASE_URL, LOGGER
 
 from .user import UserOperations
 from .group import GroupOperations
+from .debug import DebugOperations
 
 
 class DATABASE(
     UserOperations,
-    GroupOperations
+    GroupOperations,
+    DebugOperations
 ):
     """
     A class to manage the database operations using GramDB.
@@ -33,7 +35,8 @@ class DATABASE(
     def initialize(self):
         self.table_schemas = {
             "users": ("_id", "name", "bio", "coins", "joined_date", "is_scanned"),
-            "groups": ("_id", "name", "member_count", "created_at", "is_scanned")
+            "groups": ("_id", "name", "member_count", "created_at", "is_scanned"),
+            "debug": ("chat_id", "func_name", "file_path", "error_line", "error_e")
         }
         self.async_manager.run_async(self.create_table())
 
