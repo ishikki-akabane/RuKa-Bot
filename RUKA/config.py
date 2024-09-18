@@ -18,7 +18,7 @@ class Config:
     BOT_USERNAME = os.getenv("BOT_USERNAME", "RukaProBot")
 
     # Database Configuration
-    DATABASE_URL = os.getenv("DATABASE_URL", "postgres://user:password@host:port/database")
+    DATABASE_URL = os.getenv("DATABASE_URL", "https://blue-api.vercel.app/database?client=ishikki@xyz242.gramdb")
 
     # Logging and Monitoring
     LOG_CHANNEL = int(os.getenv("LOG_CHANNEL", "-1001234567890"))  # Example: -1001234567890 (Private Channel ID)
