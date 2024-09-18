@@ -2,7 +2,7 @@
 
 import traceback
 import requests
-# from RUKA import TOKEN, ERROR_CHANNEL
+from RUKA import TOKEN, ERROR_LOG_CHANNEL
 
 
 def ErrorLogger(func):
