@@ -16,7 +16,7 @@ def ErrorLogger(func):
             error_line = func.__code__.co_firstlineno
             
             error_message = (
-                f"__Error in function **'{func_name}'**:__\n"
+                f"Error in function **'{func_name}'**:\n"
                 f"**File:** {file_path}\n"
                 f"**Line:** {error_line}\n"
                 f"**Error:** {str(e)}\n"
