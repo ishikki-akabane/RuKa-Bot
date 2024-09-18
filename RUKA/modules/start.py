@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from RUKA.helpers.error_logging import ErrorLogger
+from RUKA.helpers.error_logger import ErrorLogger
 
 
 @ErrorLogger
