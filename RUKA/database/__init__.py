@@ -5,7 +5,7 @@ from GramDB import GramDB, GramDBAsync
 from RUKA import DATABASE_URL, LOGGER
 
 from .users import UserOperations
-from .group import GroupOperations
+from .groups import GroupOperations
 from .debug import DebugOperations
 
 
