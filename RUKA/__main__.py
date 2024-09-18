@@ -6,7 +6,7 @@ from pyrogram import Client
 import traceback
 import requests
 
-from . import LOGGER, TOKEN, API_HASH, API_ID, SUPPORT_CHAT
+from . import LOGGER, TOKEN, API_HASH, API_ID, SUPPORT_CHAT_ID
 
 class Bot(Client):
     def __init__(self):
@@ -25,7 +25,7 @@ class Bot(Client):
 
         # Notify the support chat that the bot has started
         try:
-            await self.send_message(SUPPORT_CHAT, f"{me.first_name} has started successfully!")
+            await self.send_message(SUPPORT_CHAT_ID, f"{me.first_name} has started successfully!")
         except Exception as e:
             LOGGER.error(f"Failed to send start message to support chat: {e}")
             LOGGER.debug(traceback.format_exc())
