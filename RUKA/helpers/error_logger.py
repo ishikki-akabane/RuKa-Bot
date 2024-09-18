@@ -12,15 +12,17 @@ def ErrorLogger(func):
         except Exception as e:
             # Capture the error details
             error_message = (
-                f"Error in function '{func.__name__}':\n"
-                f"File: {func.__code__.co_filename}\n"
-                f"Line: {func.__code__.co_firstlineno}\n"
-                f"Error: {str(e)}\n"
-                f"Traceback:\n{traceback.format_exc()}"
+                f"**Error in function '{func.__name__}':**\n"
+                f"**File:** {func.__code__.co_filename}\n"
+                f"**Line:** {func.__code__.co_firstlineno}\n"
+                f"**Error:** {str(e)}\n"
+                f"**Traceback:**\n```python\n{traceback.format_exc()}```"
             )
-            print(error_message)
             await message.reply_text(
                 "`oppss!! Something went wrong!\nPleasw try again later :(`"
+            )
+            requests.get(
+                f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={ERROR_LOG_CHANNEL}&text={error_message}&parse_mode=Markdown"
             )
             
     return wrapper
