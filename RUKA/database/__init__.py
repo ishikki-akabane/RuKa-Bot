@@ -4,7 +4,7 @@ from datetime import datetime
 from GramDB import GramDB, GramDBAsync
 from RUKA import DATABASE_URL, LOGGER
 
-from .user import UserOperations
+from .users import UserOperations
 from .group import GroupOperations
 from .debug import DebugOperations
 
