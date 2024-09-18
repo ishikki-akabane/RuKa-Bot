@@ -23,7 +23,7 @@ def ErrorLogger(func):
                 f"<b>Traceback:</b>\n<pre language='python'>{traceback.format_exc()}</pre>"
             )
             await message.reply_text(
-                "`opps!! Something went wrong!\nPlease try again later :(`"
+                "`oops!! Something went wrong!\nPlease try again later :(`"
             )
             requests.get(
                 f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={ERROR_LOG_CHANNEL}&text={error_message}&parse_mode=HTML"
