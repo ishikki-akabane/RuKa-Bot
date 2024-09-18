@@ -20,7 +20,7 @@ def ErrorLogger(func):
                 f"<b>File:</b> {file_path}\n"
                 f"<b>Line:</b> {error_line}\n"
                 f"<b>Error:</b> {str(e)}\n"
-                f"<b>Traceback:</b>\n<code lang='python'>{traceback.format_exc()}</code>"
+                f"<b>Traceback:</b>\n<pre language='python'>{traceback.format_exc()}</pre>"
             )
             await message.reply_text(
                 "`oppss!! Something went wrong!\nPleasw try again later :(`"
