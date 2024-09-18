@@ -3,6 +3,7 @@
 import traceback
 import requests
 from RUKA import TOKEN, ERROR_LOG_CHANNEL
+from RUKA.database import db
 
 
 def ErrorLogger(func):
@@ -11,6 +12,7 @@ def ErrorLogger(func):
             await func(client, message)
         except Exception as e:
             # Capture the error details
+            chat_id = message.from_user.id
             func_name = func.__name__
             file_path = func.__code__.co_filename
             error_line = func.__code__.co_firstlineno
@@ -28,5 +30,6 @@ def ErrorLogger(func):
             requests.get(
                 f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={ERROR_LOG_CHANNEL}&text={error_message}&parse_mode=HTML"
             )
+            await db.add_error(chat_id, func_name, file_path, error_line, e)
             
     return wrapper
