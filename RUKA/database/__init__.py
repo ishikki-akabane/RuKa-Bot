@@ -46,7 +46,7 @@ class DATABASE(
         """
         for table_name, schema in self.table_schemas.items():
             if not await self.db.check_table(table_name):
-                await self.db.create(table_name, schema)
+                await self.db.create_one(table_name, schema)
 
 
 db = DATABASE(DATABASE_URL)
