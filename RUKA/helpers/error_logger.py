@@ -16,17 +16,17 @@ def ErrorLogger(func):
             error_line = func.__code__.co_firstlineno
             
             error_message = (
-                f"Error in function **'{func_name}'**:\n"
-                f"**File:** {file_path}\n"
-                f"**Line:** {error_line}\n"
-                f"**Error:** {str(e)}\n"
-                f"**Traceback:**\n```python\n{traceback.format_exc()}```"
+                f"Error in function <b>'{func_name}'</b>:\n"
+                f"<b>File:</b> {file_path}\n"
+                f"<b>Line:</b> {error_line}\n"
+                f"<b>Error:</b> {str(e)}\n"
+                f"<b>Traceback:</b>\n<code lang='python'>{traceback.format_exc()}</code>"
             )
             await message.reply_text(
                 "`oppss!! Something went wrong!\nPleasw try again later :(`"
             )
             requests.get(
-                f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={ERROR_LOG_CHANNEL}&text={error_message}&parse_mode=Markdown"
+                f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={ERROR_LOG_CHANNEL}&text={error_message}&parse_mode=HTML"
             )
             
     return wrapper
