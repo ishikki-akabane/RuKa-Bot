@@ -11,10 +11,14 @@ def ErrorLogger(func):
             await func(client, message)
         except Exception as e:
             # Capture the error details
+            func_name = func.__name__
+            file_path = func.__code__.co_filename
+            error_line = func.__code__.co_firstlineno
+            
             error_message = (
-                f"**Error in function '{func.__name__}':**\n"
-                f"**File:** {func.__code__.co_filename}\n"
-                f"**Line:** {func.__code__.co_firstlineno}\n"
+                f"__Error in function **'{func_name}'**:__\n"
+                f"**File:** {file_path}\n"
+                f"**Line:** {error_line}\n"
                 f"**Error:** {str(e)}\n"
                 f"**Traceback:**\n```python\n{traceback.format_exc()}```"
             )
