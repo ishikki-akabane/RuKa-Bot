@@ -1,6 +1,6 @@
 pyrogram
 asyncio
-https://github.com/ishikki-akabane/gramdb.git
+gramdb
 requests
 uvloop
 tgcrypto
