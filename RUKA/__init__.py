@@ -5,6 +5,7 @@ import os
 import sys
 import time
 from .config import Config
+from MeowCore import MeowCore
 
 
 # Enable Logging ========================================================================================X
@@ -40,6 +41,12 @@ DEV_USERS = Config.DEV_USERS
 OWNER_ID = Config.OWNER_ID
 SUPPORT_CHAT = Config.SUPPORT_CHAT
 SUPPORT_CHAT_ID = Config.SUPPORT_CHAT_ID
+MEOWCORE_TOKEN = Config.MEOWCORE_TOKEN
 #TOKEN_EXAMPLE = Config.TOKEN_EXAMPLE
 
 LOGGER.info("[SERVER] - All variables successfully loaded")
+
+
+# INSTALLING OF MEOWCORE PLUGIN =========================================================================X
+
+MeowClient = MeowCore(MEOWCORE_TOKEN)
