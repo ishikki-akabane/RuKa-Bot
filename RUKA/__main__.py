@@ -1,5 +1,4 @@
 
-
 import asyncio
 import uvloop
 from pyrogram import Client
@@ -7,6 +6,7 @@ import traceback
 import requests
 
 from . import LOGGER, TOKEN, API_HASH, API_ID, SUPPORT_CHAT_ID
+from .database import db
 
 class Bot(Client):
     def __init__(self):
@@ -31,6 +31,7 @@ class Bot(Client):
             LOGGER.debug(traceback.format_exc())
 
     async def stop(self):
+        db.close()
         await super().stop()
 
 if __name__ == "__main__":
