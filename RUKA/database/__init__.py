@@ -48,6 +48,9 @@ class DATABASE(
             if not await self.db.check_table(table_name):
                 await self.db.create_one(table_name, schema)
 
+    def close(self):
+        self.db.close()
+
 
 db = DATABASE(DATABASE_URL)
 
