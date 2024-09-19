@@ -2,3 +2,5 @@ pyrogram
 asyncio
 gramdb
 requests
+uvloop
+tgcrypto
