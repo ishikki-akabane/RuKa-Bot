@@ -7,12 +7,13 @@ class DebugOperations:
     """
     async def add_error(
         self,
-        chat_id: int,
+        chat_id: str,
         func_name: str,
         file_path: str,
         error_line: str,
         error_e: str
     ):
+        print("hola")
         current_time = datetime.now()
         str_date = current_time.strftime("%d %B, %Y %H:%M:%S")
         try:
