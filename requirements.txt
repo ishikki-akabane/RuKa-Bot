@@ -4,3 +4,4 @@ gramdb
 requests
 uvloop
 tgcrypto
+meowcore
