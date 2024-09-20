@@ -62,7 +62,7 @@ class DATABASE(
 
         all_group = await self.db.find("groups", {})
         for group in all_group:
-            self.CACHE_GROUPS.append(group["_id"])        
+            self.CACHE_GROUPS.append(group["_id"])
         
     def close(self):
         self.db.close()
@@ -70,6 +70,6 @@ class DATABASE(
 
 db = DATABASE(DATABASE_URL)
 
-CACHE_USERS = self.CACHE_USERS
-CACHE_GROUPS = self.CACHE_GROUPS
+CACHE_USERS = db.self.CACHE_USERS
+CACHE_GROUPS = db.self.CACHE_GROUPS
 print(self.CACHE_USERS, self.CACHE_GROUPS)
