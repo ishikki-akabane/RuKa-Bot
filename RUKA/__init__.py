@@ -60,4 +60,3 @@ MeowClient = MeowCore(
     bot_username=BOT_USERNAME
 )
 """
-MeowClient = MeowCore(MEOWCORE_TOKEN)
