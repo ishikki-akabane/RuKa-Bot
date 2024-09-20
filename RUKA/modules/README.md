@@ -8,6 +8,7 @@ import Client from ```pyrogram```
 
 ## Listed available modules
 - start
+- watcher
 
 ## later
 - chatbot
