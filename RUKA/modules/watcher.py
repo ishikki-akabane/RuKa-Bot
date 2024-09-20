@@ -5,10 +5,27 @@ from pyrogram.types import(
     InlineKeyboardButton
 )
 
+from RUKA import LOG_CHANNEL
+from RUKA.helpers.error_logger import ErrorLogger
 from RUKA.database import db, CACHE_USERS, CACHE_GROUPS
 
 
-@Client.on_message(filters.group & filters.incoming, group=3)
+async def send_join_log(client, chat_id, chat_name, chat_user_name, member_count):
+    await client.send_message(
+        LOG_CHANNEL,
+        f"""
+#CHATJOIN
+
+**• ChatID:** __{chat_id}__
+**• Name:** __{chat_name}__
+**• UserName:** @{chat_user_name}
+**• Members Count:** __{member_count}__
+"""
+    )
+
+
+@Client.on_message(filters.group & filters.incoming, group=2)
+@ErrorLogger
 async def watcher_cmd(client, message):
     try:
         user_id = message.from_user.id
@@ -30,3 +47,4 @@ async def watcher_cmd(client, message):
 
         CACHE_GROUPS.append(chat_id)
         await db.add_group(chat_id, name, member_count, is_scanned=False)
+        await send_join_log(client, chat_id, name, user_name, member_count)
