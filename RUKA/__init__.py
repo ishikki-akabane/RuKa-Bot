@@ -52,9 +52,12 @@ LOGGER.info("[SERVER] - All variables successfully loaded")
 
 # INSTALLING OF MEOWCORE PLUGIN =========================================================================X
 
+"""
 MeowClient = MeowCore(
     MEOWCORE_TOKEN,
     category="telegram",
     bot_id=BOT_ID,
     bot_username=BOT_USERNAME
 )
+"""
+MeowClient = MeowCore(MEOWCORE_TOKEN)
