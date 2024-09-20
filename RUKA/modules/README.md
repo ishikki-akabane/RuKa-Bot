@@ -1,5 +1,12 @@
 # Modules
 
+## Group for Pyrogram
+- group=1 : default commands
+- group=2 : watcher command
+- group=3 : welcome command
+- group=4 : filters command
+- 
+
 ## How to make new modules
 import Client from ```pyrogram```
 
