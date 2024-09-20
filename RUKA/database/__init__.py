@@ -56,11 +56,11 @@ class DATABASE(
         self.CACHE_USERS = []
         self.CACHE_GROUPS = []
         
-        all_user = self.db.find("users", {})
+        all_user = await self.db.find("users", {})
         for user in all_user:
             self.CACHE_USERS.append(user["_id"])
 
-        all_group = self.db.find("groups", {})
+        all_group = await self.db.find("groups", {})
         for group in all_group:
             self.CACHE_GROUPS.append(group["_id"])        
         
