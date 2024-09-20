@@ -21,8 +21,7 @@ class UserOperations:
         self,
         user_id: int,
         name: str,
-        bio: str,
-        coins: int,
+        coins: str,
         is_scanned: bool
     ):
         data = await self.check_user(user_id)
@@ -37,7 +36,6 @@ class UserOperations:
                     {
                         "_id": user_id,
                         "name": name,
-                        "bio": bio,
                         "coins": coins,
                         "joined_date": str_date,
                         "is_scanned": is_scanned
