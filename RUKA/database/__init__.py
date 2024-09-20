@@ -39,6 +39,7 @@ class DATABASE(
             "debug": ("chat_id", "func_name", "file_path", "error_line", "error_e")
         }
         self.async_manager.run_async(self.create_table())
+        self.async_manager.run_async(self.create_cache())
 
     async def create_table(self):
         """
@@ -48,14 +49,27 @@ class DATABASE(
             if not await self.db.check_table(table_name):
                 await self.db.create_one(table_name, schema)
 
-    async def create_cache():
+    async def create_cache(self):
+        """
+        Creates Cache memory for Users and Groups
+        """
+        self.CACHE_USERS = []
+        self.CACHE_GROUPS = []
+        
+        all_user = self.db.find({})
+        for user in all_user:
+            self.CACHE_USERS.append(user["_id"])
+
+        all_group = self.db.find({})
+        for group in all_group:
+            self.CACHE_GROUPS.append(group["_id"])        
         
     def close(self):
         self.db.close()
 
 
-CACHE_USERS = []
-CACHE_GROUPS = []
-
 db = DATABASE(DATABASE_URL)
 
+CACHE_USERS = self.CACHE_USERS
+CACHE_GROUPS = self.CACHE_GROUPS
+print(self.CACHE_USERS, self.CACHE_GROUPS)
