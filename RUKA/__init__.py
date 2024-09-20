@@ -33,7 +33,6 @@ StartTime = time.time()
 TOKEN = Config.TOKEN
 API_ID = Config.API_ID
 API_HASH = Config.API_HASH
-BOT_USERNAME = Config.BOT_USERNAME
 DATABASE_URL = Config.DATABASE_URL
 LOG_CHANNEL = Config.LOG_CHANNEL
 ERROR_LOG_CHANNEL = Config.ERROR_LOG_CHANNEL
@@ -42,6 +41,10 @@ OWNER_ID = Config.OWNER_ID
 SUPPORT_CHAT = Config.SUPPORT_CHAT
 SUPPORT_CHAT_ID = Config.SUPPORT_CHAT_ID
 MEOWCORE_TOKEN = Config.MEOWCORE_TOKEN
+
+BOT_USERNAME = Config.BOT_USERNAME
+BOT_ID = TOKEN.split(":")[0]
+
 #TOKEN_EXAMPLE = Config.TOKEN_EXAMPLE
 
 LOGGER.info("[SERVER] - All variables successfully loaded")
@@ -49,4 +52,9 @@ LOGGER.info("[SERVER] - All variables successfully loaded")
 
 # INSTALLING OF MEOWCORE PLUGIN =========================================================================X
 
-MeowClient = MeowCore(MEOWCORE_TOKEN)
+MeowClient = MeowCore(
+    MEOWCORE_TOKEN,
+    category="telegram",
+    bot_id=BOT_ID,
+    bot_username=BOT_USERNAME
+)
