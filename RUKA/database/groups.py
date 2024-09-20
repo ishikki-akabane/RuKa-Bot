@@ -37,7 +37,7 @@ class GroupOperations:
                         "_id": group_id,
                         "name": name,
                         "member_count": member_count,
-                        "created_at": str_date,
+                        "joined_date": str_date,
                         "is_scanned": is_scanned
                     }
                 )
