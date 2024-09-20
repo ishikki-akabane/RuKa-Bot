@@ -34,8 +34,8 @@ class DATABASE(
 
     def initialize(self):
         self.table_schemas = {
-            "users": ("_id", "name", "bio", "coins", "joined_date", "is_scanned"),
-            "groups": ("_id", "name", "member_count", "created_at", "is_scanned"),
+            "users": ("_id", "name", "coins", "joined_date", "is_scanned"),
+            "groups": ("_id", "name", "member_count", "joined_date", "is_scanned"),
             "debug": ("chat_id", "func_name", "file_path", "error_line", "error_e")
         }
         self.async_manager.run_async(self.create_table())
@@ -48,9 +48,14 @@ class DATABASE(
             if not await self.db.check_table(table_name):
                 await self.db.create_one(table_name, schema)
 
+    async def create_cache():
+        
     def close(self):
         self.db.close()
 
+
+CACHE_USERS = []
+CACHE_GROUPS = []
 
 db = DATABASE(DATABASE_URL)
 
