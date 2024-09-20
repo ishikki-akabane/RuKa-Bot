@@ -12,9 +12,10 @@
     - ├── `__main__.py`
     - ├── `config.py`
     - ├── **modules**
-    - ├── **tools**
     - ├── **database**
         - ├── `__init__.py`
         - ├── `users.py`
         - ├── `groups.py`
+        - ├── `debug.py`
     - ├── **helpers**
+        - ├── `error_logger.py`
