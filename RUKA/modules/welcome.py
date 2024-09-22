@@ -17,10 +17,11 @@ db_structure = {
 # @Client.on_message(filters.new_chat_members, group=3)
 @Client.on_chat_member_updated(filters.group, group=3)
 async def welcome_cmd(client, member):
+    chat_id = member.chat.id
     user = member.new_chat_member.user if member.new_chat_member else member.from_user
     if BOT_ID == user.id:
-        await message.reply("ruka hop in")
+        await client.send_message(chat_id, "ruka hop in")
         return
     else:
-        await message.reply(f"{user.first_name} hopped in")
+        await client.send_message(chat_id, f"{user.first_name} hopped in")
         
