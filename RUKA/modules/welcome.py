@@ -3,7 +3,7 @@
 from pyrogram import Client, filters
 from pyrogram.enums import ChatMemberStatus, ChatType
 
-from RUKA import BOT_ID
+from RUKA import BOT_ID, LOG_CHANNEL
 from RUKA.database import db, CACHE_GROUPS
 
 
@@ -30,7 +30,7 @@ async def welcome_cmd(client, member):
     chat_id = member.chat.id
     user = member.new_chat_member.user if member.new_chat_member else member.from_user
 
-    if BOT_ID == user.id:
+    if user.id == BOT_ID:
         await client.send_message(chat_id, "ruka hop in")
     else:
         await client.send_message(chat_id, f"{user.first_name} hopped in")
@@ -49,10 +49,15 @@ async def goodbye_cmd(client, member):
         
     chat_id = member.chat.id
     user = member.old_chat_member.user if member.old_chat_member else member.from_user
-    print(user.id)
-    print({"id": BOT_ID})
-    if user.id == int(BOT_ID):
-        await client.send_message(-1001703076744, f"{chat_id} kicked ruka and said see ya in hell")
+    if user.id == BOT_ID:
+        await client.send_message(
+            LOG_CHANNEL,
+            f"""
+#CHATLEFT
+
+**• ChatID:** __{chat_id}__
+**• Name:** __{member.chat.title}__
+"""
+        )
     else:
-        print("member")
-        #await client.send_message(chat_id, f"{user.first_name} byeee")
+        await client.send_message(chat_id, f"{user.first_name} byeee")
