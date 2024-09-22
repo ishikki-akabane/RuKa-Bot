@@ -7,12 +7,14 @@ from RUKA import DATABASE_URL, LOGGER
 from .users import UserOperations
 from .groups import GroupOperations
 from .debug import DebugOperations
+from .welcome import WelcomeOperations
 
 
 class DATABASE(
     UserOperations,
     GroupOperations,
-    DebugOperations
+    DebugOperations,
+    WelcomeOperations
 ):
     """
     A class to manage the database operations using GramDB.
@@ -72,4 +74,3 @@ db = DATABASE(DATABASE_URL)
 
 CACHE_USERS = db.CACHE_USERS
 CACHE_GROUPS = db.CACHE_GROUPS
-print(CACHE_USERS, CACHE_GROUPS)
