@@ -30,6 +30,18 @@ async def welcome_cmd(client, member):
     chat_id = member.chat.id
     user = member.new_chat_member.user if member.new_chat_member else member.from_user
 
+    welcome_data = await db.check_chat_welcome(chat_id)
+    if welcome_data == None:
+        return # will come back later on
+
+    welcome_material = await fetch_welcome(welcome_data)
+   
+    
+    welcome_type = welcome_data["type"]
+    welcome_text = welcome_data["text"]
+    welcome_media = welcome
+
+    
     if user.id == BOT_ID:
         await client.send_message(chat_id, "ruka hop in")
     else:
