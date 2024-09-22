@@ -41,7 +41,7 @@ async def goodbye_cmd(client, member):
     if (
         not member.new_chat_member 
         and member.old_chat_member 
-        and member.old_chat_member.status not in {CMS.BANNED, CMS.RESTRICTED}
+        and member.old_chat_member.status not in {ChatMemberStatus.BANNED, ChatMemberStatus.RESTRICTED}
     ):
         pass
     else:
