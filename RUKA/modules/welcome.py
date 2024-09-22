@@ -53,4 +53,5 @@ async def goodbye_cmd(client, member):
     if BOT_ID == user.id:
         await client.send_message(-1001703076744, f"{chat_id} kicked ruka and said see ya in hell")
     else:
-        await client.send_message(chat_id, f"{user.first_name} byeee")
+        print(member)
+        #await client.send_message(chat_id, f"{user.first_name} byeee")
