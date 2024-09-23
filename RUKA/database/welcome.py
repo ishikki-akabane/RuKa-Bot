@@ -18,12 +18,26 @@ class WelcomeOperations:
             return None
 
     async def add_welcome(
-        self
+        self,
+        chat_id
     ):
-        data = await self.check_user(user_id)
+        data = await self.check_chat_welcome(chat_id)
         if data:
             return
         else:
             current_time = datetime.now()
             str_date = current_time.strftime("%d %B, %Y")
+            try:
+                await self.db.insert_one(
+                    "welcome",
+                    {
+                        "_id": chat_id,
+                        "mode": "template",
+                        "template_id": "x00xhaha"
+                    }
+                )
+            except Exception as e:
+                LOGGER.error(f"Error adding user to database: {e}")
+            return
+            
             
