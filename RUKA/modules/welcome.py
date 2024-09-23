@@ -35,26 +35,20 @@ async def welcome_cmd(client, member):
     if welcome_data == None:
         return # will come back later on
 
-    user_id = user.id
-    first_name = user.first_name
-    last_name = user.last_name
-    user_name = user.username
-
     if welcome_data["mode"] == "template":
         template_id = welcome_data["template_id"]
         template_data = await initialise_welcome(template_id, client, user, chat)
-        await MeowClient.fetch_welcome(
+        await MeowClient.build_welcome(
             template_id,
             user,
             chat,
             template_data
         )
-
     
-    if user_id == BOT_ID:
+    if user.id == BOT_ID:
         await client.send_message(chat_id, "ruka hop in")
     else:
-        await client.send_message(chat_id, f"{user.first_name} hopped in")
+        await client.send_photo(chat_id, photo=f"resources/{user.id}complete.png", caption=f"{user.first_name} hopped in")
         
 
 @Client.on_chat_member_updated(filters.group, group=4)
