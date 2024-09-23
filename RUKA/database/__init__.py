@@ -38,7 +38,8 @@ class DATABASE(
         self.table_schemas = {
             "users": ("_id", "name", "coins", "joined_date", "is_scanned"),
             "groups": ("_id", "name", "member_count", "joined_date", "is_scanned"),
-            "debug": ("chat_id", "func_name", "file_path", "error_line", "error_e")
+            "debug": ("chat_id", "func_name", "file_path", "error_line", "error_e"),
+            "welcome": ("chat_id", "mode", "template_id")
         }
         self.async_manager.run_async(self.create_table())
         self.async_manager.run_async(self.create_cache())
@@ -57,6 +58,7 @@ class DATABASE(
         """
         self.CACHE_USERS = []
         self.CACHE_GROUPS = []
+        self.WELCOME_IDS = []
         
         all_user = await self.db.find("users", {})
         for user in all_user:
@@ -65,6 +67,10 @@ class DATABASE(
         all_group = await self.db.find("groups", {})
         for group in all_group:
             self.CACHE_GROUPS.append(group["_id"])
+
+        all_welcome_data = await self.db.find("welcome", {})
+        for welcome_temp in all_welcome_data:
+            self.WELCOME_IDS.append(welcome_temp["template_id"])
         
     def close(self):
         self.db.close()
@@ -74,3 +80,4 @@ db = DATABASE(DATABASE_URL)
 
 CACHE_USERS = db.CACHE_USERS
 CACHE_GROUPS = db.CACHE_GROUPS
+WELCOME_IDS = db.WELCOME_IDS
