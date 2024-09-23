@@ -3,26 +3,16 @@
 from RUKA import MeowClient
 
 
-async def fetch_welcome(welcome_data):
-    welcome_text = welcome_data["text"]
-    welcome_button = welcome_data["button"]
-    welcome_ = welcome_data[""]
-    
-    welcome_type = welcome_data["type"]
-    if welcome_type == "template":
-        data = aahhh nvm, i will do tomorrow 
-
-
 async def initialise_welcome(template_id, client, user, chat):
     data = await MeowClient.check_welcome_template(template_id)
-    if data["user_pfp"]
+    if data["data"]["user_pfp"]
         try:
             user_pfp = user.photo.big_file_id
         except:
             print(f"couldn't fetch big_file_id for user {user.id} pfp")
         userphoto = await client.download_media(user_pfp, file_name=f"{user.id}userpfp.jpg")
 
-    if data["chat_pfp"]
+    if data["data"]["chat_pfp"]
         try:
             chat_pfp = chat.photo.big_file_id
         except:
