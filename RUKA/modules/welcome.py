@@ -4,8 +4,11 @@ from pyrogram import Client, filters
 from pyrogram.enums import ChatMemberStatus, ChatType
 
 from RUKA import BOT_ID, LOG_CHANNEL, MeowClient
-from RUKA.database import db, CACHE_GROUPS
+from RUKA.database import db, CACHE_GROUPS, WELCOME_IDS
+from RUKA.helpers.error_logger import ErrorLogger
 
+
+MeowClient.load_welcome(WELCOME_IDS)
 
 db_structure = {
     "_id": -1002839304040,   # chat id
@@ -76,3 +79,13 @@ async def goodbye_cmd(client, member):
         )
     else:
         await client.send_message(chat_id, f"{user.first_name} byeee")
+
+
+@Client.on_message(filters.group, filters.command("/welcome"))
+@ErrorLogger
+async def set_welcome(client, message):
+    chat_id = message.chat.id
+    await db.add_welcome(chat_id)
+    await message.reply_text("successfully welcome set")
+
+
