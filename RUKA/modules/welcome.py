@@ -3,7 +3,7 @@
 from pyrogram import Client, filters
 from pyrogram.enums import ChatMemberStatus, ChatType
 
-from RUKA import BOT_ID, LOG_CHANNEL
+from RUKA import BOT_ID, LOG_CHANNEL, MeowClient
 from RUKA.database import db, CACHE_GROUPS
 
 
@@ -12,6 +12,7 @@ db_structure = {
     "mode": "",              # template / text / image / video / audio / document
     "media_link": "",        # if media else None
     "text": "",              # text message else empty string
+    "keyboard": "".          # reply_markup
 }
 
 # Deprecated
@@ -34,15 +35,22 @@ async def welcome_cmd(client, member):
     if welcome_data == None:
         return # will come back later on
 
-    welcome_material = await fetch_welcome(welcome_data)
-   
-    
-    welcome_type = welcome_data["type"]
-    welcome_text = welcome_data["text"]
-    welcome_media = welcome
+    user_id = user.id
+    first_name = user.first_name
+    last_name = user.last_name
+    user_name = user.username
+
+    if welcome_data["mode"] == "template":
+        template_id = welcome_data["template_id"]
+        await initialise_welcome(template_id, client, user)
+        await MeowClient.fetch_welcome(
+            template_id,
+            user,
+            chat
+        )
 
     
-    if user.id == BOT_ID:
+    if user_id == BOT_ID:
         await client.send_message(chat_id, "ruka hop in")
     else:
         await client.send_message(chat_id, f"{user.first_name} hopped in")
