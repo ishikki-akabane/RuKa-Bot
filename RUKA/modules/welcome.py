@@ -42,11 +42,12 @@ async def welcome_cmd(client, member):
 
     if welcome_data["mode"] == "template":
         template_id = welcome_data["template_id"]
-        await initialise_welcome(template_id, client, user, chat)
+        template_data = await initialise_welcome(template_id, client, user, chat)
         await MeowClient.fetch_welcome(
             template_id,
             user,
-            chat
+            chat,
+            template_data
         )
 
     
