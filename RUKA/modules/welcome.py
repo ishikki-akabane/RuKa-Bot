@@ -6,6 +6,7 @@ from pyrogram.enums import ChatMemberStatus, ChatType
 from RUKA import BOT_ID, LOG_CHANNEL, MeowClient
 from RUKA.database import db, CACHE_GROUPS, WELCOME_IDS
 from RUKA.helpers.error_logger import ErrorLogger
+# from RUKA.helpers.welcome import initialise_welcome
 
 
 MeowClient.load_welcome(WELCOME_IDS)
