@@ -19,5 +19,5 @@ async def initialise_welcome(template_id, client, user, chat):
             print(f"couldn't fetch big_file_id for chat {chat.id} pfp")
         chatphoto = await client.download_media(chat_pfp, file_name=f"{user.id}chatpfp.jpg")
 
-    return
+    return data
     
