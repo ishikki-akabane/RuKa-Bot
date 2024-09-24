@@ -23,6 +23,7 @@ db_structure = {
 
 
 @Client.on_chat_member_updated(filters.group, group=3)
+@ErrorLogger
 async def welcome_cmd(client, member):
     if (
         not member.new_chat_member 
@@ -55,6 +56,7 @@ async def welcome_cmd(client, member):
         
 
 @Client.on_chat_member_updated(filters.group, group=4)
+@ErrorLogger
 async def goodbye_cmd(client, member):
     if (
         not member.new_chat_member 
