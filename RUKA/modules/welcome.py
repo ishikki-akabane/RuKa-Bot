@@ -15,7 +15,7 @@ db_structure = {
     "mode": "",              # template / text / image / video / audio / document
     "media_link": "",        # if media else None
     "text": "",              # text message else empty string
-    "keyboard": "".          # reply_markup
+    "keyboard": ""           # reply_markup
 }
 
 # Deprecated
