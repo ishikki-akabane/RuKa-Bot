@@ -20,6 +20,7 @@ def ErrorLogger(func):
             
             error_message = (
                 f"Error in function <b>'{func_name}'</b>:\n"
+                f"<b>Chat:</b> {chat_id}\n"
                 f"<b>File:</b> {file_path}\n"
                 f"<b>Line:</b> {error_line}\n"
                 f"<b>Error:</b> {str(e)}\n"
