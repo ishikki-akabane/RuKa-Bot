@@ -33,7 +33,8 @@ async def welcome_cmd(client, member):
     ):
         return
 
-    chat_id = member.chat.id
+    chat = member.chat
+    chat_id = chat.id
     user = member.new_chat_member.user if member.new_chat_member else member.from_user
 
     welcome_data = await db.check_chat_welcome(chat_id)
