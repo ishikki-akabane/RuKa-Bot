@@ -39,7 +39,7 @@ class DATABASE(
             "users": ("_id", "name", "coins", "joined_date", "is_scanned"),
             "groups": ("_id", "name", "member_count", "joined_date", "is_scanned"),
             "debug": ("chat_id", "func_name", "file_path", "error_line", "error_e"),
-            "welcome": ("chat_id", "mode", "template_id")
+            "welcome": ("_id", "mode", "template_id")
         }
         self.async_manager.run_async(self.create_table())
         self.async_manager.run_async(self.create_cache())
