@@ -81,7 +81,7 @@ async def goodbye_cmd(client, member):
         await client.send_message(chat_id, f"{user.first_name} byeee")
 
 
-@Client.on_message(filters.group, filters.command("welcome"))
+@Client.on_message(filters.command("welcome") & filters.group)
 @ErrorLogger
 async def set_welcome(client, message):
     chat_id = message.chat.id
