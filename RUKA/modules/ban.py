@@ -50,6 +50,10 @@ async def ban_cmd(client,message):
     if message.command[0] == "ban":
         if not message.reply_to_message:
             try:
+                empty = message.text.split(maxsplit=1)
+            except:
+                return await message.reply_text("Format: `/ban user_id reason`")
+            try:
                 username = message.text.split(" ")[1]
                 ban_id = (await client.get_users(ban_id)).id
                 ban_mention = (await client.get_users(ban_id)).mention
@@ -93,6 +97,10 @@ async def ban_cmd(client,message):
     elif message.command[0] == "unban":
         if not message.reply_to_message:
             try:
+                empty = message.text.split(maxsplit=1)
+            except:
+                return await message.reply_text("Format: `/unban user_id`")
+            try:
                 username = message.text.split(" ")[1]
                 ban_id = (await client.get_users(ban_id)).id
                 ban_mention = (await client.get_users(ban_id)).mention
@@ -111,6 +119,10 @@ async def ban_cmd(client,message):
     elif message.command[0] == "tban":
         if not message.reply_to_message:
             try:
+                empty = message.text.split(maxsplit=1)
+            except:
+                return await message.reply_text("Format: `/tban time user_id reason`")
+            try:
                 username = message.text.split(" ")[2]
                 ban_id = (await client.get_users(ban_id)).id
                 ban_mention = (await client.get_users(ban_id)).mention
@@ -127,7 +139,39 @@ async def ban_cmd(client,message):
                     return await message.reply_text("I can't ban gods 🚫👑")
                 if not time_val:
                     return await message.reply_text("You haven't specified a valid time ⏳❗")
-                await client.ban_chat_member(chat_id,
+                bantime = await until_date(message,time_val)
+                await client.ban_chat_member(chat_id,ban_id,until_date=bantime)
+                if not reason:
+                    return await message.reply_text(f"Ban Triggered: User {ban_mention} has been banned by {message.from_user.mention} for {time_val} 🚫🔨")
+                else:
+                    return await message.reply_text(f"Ban Triggered: User {ban_mention} has been banned by {message.from_user.mention} for {time_val} 🚫🔨\nReason: {reason}")  
+            except:
+                return await message.reply_text("Unable to detect the user. Please reply to the user to ban them. ❌🔍")
+        else:
+            try:
+                ban_id = message.reply_to_message.from_user.id
+                ban_mention = message.reply_to_message.from_user.mention
+                reason = None
+                time_val = None
+                try:
+                    time_val = message.text.split(" ")[1].lower()
+                    reason = message.text.split(" ")[2]
+                except:
+                    pass
+                if ban_id == bot_id:
+                    return await message.reply_text("I can't ban myself 🚫🤔")
+                if ban_id == OWNER_ID or ban_id in DEV_USERS:
+                    return await message.reply_text("I can't ban gods 🚫👑")
+                if not time_val:
+                    return await message.reply_text("You haven't specified a valid time ⏳❗")
+                bantime = await until_date(message,time_val)
+                await client.ban_chat_member(chat_id,ban_id,until_date=bantime)
+                if not reason:
+                    return await message.reply_text(f"Ban Triggered: User {ban_mention} has been banned by {message.from_user.mention} for {time_val} 🚫🔨")
+                else:
+                    return await message.reply_text(f"Ban Triggered: User {ban_mention} has been banned by {message.from_user.mention} for {time_val} 🚫🔨\nReason: {reason}")
+            except:
+                return await message.reply_text("Something went wrong ❌")
               
        
      
