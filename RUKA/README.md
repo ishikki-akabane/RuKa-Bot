@@ -26,4 +26,5 @@
 - welcome themes
 - Central Fed System
 - Scanner Abilities
+- MeowCore statistic
 - 
