@@ -19,3 +19,11 @@
         - ├── `debug.py`
     - ├── **helpers**
         - ├── `error_logger.py`
+
+
+## TODO
+- Plugin Market
+- welcome themes
+- Central Fed System
+- Scanner Abilities
+- 
