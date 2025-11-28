@@ -7,7 +7,7 @@
 <p align="center"> 
     <a href="https://python.org"><img src="http://forthebadge.com/images/badges/made-with-python.svg" alt="made-with-python"></a> 
 </p>
-<img src="https://img.shields.io/badge/License-GPLv3-green?style=for-the-badge" alt="License">
+<img src="https://img.shields.io/badge/License-GNU-AGPLv3-green?style=for-the-badge" alt="License">
 <img src="https://img.shields.io/badge/Maintained%3F-Yes-orange?style=for-the-badge" alt="Maintained">
 
 
@@ -130,14 +130,18 @@ To run the bot, you need to set up the following environment variables:
 
 ## 📜 License
 
-This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **GNU Affero General Public License v3.0** - see the [LICENSE](LICENSE) file for details.
 
 **Key Points:**
-- ✅ You can use, modify, and distribute this software
-- ✅ You must include the original license and copyright
-- ✅ You must state changes made to the code
-- ✅ You must make your modified source code available
-- ❌ This software comes with NO warranty
+| Status | Requirement | Explanation |
+| :--- | :--- | :--- |
+| ✅ | **Use, Modify, and Distribute** | You are free to use, run, modify, and share this software. |
+| ✅ | **Full Attribution Required** | You **must** retain the original copyright notices and credit the author, **Ishikki Akabane**. |
+| ✅ | **Share Alike (Copyleft)** | Any work derived from or linked to this software **must** also be licensed under the **AGPLv3**. |
+| ✅ | **Source Availability** | If you modify and run the bot on a network (like Telegram), you **must** make your modified source code publicly available to users. |
+| ✅ | **Transparency** | You must document and state all significant changes you have made to the code. |
+| ❌ | **No Closed-Source** | You cannot take the code, close the source, and distribute or sell it as a private, proprietary product. |
+| ❌ | **No Warranty** | This software is provided **"AS IS"** without any warranty or guarantee of fitness for a specific purpose. |
 
 ---
 
