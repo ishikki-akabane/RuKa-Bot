@@ -11,20 +11,13 @@
     - ├── `__init__.py`
     - ├── `__main__.py`
     - ├── `config.py`
-    - ├── **modules**
-    - ├── **database**
+    - ├── **plugins**
+    - ├── **db**
         - ├── `__init__.py`
-        - ├── `users.py`
-        - ├── `groups.py`
-        - ├── `debug.py`
-    - ├── **helpers**
+    - ├── **utils**
         - ├── `error_logger.py`
 
 
 ## TODO
-- Plugin Market
-- welcome themes
-- Central Fed System
-- Scanner Abilities
-- MeowCore statistic
+- mute/unmute/tmute
 - 

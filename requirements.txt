@@ -1,7 +1,5 @@
-pyrogram
+kurigram
 asyncio
-gramdb
 requests
 uvloop
 tgcrypto
-meowcore
