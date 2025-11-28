@@ -1,21 +1,25 @@
-## User Rank System
-* `USER` - Regular Users with no exceptional powers
-* `ENFORCER` -  Power to gban
-* `SUDO_USERS` - People who will have self promoting right and all powers as `ENFORCER`
-* `DEV_USERS` - Developers of the bot, have almost every right
-* `OWNER` - Have all rights and access to the bots command
-
 
 ## File System
 - **RUKA**
     - ├── `__init__.py`
     - ├── `__main__.py`
     - ├── `config.py`
-    - ├── **plugins**
     - ├── **db**
         - ├── `__init__.py`
     - ├── **utils**
-        - ├── `error_logger.py`
+        - ├── `__init__.py`
+        - ├── `admin.py`
+        - ├── `block_list.py`
+        - ├── `bot_admin.py`
+        - ├── `chat_action.py`
+        - ├── `disable.py`
+        - ├── `group_only.py`
+        - ├── `logger_chat.py`
+        - ├── `private_only.py`
+        - ├── `user_level.py`
+    - ├── **plugins**
+        - ├── `__init__.py`
+        - ├── `start.py`
 
 
 ## TODO
