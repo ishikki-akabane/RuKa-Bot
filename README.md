@@ -1,5 +1,9 @@
 <div align="center">
 
+<p align="center">
+  <img src="https://i.ibb.co/JR522Z7t/ruka-1.png" alt="banner" width="900"/>
+</p>
+
 # 💙 Ruka Sarashina 💙
 
 ### Advanced Telegram Group Management Bot
