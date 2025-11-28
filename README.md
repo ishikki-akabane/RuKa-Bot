@@ -7,7 +7,7 @@
 <p align="center"> 
     <a href="https://python.org"><img src="http://forthebadge.com/images/badges/made-with-python.svg" alt="made-with-python"></a> 
 </p>
-<img src="https://img.shields.io/badge/License-GNU-AGPLv3-green?style=for-the-badge" alt="License">
+<img src="https://img.shields.io/badge/License-AGPLv3-green?style=for-the-badge" alt="License">
 <img src="https://img.shields.io/badge/Maintained%3F-Yes-orange?style=for-the-badge" alt="Maintained">
 
 
