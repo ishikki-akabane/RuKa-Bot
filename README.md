@@ -58,18 +58,19 @@ Whether you need anti-spam protection, welcome messages, or administration tools
 
 ---
 
-## 🛠 Tech Stack
-
+<details>
+  <summary><b>🛠 Tech Stack</b></summary>
+  
 This project stands on the shoulders of giants:
 
 - **Language:** [Python 3](https://www.python.org/)
 - **Library:** [Pyrogram](https://docs.pyrogram.org/)
 - **Base:** Kurigram (Fork Mix)
 - **Database:** MongoDB
+</details>
 
----
-
-## ⚡ Deployment
+<details>
+  <summary><b>⚡ Deployment</b></summary>
 
 You can deploy this bot easily on your own VPS.
 ### 💻 Local / VPS Deployment
@@ -99,10 +100,10 @@ You can deploy this bot easily on your own VPS.
     ```bash
     python3 -m RUKA
     ```
+</details>
 
----
-
-## 📝 Configuration (Vars)
+<details>
+  <summary><b>📝 Configuration (Vars)</b></summary>
 
 To run the bot, you need to set up the following environment variables:
 
@@ -112,10 +113,10 @@ To run the bot, you need to set up the following environment variables:
 | `API_HASH`     | Your Telegram API Hash                          |
 | `BOT_TOKEN`    | Your Bot Token (get from @BotFather)            |
 | `DB_URL`       | Your MongoDB Connection String                  |
+</details>
 
----
-
-## 🤝 Contributing
+<details>
+  <summary><b>🤝 Contributing</b></summary>
 
 **Ruka Sarashina** is an open-contribution project! We welcome code, documentation, and bug fixes from the community.
 
@@ -129,10 +130,10 @@ To run the bot, you need to set up the following environment variables:
     - **Testing:** Test your changes before submitting
     - **Commit Messages:** Use clear, descriptive commit messages
     - **Respect:** Be respectful and constructive in discussions
+</details>
 
----
-
-## 📜 License
+<details>
+  <summary><b>📜 License</b></summary>
 
 This project is licensed under the **GNU Affero General Public License v3.0** - see the [LICENSE](LICENSE) file for details.
 
@@ -146,10 +147,10 @@ This project is licensed under the **GNU Affero General Public License v3.0** - 
 | ✅ | **Transparency** | You must document and state all significant changes you have made to the code. |
 | ❌ | **No Closed-Source** | You cannot take the code, close the source, and distribute or sell it as a private, proprietary product. |
 | ❌ | **No Warranty** | This software is provided **"AS IS"** without any warranty or guarantee of fitness for a specific purpose. |
+</details>
 
----
-
-## 💬 Support
+<details>
+  <summary><b>💬 Support</b></summary>
 
 Need help? Have questions? Found a bug?
 
@@ -160,6 +161,7 @@ Need help? Have questions? Found a bug?
 ### 💭 Community & Discussion
 - **Support Group:** [Join Support Group](https://t.me/botslabxd)
 - **Developer Chat:** [DevsLab Community](https://t.me/devslab)
+</details>
 
 ---
 
